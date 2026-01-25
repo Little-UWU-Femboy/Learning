@@ -1,0 +1,21 @@
+/*Single Selector*/
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+h2 {
+    color: red;
+}
+
+/*Multiple Selector*/
+h2,
+.Shoe-Formal {
+    background-color: green;
+}
+
+/*Decendant Selector*/
+
+.Shoe-Casual p {
+    background-color: yellow;
+}

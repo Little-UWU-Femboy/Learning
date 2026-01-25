@@ -1,0 +1,14 @@
+/*Select by element*/
+h1 {
+    color: green;
+}
+
+/*Select by class*/
+.ClassSelect {
+    color: blue;
+}
+
+/*Select by ID*/
+#IdSelect {
+    color: red;
+}

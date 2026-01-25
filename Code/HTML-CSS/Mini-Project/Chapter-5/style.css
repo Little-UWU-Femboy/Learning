@@ -1,0 +1,46 @@
+body {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: "Comic Neue";
+    font-weight: bold;
+}
+
+.NavBackground {
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: blue;
+}
+
+a:active {
+    color: red;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.LeadText {
+    font-weight: bold;
+    font-size: 20px;
+    color: orange;
+}
+
+header {
+    color: white;
+    background-color: rebeccapurple;
+}
+
+header h1 {
+    font-size: 40px;
+    text-align: center;
+    text-indent: 20px;
+}

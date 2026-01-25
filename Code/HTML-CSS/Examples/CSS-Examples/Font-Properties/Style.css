@@ -1,0 +1,56 @@
+.container {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.left-aligned {
+    text-align: left;
+}
+
+.justified {
+    text-align: justify;
+    hyphens: auto;
+}
+
+.justified:hover {
+    color: red;
+}
+
+.justified:active {
+    color: green;
+}
+
+.justified:only-child {
+    color: orange;
+}
+
+#testing:only-child {
+    color: orange;
+}
+
+#input:required {
+    color: lawngreen;
+}
+
+.two::first-line {
+    color: blue;
+}
+
+.WILD::first-letter {
+    color: green;
+}
+
+.WILD::selection {
+    color: hotpink;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.testing {
+    text-decoration: underline solid;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 4px;
+}
