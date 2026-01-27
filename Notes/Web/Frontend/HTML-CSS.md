@@ -13,7 +13,6 @@ When it comes to how the web works, a good thing to start with is the _URL (unif
 7.  **Path**: This is the location on the server where the requested resource is located. This comes after the **port** would go.
 8.  **Query string**: This is the part that sends data to the receiving device. This will be seen after the **path** is listed. It will have a question mark right after the **path** then followed by the pattern _VariableName=value_. There can be more than one value sent and this will be by adding & right after the value of the previous data passed until no more needs to be passed.
 9.  **Fragment**: This is used to specify what particular part of the page to go to once it is loaded into the web browser. This is the only part of the _URL_ that is not handled by the receiving server, but by the users web browser. This would also come right after the **query string**.
-10.
 
 > <u>For Example</u>
 >
@@ -612,11 +611,9 @@ There are three ways to implement CSS, however, there is only one way this shoul
 
 When it comes to the different selector types, it can be:
 
-1. Type Selectors: This is just using the HTML element name itself. This will then apply the specified style to ALL of those HTML elements.
-2. Class Selector: This will apply the style to ALL html elements that are part of that class name. To taget in a class base, put a dot followed (no space) by the name of the class this should target.
-3. ID Selector: This will apply the style ONLY to that html element that has that specified ID value to it. To use this, put a # followed (no space) by the name of the id value this should target.
-
-
+1.  Type Selectors: This is just using the HTML element name itself. This will then apply the specified style to ALL of those HTML elements.
+2.  Class Selector: This will apply the style to ALL html elements that are part of that class name. To target in a class base, put a dot followed (no space) by the name of the class this should target.
+3.  ID Selector: This will apply the style ONLY to that html element that has that specified ID value to it. To use this, put a # followed (no space) by the name of the id value this should target.
 
 > [!NOTE]
 >
@@ -639,8 +636,6 @@ Selector p{
   property: value
 }
 ```
-
-
 
 ### Fonts In CSS
 
@@ -857,11 +852,15 @@ Each of these layers has a left, right, bottom, and top pixel size they take.
 
 When it comes to the properties that affect the box model, they are:
 
-- <u>width & height</u>: Changes the width or height of the element. Can be given in any size.
+- <u>width & height</u>: Changes the width or height of the element. Can be given in any numeric size, *max-content* (make content max size of respected constraints), *min-content* (smallest possible size before content overflows, and *fit-content* (shrinks content, but respects constraints.
 - <u>max-width/height</u>: This makes it so no matter how big the screen is, the size of the element will only be that big in width and height.
 - <u>min-width/height</u>: This makes it so no matter how small the screen is, the size of the element will only be that small in width and height.
 - <u>padding/margin-top/bottom/left/right</u>: This will change the size of those those box model property sizes. Give the respected numeric size and units able to be assigned to it.
-- <u>box-sizing</u>:
+- <u>box-sizing</u>: This changes how the total box model sizing is calculated, so this will greatly affect the total size of elements. The two most important values for this are *content-box* and *border-box*. The *content-box* will have the **width** and **height** attributes ONLY affect the content part of the box model, so when adding padding, border, and margin it will add the size ON TOP of the current size. The *border-box* makes it so ALL parts of the padding, margin, and border is PART of the height and width of the content.
+
+> <u>For Example</u>
+>
+> A `<div>` box is given 
 
 > [!NOTE]
 >
