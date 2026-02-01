@@ -860,7 +860,7 @@ When it comes to the properties that affect the box model, they are:
 
 > <u>For Example</u>
 >
-> A `<div>` box is given 
+> A `<div>` is given 400px in width and height in total size. If the **box-sizing** is set to *content-box*, then adding a 200px border then it will make the total size of the `<div>` 600px. However, if the **box-sizing** is set to *border-box* then it would still be 400px because this setting makes all the box model parts share the same total width and height space.
 
 > [!NOTE]
 >
