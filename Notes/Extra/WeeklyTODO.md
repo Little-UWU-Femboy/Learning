@@ -4,9 +4,9 @@
 
 ## Monday
 
-- [ ] Finish HTML & CSS Video
+- [x] Finish HTML & CSS Video
 - [ ] Read CH 1, 2, and part of 3 for compiler
-- [ ] Help install UTM main campus
+- [x] Help install UTM main campus
 - [ ] Start JavaScript Video
 - [ ] Install Antler
 - [ ] Python Basics

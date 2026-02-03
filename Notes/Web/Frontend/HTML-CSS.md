@@ -683,32 +683,6 @@ Some of the CSS properties to change this are:
 
 - **color**: this changes the color of text only
 
-- **border**: This is what can give a border around any HTML element. The values for this are:
-
-  1. **border-width**: This changes the thickness of the border. This can have the values: thin, medium, thick, or any acceptable numerical size with the correct unit measurement.
-  2. **border-style**: Changes the style of the borded element. The values are: solid, dashed, dotted, double, groove, ridge, inset, or outset.
-  3. **border-color**: Changes the color of the border
-  4. **border-bottom/top/left/right**: This will style particually that side of the element with a border
-  5. **border-radis**: This will take a numeric value and it will determine how round the corners of the box will.
-
-  > [!WARNING]
-  >
-  > The border property must have the style specified. If not the actual border will not show.
-
-- **outline**: This will look just like the **border** property except there are some small differences like not being able to round the edges or only style certain side of the border. This is made with `OutlineSize OutlineStyle OutlineColor` and the values for these are the same as with the **border** versions
-
-> [!IMPORTANT]
->
-> There is an important difference between **outline** and **border**. The difference is **border** will count towards the size of the HTML element, while **outline** does not. For example, if a **div** as only 100px of width and height, then adding a border of 20px will take away 20px from the inner space by 20px. However, the **outline** will make it so the inner space is still 100px and instead the element will now be 20px larger so it will be a total of 120px in width and height.
-
-- **box-shadow**: This will create a shadow behind the element. This makes it so the HTML element looks like it is flying. The order of values is:
-  1. *inset*: This is an optional value, but if added this will make the design not be outside the element, but inside the element. Just put the word inset.
-  2. *horizontal offset*: This can be a positive or negative number that moves the shadow left and right. Needed value
-  3. *vertical offset*: This can be a positive or negative number that moves the shadow vertically up and down. Needed value.
-  4. *blur*: This determines how burly the shadow will be. This takes a normal numeric value with any unit type.
-  5. *color*: This determines the color.
-- **text-shadow**: This is the same as **box-shadow** except this will add the shadowing around the text. This can take all the same values in the same order except the *inset* one.
-
 > [!IMPORTANT]
 >
 > There is a way to declare variables in CSS which are called *CSS custom properties*. Theses are made by putting two dashes followed by the name of the variable. The name can have a dash, but only a single dash.  To use the variable, use the `var()` and put the name of the variable there.
@@ -788,9 +762,7 @@ The **pesudo class** is made by choosing a selector type like normal then follow
 - is(): this styles any of the selectors in the list
 - empty: this styles elements who have no children
 
-
-
-Now, looking at the **pesudo-elements**, these use two colons instead of one like the **pesudo-classes**. When it comes to these, they target the actual contents of the HTML code and not the actual HTML elements.
+Now, looking at the **pseudo-elements**, these use two colons instead of one like the **pseudo-classes**. When it comes to these, they target the actual contents of the HTML code and not the actual HTML elements.
 
 - before: this will auto put some specified content BEFORE the html element content. This MUST have a property called *content* that will get a stirng value. Even if the string value is empty it must be added.
 - after: this will auto put some specified content AFTER the html specified content. This MUST have a property called *content* that will get a stirng value. Even if the string value is empty it must be added.
@@ -799,13 +771,9 @@ Now, looking at the **pesudo-elements**, these use two colons instead of one lik
 - selection: this will style how when selecting this with cursor (like if going to copy text) the color will be
 - placeholder: this is just like the *placeholder* attribute mentioned for input tags earlier except this can be done here in the CSS so it makes the HTML look cleaner.
 
-
-
 > [!NOTE]
 >
 > There is something called the universal selector that will apply all of the listed to ALL elements of the page. This is done by just putting * for the selector spot. However, this is also the same as using the **:root** thing. 
-
-
 
 > [!TIP]
 >
@@ -843,7 +811,7 @@ Every element on the page has something called *box model* which is shown in the
 
 The *box model* shows things like the spacing the actual content takes, the *padding*, *border*, and *margin* of the element. Each of these are in a layer and it goes *margin*, *border*, *padding*, then *content* being the inner most layer.
 
-1. The *content* is the stuff like the text, images, list, etc.
+1. The *content* is the stuff like the text, image, list, etc.
 2. The *padding* is the space between the *content* and the *border*. A good way to think of this is it being the inner spacing in the element.
 3. The *border* is the space between the *padding* and *margin*
 4. The *margin* is the space outside the border. This is like the outer spacing of the element pushing other elements away from it
@@ -866,17 +834,82 @@ When it comes to the properties that affect the box model, they are:
 >
 > Setting the min/max-width/height does not set it the size of it. The width/height property have to be used to do that.
 
+> [!NOTE]
+>
+> If using the single keyword **margin** or **padding** then the order of the values will matter. The pattern is:
+>
+> 1.  Putting one value applies to all sides
+> 2.  Putting two values applies as `top/bottom left/right` 
+> 3.  Putting three values applies as `top right/left bottom`
+> 4.  Putting four values applies as `top right bottom left`
+
+> [!TIP]
+>
+> Can give a value of *auto* instead of other values as this is the way things are calculated itself. This is also a good way to center things in the center of the screen.
+
 ### Sizing & Overflow
 
-### Padding
+The sizing is really just using all the stuff written down from before.
 
-### Margin
+The overflow comes from settings the element box model to a certain size and then the content does not fit. For example, if the box `<div>` container is set width and height to 100 but the actual content is bigger than that, then it will go outside the box and could overlap with other elements on the page in a bad way. To fix this, use the **overflow** property.
+
+The **overflow** property can make it so that content cannot show or modify how it is shown. The values it can have are: *visible* (default), *hidden* (hide overflown content), *scroll* (hides the content but adds scroll bar to show other content still), *auto* (like *scroll* except apples the scrollbar ONLY when needed as the other does all the time), and *clip* like *hidden*, but makes it so scrolling is not allowed at all no matter what.
+
+The **overflow** can be applied with **overflow-x** (left and right), **overflow-y** (top and bottom), **text-overflow** (how clipped content is shown), and **clip-path** (advanced version of **text-overflow**).
+
+When setting the values of the content like **width** and **height** to percent values, rem, etc values. However, when setting these values it will always be relative to its current parents size. For example, if a `<div>` has a size of 100px then another `<div>` inside has a **width** and **height** of 50% then it will only be 50px wide and tall because the relative parent is 100px wide.
+
+Setting the stuff like **max/min-width/height** helps build a responsive design.
 
 ### Universal Selector & Reset
 
+This was talked about before in chapter 5 section styling links. This is a good thing to reset all the **padding** and **margin** by setting it in the universal selector with a value of 0px.
+
+Another good thing to set here is the **box-sizing** property.
+
 ### Borders
 
+- **border**: This is what can give a border around any HTML element. The values for this are:
+
+  1.  **border-width**: This changes the thickness of the border. This can have the values: thin, medium, thick, or any acceptable numerical size with the correct unit measurement.
+  2.  **border-style**: Changes the style of the border element. The values are: solid, dashed, dotted, double, groove, ridge, inset, or outset.
+  3.  **border-color**: Changes the color of the border
+  4.  **border-bottom/top/left/right**: This will style particularly that side of the element with a border
+  5.  **border-radius**: This will take a numeric value and it will determine how round the corners of the box will.
+
+  > [!WARNING]
+  >
+  > The border property must have the style specified. If not the actual border will not show.
+
+- **outline**: This will look just like the **border** property except there are some small differences like not being able to round the edges or only style certain side of the border. This is made with `OutlineSize OutlineStyle OutlineColor` and the values for these are the same as with the **border** versions
+
+> [!IMPORTANT]
+>
+> There is an important difference between **outline** and **border**. The difference is **border** will count towards the size of the HTML element, while **outline** does not. For example, if a **div** as only 100px of width and height, then adding a border of 20px will take away 20px from the inner space by 20px. However, the **outline** will make it so the inner space is still 100px and instead the element will now be 20px larger so it will be a total of 120px in width and height.
+
+- **box-shadow**: This will create a shadow behind the element. This makes it so the HTML element looks like it is flying. The order of values is:
+  1. *inset*: This is an optional value, but if added this will make the design not be outside the element, but inside the element. Just put the word inset.
+  2. *horizontal offset*: This can be a positive or negative number that moves the shadow left and right. Needed value
+  3. *vertical offset*: This can be a positive or negative number that moves the shadow vertically up and down. Needed value.
+  4. *blur*: This determines how burly the shadow will be. This takes a normal numeric value with any unit type.
+  5. *color*: This determines the color.
+- **text-shadow**: This is the same as **box-shadow** except this will add the shadowing around the text. This can take all the same values in the same order except the *inset* one.
+
 ### Display Property
+
+The **display** property changes the display behavior of a specific HTML element and its contents.
+
+This can have values like:
+
+1.  *none* --> removes the element from screen like the **hidden** property
+2.  *block* --> changes how the element is displayed on a line and the space it shares by taking up the whole thing for itself.
+3.  *inline* --> changes how the element is displayed on a line and the space it shares by not taking up the whole thing for itself.
+
+Like mentioned before in chapter 2, not all elements have the same **display** style.
+
+There are some other values like **flex** and **grid** as this will be talked about later. There are some other values not mentioned, but those are way less important.
+
+There is another property called **visibility** which can have a value of *hidden* or *visible*. This will remove the element from the screen, but keep the space it originally occupied
 
 ### Position Property
 
