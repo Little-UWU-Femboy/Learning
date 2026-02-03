@@ -30,7 +30,7 @@ I'm a Computer Science student with about a year and a half of customer service 
 
 ### Retail Cashier  
 **Stadium People – San Antonio**
-*Oct 2025 – Present*
+*Oct 2025 – February 2026*
 
 - Assisted customers by offering product recommendations and actively supporting sales.
 - Managed the setup and teardown of merchandise displays for clothing and other items.
@@ -38,11 +38,15 @@ I'm a Computer Science student with about a year and a half of customer service 
 - Contributed to merchandising through restocking and organizing products on shelves.
 - Maintained cleanliness and organization of the checkout area to create a positive customer experience.
 
-### Retail Sales Associate  
+### Retail Sales Associate
 **Macy’s – San Antonio**
 *Oct 2025 – February 2026*
 
-- The
+- Assisted customers in finding shoes and recommending them to others
+- Put away clothing on display
+- Managed the POS system
+- f
+- f
 
 ## Skills
 
@@ -51,4 +55,16 @@ I'm a Computer Science student with about a year and a half of customer service 
 - Team collaboration and adaptability  
 - Quick learning and problem solving  
 - Time management and multitasking in fast-paced environments  
-- Attention to detail and organization  
+- Attention to detail and organization
+
+<!-- HTML, CSS, and Typescript + Angular Proficiency -->
+
+<!-- Java + Spring Boot Proficiency-->
+
+<!-- REST development-->
+
+<!-- PostgreSQL knowledge-->
+
+<!-- Systems design knowledge-->
+
+<!-- Small AWS knowledge-->

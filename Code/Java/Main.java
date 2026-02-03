@@ -1,5 +1,3 @@
-package outline.demo;
-
 import java.io.IOException;
 import java.util.*;
 import java.util.function.*;
