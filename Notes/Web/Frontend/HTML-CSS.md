@@ -469,6 +469,10 @@ Another type is the "range". This will make a slider so the user can choose on a
 >
 > Examples of using all theses HTML elements, attributes, and **input** types are in the InputExamples folder.
 
+> [!NOTE]
+>
+> There is an HTML element called **button**. This is just like the **input** with a type of *submit*. 
+
 ## Chapter 4
 
 ### Audio Element
@@ -887,23 +891,16 @@ Another good thing to set here is the **box-sizing** property.
 >
 > There is an important difference between **outline** and **border**. The difference is **border** will count towards the size of the HTML element, while **outline** does not. For example, if a **div** as only 100px of width and height, then adding a border of 20px will take away 20px from the inner space by 20px. However, the **outline** will make it so the inner space is still 100px and instead the element will now be 20px larger so it will be a total of 120px in width and height.
 
-- **box-shadow**: This will create a shadow behind the element. This makes it so the HTML element looks like it is flying. The order of values is:
-  1. *inset*: This is an optional value, but if added this will make the design not be outside the element, but inside the element. Just put the word inset.
-  2. *horizontal offset*: This can be a positive or negative number that moves the shadow left and right. Needed value
-  3. *vertical offset*: This can be a positive or negative number that moves the shadow vertically up and down. Needed value.
-  4. *blur*: This determines how burly the shadow will be. This takes a normal numeric value with any unit type.
-  5. *color*: This determines the color.
-- **text-shadow**: This is the same as **box-shadow** except this will add the shadowing around the text. This can take all the same values in the same order except the *inset* one.
-
 ### Display Property
 
 The **display** property changes the display behavior of a specific HTML element and its contents.
 
 This can have values like:
 
-1.  *none* --> removes the element from screen like the **hidden** property
-2.  *block* --> changes how the element is displayed on a line and the space it shares by taking up the whole thing for itself.
-3.  *inline* --> changes how the element is displayed on a line and the space it shares by not taking up the whole thing for itself.
+1.  *none*: removes the element from screen like the **hidden** property
+2.  *block*: changes how the element is displayed on a line and the space it shares by taking up the whole thing for itself.
+3.  *inline*: changes how the element is displayed on a line and the space it shares by not taking up the whole thing for itself.
+4.  *inline-block*: Gains the properties of #2 and #3. This will not right away take up the space on the entire line, but 
 
 Like mentioned before in chapter 2, not all elements have the same **display** style.
 
@@ -911,11 +908,46 @@ There are some other values like **flex** and **grid** as this will be talked ab
 
 There is another property called **visibility** which can have a value of *hidden* or *visible*. This will remove the element from the screen, but keep the space it originally occupied
 
+> [!IMPORTANT]
+>
+> When it comes to inline elements, margin appied to it will only affect the left and right side. The **width** and **height** properties will not apply to this AT ALL. To fix this this is where the *inline-block* comes in handy.
+
 ### Position Property
+
+The **position** property tells how to position the element on the page relative to the rest of the layout.
+
+The values for this are:
+
+1. *static*: this is the default value. This means that element is displayed in the order it appears in the HTML document
+2. *relative*: this is almost the same at #1 except it can use the special properties (**left**, **right**, **top**, **bottom**) to position the HTML element relative to its space. Meaning it will still follow the normal flow of elements of the document.
+3. *absolute*: this breaks the flow of the elements in the document. This makes the document positioned to its nearest relative parent that does NOT have the *static* value applied to it. Meaning it keeps going up the tree until it find a HTML element that does not have the *static* value and can then move around freely over that box space.
+4. *fixed*: this totally removes the HTML element from the normal document flow. However, this does not delete the element, but makes it stay in that position NO MATTER WHAT even when scrolled away from.
+5. *sticky*: this is a hybrid of #4 and #2. This will make it so that element will stay in its spot on the page, but will move around a little like #4 except stop being like that once its original positioned spot is reached.
+
+The properties **left**, **right**, **top**, **bottom** will move the item some distance away from that part of its section. This can take the normal valid units.
+
+Another important thing is called **z-index**. This controls the ordering of how the items are layed on the screen (basically a priority). This can only take a numeric value. By default, all elements have a **z-index** of 0. 
+
+> [!NOTE]
+>
+> There is an example of the **z-index** at work in the CSS-Examples folder. The .sticky box has a commeted out **z-index** to show how it will look when it does and does not have this.
+
+> [!IMPORTANT]
+>
+> None of these values will work if the position is set to **static**.
 
 ### Box Shadow
 
+**box-shadow**: This will create a shadow behind the element. This makes it so the HTML element looks like it is flying. The order of values is:
 
+1. *inset*: This is an optional value, but if added this will make the design not be outside the element, but inside the element. Just put the word inset.
+2. *horizontal offset*: This can be a positive or negative number that moves the shadow left and right. Needed value
+3. *vertical offset*: This can be a positive or negative number that moves the shadow vertically up and down. Needed value.
+4. *blur*: This determines how burly the shadow will be. This takes a normal numeric value with any unit type.
+5. *spread*: This determines how the shadow should grow or shrink
+6. *color*: This determines the color.
+
+**text-shadow**: This is the same as **box-shadow** except this will add the shadowing around the text. This can take all the same values in the same order except the *inset* one which it does not take.
 
 ## Chapter 7
 
