@@ -2,7 +2,7 @@ def start():
     n = int( input("Enter number of doors: "))
     doors = []
 
-    for x in range(n):
+    for _ in range(n):
         doors.append(False)
 
     for i in range(1, n+1):
@@ -21,7 +21,7 @@ def start():
 
     opened = []
     closed = []
-    
+
     for i in range(0, n):
         if doors[i]:
             opened.append(True)
