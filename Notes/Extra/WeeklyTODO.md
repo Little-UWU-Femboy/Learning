@@ -4,17 +4,41 @@
 
 ## Monday
 
-- [x] Finish HTML & CSS Video
+- [ ] Finish HTML & CSS Video
 - [ ] Read CH 1, 2, and part of 3 for compiler
-- [x] Help install UTM main campus
 - [ ] Start JavaScript Video
-- [ ] Install Antler
 - [ ] Python Basics
-- [x] Daily Run
+  - [ ] Variables
+  - [ ] If statement
+  - [ ] Loops
+  - [ ] IO
+  - [ ] CLI Arguments
+  - [ ] File IO
+  - [ ] Context Management
+  - [ ] Modules
+  - [ ] Async, theads, and multiprocessing
+  - [ ] Classes
+  - [ ] Pytest
+  - [ ] Exception Handling
+  - [ ] Dunder methods
+  - [ ] Regex
+  - [ ] List, sets, dicts, and tuples
+  - [ ] Strings basics and complex strings
+  - [ ] Standard libraries (os, sys, datatime, math, random, json, collections, socket, logging)
+  - [ ] Class properties
+  - [ ] PIP
+  - [ ] Virtual environments (venv)
+
+- [ ] Daily Run
+- [ ] Hangout with Madyson
+- [ ] Call climbing place
+- [ ] Compiler Homework
+- [ ] Fix resume and apply to jobs
 
 ## Tuesday
 
 - [ ] Finish JavaScript Video
+- [ ] Install Antler
 - [ ] Start React Video
 - [ ] Set up ADV. Software VM & Submit Homework
 - [ ] Start Java Book One
