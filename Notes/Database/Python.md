@@ -213,7 +213,7 @@ print(concat)
 # OUTPUT --> YesNo
 ```
 
-A special syntax for strings is using the multiplication symbol. This will take the string and appead that thing to itself n - 1 times. For example:
+A special syntax for strings is using the multiplication symbol. This will take the string and append that thing to itself n - 1 times. For example:
 
 To access individual characters in a string, use the bracket notation and use the index starting from 0 to n - 1.
 
@@ -243,7 +243,7 @@ print(x[2])
 > # f
 > ```
 
-Going past the available index length will raise the apporiate exception.
+Going past the available index length will raise the appropriate exception.
 
 There is a method that the **str** class has that all string types have access to called `replace()`. This will take two arguments with a third optional one. The first is the substring to be placed. The second is the substring that it will be replaced by. The optional third will be the maximum times the substring will be replaced. This does not affect the original copy since it returns a new copy of the made string.
 
@@ -251,8 +251,140 @@ Another way to get a substring is using *string slicing*. This also uses the squ
 
 1) start: this will be the starting index where the letters will be copied from.
 2) end: this will be the last index the character will copy from. This is non-inclusive so this really would copy from start to (end - 1).
-3) skip: this will be how many indexes to skip before copying the next letter. This is the only optional parameter and if notihng is specified then it will skip nothing.
+3) skip: this will be how many indexes to skip before copying the next letter. This is the only optional parameter and if nothing is specified then it will skip nothing.
 
 > [!NOTE]
 >
-> Becasue the third paremeter is optional, this means the slice specification can also just be `start:end`. 
+> Because the third parameter is optional, this means the slice specification can also just be `start:end`. Also, if the entire is to be copied, then all that needs to be done is put `:` for the string slice. Any of these parts can be omitted, 
+
+To get the total size of a string, use the `len()` function. This is a function that will return an integer value of the number of characters in the string.
+
+A specific string only function is called the `split()`. This means anything that is considered part of the str class has access to this method. This function will return 0 or more sub strings of the split content by a certain separator; an example is csv data. This takes one argument only and that is the thing to split the string by. If nothing is specified then it will split by then it uses all whitespace characters (spaces,newline, and tabs).
+
+```python
+x = "Jack, 32, Linux 123 st"
+print(len(x)) # outputs --> 22
+print(x.split(",")) # outputs --> ['Jack', ' 32', ' Linux 123 st']
+print(x[1:12]) # outputs --> ack, 32, L
+```
+
+Another class **str** specific method is `join()`. This is the opposite of `split()` since this joins strings together based on the specified separator. This takes only one value, that being the list of strings to join together. However, the actual string this method is called on is the thing that it will join based on.
+
+> [!NOTE]
+>
+> A string does not have to be assigned to a variable to use the methods of the respected type. A good example of this is when called the `join()`, this used that particular method.
+>
+> ```python
+> x = ["Yes", "No", "Maybe"]
+> print("\n".join(x))
+> 
+> # OUTPUT
+> # ---------
+> # Yes
+> # No
+> # Maybe
+> 
+> # The returned string will all be one single string
+> ```
+
+There are ways to check certain things in a string to see if a certain pattern is there like for a prefix and suffix. The other **str** specific methods are:
+
+1.  `startswith()`: This takes a single string argument and checks if the string starts with that specific string in the argument.
+2.  `endswith()`: This takes a single string argument and checks if the string ends with that specific string in the argument.
+3.  `removeprefix()`: This takes a single string argument and remove that string from the start of the string if it does exist.
+4.  `removesuffix`: This takes a single string argument and remove that string from the end of the string if it does exist.
+
+
+
+There is another method called `strip()` that removes content from the string. This is useful to remove whitespace, newlines, tabs, etc. This function takes one argument and that is what the specific type of thing to remove. However, is nothing is provided then it will remote all the different whitespace types. The string provided can contain multiple different things to remove and does not just have to be one. This does NOT remove the content from the middle of the string and JUST the left and right most side of it.
+
+```python
+x = "   Silly ?! Earth"
+
+print(x.strip(" !")) # outputs --> Silly ?! Earth
+
+# The returned string does not have the spacing issue before the "Silly" word
+```
+
+There are two specific **str** functions to find a particular word in a string which are `find()` and `index()`. These both work the same in that they will search the entire string and return the lowest index position that pattern is found. The difference between them is how they handle errors. `find()` will return -1 if the string pattern is not found. `index()` will raise an exception making sure that the issue of the sub string not being there is addressed right away. Both of these take the same arguments:
+
+1.  The specified string pattern to look for
+2.  The starting index this will look in the string
+3.  The ending index - 1 this will look in the string
+
+```python
+def start():
+    text = "hello world"
+
+    # Using find()
+    print(text.find("world"))   # found
+    print(text.find("Python"))  # not found
+
+    # Using index()
+    print(text.index("world"))  # found
+    print(text.index("Python")) # not found (this will crash!)
+
+if __name__ == "__main__":
+    start()
+
+# OUTPUT
+# ----------
+# 6
+# -1
+# 6
+# Traceback (most recent call last):
+#  File "C:\Users\Owner\HOME\Learning\Code\Python\Main.py", line 13, in <module>
+#    start()
+#    ~~~~~^^
+#  File "C:\Users\Owner\HOME\Learning\Code\Python\Main.py", line 10, in start
+#    print(text.index("Python")) # not found (this will crash!)
+#         ~~~~~~~~~~^^^^^^^^^^
+#ValueError: substring not found
+```
+
+There is a **str** method to check how many times a substring occurs in the actual string called  `count()`. This just takes a single argument of a substring and returns the total number of times that was found.
+
+There are some special methods that just change the words of the string. These are: 
+
+- `capitalize()`: This takes no argument and just caps the first letter of the first word of the string
+- `title()`: This takes no argument and caps all the first letter of the first word of the entire string
+- `upper()`: This takes no argument and returns the whole string in capped letters
+- `lower()`: This takes no argument and returns the whole string in lowercased version
+- `swapcase()`: This takes no arguments and returns capped letter uncapped and vice versa
+
+There are some methods to deal with alignment of strings as well like:
+
+- `center()`: This takes a singe argument and it is an integer for how much space there should be added on both sides of the string to make it even
+- `ljust()`: This takes a singe argument and it is an integer for how much space there should be added on the left side of the string to make it left justified
+- `rjust()`: This takes a singe argument and it is an integer for how much space there should be added on the right side of the string to make it right justified 
+
+When it comes to printing out formatted data, there is the old and new way to do it:
+
+- Old way: this version is like C with the %d, %s, etc.
+- `format()` method: 
+- **f-string** (recommended) : this uses the **f-string** syntax to complete this. The string will first start with the letter "f", but placed outside right at the start of the ". Inside the string use curly braces and inside those put the name of the value or variable and that will have the variable name replaced with the actual value. Inside the braces can even be complex single like operations like `len(x.count("This"))` or math operations.
+
+```python
+def start():
+    name = "Alice"
+    age = 30
+    price = 4.56789
+
+    print(f"My name is {name} and I am {age} years old.")
+    print(f"Next year I will be {age + 1}.")
+    print(f"The price is ${price:.2f}")
+
+
+if __name__ == "__main__":
+    start()
+```
+
+
+
+## Chapter 5: Bytes and Bytearray
+
+Skipped for now as not important for core class leaning, but come back to this
+
+
+
+## Chapter 6: if and match
