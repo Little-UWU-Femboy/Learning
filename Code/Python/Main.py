@@ -1,8 +1,7 @@
 def start():
-    x = {"Riley": 20, "Me": 22}
-    y = dict(Riley=20, Me=22)
-    print(x)
-    print(y)
+    x = {'letters'}
+    print(set(x))  # OUTPUT -->
+    print(type(x))
 
 
 if __name__ == "__main__":

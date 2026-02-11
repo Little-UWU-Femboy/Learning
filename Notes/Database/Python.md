@@ -804,6 +804,8 @@ print(c) # OUTPUT --> ['even', 'odd', 'even', 'odd', 'even']
 
 ## Chapter 9: Dictionaries and Sets
 
+#### Dictionary
+
 A **dictionary** is similar to a **list**, but the order of items doesn’t matter, and they aren’t selected by an offset such as 0 or 1. Instead, specify a unique key to associate with each value. This key is often a string, but it can be any of Python’s immutable types: **Boolean**, **integer**, **float**, tuple, **string**, custom defined one, and others. **Dictionaries** are mutable, so they can add, delete, and change their key-value elements.
 
 To create a. **dictionary**, use a set of curly braces. To make an empty one just assign to a variable curly braces. To initalize values inside it do `key:value` and comma separated to add more than one. To access the indeces, it now uses the key name instead of the normal index selecting; unless a number is used at the *key*.
@@ -820,8 +822,121 @@ print(y) # OUTPUT --> {'Riley': 20, 'Me': 22}
 Can also use the `dict()` to convert a two value sequence pair of collection items. For example:
 
 ```python
-lol = [ ['a', 'b'], ['c', 'd'], ['e', 'f'] ] # A list with nested two pair list aka 2D array
-dict(lol)
-print(lol) # OUTPUT --> {'a': 'b', 'c': 'd', 'e': 'f'}
+def start():
+    lol = [["a", "b"], ["c", "d"], ["e", "f"]]  # A list with nested two pair list aka 2D array
+    letters = ["ab", "cd", "ed", "fg"]
+    dict(lol)
+    print(dict(letters))
+    print(lol)  # OUTPUT --> {'a': 'b', 'c': 'd', 'e': 'f'}]
+
+if __name__ == "__main__":
+    start()
 ```
 
+When it comes to adding elements to a **dictionary**, just pretend there is a *key* being accessed and assign it a value. This will auto create an item in the **dictionary**.
+
+```python
+x = dict(Name="Test", Age="Test")
+print(x) # {'Name': 'Test', 'Age': 'Test'}
+x[1] = 40
+print(x) # {'Name': 'Test', 'Age': 'Test', 1: 40}
+```
+
+A restriction when choosing the *key* name is it has to be hashable. This means the content cannot change at any time.
+
+When it comes to accessing the elements inside this, just use the *key* of the element that should be accessed and this will return the value. However, if trying to access a *key* that does not exist then an exception will occur.
+
+Again, the **in** keyword can be used to check if a *key* (not value) is in the **dictionary** with `KeyName in DictionaryName`.
+
+Another way to get data is using the `get()` method from the **dictionary** class. This takes one required value and a second optional. The first is the *key* being looked for. The second optional one is to specify what backup value should be returned in case the desired value is not found. If the second parameter is not specified then *None* is returned. 
+
+When using the **for** loop, this also can iterate over the **dictionary**. A key thing is this returns the *keys* and not the actual value at that *key* location. The **dictionary** class has a `keys()` method that a specific "dict_keys" which is just an iterable view of the *keys*. However, just convert this with the `list()` and it will make it.
+
+There is a specific method called `values()` and this returns the values instead of the *keys*.
+
+There is one more specific method called `items()` and this returns a **tuple** of the *key* and value in that order. This means the value holder is a **tuple** of size 2.
+
+```python
+def start():
+    x = {"Yes": 1, "No": 2, "Maybe": 3, "Should": 4}
+    print(x.keys())
+    print(x.values())
+    print(x.items())
+    
+    for i in x:
+        print(i)
+    
+    for i in x.keys():
+        print(i)
+
+    for i in x.values():
+        print(i)
+    
+    for i in x.items():
+        print(i)
+
+if __name__ == "__main__":
+    start()
+```
+
+Can get the total length of the **dictionary** using the `len()` function and pass it in.
+
+It has the method `update()` as this is used to copy all the keys and values from one **dictionary** from one to another. The **dictionary** passed in as the argument will be copied.
+
+Can use a special syntax that will use the bar symbol. This combines the two **dictionaries** together, but if two of the same *keys* exist then the **dictionary** on the right hand side of the bar will win and that value will be replaced. It is important to note this will not replace the original.
+
+Another way to do the combinations is using the *unicorn glitter* syntax. This requires using the curly braces and inside, put in comma separated, the **dictionaries** to be copied over with each one having `**` in front of it. Just like the previous syntax, the right most one will have the highest priority if the *key* already exist in another **dictionary**.
+
+```python
+first = {"Yes": 1, "No": 2, "Maybe": 3, "Should": 4}
+second = {'No': 'platypus'}
+
+print(first|second) # OUTPUT --> {'Yes': 1, 'No': 'platypus', 'Maybe': 3, 'Should': 4}
+print({**first,**second}) # OUTPUT --> {'Yes': 1, 'No': 'platypus', 'Maybe': 3, 'Should': 4}
+```
+
+When it comes to removing an item from the **dictionary**, use the **del** key and after put the **dictionary** variables key value using the bracket syntax. Just like a **list**, the `pop()` method can be used and this will not only delete the key value pair, but also return the value of that key. If that *key* does not exist then an error is raised.
+
+To delete all content from the **dictionary** use the `clear()` method.
+
+This also has access to the `copy()` method to copy it over, but it can also use the `deepcopy()` function from the module "copy" to do deep copying.
+
+These can also be compared with == and !=. The biggest difference between comparing on a **list** or **tuple** is the order in which these values are in the **dictionary** does not matter. However, these two operators are the only ones that work.
+
+The **dictionaries** also can have *list comprehension* and it is all the exact same thing as with **lists** except the expression thing `{KeyExpression: ValueExpression for Expression in IterableVariable}`.
+
+
+
+#### Set
+
+This is a way to have only unique pairs in a collection, so if any duplicates are in it they are removed until one copy is left. This is made the same way as a **dictionary** with curly braces. However, a **set** cannot be empty; if it is then it is converted into a **dictionary**.
+
+Another way a **set** can be made is with the `set()` function. This can also be used to convert one collection type to a **set**.
+
+> [!NOTE]
+>
+> If the `set()` is used on a **dictionary**, this will not keep the values of each *key*, but will keep the *keys* themself.
+
+Can use the `len()` function to get the length of the **set**
+
+Can use the `add()` method to add a single item in the **set**
+
+Can use the `remove()` method to remove a single item in the **set**
+
+Just like **dictionaries**, can use the bar (|) notation to combine two sets.
+
+A **for** statement can be used just like all the other collection types. Can also use the **in** syntax to check if the desired data is in the **set**.
+
+When it comes to combining **sets**, this is done with a single & symbol. When combining **sets**, there are a few different operations that can be done: union, intersection, difference, complement, subset, proper set, etc. There are a few ways all this can be done:
+
+- union: this is just combining all the items of two different **sets** to make a single set containing all unique values. This can be made by using the bar (|) notation of the two **sets**. Can also just use the method `union()`.
+- intersection: this makes a new **set** containing ONLY the element that appeared in both **sets**. This can be made by using the & symbol between two **sets**. Can also just use the method `intersection()`.
+- difference: this make a new **set** containing ONLY the elements that were not in one **set** and the order this is written matters. Writing order $A-B$ would read "All elements that are in A but not B". This is made using the - sign. Can also just use the method `difference()`.
+- symmetric difference: this makes a **set** where the elements it does not have elements that appeared in both sets and only contains the unique items found in each of the sets. The way to do this is find the <u>difference</u> between the two sets in both ways $A-B$ and $B-A$ then <u>union</u> the two newly made sets. Can also just use the function `symmetric_difference()`.
+- subset: this is when all the elements in one **set** are also found in another **set**. This can be found by using the method `issubset()` or doing <=. This takes one argument of another **set** and returns *True* or *False*.
+-  proper set: this is when a new **set** has all the same values of another **set** AND even more values that the other does not have. Can calculate using the < and >. Return a bool type.
+- superset: Can check if something is a superset with the `issuperset()` method which returns *True* or *False*.
+
+> [!NOTE]
+>
+> The method the **set** is called on will be the A and the **set** that is passed in will be the B 
