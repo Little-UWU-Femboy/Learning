@@ -388,3 +388,440 @@ Skipped for now as not important for core class leaning, but come back to this
 
 
 ## Chapter 6: if and match
+
+When it come to making an if statement, the basic version is made with the keyword **if** and **else**. The syntax for this is:
+
+This has a weird syntax because python sorts the code can tell what is part of what by  using indentation rules and using the colon to indicate when something like an if statement started and the next following lines will need to be indented to be part of that statement. Also, important to note the condition area does not use parentheses and it just needs to be written.
+
+Python uses the keyword **elif** instead of "else if" like other languages.
+
+```python
+if FirstLogicComparision:
+  # Code for if here
+elif SecondLogicComparision:
+  # Code for elif here
+else:
+  # Code for else here
+
+# Rest of program here
+```
+
+The normal equality operators ==, !=, <, <=, >, >= are used the same as in other languages. However, when ot comes to making more complex comparisons, pyhon does uses **and**, **or**, and **not** instead of &&, |, or !. This would also be the time to use parentheses if needing to group stuff together to make complex logic comparisons.
+
+```python
+def start():
+    age = 17
+    has_id = True
+    is_admin = False
+
+    if age >= 18 and has_id:
+        print("Adult with ID")
+
+    if age < 18 or is_admin:
+        print("Minor or admin access")
+
+    if not has_id:
+        print("ID required")
+
+
+if __name__ == "__main__":
+    start()
+```
+
+Whenever the need to make multiple comparisons is needed and insead of making a long if statement chain, use the **in** keyword which is a *membership comparison*. This test if a certain value exist in a collection or sequence like a string. For example, if wanting to test if a letter is a vowel, instead writing mutiple if statements or using a bunch of **or** keyword, use **in**. This returns false if not part of it and true otherwise.
+
+```python
+def start():
+    fruits = ["apple", "banana", "orange"]
+    name = "Alice"
+    letter = "A"
+
+    if "apple" in fruits:
+        print("Apple is in the list")
+
+    if "z" not in name:
+        print("The letter 'z' is not in the name")
+
+    if letter in name:
+        print("Letter found in name")
+
+
+if __name__ == "__main__":
+    start()
+```
+
+There is something called **match** which is like a *switch statement* in C except the use of the **break** keyword is not needed at the end of each case to prevent fall through. However, there are different types of **match** statements that can be made:
+
+#### Simple C like with strings
+
+```python
+
+def start():
+    command = "start"
+
+    match command: # thing that will be match against
+        case "start": # Pattern to match
+            print("Program starting...") # Code to run
+        case "stop":
+            print("Program stopping...")
+        case "pause":
+            print("Program paused.")
+        case _: # Default Case
+            print("Unknown command")
+
+
+if __name__ == "__main__":
+    start()
+```
+
+#### Structural Match
+
+This is used to match multiple variables at once when the thing to match is a **tuple**, **dict**, **list**, **set**, and object. For example:
+
+```python
+def start():
+    x = 50
+
+    match (x, 5): # This is a tuple
+        case (0, 0):
+            print("Testing")
+        case (x, 0):
+            print("Only 5")
+        case _:
+            print("Who knows")
+
+
+if __name__ == "__main__":
+    start()
+```
+
+
+
+There is something called **structural guard** syntax. This allows putting an if statement in the *case statement*. This allows for extra protection in the **match** statement to see if the original . The way these are evaulated is ONLY IF the case statement check passes, then it move on to the **structural guard** and evaulates that, but if the case statement does not pass, then it will not run the **structural guard**. These 
+
+````python
+def start():
+    x = 50
+    match x:
+        case 1:
+            print("Testing")
+        case 50 if x >= 100:
+            print("Successful")
+        case _:
+            print("Who knows")
+
+if __name__ == "__main__":
+    start()
+````
+
+There is a special way to declare variables using the **walrus operator**. This is the `:=` like in Go. This is used to declare variables at certain times without having to declare them beforehand. If trying to do the same thing without using the **walrus operator** then this would cause a run time error since it would've needed to be declared before hand.
+
+```python
+def start():
+    numbers = [3, 7, 10, 15]
+    if (n := len(numbers)) > 3:
+        print(f"The list has {n} items")
+
+if __name__ == "__main__":
+    start()
+    # This example puts parentheses around the if statement to make sure the variable
+    # can be declared and be used.
+```
+
+
+
+## Chapter 7: For and While
+
+The two ways python does a loop is **for** and **while**.
+
+To make a **while** loop do:
+
+```python
+while Condition:
+  # CODE HERE
+```
+
+To have the while loop go until a specific event occurs, the condition can be set to *True* and then use the **break** keyword to leave the loop. The keyword **continue** can also be used to skip the rest of the code to run in the loop and go back to the top of the loop right away.
+
+There is a way to use an **else** with the **while** syntax. This would go at the end of the **while** loop and indented at the same line. However, this **else** code block will only execure IF the **while** loop did not break and exited normally by the condition evaulating to false.
+
+```python
+x = 0
+while True:
+  print("Test")
+  x++
+  if (x >= 10):
+    break
+else:
+  print("Loop completed without breaking")
+```
+
+The **for** loop works a little differently compared to something like C; the syntax is:
+
+```python
+for PlaceHolder in CollectionThing:
+  # CODE HERE
+```
+
+This make it so the "CollectionThing" will be the thing that will be itterated over. The "PlaceHolder" will be the thing that hold the actual data at the current index the loop is in.
+
+Just like the **while** loop, the **break** and **continue** keywords can be used here as well.
+
+Just like the **while** loop, it can have an ending **else** part that will only execute if the **for** loops exits natually.
+
+There are times when there is no collection to itterate over and just want to do something a set number of times. This is when the `range()` syntax must be used. The `range()` has similar syntax to how string slicing works except it is seperated by commas and not slices. The syntax is `range(StartIndex, EndingIndex-1, Skip)` with the first parameter being required and the last two being optional.
+
+```python
+def start():
+    # Loop from 0 up to 4
+    for i in range(5):
+        print(i)
+
+    # Loop from 2 up to 6
+    for i in range(2, 7):
+        print(i)
+
+    # Loop from 10 down to 2, step -2
+    for i in range(10, 1, -2):
+        print(i)
+
+if __name__ == "__main__":
+    start()
+```
+
+
+
+## Chapter 8: Tuples and Lists
+
+A common way to store data in a data structure is a **tuple** and **list**.
+
+A **tuple** is a way to store data in an indexed collection, but once that is made then the data inside can never change like adding/remove indexes or changing index values. To make a **tuple** use a set of parentheses and put the data inside comma seperated or can make an empty **tuple** by just putting the parentheses without data.
+
+> [!NOTE]
+>
+> If only adding a single element inside the **tuple**, then it has to end with a comma even if no extra values are inside it. Otherwise, this will see that single value and just assign that single specified value inside it and not make a **tuple**.
+
+When making the **tuple** with multiple values, this can be done by putting the data inside the parentheses and comma seperating it or drop the parentheses and just assign the variable to the comma seperated values and this makes a **tuple** as well. However, it is a little safer and cleaner to use the parentheses.
+
+There is something called *unpacking* that is a way to extract all the data from a **tuple** and assign it to seperate variables. This is done by declaring variables on a single line comma seperated and assigning them to the made **tuple**. This will assign the values to the variables in the respective order of the **tuple** data. It is important that there is EXCATLY the same number of variables made as the size of the **tuple** else an error is raised.
+
+There is a `tuple()` that is used to type cast another collection type to a **tuple**. Just put the other collection type inside the `tuple()` as this will be the only argument.
+
+When it comes to accessing the **tuple** data, it uses normal indexing with brackets.
+
+Two **tuples** can be added together and this will return a new **tuple** copy with the values from both combined.
+
+When comparing two **tuples**, this works with the == syntax. This will return *True* only if the **tuples** are the exact same size and have same values in the same order. Otherwise return *False*. Can also use the >, <, etc symbols to compare the size of them as this will also return *True* or *False*.
+
+Going back to the **for** loop, this is where it comes in handy. If the size of the **tuple** is not known, then can use the **for in**  syntax to loop through a collection like `for x in items:`.
+
+A **list** is almost the same as a C array except this does, the data inside it does not have to be of a specific type and can contain any mixture of data types. A **list** is mutable so indexes can be removed or added dynamically.
+
+A **list** is made by using brackets and putting the data inside it. This can be an empty **list** by just assigning a variable to a set of brackets or can place values inside it comma seperated.
+
+> [!NOTE]
+>
+> Unlike a **tuple**, if the **list** contains a single value, there is no need to end it with a comma like a **tuple**. This will keep this as a **list** type.
+
+Just like **tuples**, there is a `list()` function to convert a different collection type to a **list** type.
+
+An example of a **list** being used is the `split()` method for strings. This returns a **list** of the split substrings.
+
+Just like a **tuple**, **list** elements are accessed using the bracket notation with the specified index.
+
+Just like strings, the *slice* notation can be used on **list** types to return a new **list** with the specified values to copy. The notation syntax is EXACTLY the same as the string one.
+
+> [!TIP]
+>
+> A trick to reverse a list it to do `listName[::-1]`. This will go starting from 0 to end of **list** and move starting from the right moving left and place that item at the top of the list. However, there is a function called `reverse()` that is on ALL collection types that ARE MUTABLE. So this would not be available on a **tuple** or **str**, but will be on a **list** type. However, unlike slicing, `reverse()` does modify the original mutable collection variable.
+>
+> 
+
+```python
+def start():
+    # List: mutable, can change elements
+    fruits = ["apple", "banana", "cherry"]
+    print(fruits)
+    fruits[0] = "orange"  # modify first element
+    fruits.append("kiwi") # add new element
+    print(fruits)
+
+    # Tuple: immutable, cannot change elements
+    dimensions = (1920, 1080)
+    print(dimensions)
+    # dimensions[0] = 1280  #  This would raise an error
+    
+    testTuple = ("YES",) # Make a single tuple object
+    
+    # Tuple unpacking
+    x, y = dimensions # Now x = 1920 and y = 1080
+
+    # Accessing elements (same for list & tuple)
+    print(f"First fruit: {fruits[0]}")
+    print(f"Width: {dimensions[0]}")
+
+if __name__ == "__main__":
+    start()
+```
+
+There is a function called `type()` that takes one argumet and this returns the data type of the variable in a string.
+
+
+
+I am learning python right now. When I give you a function, keyword, or module. I want you to write an example using it for me, parameters it takes, return values, how it works, and when to use it and why. I just need need these example small and to the point. Here is an example of what I wrote for showing the use of f-string string --> 
+```python
+def start():
+  name = "Alice"
+  age = 30
+  price = 4.56789
+  print(f"My name is {name} and I am {age} years old.") print(f"Next year I will be {age + 1}.")
+  print(f"The price is ${price:.2f}")
+if __name__ == "__main__":
+  start()
+```
+
+There is a specific method `append()` that does works on the **list** type. This can take one value and will add that value to the end of the **list**. This also increases the **list** size. Techenically, there are two parameters to this:
+
+1. The first is optional, but this specifies the particulat index to add this into
+2. The second is not optional, but this tell what actual value to append
+
+There is a specific method `extend()` that takes a **list** and appends that to the end of the **list** this was called on. The other way this can be done is just by adding them together where the first operand will have the second operand apped to it. This of course returns a copy and not modify the original.
+
+When it if a **list**, is appended to another **list**, then it not add the elements to the other **list**. Instead, it will add the actual **list** as an index. This is a way to make a 2D array.
+
+When it comes to changing values in the indexes, just use the bracket syntax and select the needed index and assigning it a new value. 
+
+Can also use the *slice* notation to change multiple values at once in the list. The *slice* syntax will be used on the **list** that will have its values changes. Then assign this to a list of values.
+
+When it comes to removing an index from the **list**, use the **del** keyword followed by the index of the **list** item that needs to be deleted like `del indexer[0]` will delete the first value index from the **list** and decrease the size by 1.
+
+A method that can be used is `remove()`. This does not take the index, instead this takes takes the value that needs to removed. If this passes then the value will be removed and index will decrease by 1. If it is not there then an error will be raised and needs to be dealt with.
+
+A **list** can use the `pop()` method. This will remove the index, but it will return the value that was removed so it can still be used. This only takes one value and that is an integer. If no value is passed in then it will auto use -1 which will remove the item of the **list**.
+
+There is another method called `clear()` that will just remove all of the elements from the list and make the size 0.
+
+A method called `index()` is used to get the index of where the value lives in the **list**. The only parameter this needs is the value that is being sought. However, there is another way this is done which is more common and that is using the **in** keyword to check if a value exist in collection type. The syntax is `ValueToCheck in CollectionVariable` and this will return *True* or *False*.
+
+A method called `count()` is used to see how many times a certain value appears in the **list**. The parameter for this is the value being searched for and returns an integer of the numebr of times it was found.
+
+The method `sort()` and function `sorted()` are can be used to sort a **list** and check if it is sorted. The first does not need an argument and this just sorts (in place) the collection passed which affects the original, but it does return *None*. The second returns a bool value if it sorted.
+
+> [!NOTE]
+>
+> The one argument that can be passed to `sort()` is "reverse=True" and this reverse sorts the **list**.
+
+The function `len()` can be used to check the length of the **list** as an integer.
+
+When assigning a **list** variable equal to another variable, these end up sharing the same referece object in memory. This means that changing the index value of one affects both. For example:
+
+```python
+def start():
+    testing = [1, 2, 3, 4, 5]
+    print(testing)
+    tmp_case = testing  # Both reference same object in memory
+    print(tmp_case)
+    tmp_case[0] = "I WAS CHANGED"
+    print(testing)
+
+
+if __name__ == "__main__":
+    start()
+```
+
+> [!NOTE]
+>
+> The code above does work. If copied into the editor, the line #6 will show an error. However, that is just the IDE saying the value was originally an int and now being switched to a string so this could be very bad. The python inteperter does not actually care about this and will do the change.
+
+To prevent this double reference to a **list**, it has the method `copy()`, function `list()`, or using the *sliceing* syntax. These are used by:
+
+- `copy()`: This returns a new copy of the **list** this was called on, so another variable can be the same **list** and be separate to there original.
+- `list()`: This is just the function to convert something into a **list** type. Just past the original **list** to be copied and it will return a new copy.
+- *slicing* syntax: When doing this, it returns a **list** version of this. So can do something like `x = listExample[:]`.
+
+When it comes to copying **list**, the `copy()` only copies the "first layer" of the **list**. For example, if a **list** contained another **list** inside, then the `copy()` will return a new **list** and its values, but the **list** item does not become a new copy and instead still shared the same object reference as the new one. To prevent this from happening, use the function `deepcopy()`. The only parameter `deepcopy()` takes is the **list** item to be coped.
+
+> [!NOTE]
+>
+> The `deepcopy()` function is actually in the module "copy", so have to do `import copy` at the top of the file and then do `copy.deepcopy(ListVariable)`.
+
+When it comes to compaing **list**, this is just like a comparing a **tuple**. Meaning both have the same rules.
+
+Can also use the **in** keyword for membership just like a **tuple** as well.
+
+There is a function called `zip()`. This is a way to itterate through multiple sequences during the same **for** loop without having to write nested **for** loops. This takes at least one collection data type, but can be more by comma separated. For each collection that needs to be itterated over, there needs to be a data parameter to accept it. For example, if there are two collection types passed in, the **for** loop needs to have two receiving parts before the **in** keyword.
+
+```python
+x = [1,2,3,4]
+y = [5,6,7,8]
+
+for xHolder, yHolder in zip(x,y);
+    print(f"xHolder = {xHolder} and yHolder={yHolder}")
+```
+
+> [!WARNING]
+>
+> The `zip()` will stop going over all the collection types one the shortest one is completed. Meaning the shortest collection is what stops the **for** loop.
+
+There is another version of the `zip()` called `zip_longest()`. This almost has the same rules as the normal version except this goes on for the longest collection size and not the shortest. This if a shorter collection type would have no more data to itterate through, then for that specific type it would get returned *None* for the respected list itterable variable.
+
+> [!NOTE]
+>
+> The `zip_longest()` is located inside the module "itertools", so that needs to be imported before this can be used. Also, there is a secret parameter called "fillvalue" that can be set equal to something that this is what the value *None* will be replaced with if no value is in the collection type.
+
+> [!TIP]
+>
+> The `zip()` and `zip_longest()` are able to be used on a string since it is considered an itterable thing.
+
+The `zip()` and `zip_longest()` can be used without being in a **for** loop; that was just a way to itterate over multiple collection types at the same time. Using one of these functions normally will create a whole zip object type that holds each version of these. Wrap the returned value from it in a `list()` and the indexes of the **list** get filled with **tuples** of the same index type. For example:
+
+```python
+x = [1,2,3,4]
+y = ["Yes", "No", "Maybe", "Should"]
+
+print(list(zip(x,y)) # OUTPUT --> [(1, 'Yes'), (2, 'No'), (3, 'Maybe'), (4, 'Should')]
+```
+
+There is something called *list comprehension*. This is a slightly more optomized way to create a list compared to using a **for** loop to do so. Doing this is the same as creating a **for** loop that calls the `append()` method each time and adding the expression value to the **list**. The parts of this are `[ExpressionThing for IndexValueHolder in ListItem]` and each part means:
+
+1. ExpressionThing: this will be the part that modifies, if wanted, the IndexValueHolder value returned from it.
+2. IndexValueHolder: this is the variable name that is used to represent the current index value of the **list**.
+3. ListItem: this is the actual **list** to iterate over
+
+An even more complex *list comprehension* can be made by using the **if** or **if-else** guard statements to help filer the data. If can have an if statement after the whole **for** loop syntax, so this will only add the item to the **list** if it meets the requirements. When using the **if-else** version then it is the **if** portion first then the **else** part followed by the *list comprehension* part.
+
+```python
+a = [x**2 for x in range(5)]
+b = [x for x in range(10) if x % 2 == 0]
+c = ["even" if x % 2 == 0 else "odd" for x in range(5)]
+
+print(a) # OUTPUT --> [0, 1, 4, 9, 16]
+print(b) # OUTPUT --> [0, 2, 4, 6, 8]
+print(c) # OUTPUT --> ['even', 'odd', 'even', 'odd', 'even']
+```
+
+
+
+## Chapter 9: Dictionaries and Sets
+
+A **dictionary** is similar to a **list**, but the order of items doesn’t matter, and they aren’t selected by an offset such as 0 or 1. Instead, specify a unique key to associate with each value. This key is often a string, but it can be any of Python’s immutable types: **Boolean**, **integer**, **float**, tuple, **string**, custom defined one, and others. **Dictionaries** are mutable, so they can add, delete, and change their key-value elements.
+
+To create a. **dictionary**, use a set of curly braces. To make an empty one just assign to a variable curly braces. To initalize values inside it do `key:value` and comma separated to add more than one. To access the indeces, it now uses the key name instead of the normal index selecting; unless a number is used at the *key*.
+
+Another way to make a **dictionary** is using the `dict()`. This creates the pairs much more differently compared to doing with a normal curly braces. Inside, put `IndexName=IndexValue` and this will automatically make the *key* be a string and the value for it be normal.
+
+```python
+x = {"Riley": 20, "Me": 22}
+y = dict(Riley=20, Me=22)
+print(x) # OUTPUT --> {'Riley': 20, 'Me': 22}
+print(y) # OUTPUT --> {'Riley': 20, 'Me': 22}
+```
+
+Can also use the `dict()` to convert a two value sequence pair of collection items. For example:
+
+```python
+lol = [ ['a', 'b'], ['c', 'd'], ['e', 'f'] ] # A list with nested two pair list aka 2D array
+dict(lol)
+print(lol) # OUTPUT --> {'a': 'b', 'c': 'd', 'e': 'f'}
+```
+
