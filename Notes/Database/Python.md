@@ -21,6 +21,8 @@ Python is like Java where no manual memory needs to be done. Instead, it uses th
 
 ## Chapter 2: Types and Variables
 
+### Declaring Variable
+
 To create a variable, do `VariableName = Value`. However, unlike other languages, the way python stores the data values is different. Other languages have a pointer thing that points directly at the memory address of the data *(statically typed*). However, python is a *dynamically typed* language, meaning it keeps track of data differently. It treats the variable as just a name and stores the data like id, data type, value, reference count, etc in memory on the heap. Because of this, python can reassign a variable to ANY data type at any time unlike a statically types language.
 
 Exploring the different parts of the way data is stored:
@@ -47,7 +49,7 @@ x = "Yes" # This now holds string data and has a whole new ID value in memory ag
 
 Unlike java, python does have a manual way to get rid of a variable in memory manually using the **del** keyword. It is not a function call and use it like `del VariableName`. This will delete that variable reference and deincrement that objects reference count.
 
-
+###  Python Keywords
 
 Pythons reservered keywords are:
 
@@ -97,7 +99,7 @@ When it comes to naming variables, python using the *snake casing* convention (d
 >
 > Python for OOP, python does not have a private keyword, so to indicate a variable is representing a private variable, put a single underscore when naming the variable like `_name`. Anything that starts with a double underscore has a special usage when creating object classes. Names that start AND end with a double underscore are called **dunder methods** that are also used for object classes.
 
-
+### Data Types
 
 When it comes to the data types python can have are:
 
@@ -194,7 +196,7 @@ There are a few special ways to make a string in python:
 
 The reason single or double quotes can be used to make a string is they can both do small different things. If a double quote is used, it can use single quotes inside without having to escape it and vice versa with single quotes.
 
-A string can also be made with tree single/double quotes. This are really used to create multi-line strings since it will keep the formatting of text spaning multiple lines.
+A string can also be made with three single/double quotes. This are really used to create multi-line strings since it will keep the formatting of text spaning multiple lines.
 
 With strings, there is a special value called **EOL** and this means the end of line was reached.
 
@@ -246,6 +248,8 @@ print(x[2])
 Going past the available index length will raise the appropriate exception.
 
 There is a method that the **str** class has that all string types have access to called `replace()`. This will take two arguments with a third optional one. The first is the substring to be placed. The second is the substring that it will be replaced by. The optional third will be the maximum times the substring will be replaced. This does not affect the original copy since it returns a new copy of the made string.
+
+### String Slicing
 
 Another way to get a substring is using *string slicing*. This also uses the square bracket notation, but it a different index notation. The syntax of it is `start:end:skip`.
 
@@ -389,6 +393,8 @@ Skipped for now as not important for core class leaning, but come back to this
 
 ## Chapter 6: if and match
 
+### If statement
+
 When it come to making an if statement, the basic version is made with the keyword **if** and **else**. The syntax for this is:
 
 This has a weird syntax because python sorts the code can tell what is part of what by  using indentation rules and using the colon to indicate when something like an if statement started and the next following lines will need to be indented to be part of that statement. Also, important to note the condition area does not use parentheses and it just needs to be written.
@@ -450,6 +456,8 @@ if __name__ == "__main__":
     start()
 ```
 
+### Match statement
+
 There is something called **match** which is like a *switch statement* in C except the use of the **break** keyword is not needed at the end of each case to prevent fall through. However, there are different types of **match** statements that can be made:
 
 #### Simple C like with strings
@@ -497,6 +505,8 @@ if __name__ == "__main__":
 
 
 
+### Structural Guards
+
 There is something called **structural guard** syntax. This allows putting an if statement in the *case statement*. This allows for extra protection in the **match** statement to see if the original . The way these are evaulated is ONLY IF the case statement check passes, then it move on to the **structural guard** and evaulates that, but if the case statement does not pass, then it will not run the **structural guard**. These 
 
 ````python
@@ -534,6 +544,8 @@ if __name__ == "__main__":
 
 The two ways python does a loop is **for** and **while**.
 
+### While
+
 To make a **while** loop do:
 
 ```python
@@ -555,6 +567,8 @@ while True:
 else:
   print("Loop completed without breaking")
 ```
+
+### For
 
 The **for** loop works a little differently compared to something like C; the syntax is:
 
@@ -595,6 +609,8 @@ if __name__ == "__main__":
 
 A common way to store data in a data structure is a **tuple** and **list**.
 
+### Tuple
+
 A **tuple** is a way to store data in an indexed collection, but once that is made then the data inside can never change like adding/remove indexes or changing index values. To make a **tuple** use a set of parentheses and put the data inside comma seperated or can make an empty **tuple** by just putting the parentheses without data.
 
 > [!NOTE]
@@ -614,6 +630,8 @@ Two **tuples** can be added together and this will return a new **tuple** copy w
 When comparing two **tuples**, this works with the == syntax. This will return *True* only if the **tuples** are the exact same size and have same values in the same order. Otherwise return *False*. Can also use the >, <, etc symbols to compare the size of them as this will also return *True* or *False*.
 
 Going back to the **for** loop, this is where it comes in handy. If the size of the **tuple** is not known, then can use the **for in**  syntax to loop through a collection like `for x in items:`.
+
+### List
 
 A **list** is almost the same as a C array except this does, the data inside it does not have to be of a specific type and can contain any mixture of data types. A **list** is mutable so indexes can be removed or added dynamically.
 
@@ -804,7 +822,7 @@ print(c) # OUTPUT --> ['even', 'odd', 'even', 'odd', 'even']
 
 ## Chapter 9: Dictionaries and Sets
 
-#### Dictionary
+### Dictionary
 
 A **dictionary** is similar to a **list**, but the order of items doesn’t matter, and they aren’t selected by an offset such as 0 or 1. Instead, specify a unique key to associate with each value. This key is often a string, but it can be any of Python’s immutable types: **Boolean**, **integer**, **float**, tuple, **string**, custom defined one, and others. **Dictionaries** are mutable, so they can add, delete, and change their key-value elements.
 
@@ -907,7 +925,7 @@ The **dictionaries** also can have *list comprehension* and it is all the exact 
 
 
 
-#### Set
+### Set
 
 This is a way to have only unique pairs in a collection, so if any duplicates are in it they are removed until one copy is left. This is made the same way as a **dictionary** with curly braces. However, a **set** cannot be empty; if it is then it is converted into a **dictionary**.
 
@@ -939,4 +957,122 @@ When it comes to combining **sets**, this is done with a single & symbol. When c
 
 > [!NOTE]
 >
-> The method the **set** is called on will be the A and the **set** that is passed in will be the B 
+> The method the **set** is called on will be the A and the **set** that is passed in will be the B for all functions mentioned above.
+
+## Chapter 10: Functions
+
+To create a function start with the **def** keyword, followed by the name of the function, parentheses where arguments are made, then by the colon symbol like `def FunctionName():`. If a function is not going to be implemented right away, can use the keyword **pass** and put only that.
+
+To call the function just use the name and parentheses and pass data inside. Make sure that it is called on the proper indentation or else the function will not be condidered made or could be out of scope.
+
+> [!TIP]
+>
+> Just like C, the functions have to be declared BEFORE they can be called as this is not like javascript that hooks all functions to the top.
+
+When it comes to returning a value, just use the **return** keyword. However, unlike C, this does not need to specify a return type and can just return anything if it wants to or not. However, if no specific return value is given, then by default it will return *None*.
+
+When *function parametes* are added, they do not need a data type and will just be the parameter name.
+
+Can just assign a variable equal to the function call to have it get the return value.
+
+```python
+def adding(x,y):
+  return x + y
+
+x = adding(1,2)
+print(x) # OUTPUT --> 3
+```
+
+
+
+## Chapter 10: Objects
+
+Since everything in python is an object, there is a way to make custom object data types that can be used. This helps to create user defined variables for different cases.
+
+### Declaring Class
+
+To make a custom object first put the **class** keyword followed by the name of the object. This traditionally follows pascal casing followed by the colon like `class ObjectName:`.
+
+### Dunder Methods and Normal Methods
+
+There are special methods called **dunder** method. These are special method names that are already "pre-declared" as these help to give special functionality as it defines how the object will work. The **dunder** methods are called:
+
+1. `__init__`: This is used to initialize the object when it is first called
+2. `__del__`: This is used to describe what to do before the object is marked for cleanup and destroyed. This can be anything with the data the current object has, prints, etc.
+3. `__str__`: This is used to make a custom representation of what string should be output when someone tries to print the object like `print()`.
+4. `__call__`: This is kind of a way to make it so the class object itself can be called on without having to declare an instance of the object. So can just do something like `obj()` or if it is declared then can do `DeclatedObjName()`. This will take any number of parameters and **self**. This can be useful to help keep state of the object like how many versions of that object exist.
+5. `__add__`: This defines how two objects of the same type are going to be able to add to each other. So doing `ObjOne + Obj2` really means. However, it is important to use the `ininstance()` which is just like `type()` except it returns *True* or *False* if the object is of the specified type. This is useful to make sure that the thing being passed as an argument is actually the desired object or else it can do something else with the passed in value.
+6. `__sub__`: This is the same as #5 except this is for subtracting
+7. `__mul__`: This is the same as #5 excpet this is for multiplying
+8. `__truediv__`: This is the same as #5 excpet this is division using single /
+9. `__eq__`: This is the same as #5 excpet this is equal comparisons
+10. `__lt__`: This is the same as #5 excpet this is less than comparisons
+11. `__gt__`: This is the same as #5 excpet this is for greater than comparisons
+12. `__lte__`: This is the same as #5 excpet this is for less than equal comparisons
+13. `__gte__`: This is the same as #5 excpet this is for greater than or equal comparisons
+14. `__ne__`: This is the same as #5 excpet this is for not equal to comparisons
+15. `__len__`: This is what is called when an object is called by the `len()` function. Just return the size of the object by doing --> return self.size
+16. `__getitem__`: This is what allows indexing an object with the bracket notation. Always make sure to check that index being accessed exist so test if the index is greater then or equal to 0 and less than the self.size call. The first parmeter of this will be **self** and the second should be something to represent the variable name index as this is going to be what is used to determine the position of what is being accessed. So can now do --> Obj[0]
+17. `__setitem__`: This is like #16 except this is for assigning an index position a value
+18. `__delitem__`: This is like #16 except this is for when the **del** keyword is called and trying to delete a specific index.
+19. `__contains__`: This is kinda like #16 except this won't expect an index and actually is for using the **in** keyword to check for a membership.
+20. `__enter__`: When working with *context managers* like the **with** keyword and the object instance is made like normal, then it will call this particular method afterwards and start execition and once done with that then it can continue to be used while in the scope of the **with** scope. This just needs the single **self** keyword. It is important to return the keyword **self** ONLY.
+21. `__exit__`: This is what is called once out of the *context manager* scope. In fact, this will be called no matter what happens like raised error for example. This will have four paramaters of **self**, exception type, exception value, and trackback in that order and these can have any name. When returning from this, if returing *True*, then it will suppress the exception and not crash the program, but *False* will pass the exception up the tracestack and up to the next part of code to deal with it.
+22. `__repr__`: This is basically like the same as the `__str__` version except by convention this is used as a developer debugging tool. When things like `print()` need to print an object, it does not call this one and instead uses the `__str__` one. This should return a string with the format using a *f-string* and doing --> ObjectName(variable=Value, ...). The way this would be used is calling the `repr()` and passing the object inside. If something is not defined then error is raised.
+23. `__name__`: This is a special one that is not only limited to classes. This stores the name of a module, function, or class.
+
+When first making a custom class object it always need the `__init__` **dunder** method. Each of the **dunder** methods are declared like regular functions excpet the function name must be the **dunder** method desired.
+
+> [!WARNING]
+>
+> When making the *content manager* methods `__enter__` and `__exit__`, they both MUST be present or else this will not work at all with them.
+
+### Class Variables
+
+Unlike Java, where instance variables are explicitly declared at the class level (often using access modifiers like `private` or `public`) before they are used in methods, Python does not require separate variable declarations.
+
+In a Python class, instance variables are created when they are assigned to `self`, typically inside the `__init__` method. The names of the parameters passed into `__init__` do NOT determine the names of the instance variables. Instead, the instance variables are defined by whatever attributes are assigned to `self`.
+
+> [!NOTE]
+>
+> Variables can be declared outside the `__init__` method and these will be declared as *class varibles*. This means declaring an instance of the class object is not needed and can do something like `x = ClassObjName.PI` as this will not make the actual class object and just assign it the value of PI. These need to be declared right after declaing the class name and before the `__init__` method.
+
+> [!TIP]
+>
+> The variable declared outside the `__init__` are called *class variables* and the ones declared inside it are called *instance variables*.
+
+> [!IMPORTANT]
+>
+> Since python does not have access modifiers like the private in Java, conventions are used. Declaring a variable normally without the underscore, this is considered a public variable accessable to all. If it starts with a single underscore, are considered protected variables meaning they should not be accessed outside the class/subclass. If it starts with double underscore then it is considered a private and to help enforce this the inteperator does something called *name mangling* which makes it SUPER HARD to try to access the variable directly. For example, something like `__name` turns into `_ClassName__name`. This naming property also applied to all functions made inside the class as well
+
+One VERY IMPORTANT thing to note is EVERY method inside the class MUST first have the argument keyword **self** and this is how python knows the current object in the inteperator step. Then to use any data inside the class object itself, it have to use the **self** keyword followed by the variable for that class.
+
+To actually use the obect, just assign it to another variable with the class objects name and call it with parentheses with the needed arguments.
+
+### Inheritance
+
+There is a way to do *inheritance* and instead of just doing `class ClassName:` do `class ClassName(ClassToInherit)`. The class new class object will get all the needed stuff from the other. This is also where the special function `super()` comes in since it is what allows of calling the parents `__init__` method. The `super()` needs to be called inside the new class objects `__init__` method.
+
+When using the actual `super()` inside the `__init__` method, it is called like `super.__init__(ParametersHere)` as it needs to be specified what is being called by `super()`.
+
+### Decorators
+
+When it comes to making methods for a class object, there is a way to have functions just be part of a class that can be called without having to create an instance of a class. The first thing to do is replace the **self** keyword with the **cls** keyword. Next, use something called a *decorator* to the function as this is what truly marks that function as a class function instead of method. The *decorator* to use is **@classmethod** and this will be placed right on top of the function defination. The **@classmethod** gives the ability to access class level variables and functions only. For example, can return something like `cls.ClassVariable` from a function.
+
+Another way to declare a function in a class is using the *decorator*  **@staticmethod**. This works almost just the same as the **@classmethod** except this cannot access ANYTHING about the actual class. This would be just a function within that namespace (function lives in that class for organizing). Another important thing is this does not take the **self** or **cls** keyword at all, so it is made as a normal function.
+
+There is a unique *decorator* called **@property**. This is a way to not have to declare something like *getters* and *setters*, but still declare some function to do something. This needs the **self** keyword back as the argument.
+
+There is something called *class doc* and this is a way to document what the class is for, how to use, or anything that needs to be documented for it. This can be seen with an IDE when it detects that class object is being made. It can also be accessed manually by doing  `className.__doc__` without having to declare an instance of the document. To declare this, just put a triple quoted string RIGHT AFTER declaring class name part. This can even be used on function by just declaring it RIGHT after declaring the function and on the next line.
+
+Another important thing to know is *inheritance* vs *composition*. In OOP design patterns, *inheritance* is considered a "is-a" relationship between another class because the new class is a version of that thing it is inheriting. The *composition* does not inherit anything. Instead, it just uses another class inside it as a property so the that class has a other class inside
+
+When declaring anything like a function, class, method, if statement, etc
+
+Each class object created will have access to the **dunder** method `__dict__` that is called on an instance of the object like `Object.__dict__` and this returns a **dictionary** of the *instance variables* in that class. Because this is really just a **dictionary**, this can also be accessed with the bracket notation and add a new custom key-pair value and add a whole new instance variable that is part of the function. Can even do something like `ObjectInstance.x=20` and this will create a new *instance variable* for that class instance. However, this should never be done.
+
+However, there is something else called `__slots__` which replaces classes underline **dictionary** so the `__dict__` no longer exists. The way this works is it preallocates a small chunk of memory that is ONLY enough for the variables that were specified there. This make the object slightly more memory efficient and little faster to access data values. This done by putting `__slots__ = ("DataNamesHere")` which is assigning it a **tuple** and has the normal rules of a **tuple**. This should be placed after the class name and *class doc*, but before the `__init__` method. If something is trying to be added to the instance variables then an error is raised.
+
+> [!NOTE]
+>
+> If the object being created is going to be inherited by a different object, that other object must use the `__slots__` syntax again or else it will automatically go back to using `__dict__` (which uses a **dictionary** underhood) which prevents the memory efficency trying to be achieved.
