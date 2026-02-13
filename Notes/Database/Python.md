@@ -456,6 +456,10 @@ if __name__ == "__main__":
     start()
 ```
 
+There is a way to create a *ternary operator*, which is a shorter more concise way to make an if statement to assign a variable to it. The syntax for this is `VariableName = TrueValue if Condition else FalseValue`. 
+
+
+
 ### Match statement
 
 There is something called **match** which is like a *switch statement* in C except the use of the **break** keyword is not needed at the end of each case to prevent fall through. However, there are different types of **match** statements that can be made:
@@ -1026,7 +1030,7 @@ When it comes to declaring normal methods for this, this is the same as declarin
 
 > [!NOTE]
 >
-> When it comes to declaring a method in python, this does NOT support *method overloading* like in Java or C++.
+> When it comes to declaring a method in python, this does NOT support *method overloading* like in Java or C++, but it can be done. The way python does it is when making a class and it inherits another class, just redeclare the name of a function inside it and python will know to use that one. However, if wanting to use the parent version use the `super()` keyword followed by a dot then the function to call like normally
 
 > [!WARNING]
 >
@@ -1067,7 +1071,7 @@ There is a way to do *inheritance* and instead of just doing `class ClassName:` 
 
 When using the actual `super()` inside the `__init__` method, it is called like `super.__init__(ParametersHere)` as it needs to be specified what is being called by `super()`. However, this is just single inheritance.
 
-When it comes to multi *inheriance*,
+When it comes to multi *inheritance*, this just means a class inherits more than one class. This can be done by comma separating the 
 
 ### Decorators
 
@@ -1093,9 +1097,9 @@ However, there is something else called `__slots__` which replaces classes under
 
 ### `__name__` dunder variable
 
-In Python, `__name__` is a special double-underscore (dunder) attribute that identifies the name of a module, function, or class. For functions and classes, it stores the identifier used at definition time, allowing access to their declared names programmatically. In the case of modules, its value depends on how the file is executed: when a Python file is run directly, the interpreter sets `__name__` to `"__main__"`, indicating that the file is acting as the entry point of the program. When the same file is imported into another module, `__name__` is set to the module’s filename (excluding the `.py` extension). This distinction enables the widely used `if __name__ == "__main__":` pattern, which ensures that certain code runs only when the file is executed directly and not when it is imported. Through this mechanism, `__name__` provides both identification metadata and a practical way to control execution flow within Python programs.
+In Python, `__name__` is a special double-underscore (dunder) attribute that identifies the name of a module, function, or class. For functions and classes, it stores the identifier used at definition time (name of thing), allowing access to their declared names programmatically. In the case of modules, its value depends on how the file is executed: when a Python file is run directly (python3 FileName.py), the interpreter sets `__name__` to `"__main__"` in that file, indicating that the file is acting as the entry point of the program. When the same file is imported into another module, `__name__` is set to the module’s filename (excluding the `.py` extension). This distinction enables the widely used `if __name__ == "__main__":` pattern, which ensures that certain code runs only when the file is executed directly and not when it is imported. Through this mechanism, `__name__` provides both identification metadata and a practical way to control execution flow within Python programs.
 
-When accessing a *class variable*, if the variable does not exist then an error is raised. However, there is a way to get around this using the `getattr()` function. The first argument is the objcet to check while the second paremeter is the name of the variable to check. If it does then returns the value and if it does not then returns *None*. But, this can take an optional third parameter and this is can be the specific variable to be returned if nothing is found.
+When accessing a *class variable*, if the variable does not exist then an error is raised. However, there is a way to get around this using the `getattr()` function. The first argument is the object to check while the second parameter is the name of the variable to check. If it does then returns the value and if it does not then returns *None*. But, this can take an optional third parameter and this is can be the specific variable to be returned if nothing is found.
 
 
 
