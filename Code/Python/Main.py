@@ -57,16 +57,28 @@ class Dog(Animal):  # Class with inheritance
 
     @classmethod
     def testingCall(cls, x, y):
+        """Test call that adds the two numbers together"""
         return x + y
 
     @property
     def Wild(self):
         return self.WILD
 
+    def inc(self):
+        self.PI += 1
+    
+    def getBreed(self):
+        pass
+    def setBreed(self):
+        pass
+    
+    breed = property(getBreed, setBreed)
+
 
 def start():
     x = Animal("Jack")  # Instance of Animal class
     y = Dog("DOGGO", "Yellow Jacket", "09/10/2011", False)  # Instance of Dog class
+    k = Dog("MEOWMEOW", "SCARY", "00", True)
     z = MathStuff(1, 2)
     print(z.Happy())
     print(type(x))
@@ -91,8 +103,11 @@ def start():
     y.zzz = "I AM ZZZ"  # Can add a whole new instance variable by mistake
     print(y.zzz)
 
-    x.hh = "names"
-    print(x.hh)
+    print(k.PI)
+    print(y.PI)
+    k.inc()
+    print(k.PI)
+    print(y.PI)
 
 
 if __name__ == "__main__":

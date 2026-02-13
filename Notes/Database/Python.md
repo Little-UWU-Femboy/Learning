@@ -1019,13 +1019,25 @@ There are special methods called **dunder** method. These are special method nam
 20. `__enter__`: When working with *context managers* like the **with** keyword and the object instance is made like normal, then it will call this particular method afterwards and start execition and once done with that then it can continue to be used while in the scope of the **with** scope. This just needs the single **self** keyword. It is important to return the keyword **self** ONLY.
 21. `__exit__`: This is what is called once out of the *context manager* scope. In fact, this will be called no matter what happens like raised error for example. This will have four paramaters of **self**, exception type, exception value, and trackback in that order and these can have any name. When returning from this, if returing *True*, then it will suppress the exception and not crash the program, but *False* will pass the exception up the tracestack and up to the next part of code to deal with it.
 22. `__repr__`: This is basically like the same as the `__str__` version except by convention this is used as a developer debugging tool. When things like `print()` need to print an object, it does not call this one and instead uses the `__str__` one. This should return a string with the format using a *f-string* and doing --> ObjectName(variable=Value, ...). The way this would be used is calling the `repr()` and passing the object inside. If something is not defined then error is raised.
-23. `__name__`: This is a special one that is not only limited to classes. This stores the name of a module, function, or class.
 
 When first making a custom class object it always need the `__init__` **dunder** method. Each of the **dunder** methods are declared like regular functions excpet the function name must be the **dunder** method desired.
+
+When it comes to declaring normal methods for this, this is the same as declaring a normal function except it is within the scope of the class object.
+
+> [!NOTE]
+>
+> When it comes to declaring a method in python, this does NOT support *method overloading* like in Java or C++.
 
 > [!WARNING]
 >
 > When making the *content manager* methods `__enter__` and `__exit__`, they both MUST be present or else this will not work at all with them.
+
+There is a special function called `property()` that is applied to functions. This is a special function that can bind a certain class attribute that when used in certain ways it will call defined function that are inside the current class object. This will take at most four arguments and they are:
+
+1. fget: this function will be called when trying to print the variable or basically any read operations
+2. fset: this function will be called when trying to assign a new value to that variable
+3. fdel: this function will be called once the specific variable (not class object instance) is deleted with the **del** keyword.
+4. doc: this is not a function and will be a string. This string should describe 
 
 ### Class Variables
 
@@ -1049,11 +1061,13 @@ One VERY IMPORTANT thing to note is EVERY method inside the class MUST first hav
 
 To actually use the obect, just assign it to another variable with the class objects name and call it with parentheses with the needed arguments.
 
-### Inheritance
+### Single and Multi Inheritance
 
 There is a way to do *inheritance* and instead of just doing `class ClassName:` do `class ClassName(ClassToInherit)`. The class new class object will get all the needed stuff from the other. This is also where the special function `super()` comes in since it is what allows of calling the parents `__init__` method. The `super()` needs to be called inside the new class objects `__init__` method.
 
-When using the actual `super()` inside the `__init__` method, it is called like `super.__init__(ParametersHere)` as it needs to be specified what is being called by `super()`.
+When using the actual `super()` inside the `__init__` method, it is called like `super.__init__(ParametersHere)` as it needs to be specified what is being called by `super()`. However, this is just single inheritance.
+
+When it comes to multi *inheriance*,
 
 ### Decorators
 
@@ -1076,3 +1090,24 @@ However, there is something else called `__slots__` which replaces classes under
 > [!NOTE]
 >
 > If the object being created is going to be inherited by a different object, that other object must use the `__slots__` syntax again or else it will automatically go back to using `__dict__` (which uses a **dictionary** underhood) which prevents the memory efficency trying to be achieved.
+
+### `__name__` dunder variable
+
+In Python, `__name__` is a special double-underscore (dunder) attribute that identifies the name of a module, function, or class. For functions and classes, it stores the identifier used at definition time, allowing access to their declared names programmatically. In the case of modules, its value depends on how the file is executed: when a Python file is run directly, the interpreter sets `__name__` to `"__main__"`, indicating that the file is acting as the entry point of the program. When the same file is imported into another module, `__name__` is set to the module’s filename (excluding the `.py` extension). This distinction enables the widely used `if __name__ == "__main__":` pattern, which ensures that certain code runs only when the file is executed directly and not when it is imported. Through this mechanism, `__name__` provides both identification metadata and a practical way to control execution flow within Python programs.
+
+When accessing a *class variable*, if the variable does not exist then an error is raised. However, there is a way to get around this using the `getattr()` function. The first argument is the objcet to check while the second paremeter is the name of the variable to check. If it does then returns the value and if it does not then returns *None*. But, this can take an optional third parameter and this is can be the specific variable to be returned if nothing is found.
+
+
+
+
+
+
+
+
+
+
+
+
+
+2k@NLxoktB!pT[!T
+
