@@ -1071,7 +1071,7 @@ There is a way to do *inheritance* and instead of just doing `class ClassName:` 
 
 When using the actual `super()` inside the `__init__` method, it is called like `super.__init__(ParametersHere)` as it needs to be specified what is being called by `super()`. However, this is just single inheritance.
 
-When it comes to multi *inheritance*, this just means a class inherits more than one class. This can be done by comma separating the 
+When it comes to multi *inheritance*, this just means a class inherits more than one class. This can be done by comma separating the c
 
 ### Decorators
 
