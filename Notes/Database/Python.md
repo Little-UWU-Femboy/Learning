@@ -967,7 +967,7 @@ When it comes to combining **sets**, this is done with a single & symbol. When c
 
 To create a function start with the **def** keyword, followed by the name of the function, parentheses where arguments are made, then by the colon symbol like `def FunctionName():`. If a function is not going to be implemented right away, can use the keyword **pass** and put only that.
 
-To call the function just use the name and parentheses and pass data inside. Make sure that it is called on the proper indentation or else the function will not be condidered made or could be out of scope.
+To call the function just use the name and parentheses and pass data inside. Make sure that it is called on the proper indentation or else the function will not be considered made or could be out of scope.
 
 > [!TIP]
 >
@@ -1028,10 +1028,6 @@ When first making a custom class object it always need the `__init__` **dunder**
 
 When it comes to declaring normal methods for this, this is the same as declaring a normal function except it is within the scope of the class object.
 
-> [!NOTE]
->
-> When it comes to declaring a method in python, this does NOT support *method overloading* like in Java or C++, but it can be done. The way python does it is when making a class and it inherits another class, just redeclare the name of a function inside it and python will know to use that one. However, if wanting to use the parent version use the `super()` keyword followed by a dot then the function to call like normally
-
 > [!WARNING]
 >
 > When making the *content manager* methods `__enter__` and `__exit__`, they both MUST be present or else this will not work at all with them.
@@ -1059,9 +1055,9 @@ In a Python class, instance variables are created when they are assigned to `sel
 
 > [!IMPORTANT]
 >
-> Since python does not have access modifiers like the private in Java, conventions are used. Declaring a variable normally without the underscore, this is considered a public variable accessable to all. If it starts with a single underscore, are considered protected variables meaning they should not be accessed outside the class/subclass. If it starts with double underscore then it is considered a private and to help enforce this the inteperator does something called *name mangling* which makes it SUPER HARD to try to access the variable directly. For example, something like `__name` turns into `_ClassName__name`. This naming property also applied to all functions made inside the class as well
+> Since python does not have access modifiers like the private in Java, conventions are used. Declaring a variable normally without the underscore, this is considered a public variable accessible to all. If it starts with a single underscore, are considered protected variables meaning they should not be accessed outside the class/subclass. If it starts with double underscore then it is considered a private and to help enforce this the interpreter does something called *name mangling* which makes it SUPER HARD to try to access the variable directly. For example, something like `__name` turns into `_ClassName__name`. This naming property also applied to all functions made inside the class as well
 
-One VERY IMPORTANT thing to note is EVERY method inside the class MUST first have the argument keyword **self** and this is how python knows the current object in the inteperator step. Then to use any data inside the class object itself, it have to use the **self** keyword followed by the variable for that class.
+One VERY IMPORTANT thing to note is EVERY method inside the class MUST first have the argument keyword **self** and this is how python knows the current object in the interpreter step. Then to use any data inside the class object itself, it have to use the **self** keyword followed by the variable for that class.
 
 To actually use the obect, just assign it to another variable with the class objects name and call it with parentheses with the needed arguments.
 
@@ -1071,7 +1067,13 @@ There is a way to do *inheritance* and instead of just doing `class ClassName:` 
 
 When using the actual `super()` inside the `__init__` method, it is called like `super.__init__(ParametersHere)` as it needs to be specified what is being called by `super()`. However, this is just single inheritance.
 
-When it comes to multi *inheritance*, this just means a class inherits more than one class. This can be done by comma separating the c
+When it comes to multi *inheritance*, this just means a class inherits more than one class. This can be done by comma separating the classes in the parentheses of the class declaration section. 
+
+> [!NOTE]
+>
+> When it comes to declaring a method in python, this does NOT support *method overloading* like in Java or C++, but it can be done. The way python does it is when making a class and it inherits another class, just redeclare the name of a function inside it and python will know to use that one. However, if wanting to use the parent version of a methd, use the `super()` keyword followed by a dot then the function to call like normally.
+
+There is a way to check if an object is a subclass of another using the `issubclass()` function with the first parameter being the thing to check and the second being the object to see if it is that.
 
 ### Decorators
 
@@ -1079,13 +1081,15 @@ When it comes to making methods for a class object, there is a way to have funct
 
 Another way to declare a function in a class is using the *decorator*  **@staticmethod**. This works almost just the same as the **@classmethod** except this cannot access ANYTHING about the actual class. This would be just a function within that namespace (function lives in that class for organizing). Another important thing is this does not take the **self** or **cls** keyword at all, so it is made as a normal function.
 
-There is a unique *decorator* called **@property**. This is a way to not have to declare something like *getters* and *setters*, but still declare some function to do something. This needs the **self** keyword back as the argument.
+There is a unique set of decorators called **@property**, `@Variablename.setter`, and `@VariableName.deleter`. This is a way to not have to declare something like *getters* and *setters* methods, but still declare some function to do something to add more functionality. This needs the **self** keyword and the first two property types can have extra arguments. Also, for EACH of these, the method name MUST be the same as the attribute variable name. These are something that auto execute when trying to read data, get data, or delete data with the **del** keyword.
+
+> [!TIP]
+>
+> This helps to be able to make variables private using the _VariableName syntax as this is what should be used most of the time anyways.
 
 There is something called *class doc* and this is a way to document what the class is for, how to use, or anything that needs to be documented for it. This can be seen with an IDE when it detects that class object is being made. It can also be accessed manually by doing  `className.__doc__` without having to declare an instance of the document. To declare this, just put a triple quoted string RIGHT AFTER declaring class name part. This can even be used on function by just declaring it RIGHT after declaring the function and on the next line.
 
 Another important thing to know is *inheritance* vs *composition*. In OOP design patterns, *inheritance* is considered a "is-a" relationship between another class because the new class is a version of that thing it is inheriting. The *composition* does not inherit anything. Instead, it just uses another class inside it as a property so the that class has a other class inside
-
-When declaring anything like a function, class, method, if statement, etc
 
 Each class object created will have access to the **dunder** method `__dict__` that is called on an instance of the object like `Object.__dict__` and this returns a **dictionary** of the *instance variables* in that class. Because this is really just a **dictionary**, this can also be accessed with the bracket notation and add a new custom key-pair value and add a whole new instance variable that is part of the function. Can even do something like `ObjectInstance.x=20` and this will create a new *instance variable* for that class instance. However, this should never be done.
 
@@ -1093,7 +1097,7 @@ However, there is something else called `__slots__` which replaces classes under
 
 > [!NOTE]
 >
-> If the object being created is going to be inherited by a different object, that other object must use the `__slots__` syntax again or else it will automatically go back to using `__dict__` (which uses a **dictionary** underhood) which prevents the memory efficency trying to be achieved.
+> If the object being created is going to be inherited by a different object, that other object must use the `__slots__` syntax again or else it will automatically go back to using `__dict__` (which uses a **dictionary** under the hood) which prevents the memory efficiency trying to be achieved.
 
 ### `__name__` dunder variable
 
@@ -1101,13 +1105,23 @@ In Python, `__name__` is a special double-underscore (dunder) attribute that ide
 
 When accessing a *class variable*, if the variable does not exist then an error is raised. However, there is a way to get around this using the `getattr()` function. The first argument is the object to check while the second parameter is the name of the variable to check. If it does then returns the value and if it does not then returns *None*. But, this can take an optional third parameter and this is can be the specific variable to be returned if nothing is found.
 
+### Dataclass
 
+This is a special decorator called **@dataclass** that comes from the *dataclasses* module. This is something that is put above the class declaration and it will auto generate an `__init__`,`__eq__`, and `__repr__` methods and it follows correct python conventions. To use this, *type hints* must be used on the variables and they are just declared after the class name and look like `Name: DataType`. This will look like:
 
+```python
+from dataclasses import dataclass
 
+@dataclass
+class Test():
+  	name: str
+    age: int
+    DOB: str
+```
 
-
-
-
+> [!NOTE]
+>
+> This is just the very bare minimum of this. However, there is [more](https://docs.python.org/3/library/dataclasses.html#class-variables) that can be learned that goes way more advanced.
 
 
 
