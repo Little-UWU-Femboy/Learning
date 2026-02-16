@@ -121,8 +121,6 @@ When it comes to the data types python can have are:
 
 ## Chapter 3: Numbers
 
-This section talks about the python basic data types.
-
 ### boolean
 
 Python has a way to convert a value to a **bool** type by using the type casting `bool(VariabeName, ...)`. This turns the variable(s) inside to be a *True* or *False* value.  Anything is considered *True* if the value is anything besides 0 or a non-empty string and *False* otherwise.
@@ -169,8 +167,6 @@ To convert something to a float use the `float()` function that only takes one v
 There is a function called `round()` that takes a single float value and optional second value. This will round the number number all the way up to the nearest whole number or if a second parameter was specified then it will remove that many decimal point numbers from the right most side. One important thing to note this does not affect the original value and instead just returns a new copy of the value.
 
 There is a special **module** called "fractions". This is a different way to handle divinig floating point numbers.
-
-
 
 ## Chapter 4: Strings
 
@@ -467,7 +463,6 @@ There is something called **match** which is like a *switch statement* in C exce
 #### Simple C like with strings
 
 ```python
-
 def start():
     command = "start"
 
@@ -545,8 +540,6 @@ if __name__ == "__main__":
 
 
 ## Chapter 7: For and While
-
-The two ways python does a loop is **for** and **while**.
 
 ### While
 
@@ -691,6 +684,7 @@ There is a function called `type()` that takes one argumet and this returns the 
 
 
 I am learning python right now. When I give you a function, keyword, or module. I want you to write an example using it for me, parameters it takes, return values, how it works, and when to use it and why. I just need need these example small and to the point. Here is an example of what I wrote for showing the use of f-string string --> 
+
 ```python
 def start():
   name = "Alice"
@@ -956,7 +950,7 @@ When it comes to combining **sets**, this is done with a single & symbol. When c
 - difference: this make a new **set** containing ONLY the elements that were not in one **set** and the order this is written matters. Writing order $A-B$ would read "All elements that are in A but not B". This is made using the - sign. Can also just use the method `difference()`.
 - symmetric difference: this makes a **set** where the elements it does not have elements that appeared in both sets and only contains the unique items found in each of the sets. The way to do this is find the <u>difference</u> between the two sets in both ways $A-B$ and $B-A$ then <u>union</u> the two newly made sets. Can also just use the function `symmetric_difference()`.
 - subset: this is when all the elements in one **set** are also found in another **set**. This can be found by using the method `issubset()` or doing <=. This takes one argument of another **set** and returns *True* or *False*.
--  proper set: this is when a new **set** has all the same values of another **set** AND even more values that the other does not have. Can calculate using the < and >. Return a bool type.
+- proper set: this is when a new **set** has all the same values of another **set** AND even more values that the other does not have. Can calculate using the < and >. Return a bool type.
 - superset: Can check if something is a superset with the `issuperset()` method which returns *True* or *False*.
 
 > [!NOTE]
@@ -964,6 +958,8 @@ When it comes to combining **sets**, this is done with a single & symbol. When c
 > The method the **set** is called on will be the A and the **set** that is passed in will be the B for all functions mentioned above.
 
 ## Chapter 10: Functions
+
+### Basic Functions
 
 To create a function start with the **def** keyword, followed by the name of the function, parentheses where arguments are made, then by the colon symbol like `def FunctionName():`. If a function is not going to be implemented right away, can use the keyword **pass** and put only that.
 
@@ -987,11 +983,240 @@ x = adding(1,2)
 print(x) # OUTPUT --> 3
 ```
 
+### Keyword and Default Arguments
+
+When it comes to calling a function of or in any way, there is something called *keyword arguments*. Usually when calling a function, the arguments must be passed in the exact same order as written in the function. However, python is different. This gives the ability to put in any order the arguments by doing `(FunctionParameterName = Value)`.
+
+There is another thing called *default values*. This is applied on the actual function parameters itself. Set the paremeter to any value of choosing and when the function is called, if no value is given for that positional parameter then it willl get that value.
+
+```python
+def Test(string, number = 4):
+  print(f"This is a {string} and number {number}")
+
+# Named paremeter pasted, so string got no value even though it came first in the arguments 
+print(Test(number=10))
+
+# Default paremeter test so even though number got no value it still has the value 4
+print(Test(string="Yes"))
+```
+
+There is a way to take any number of arguments for a function and these will be stored in a **tuple**. This should either be the ONLY argument in the function or should be the last one to take any number of arguments. This is done by putting the * in front of the variable name and the data will be stored in a **tuple**. There is another version of this with two ** instaed of one. Instead of being a **tuple** it is now a **dictionary** and the data passed in like `KeyName=Value`.
+
+### First Class Citizens
+
+Functions are considered first class citizens in python. This means other functions can be passed as parameters to one function and variables can also be assigned to functions like in Golang. To pass in a function as an argument, just use the function name WITHOUT the parentheses as putting them on will call that function. If a function is assigned like a variable, just use the function name and this will assign the function to that so now that variable can be called like a function and it will execute that function code.
+
+```python
+def add(x, y):
+    print("add function was called")
+    return x + y
 
 
-## Chapter 10: Objects
+def FunctionCaller(function, x, y):
+    print("FunctionCaller was called")
+    return function(x, y)
 
-Since everything in python is an object, there is a way to make custom object data types that can be used. This helps to create user defined variables for different cases.
+
+if __name__ == "__main__":
+    x = FunctionCaller(add, 2, 4)
+    print(x)
+```
+
+### Closures
+
+There is something called *inner functions* and this just gives the ability to create other functions inside other functions. However, there is something special called **closures**. A **closure** is when a function is declared inside another function and returned back as an instance of that function which gives the ability to call a function and have it remember state. This is created by just returning the function name.
+
+````python
+def OuterString(stringName):
+    def Inner():
+        print(f"WOW THIS WAS MADE AND NOW HOLDS {stringName}")
+
+    return Inner
+
+
+def OuterNumber(x):
+    def Inner():
+        nonlocal x
+        print(x)
+        x += 1
+
+    return Inner
+
+
+if __name__ == "__main__":
+    x = OuterString("String here")
+    y = OuterNumber(0)
+    x()
+    y()
+    y()
+    y()
+    print(x)
+    print(y)
+
+````
+
+### Lambda Function
+
+There is a way to declare a function that is not created globally like other functions and these are called **lambda functions**. This is a way to create a single use instance of a function to do something small. These should only be used when it is needed temporary. This is also done with the **lambda** keyword. The rules to these are they fan take ANY number of arguments, but can ONLY take one expression line (logic to execute). The syntax is `VariableName = lambda <arguments>: single execution line`. This variable now is a function and can be used to call and complete the small function task. This also does not take a return function as it will automatically return the computed value.
+
+```python
+square = lambda x,y: y * x
+
+print(square(5))  # 25
+```
+
+### Generators
+
+This is a very special thing in python that allows for memory efficency and cool use cases. This render the data on the fly and do not store the entire complete list of data. An example of this is the `range()` function. This returns a range object that will go through the specified values, but compute each value on the fly rather than store all values like in a list at once. However, one drawback is once that value instance has been used, it can never go back.
+
+*Generators* are useful with functions since they can help functions remember "state". These are not the same as *closures* because these do not finish execution of a function once it is called, instead it return a value, something else does something with that then the function resumes until the cycle is completed. This is done with the **yield** keyword and not the **return** keyword. Once a **yield** is reached, it will return that value, but pause the function so when it is called again it will continue where it left off until the final **yield** is met.
+
+```python
+def gen_numbers(n):
+    x = 0
+    while x < n:
+        yield x+1
+        x+=1
+
+
+def start():
+    for num in gen_numbers(6):
+        print(num, end=" ")
+    print("\n")
+
+
+if __name__ == "__main__":
+    start()
+```
+
+### Namespace
+
+The scope in which variables are declared and accessable is the same as all other languages. Functions are local scoped, global variables, etc. Trying to access a global variable inside a function for a read is ok. However, trying to access it for a write will just make a local version of that variable. To be able to access a global variable from within a function and be able to change the data, the use of the **global** keyword is used. Within the function do `global GlobalVariableName` and this will make it so python knows it is accessing the global variable and when changing the variable data it chanes the global one.
+
+There are two functions `locals()` and `globals()` that will return a dictionary of all the local (current namespace) and global variables in the program.
+
+There is another keyword called **nonlocal**. This also affects namespace usage, but not for global variables. Instead, this is for functions within other functions. If a nested function needs to access a variable in the outer function namespace, then it need to do `nonlocal VariableName` just like with the global version. This will reference a variable in the nearest enclosing (non-global) scope.
+
+```python
+# ------------------------------
+# 1) Without global or nonlocal
+# ------------------------------
+
+print("1) Without global or nonlocal")
+
+x = 10
+
+
+def show():
+    # Just reading a global variable (allowed)
+    print("Inside show():", x)
+
+
+show()
+print("Outside show():", x)
+
+
+# ------------------------------
+# 2) Using global
+# ------------------------------
+
+print("\n2) Using global")
+
+y = 10
+
+
+def change_global():
+    global y
+    y = 20  # Modifies the module-level variable
+
+
+change_global()
+print("After change_global():", y)
+
+
+# ------------------------------
+# 3) Using nonlocal
+# ------------------------------
+
+print("\n3) Using nonlocal")
+
+
+def outer():
+    z = 10
+
+    def inner():
+        nonlocal z
+        z = 20  # Modifies z from outer()
+
+    inner()
+    print("After inner():", z)
+
+
+outer()
+```
+
+### Exceptions
+
+There are certain times when breaking errors can affect the program and need to be handles right away. For example, when trying to access a list index that is non-existent and throws and error of --> IndexError: list index out of range
+
+To deal with these errors, the code has to go in a **try except** block. The **try** portion is made by just putting the word followed by colon and all code inside that scope will run under the **try** portion. After, there needs to be an **except** portion and this portion of code will run ONLY if an error was thrown from any of the code in the **try** block.
+
+The **except** portion, if written in the basic way above, will catch all exceptions and is considered generic exception handling. However, there is a way to catch and handle specific exceptions errors by doing `excpet ExceptionErrorName` or `except ExceptionErrorName as AliasName`. This will make it so that **except** block will go off only if that specified exception is thrown. Because of this, there does not need to be a single **except** block as there can be many of them. However, these are like **if-elif** statements where the exceptions are checked in the ordered declared. When specifying the excpetions, can put a set of parentheses and put multiple comma separated inside so that block will trigger for those group of errors.
+
+There is one more final optional portion of this called **finally**. This will at the end of all the **except** blocks and will execute the code inside regardless of what failed or succedded in any of the blocks. This part should be used to close resources, print final messages, etc.
+
+There is a way to make custom error types. This requires creating a class object and having it inheriting the Exception class. Creating a class and all that will be talked about in the next section, but that will be shown how to do here. To use the custom exception, just put the exception name like before when specifiying a specific error type.
+
+There is a way to throw an error by hand using the **raise** keyword. This will give the ability to call ANY exception object made or premade. Each one can take in an argument to help specify the error message.
+
+There is an **assert** keyword that allows for testing if something is true or false. This helps by ensuring that certain assumptions in the code are true. The syntax is `assert condition, StringMessageIfFalse`. The condition must be something that can be evaulated to true. This can also be written without the string message part as well. If this were to become false, then this will toss an --> AssertionError.
+
+```python
+class MyCustomError(Exception):
+    pass
+
+
+my_list = [1, 2, 3]
+
+try:
+    print("Accessing index 5 in the list...")
+    print(my_list[5])  # This will raise IndexError
+
+    # 3. Assertion example
+    x = 10
+    assert x > 20, "x should be greater than 20"  # Will raise AssertionError
+
+except IndexError as ie:
+    print(f"Caught an IndexError: {ie}")
+
+except (ValueError, TypeError, AssertionError) as e:  # Example of multiple exceptions in one block
+    print(f"Caught a ValueError or TypeError: {e}")
+
+except Exception:
+    print("Caught a generic exception")
+
+finally:
+    print("This finally block runs no matter what!")
+
+try:
+    raise MyCustomError("This is a manually raised custom error.")
+except MyCustomError as mce:
+    print(f"Caught a custom error: {mce}")
+except Exception:
+    print("Generic exception")
+
+print("Program continues running normally...")
+```
+
+
+
+> [!TIP]
+>
+> When it comes to making a generic exception catch, it is conventional to use `except Exception` and not just `except`. This just uses the main Exception object so this still means to catch call exceptions raised.
+
+## Chapter 11: Objects
+
+Since everything in python is an object, there is a way to make custom object data types that can be used. This helps to create user defined variables for different cases. 
 
 ### Declaring Class
 
@@ -1122,6 +1347,38 @@ class Test():
 > [!NOTE]
 >
 > This is just the very bare minimum of this. However, there is [more](https://docs.python.org/3/library/dataclasses.html#class-variables) that can be learned that goes way more advanced.
+
+## Chapter 12: Modules, Packages, and Libraries
+
+When it comes to organizing code, python has three different different terms used:
+
+1. *Module*: This is a single python file
+2. *Package*: This is folder that contains many modules
+3. *Library*: This is a folder that contains many packages
+
+Another file can get the code from a different file using the **import** keyword followed by the file name without the extension. The syntax is `import ModuleName`. Now to use anything from that file do `ModuleName.ThingToAccess`.
+
+Another way to access code from a *module* is using the **from** keyword along with the **import** keyword to get something specific from that file any nothing else. The syntax is `from ModuleName import SpecificThingName`.
+
+> [!CAUTION]
+>
+> Can also do `from ModuleName import *` and this will import all the content from it, but without the module namespace thing. This is highly discouraged since this can interfear with other things in the program having the same name.
+
+> [!CAUTION]
+>
+> When importing modules from a differnt file, all that code is basically copied and pasted into the file importing. Meaning all that code will run in the new file. So any global content inside will run in the new file. That is why, like mentioned in chapter 11, it is important to use the `__name__` dunder method syntax for files.
+
+When importing a module, the name given of the file does not have to be used. This is done by making an alias to it. 
+
+
+
+
+
+
+
+
+
+
 
 
 
