@@ -1,3 +1,3 @@
 import module
 
-module.TestFunction()
+module.sillyModule()

@@ -1356,6 +1356,8 @@ When it comes to organizing code, python has three different different terms use
 2. *Package*: This is folder that contains many modules
 3. *Library*: This is a folder that contains many packages
 
+### Module
+
 Another file can get the code from a different file using the **import** keyword followed by the file name without the extension. The syntax is `import ModuleName`. Now to use anything from that file do `ModuleName.ThingToAccess`.
 
 Another way to access code from a *module* is using the **from** keyword along with the **import** keyword to get something specific from that file any nothing else. The syntax is `from ModuleName import SpecificThingName`.
@@ -1368,17 +1370,27 @@ Another way to access code from a *module* is using the **from** keyword along w
 >
 > When importing modules from a differnt file, all that code is basically copied and pasted into the file importing. Meaning all that code will run in the new file. So any global content inside will run in the new file. That is why, like mentioned in chapter 11, it is important to use the `__name__` dunder method syntax for files.
 
-When importing a module, the name given of the file does not have to be used. This is done by making an alias to it. 
+When importing a module, the name given of the file does not have to be used. This is done by making an alias to it. Use the **as** keyword at the end of the whole import in both ways then it will be referred as that. For example `import ModuleName as md` will make it so now I do `md.ThingToAccess` instead of `ModuleName.ThingToAccess`.
 
+### Module Search Path
 
+When a module is imported, there is a particular search order that the program looks in. This can affect how other imports or std packages are imported. For example, if a module named json.py and there is a module in the std called json, if the import was made for `import json`, it might get either the one from the std and not the one made or vice versa.
 
+To see the order in which python will check the path for modules, import the *sys* module and then access the path variable and this will return a **list** of strings back telling the order in which python will check if the module exist. Once the first instance of the module name is found, then this will stop searching for that one and move on to the next one to find.
 
+### Relative and Absolute Path
 
+One way to solve the search path issue is to use absolute and relative path finding. When doing the `import ModuleName`, this will take the absolute path and do the complex module search path. However can do something like `from . import ModuleName(s)` or `from .. import ModuleName(s)`. This will make it so the program knows to look in the current directory or previous directory only for that module (module).
 
+### Packages
 
+To make a package first create a directory and then add modules to it. Then, which is what makes it a package, add a file called `__init__.py` in the folder.
 
+The `__init__.py` file is a special one that is also ran, but this is what dictates how all the code inside will be brought up from bring imported.
 
+To then access it then have to use the **from** and **import** syntax to do this. The **from** portion will be the directory name and the **import** will be the actual module (file) names; which can be comma separated to do more than one thing at a time from a module. Then, use the modules like normal with `ImportedModule.ThingToGet`. However, that is just the super basics of this. 
 
+### Named packages
 
 
 
