@@ -1,7 +1,13 @@
+def publicFunctionFromEmployee():
+    pass
+
+def _privateFunctionFromEmployee():
+    pass
+
 class Employee:
     PI = 3.14159
 
-    def __init__(self, n, a):
+    def __init__(self, n:str, a:int):
         self.name = n
         self.age = a
 

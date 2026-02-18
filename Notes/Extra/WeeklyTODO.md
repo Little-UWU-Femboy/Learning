@@ -4,86 +4,44 @@
 
 ## Monday
 
-- [ ] Finish HTML & CSS Video
-- [ ] Read CH 1, 2, and part of 3 for compiler
-- [ ] Start JavaScript Video
-- [ ] Python Basics
-  - [ ] Variables
-  - [ ] If statement
-  - [ ] Loops
-  - [ ] IO
-  - [ ] CLI Arguments
-  - [ ] File IO
-  - [ ] Context Management
-  - [ ] Modules
-  - [ ] Async, theads, and multiprocessing
-  - [ ] Classes
-  - [ ] Pytest
-  - [ ] Exception Handling
-  - [ ] Dunder methods
-  - [ ] Regex
-  - [ ] List, sets, dicts, and tuples
-  - [ ] Strings basics and complex strings
-  - [ ] Standard libraries (os, sys, datatime, math, random, json, collections, socket, logging)
-  - [ ] Class properties
-  - [ ] PIP
-  - [ ] Virtual environments (venv)
+- [ ] 
 
-- [ ] Daily Run
-- [ ] Hangout with Madyson
-- [ ] Call climbing place
-- [ ] Compiler Homework
-- [ ] Fix resume and apply to jobs
+## Tuesday 2/17
 
-## Tuesday
+- [ ] Do assignment for compiler construction
+- [ ] Watch videos for architecture
+- [ ] Do quiz for architecture
+- [ ] Pandas python
+- [ ] Numpy python
+- [ ] Chapter 1 compiler
 
-- [ ] Finish JavaScript Video
-- [ ] Install Antler
-- [ ] Start React Video
-- [ ] Set up ADV. Software VM & Submit Homework
-- [ ] Start Java Book One
-- [ ] Python NumPy
-- [ ] Daily Run
+## Wednesday 2/18
 
-## Wednesday
+- [ ] MatPltLib python
+- [ ] Read Chaper 2 and 3 compiler
+- [ ] Finish python readings
+- [ ] Finish HTML 7 CSS video
 
-- [ ] Finish React Video
-- [ ] Finish Java Book 1
-- [ ] Start TypeScript
-- [ ] Start Tailwind CSS Video
-- [ ] Start Java Book 2
-- [ ] Daily Run
+## Thursday 2/19
 
-## Thursday
+- [ ] Start SQL video
+- [ ] Start javascript
+- [ ] Start AWS videos on:
+  - [ ] Amplify
+  - [ ] DynamoDB
+  - [ ] IAM
 
-- [ ] Finish Java Book 2
-- [ ] Finish TypeScript Learning
-- [ ] Finish Tailwind Video
-- [ ] Start SQL with PostgreSQL
-- [ ] Start Java Spring Boot Basics
-- [ ] Daily Run
 
-## Friday
+## Friday 2/20 
 
-- [ ] Finish Java Spring Boot Basics
-- [ ] Finish SQL with PostgreSQL video
-- [ ] Start AWS Learning
-- [ ] Start Nginx Learning
-- [ ] Start Java Concurrency
-- [ ] Daily Run
+- [ ] Resume SQL video
+- [ ] Resume javascript video
+- [ ] 
 
-## Saturday
+## Saturday 2/21
 
-- [ ] Finish Nginx Learing
-- [ ] Finish AWS Learning
-- [ ] Finish Java Concurrency
-- [ ] Start Java Collections & Generics
-- [ ] Start Java Testing
+- [ ] 
 
-## Sunday
+## Sunday 2/22
 
-- [ ] Finish Java Collections & Generics
-- [ ] Finish Java Testing
-- [ ] Start Java Hibernate
-- [ ] Start OOP Design Patterns Book
-- [ ] Start 
+- [ ]  

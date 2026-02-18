@@ -1,2 +1,3 @@
-import Employee
-import Tester
+from . import Employee
+
+__all__ = ["Employee"]

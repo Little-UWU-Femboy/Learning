@@ -1,4 +1,4 @@
-# Python
+# **Python**
 
 ## Chapter 1: Introduction
 
@@ -12,10 +12,6 @@ There are two ways to run python code:
 2. Using the python interpeter to run a file with `python3`, then follow it by the python file.
 
 To print text to the screen, use the function `print()`.
-
-In each of the python versions, it comes with standard libraries. To do this, use the **import** keyword followed by the python package name.
-
-When importing content from Standard libraty, there is a keyword called **from** that will take only the specified content from that library. It will look like `from <library> import <content(s)>`.
 
 Python is like Java where no manual memory needs to be done. Instead, it uses the *garbage collecton* to do the memory clean up.
 
@@ -1380,7 +1376,15 @@ To see the order in which python will check the path for modules, import the *sy
 
 ### Relative and Absolute Path
 
-One way to solve the search path issue is to use absolute and relative path finding. When doing the `import ModuleName`, this will take the absolute path and do the complex module search path. However can do something like `from . import ModuleName(s)` or `from .. import ModuleName(s)`. This will make it so the program knows to look in the current directory or previous directory only for that module (module).
+One way to solve the search path issue is to use absolute and relative path finding. When doing the `import ModuleName`, this will take the absolute path and do the complex module search path which can seen in `sys.path`. However can do something like `from . import ModuleName(s)` or `from .. import ModuleName(s)`. This will make it so the program knows to look in the current directory or previous directory only for that module (so this is relative).
+
+Another way to use the .. and . is to do `from .ModuleName import ThingsToImport` and `from ..ModuleName import ThingsToImport`. The first way will make it so it. This will make it so this looks in the current directory and for that module name and then can import the needed things from it. The latter means go up one directory and look for a module named that answers get the things to access.
+
+> [!IMPORTANT]
+>
+> Doing something like `from . import ModuleName` will look in the current directory and then import that module itself. So then have to do `ModuleName.ThingToAccess` compared to `from .ModuleName import ThingsToImport` so this makes it just be `ThingToImport`.
+
+
 
 ### Packages
 
@@ -1388,7 +1392,11 @@ To make a package first create a directory and then add modules to it. Then, whi
 
 The `__init__.py` file is a special one that is also ran, but this is what dictates how all the code inside will be brought up from bring imported.
 
-To then access it then have to use the **from** and **import** syntax to do this. The **from** portion will be the directory name and the **import** will be the actual module (file) names; which can be comma separated to do more than one thing at a time from a module. Then, use the modules like normal with `ImportedModule.ThingToGet`. However, that is just the super basics of this. 
+If left alone, then in the main file, would have to do something like `import FolderName.ModuleName`. Then to access code from there, that whole path would need to be used. So this would look like `FolderName.ModuleName.ThingToAccessFromIt`. Can use the **as** keyword to create an alias to the import, but there are better ways.
+
+Another way to do this is expose certain sections of code from each of the modules in the package. So the `__init__.py` file would look like `from .ModuleName import ThingsToImport`.
+
+There is a particular dunder list variable called `__all__` that can be used in any `.py` file. This is read from when someone does `from ModuleName import *`. This is a good way to control what is exposed in a public API, 
 
 ### Named packages
 
