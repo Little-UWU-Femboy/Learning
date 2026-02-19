@@ -1,4 +1,4 @@
-# **Python**
+# Python
 
 ## Chapter 1: Introduction
 
@@ -1444,9 +1444,13 @@ When it comes to functions, these are a little different. A type hint is place a
 
 ## Chapter 15: Testing
 
-When it comes to running test on the code, there are a few different test that can be ran. The first thing that can be done is using the package `pylint`. This is a static code checker. This will evaulate the code it reads and checks for variables being assigned to what types, etc. To run this do `pylint <FileName>`. 
+When it comes to running test on the code, there are a few different test that can be ran. The first thing that can be done is using the package `pylint`. This is a static code checker. This will evaluate the code it reads and checks for variables being assigned to what types, etc. To run this do `pylint <FileName>`.
 
+Another popular tool to use is `ruff`. This is a linter and a code formatter. This is a third party package so have to download it with **pip**. To run this do `ruff check <FileName>`.
 
+When it comes to running actual test on code, python has two built in ways to do this from the standard library: **unittest** and **tmp**
+
+When working with **unittest**, this is for writing unit test for the code. The way this work is a file have to have a class and it has to inherit the class `unittest.TestCase`. Inside it, declare functions that each start with "test_" at minimum in the name as this is needed to get this to work.
 
 
 
