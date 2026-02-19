@@ -1404,5 +1404,55 @@ There is a particular dunder list variable called `__all__` that can be used in 
 
 
 
+## Chapter 13: Development Environment
+
+When it comes to using a package that is not part of the standard library, these are located at [PiPy](https://pypi.org). This is just a large place that contains python packages that can be downloaded from. Another place they can be found it GitHub.
+
+When it comes to actually downloading the packages, the most common thing to use **pip**; this is pythons package manager. When using **pip**, it actually looks for its packages at [PiPy](https://pypi.org). To use **pip** to install something do `pip install <PackageName>`. For example like `pip install flask`. There are two other ways to install this as well which will specify the version to get. The first way is to wrap the package name in doubel quotes and inside set it equal (with two equal signs) to the specific version wanted. Another way it so do the same thing except the first equal sign is replaced by > as this will make it so it will download no version less than the once specified, but will try to get the newest version.
+
+Instead of having to install more than one package at a time, create a file called "requirements.txt" and inside here put the name of the packages and the versions or writing like normal. However, no double quotes are needed here. Then run `pip install -r requirements.txt`.
+
+To update a package and the latest version of it run `pip install --upgrade <PackageName>`
+
+To uninstall a package run `pip uninstall <PackageName>`.
+
+> [!NOTE]
+>
+> MacOS, linux, windows all have differnet ways to run pip and the name to call it. On MacOS use `pip3` while on windows it is just `pip`.
+
+### Virtual Environments
+
+It is very common to run different python versions with different modules versions across differnt project. Because of this python as something called *virtual environments*. This makes it so those different versions of this can be ran without causing conflicts in the system environment. The two most common ways to do this is `venv` (which is the python built in) and `virtualenv` which is a third party package.
+
+Using the built in version run `python -m venv <EnvName>`. Then run `source /<EnvName>/bin/activate`. What does it create a new python version that is located at that new environment created. Then the absolute path to that environment will be placed in the $PATH. Then working inside there will be like its own isolated environment.
+
+### Jupyter
+
+This a more modern and common way to publish
+
+## Chapter 14: Type Hints
+
+Because python does not need to declare the data type of variables, this makes it easy to declare variables. However, there are time when knowing 100% what a variable is supposed to hold. To do this there is something called *type hints*. This is a way to show what data type the variable SHOULD be. However, it is important to know python does not actually enforce these rules at run time. These are really just used for people reading/writing the code.
+
+To do type hints on variables, right after the name put `:dataType`. For example, `age: int = 30`. This can also be done by just doing `VariableName:DataType`. This can also be usesd on the collection types like `holding: dict[str,int]` or `holding: list`. Can also signal that the variable could be more than one type by adding a | between the data types. For example `money: int | float`.
+
+When it comes to functions, these are a little different. A type hint is place after the closing parentheses and do `-> DataType`. 
+
+
+
+
+
+## Chapter 15: Testing
+
+When it comes to running test on the code, there are a few different test that can be ran. The first thing that can be done is using the package `pylint`. This is a static code checker. This will evaulate the code it reads and checks for variables being assigned to what types, etc. To run this do `pylint <FileName>`. 
+
+
+
+
+
+
+
+
+
 2k@NLxoktB!pT[!T
 
