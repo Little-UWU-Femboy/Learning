@@ -1444,15 +1444,214 @@ When it comes to functions, these are a little different. A type hint is place a
 
 ## Chapter 15: Testing
 
+### Pylint
+
 When it comes to running test on the code, there are a few different test that can be ran. The first thing that can be done is using the package `pylint`. This is a static code checker. This will evaluate the code it reads and checks for variables being assigned to what types, etc. To run this do `pylint <FileName>`.
+
+### Ruff
 
 Another popular tool to use is `ruff`. This is a linter and a code formatter. This is a third party package so have to download it with **pip**. To run this do `ruff check <FileName>`.
 
 When it comes to running actual test on code, python has two built in ways to do this from the standard library: **unittest** and **tmp**
 
-When working with **unittest**, this is for writing unit test for the code. The way this work is a file have to have a class and it has to inherit the class `unittest.TestCase`. Inside it, declare functions that each start with "test_" at minimum in the name as this is needed to get this to work.
+### Unittest
+
+When working with **unittest**, this is for writing unit test for the code. The way this work is a file have to have a class and it has to inherit the class `unittest.TestCase`. Inside it, declare functions that each start with "test_" at minimum in the name as this is needed to get this to work and this will those those case functions. 
+
+Use the `assert...()` familt of functions are available to the **self** keyword of each function. These are what the `unittest` thing will use to see if the method was correctly completed or no. Each of these functions will not need to retun any value either as this will handle that.
+
+To actually run this do `unittest.main()`. This will then run and return in a nice way the number of test that passed and failed.
+
+> [!NOTE]
+>
+> When writing the text_ functions, there can be multiple `assert...()` family functions made per one. However, if one of those assert cases fail it will says that whole text function failed.
+
+```python
+# tmpModule.py
+def checkMeAdd(x: int, y: int) -> int:
+    return x + y
+
+def checkMeSub(x:int, y:int) -> int:
+    return x - y
+```
 
 
+
+```python
+# Actual test module
+import unittest
+# Separete python file
+import tmpModule
+
+
+class tester(unittest.TestCase):
+    def test_adding(self):
+        expected = 40
+        value = tmpModule.checkMeAdd(19, 21)
+        self.assertEqual(value, expected)
+
+    def test_subtract(self):
+        expected = -1
+        value = tmpModule.checkMeSub(10, 11)
+        value2 = tmpModule.checkMeSub(10, 11)
+        self.assertEqual(value, expected)
+        self.assertEqual(value2, expected)
+
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+### Docstring
+
+There is a way that test can be ran with docstrings and this followed a particular format. This time import from the standard library `doctest`. However, this does not go at the top of the file, instead this goes inside the `if __name__ == "__main__"` check. Then inside there run `doctest.testmod()`. When executing the file do `python3 <FileName> -v`.
+
+To actually write the test, it uses the *python interactive shell* format. Put >>> in lines where actual code should run and after put the result of this. It will automatically compare the values of the actual thing executed to the expected value listed. Can also just write things out for documentation inside them as well.
+
+The docstring test must be written inside the actual function this will be calling.
+
+```python
+def just_do_it(text):
+    """
+    >>> just_do_it('duck')
+    'Duck'
+    >>> just_do_it('a veritable flock of ducks')
+    'A Veritable Flock Of Ducks'
+    >>> just_do_it("I'm fresh out of ideas")
+    "I'm Fresh Out Of Ideas"
+    """
+    from string import capwords
+    return capwords(text)
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+```
+
+### Pytest
+
+The most common, and popular, way to run tests is with the `pytest` third party module. Once installed with pip, then can work with it by running it on the CLI as this is not something that is imported into the file.
+
+This is kinda the same as `unittest` in the fact that the functions have to have the name start with test_ and inside it. However, this time there is no class that needs to be made that wraps these all. This uses the **assert** keyword at the end of each of the functions. The way this works is do `assert ResultValue ComparisionType ExpectedValue`. There can be multiple **assert** statements per test.
+
+Then to run this do `pytest <FileName>`. Each of the **assert** statements must evaulate to true or that test fails.
+
+
+
+```python
+import tmpModule # Same file made from unittest example
+
+def test_add():
+    value = tmpModule.checkMeAdd(1,1)
+    value = tmpModule.checkMeAdd(1,2)
+    assert value == 2
+    assert value2 == 3
+
+
+def test_sub():
+    value = tmpModule.checkMeSub(1,1)
+    assert value == 1
+```
+
+This is like the `setUp()` and `tearDown()` functions for the `unittest` module. This makes it so these functions are ran and the result is returned so they can be used within the test functions. This does require the import to the `pytest` module to the top of the file. To mark a function to run, declare a function like normal and add the *decorator* `@pytest.fixture`. Each of these functions will return some value. Inside the test functions, add a parameter with the same name as the function name, but without the parentheses, and this will run those functions and they will then get the value. However, this functions cannot take in arguments.
+
+```python
+import datetime
+import pytest
+
+@pytest.fixture
+def setup():
+    return 30 * 4
+
+@pytest.fixture
+def timerGetter():
+    return datetime.datetime.now()
+
+def test_add(setup, timerGetter):
+    print("I am value: ", setup)
+    print(f"Time is {timerGetter}")
+    assert setup == 120
+
+def test_sub(timerGetter):
+    print(f"Time is: {timerGetter}")
+    assert 0 == 0
+
+# Run this with --> pytest -s FileName.py
+# because by default pytest eats anything
+# from the print
+```
+
+> [!IMPORTANT]
+>
+> Each test_ function that is called, it will call that decotator function a brand new time. For example, if getting a time, it will differ per function.
+
+To pass arguments into the test functions, this uses the *decorator* `@pytest.mark.parametrize()`. The way this is made is a little complicated. This will take two separate arguments. The fist is a string that contains the name of the variables and this is comma separated. The second argument is a list of tuples that will contain the values for names. Then the function will have to take the names of string comma values.
+
+
+
+```python
+import pytest
+
+def add(a, b):
+    return a+b
+
+
+@pytest.mark.parametrize("x, y, z", [(1, 2, 3)])
+def test_add(x, y, z):
+    print(f"x = {x}, y={y}, z={z}")
+    assert add(x,y) >= z
+```
+
+> [!NOTE]
+>
+> For each tuple in the list, this will run that test function that many times with those values for this listed in order
+
+```python
+import pytest
+
+
+def add(a, b):
+    return a + b
+
+
+@pytest.mark.parametrize("x, y, z", [(1, 2, 3), (4, 5, 9), (10, 11, 30)])
+def test_add(x, y, z):
+    print(f"x = {x}, y={y}, z={z}")
+    assert add(x, y) >= z
+
+
+# First run will have x = 1, y = 2, z = 3
+# Second run will have x = 4, y = 5, z = 9
+# Third run will have x = 10, y = 11, z = 30
+```
+
+> [!TIP]
+>
+> Running this with the -v flag is very helpful as this is the more verbose mode and will make it show things like each case in the list of parameters used.
+
+There is another package called `hypothesis`. This is a way to generate a bunch of data randomly so it does not have to be written by hand. Go more into this later
+
+When it comes to *Continuous Integration*, there are tools to do stuff like this with the python code. A very popular example is jenkins.
+
+## Chapter 16: Debugging
+
+When it comes to debugging, a good way to do this is to use the **assert** statement like used in the previous chapter. If this fails, then this will raise an `AssertException` error.
+
+There is a special function called `pprint()` and this is just a pretty print version that makes the output look nices. For example when wanting to print a dictionary.
+
+Instead of printing stuff to the screen, writing the errors to a log file will be more useful and much better. Python has a package called `logging` that is used for this.
+
+# NumPy
+
+This is a third party package that is heavily used to deal with large amounts of data. This is really popular when using arrays and numpy is really good at dealing with arrays because they have their own special versions of these. Their list also allow to perform things like vector mathmatical opertaions. For example, doing `[1,2,3] * 2` in normal python would make this `[1,2,3,1,2,3]` however if this was a numpy array then it would be `[2,4,6]`.
+
+Use `pip` to install numpy. Once done, import it and set it to have an alias name of `np` as this is a very popular convention.
+
+To make a numpy array, do `numpy.array()` and this takes a single argument of some collection type (list, tuple, dict, set)
+
+> [!CAUTION]
+>
+> For the dicrionary, this will only takes the values from the keys. So if the key names are needed then this will not work for it.
 
 
 
