@@ -1641,6 +1641,24 @@ There is a special function called `pprint()` and this is just a pretty print ve
 
 Instead of printing stuff to the screen, writing the errors to a log file will be more useful and much better. Python has a package called `logging` that is used for this.
 
+In the logging package there are 5 different functions levels of logging that can be done and they are:
+
+1.  debug --> This is for like when debugging for information when trying to find problems
+2.  info --> To confirm things are working as expected
+3.  warning --> To indicate something unexpected happened
+4.  error --> important error that causes some issues
+5.  critical --> application breaking error
+
+When actually calling one of these functions from the output will look like `LevelType:root:StringMessage`
+
+The `logger` module has something called a *default logging level*. This makes it so by default only logs of warning (3-5) and higher will actually be output. To change this, there is some setup that needs to be done. To do this, at the top of the file call the function `basicConfig()` and to really work with this the use of *positional parameters* needs to be used. 
+
+1.  The first one that changes the level importance is "level". This needs to get a value which will be a constant with the name of one of names of the functions like "DEBUG" which are constants. 
+2.  Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
+3.  The third thing to change is to change the format of the string that printed to the log. Can look [here]([logging — Logging facility for Python — Python 3.14.3 documentation](https://docs.python.org/3/library/logging.html#logrecord-attributes)).
+
+
+
 # NumPy
 
 This is a third party package that is heavily used to deal with large amounts of data. This is really popular when using arrays and numpy is really good at dealing with arrays because they have their own special versions of these. Their list also allow to perform things like vector mathmatical opertaions. For example, doing `[1,2,3] * 2` in normal python would make this `[1,2,3,1,2,3]` however if this was a numpy array then it would be `[2,4,6]`.
@@ -1651,7 +1669,7 @@ To make a numpy array, do `numpy.array()` and this takes a single argument of so
 
 > [!CAUTION]
 >
-> For the dicrionary, this will only takes the values from the keys. So if the key names are needed then this will not work for it.
+> For the dictionary, this will only takes the values from the keys. So if the key names are needed then this will not work for it.
 
 
 
