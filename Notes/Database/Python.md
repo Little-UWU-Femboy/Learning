@@ -1655,7 +1655,7 @@ The `logger` module has something called a *default logging level*. This makes i
 
 1.  The first one that changes the level importance is "level". This needs to get a value which will be a constant with the name of one of names of the functions like "DEBUG" which are constants. 
 2.  Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
-3.  The third thing to change is to change the format of the string that printed to the log. Can look [here]([logging — Logging facility for Python — Python 3.14.3 documentation](https://docs.python.org/3/library/logging.html#logrecord-attributes)).
+3.  The third thing to change is to change the format of the string that printed to the log. Can look [here](https://docs.python.org/3/library/logging.html#logrecord-attributes).
 
 
 
