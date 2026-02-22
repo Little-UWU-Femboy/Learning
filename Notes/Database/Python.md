@@ -1653,9 +1653,9 @@ When actually calling one of these functions from the output will look like `Lev
 
 The `logger` module has something called a *default logging level*. This makes it so by default only logs of warning (3-5) and higher will actually be output. To change this, there is some setup that needs to be done. To do this, at the top of the file call the function `basicConfig()` and to really work with this the use of *positional parameters* needs to be used. 
 
-1.  The first one that changes the level importance is "level". This needs to get a value which will be a constant with the name of one of names of the functions like "DEBUG" which are constants. 
-2.  Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
-3.  The third thing to change is to change the format of the string that printed to the log. Can look [here](https://docs.python.org/3/library/logging.html#logrecord-attributes).
+1.   The first one that changes the level importance is "level". This needs to get a value which will be a constant with the name of one of names of the functions like "DEBUG" which are constants. 
+2.   Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
+3.   The third thing to change is to change the format of the string that printed to the log with the named parameter "format" which will take a string. Inside the string just paste the format of the string inside there which can be obtained from [here](https://docs.python.org/3/library/logging.html#logrecord-attributes).
 
 
 
