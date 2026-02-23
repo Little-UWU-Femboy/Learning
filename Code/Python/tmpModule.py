@@ -1,7 +1,5 @@
-# tmpModule.py
-def checkMeAdd(x: int, y: int) -> int:
-    return x + y
+import numpy as np
 
+x = np.array([1, 2, 3, 4])
 
-def checkMeSub(x: int, y: int) -> int:
-    return x - y
+print(type(x))

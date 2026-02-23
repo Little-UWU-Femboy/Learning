@@ -1661,11 +1661,11 @@ The `logger` module has something called a *default logging level*. This makes i
 
 # NumPy
 
-This is a third party package that is heavily used to deal with large amounts of data. This is really popular when using arrays and numpy is really good at dealing with arrays because they have their own special versions of these. Their list also allow to perform things like vector mathmatical opertaions. For example, doing `[1,2,3] * 2` in normal python would make this `[1,2,3,1,2,3]` however if this was a numpy array then it would be `[2,4,6]`.
+This is a third party package that is heavily used to deal with large amounts of data. This is really popular when using arrays and numpy is really good at dealing with arrays because they have their own special versions of these. Their list also allow to perform things like vector mathmatical operations. For example, doing `[1,2,3] * 2` in normal python would make this `[1,2,3,1,2,3]` however if this was a numpy array then it would be `[2,4,6]`. Under the hood, numpy is written in C, so this makes it really fast.
 
 Use `pip` to install numpy. Once done, import it and set it to have an alias name of `np` as this is a very popular convention.
 
-To make a numpy array, do `numpy.array()` and this takes a single argument of some collection type (list, tuple, dict, set)
+To make a numpy array, do `numpy.array()` and this takes a single argument of some collection type (list, tuple, dict, set). The will create a single dimensional array.
 
 > [!CAUTION]
 >
