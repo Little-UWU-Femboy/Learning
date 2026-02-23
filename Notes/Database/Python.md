@@ -1657,6 +1657,28 @@ The `logger` module has something called a *default logging level*. This makes i
 2.   Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
 3.   The third thing to change is to change the format of the string that printed to the log with the named parameter "format" which will take a string. Inside the string just paste the format of the string inside there which can be obtained from [here](https://docs.python.org/3/library/logging.html#logrecord-attributes).
 
+## Chapter 17: Text Data
+
+When it comes to text, python has a library called `re` which is for regular expression matching and other text related manipulation.
+
+One method that can be used it the `re.match()`. The first parameter is the string pattern that is being searched for while the second is the string to search against. However, this does NOT search the entire string and only searches the beginning (first word) of the string.
+
+If a pattern is being used a lot, then can use `re.compile()` and this will just take one parameter with it being the string pattern that will be searched for. Now that can be used and this can help to save time for future uses.
+
+To search the WHOLE string to see if it matches, use the `re.search()`. This will return something for the first instance it finds this string pattern at.
+
+To search for all matches and not just the first instance, use `re.findall()`. This will find all non-overlapping instances of the match and return it if any are found.
+
+Can split the string by the matched pattern by using `re.split()`. If any match splits are made, a list of the results are returned.
+
+To actually change parts of the string use the `re.sub()` method.
+
+When putting the string inside to match, it can take regex patterns and these affect how the string pattern is matched. They are:
+
+- . --> This will match 
+
+
+
 
 
 # NumPy

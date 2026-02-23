@@ -1,10 +1,9 @@
-from modules import *
+import re
 
-def start():
-  x = Employee.Employee("Jack", 20)
-  print(x)
-  print(type(x))
-  print(id(x))
+x = re.match("You", "Yes silly Yesterday goose")
+y = re.match("You", "Youth")
+print(x)
+print(y)
 
-if __name__ == "__main__":
-   start()
+if y is not None:
+    print(y.group())
