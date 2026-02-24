@@ -13,7 +13,7 @@ There are two ways to run python code:
 
 To print text to the screen, use the function `print()`.
 
-Python is like Java where no manual memory needs to be done. Instead, it uses the *garbage collecton* to do the memory clean up.
+Python is like Java where no manual memory needs to be done. Instead, it uses the *garbage collection* to do the memory clean up.
 
 ## Chapter 2: Types and Variables
 
@@ -121,7 +121,7 @@ When it comes to the data types python can have are:
 
 Python has a way to convert a value to a **bool** type by using the type casting `bool(VariabeName, ...)`. This turns the variable(s) inside to be a *True* or *False* value.  Anything is considered *True* if the value is anything besides 0 or a non-empty string and *False* otherwise.
 
-### Integer
+###  Integer
 
 An integer can start with 0b, 0o, or 0x and this will make an binary, octal, or hexadecimal number respectfully. 
 
@@ -1661,25 +1661,171 @@ The `logger` module has something called a *default logging level*. This makes i
 
 When it comes to text, python has a library called `re` which is for regular expression matching and other text related manipulation.
 
-One method that can be used it the `re.match()`. The first parameter is the string pattern that is being searched for while the second is the string to search against. However, this does NOT search the entire string and only searches the beginning (first word) of the string.
+One method that can be used it the `re.match()`. The first parameter is the string pattern that is being searched for while the second is the string to search against. However, this does NOT search the entire string and only searches the beginning (first word) of the string. This returns a match object. It has a method `group()` that can be called and will show the match.
 
 If a pattern is being used a lot, then can use `re.compile()` and this will just take one parameter with it being the string pattern that will be searched for. Now that can be used and this can help to save time for future uses.
 
-To search the WHOLE string to see if it matches, use the `re.search()`. This will return something for the first instance it finds this string pattern at.
+To search the WHOLE string to see if it matches, use the `re.search()`. This will return a match object for the first instance it finds this string pattern at. Same parameters as the `match()` function.
 
-To search for all matches and not just the first instance, use `re.findall()`. This will find all non-overlapping instances of the match and return it if any are found.
+To search for all matches and not just the first instance, use `re.findall()`. This will find all non-overlapping instances of the match and return a list for all found if any. Same parameters as the `match()` function
 
-Can split the string by the matched pattern by using `re.split()`. If any match splits are made, a list of the results are returned.
+Can split the string by the matched pattern by using `re.split()`. If any match splits are made, a list of the results are returned. Same parameters as the `match()` function
 
-To actually change parts of the string use the `re.sub()` method.
+To actually change parts of the string use the `re.sub()` method. This takes three parameters with the first being the pattern to change, the second is the thing to replace it with, the third is the string to look at. This will return a string literal with the changes.
 
-When putting the string inside to match, it can take regex patterns and these affect how the string pattern is matched. They are:
+When putting the string inside to match, it can take regex patterns and these affect how the string pattern is matched and they are:
 
-- . --> This will match 
+- . --> This will match a single character of anything
+- ? --> This will match zero or a single character of anything
+- `*` --> This will match any zero or any many tokens as possible of the previous thing
+- `+` --> This will match one or more of tokens as possible of the previous thing this was behind
+- [] --> This will have characters inside it. This signals any of the following inside are allowed for that particular spot, but anything else is not.
+- () --> This will have characters inside it. This is used to signal grouping of content to capture it. This is useful to get the captured data for later use.
+- {} -->  This will have numbers inside this. This is used to specify how many instances of the previous thing must occur. It can also take a range of things by separating the values with a comma like {2,4} which will mean this can have an minimum two of that thing and max of four of it. Can also leave out the last part like {2,} which means must have two or more.
+- | --> This is used as an or statement to show it can be the pattern on the left or right side of it.
 
+> [!NOTE]
+>
+> There are special way to write things instead of being explicit. Can do something like 10-100 and this will mean between 10 and 100. Another version is a-z, A-Z, A-z to go through the alphabet. However, there are special symbols for these which are:
+>
+> - \d --> single digit
+> - \D --> single non-digit
+> - \w --> alphanumeric character
+> - \W --> non-alphanumeric character
+> - \s --> whitespace character
+> - \S --> non-whitespace character
+> - \b --> word boundary
+> - \B --> non-word boundary
 
+## Chapter 18: Binary Data
 
+Note important right now, but can come back to this
 
+## Chapter 19: Dates And Times
+
+## Chapter 20: Files
+
+In Python, interacting with a file is done through a **file object** (also called a handle or a stream). This object acts as a middleman between the Python interpreter and the operating system's file system.
+
+### The `open()` Function
+
+To interact with a file, the `open()` function is used. It creates a connection to the file on the disk.
+
+Python
+
+```python
+file_handle = open("filename.txt", mode="r", encoding="utf-8")
+```
+
+- **File Path**: Can be relative (starting from the current directory) or absolute.
+- **Mode**: A string that defines how the file is accessed.
+- **Encoding**: While optional, it is highly recommended to specify `encoding="utf-8"` to prevent "mojibake" (garbled text) when moving code between Windows (which often defaults to CP1252) and Linux/macOS.
+
+### File Access Modes
+
+| **Mode** | **Description** | **Detail**                                                   |
+| -------- | --------------- | ------------------------------------------------------------ |
+| **`r`**  | Read            | Opens for reading. Raises `FileNotFoundError` if the file doesn't exist. |
+| **`w`**  | Write           | Opens for writing. **Truncates** (erases) the file if it already exists. |
+| **`a`**  | Append          | Opens for writing, but starts at the end of the file. Does not erase data. |
+| **`r+`** | Read/Write      | Opens for both. The file pointer starts at the beginning.    |
+| **`b`**  | Binary          | Used for non-text files (images, `.exe`). Combined like `rb` or `wb`. |
+
+### The File Pointer (`tell` and `seek`)
+
+When a file is opened, Python keeps track of the "cursor" or *file pointer*. This is the byte offset where the next read or write operation will occur.
+
+- `tell()`: Returns an integer representing the current position of the pointer in bytes.
+- `seek(offset, whence)`: Moves the pointer to a specific location.
+  - `offset`: Number of bytes to move.
+  - `whence`: (Optional) `0` for start of file, `1` for current position, `2` for end of file.
+
+Python
+
+```python
+def start():
+    with open("data.txt", "w+") as f:
+        f.write("0123456789")
+        print(f"Position after write: {f.tell()}") # Output: 10
+        
+        f.seek(5) # Move cursor to the 5th byte
+        print(f"Read from 5: {f.read(1)}") # Output: 5
+        print(f"Current position: {f.tell()}") # Output: 6
+
+if __name__ == "__main__":
+    start()
+```
+
+### Reading Methods
+
+There are three primary ways to extract data from a file object:
+
+1. **`read(size)`**: Reads the entire file as a single string. If `size` is specified, it reads only that many characters.
+2. **`readline()`**: Reads a single line, including the newline character `\n`.
+3. **`readlines()`**: Reads the entire file and returns a **list** where each element is a line string.
+
+> [!TIP]
+>
+> **Memory Efficiency**: For large files, never use `read()` or `readlines()`. Instead, iterate over the file object directly. This uses a generator-like approach to read one line at a time into memory.
+
+Python
+
+```python
+# The optimized way to read large files
+with open("huge_data.csv", "r") as f:
+    for line in f:
+        process(line) # Only one line is in memory at a time
+```
+
+### Context Managers (`with` keyword)
+
+In Python, it is standard practice to use the `with` statement. This ensures the `__exit__` dunder method of the file object is called, which automatically closes the file handle. This prevents:
+
+- **File corruption**: Ensuring all buffers are "flushed" to the disk.
+- **OS Resource Leaks**: Operating systems have a limit on how many file handles a single process can hold open.
+
+### Writing and Buffering
+
+When calling `write()`, Python doesn't always send the data to the disk immediately for performance reasons. It stores it in a **buffer**.
+
+- **`flush()`**: Manually forces the buffer to write its content to the disk without closing the file.
+- **`close()`**: Flushes the buffer and releases the system resource.
+
+Python
+
+```python
+def start():
+    try:
+        with open("secure.log", "a") as f:
+            f.write("Log entry...\n")
+            f.flush() # Ensure it's on disk immediately
+            # Do more work...
+    except OSError as e:
+        print(f"Disk error: {e}")
+
+if __name__ == "__main__":
+    start()
+```
+
+### The `os` and `pathlib` Modules
+
+For managing file metadata (checking if a file exists, deleting files, etc.), Python uses these modules:
+
+- `os.path.exists("path")`: Returns a boolean.
+- `os.remove("path")`: Deletes a file.
+- `pathlib.Path`: A more modern, object-oriented way to handle paths (e.g., `Path("data.txt").read_text()`).
+
+## Chapter 21: Concurrency
+
+## Chapter 22: Networking
+
+## Chapter 23: Data Storage
+
+## Chapter 24: Web
+
+## Chapter 25: Data Science
+
+## Chapter 26: AI
 
 # NumPy
 
@@ -1687,13 +1833,139 @@ This is a third party package that is heavily used to deal with large amounts of
 
 Use `pip` to install numpy. Once done, import it and set it to have an alias name of `np` as this is a very popular convention.
 
-To make a numpy array, do `numpy.array()` and this takes a single argument of some collection type (list, tuple, dict, set). The will create a single dimensional array.
+To make a numpy array, do `numpy.array()` and this takes up to three arguments of some collection type (list, tuple, dict, set). The will create a single dimensional array which is a class of numpy.ndarray.
 
 > [!CAUTION]
 >
 > For the dictionary, this will only takes the values from the keys. So if the key names are needed then this will not work for it.
 
+To make a one dimensional array with a list just past a list inside it. To make a two dimensional array, just pass in a single list and inside that put list inside it with there being at least two. To make a three dimensional array, do the same as two dimensional array except The next argument will be a whole other list made like it.
 
+```python
+import numpy
+
+# Making a vector
+x = numpy.array([1,2,3,5])
+
+# Making a matrix
+y = numpy.array([
+  [1,2,3,4],
+  [5,6,7,8]
+])
+
+# Making a data cube
+z = numpy.array([
+    [[1, 2, 3, 4],
+     [5, 6, 7, 8],
+     [9,10,11,12]],
+
+    [[13,14,15,16],
+     [17,18,19,20],
+     [21,22,23,24]]
+])
+```
+
+The number of dimensions in an array is called **ndim** or **rank**. A one dimensional array is called a *vector*, a two dimensional array is called a *matrix*, and a three dimensional array is called a *tensor* or *N-D  array*. There is even a zero dimensional array called a *scalar*.
+
+Unlike python list, numpy arrays cannot have different types inside. This means all types must be the same. If a different type is added into it, it will convert all elements inside into a common type. When creating the array, can pass in using the *positional parameter* "dtype" and setting that to the specific data type this should be. These specified types will be accessed through numpy to things like:
+
+- int8 
+- int16
+- int32
+- int64
+- uint8
+- uint16
+- uint32
+- uint64
+- float16
+- float32
+- float64
+- float128
+- bool_
+- str_
+- bytes_
+- object_
+
+There are some special things that the numpy.ndarray object has. Here are a few things that can be accessed:
+
+- To see the type of array data this is holding, access the `dtype` variable 
+- Can also see how many dimensions there are using the `ndim` variable
+- Can see the shape of the array by accessing the `shape` variable
+- Can get the total number of elements in the array by accessing the `size` variable
+
+Another important thing to know is numpy arrays must be rectangular. This means the rows and columns must be the same size. If not this is considered *jagged* and numpy will not know how to handle this.
+
+Once the size of a numpy array is made, it cannot change. To get one of bigger size a whole new numpy array will have to be made. This can be done by just creating a whole new version with `numpy.array()` or can call the `numpy.append()` method and this will return a new version of the numpy array but with the new added elements. This takes two arguments with the first being the original numpy array and the second being a list or any other collection type. However, the new list added will always be converted to the original type of the numpy array being added to. For example, if the original numpy array is one dimensional, then trying to append a two dimensional array will just be flattened down into a one dimensional array then appended to the original.
+
+```python
+import numpy as np
+
+x = np.array([1, 2, 3, 4])
+
+# Still has this be a one dimensional array
+new_x = np.append(x, [[5, 6, 7, 8], [9, 10, 11, 12]])
+
+print(new_x.dtype)
+print(new_x)
+print(type(new_x))
+
+```
+
+When it comes to accessing elements from a numpy array, there are a few ways to do it:
+
+1.  Can access this like a normal list in python with the bracket syntax; this is just like C. However, there is a special way to do this by just having a single set of brackets and have the [row, column] be separated like that
+2.  Can use the *slice notation* on this
+
+> [!WARNING]
+>
+> When taking a slice of a numpy array, this is not like a list where a new copy of that slice is returned. Instead, this creates something called a *view*. This just means that the "new" numpy array made actually refer to the same memory spaces as the original so modifying the new one affects the original numpy array . This is the same functionality as in Golang when working with slices.
+
+```python
+# Example showing what a view is
+import numpy as np
+
+x = np.array([1, 2, 3, 4, 5])
+
+y = x[1:]
+
+print(x)  # OUTPUT --> [1,2,3,4,5]
+print(y)  # OUTPUT --> [2,3,4,5]
+
+y[0] = 400
+
+print(x)  # OUTPUT --> [1,400,3,4,5]
+print(y)  # OUTPUT --> [400,3,4,5]
+```
+
+```python
+# Showing how to access the array with bracket syntax
+import numpy as np
+
+x = np.array([[1, 2, 3, 4, 5], [6,7,8,9,10]])
+
+print(x[1,2])
+print(x[1][2])
+```
+
+There is another way to create an array without having to specify the data inside it, but will fill with all zeros. The function to use from numpy is `zeros()`. The first parameter will be either a single number and this will be just a normal array. However, to have it be two dimensional then put a **tuple** there with the first value inside it being the number of rows and the second being the number of columns. This can also take the *positional argument* "dtype" like the other version does. Can also do a three dimensional array with this. The parts are `(Number of 2D arrays, rows, columns)`. There is also another way to make an array that is called `ones()` and this functions just like the `zeros()` version except all elements are the one value.
+
+There is a more unique way to declare a numpy array and this is calling the `empty()` function. This is declared the exact same way as `zeros()` and `ones()`. The ways these differ is the data that is placed inside it. Each index will get filled with random data and it just based off the actual current state of the memory. Because of this, the actual content inside will not be assured all the time (aka just garbage data). However, this is the fastest way to create a numpy array.
+
+There is also another way called the `.arange()`. This will return a normal one dimensional array with values from a specified range. If only one parameter then it will make values of that types starting from zero index going up to, but not including, the value. Can have a specific range of values by comma separating them where the first argument is the starting point and the second is the max, which is inclusive. There can also be three variables, where the two are the same except the last which is the step.
+
+There is a way to sort the data inside the numpy array by using the function `numpy.sort()`. This will sort the data in ascending order and the only parameter will be . However, the numpy array object also has a method called `sort()` that will sort the data and have it be in-place.
+
+When it comes to combining two different numpy arrays together, use the function `numpy.concatenate()`. The things passed in must be an *iterable*. This means the two or more numpy arrays must be passed inside as a **tuple** or **list**. This will return a new numpy array with all the values concatenated.
+
+There is a method called `reshape()` that is for the numpy.ndarray object. This will change the structure of the whole array. For example, changing the array from two dimensional to one dimensional. The parameters here will be the size of the shape to change this to. If only one parameter is given then will make a one dimensional array, if two parameters (`row, column`) are given then a matrix will be made, if three parameters (`#OfMatrix,rows,columns`) are given then then a *tensor* is made. This will return a new version of the numpy.ndarray object with the new version.
+
+> [!IMPORTANT]
+>
+> When changing the size. It must still be able to hold the original amount of elements. This means the numpy.ndarray object cannot change in number of elements it hold; just how it holds them.
+
+> [!TIP]
+>
+> If the size of the numpy array is unknown when trying to reshape and want to turn it into a one dimensional array, can just put the value -1 and this will convert it into the one dimensional array automatically.
 
 
 

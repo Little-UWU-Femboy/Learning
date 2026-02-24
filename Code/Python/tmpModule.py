@@ -1,5 +1,6 @@
 import numpy as np
 
-x = np.array([1, 2, 3, 4])
+x = np.arange(3)
 
-print(type(x))
+print(x)
+print(x.shape)
