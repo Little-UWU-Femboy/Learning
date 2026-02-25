@@ -104,9 +104,9 @@ These are made by doing `> [!VersionName]`.
 
 There is a way to make a table. The easiest way to make this is just to go to paragraph -> table -> insert table. After, select the size of the table and work with it.
 
-| True           | False           |
-| -------------- | --------------- |
-| Some true text | Some false text |
+| True           | False This this is uper super duper wild |
+| -------------- | ---------------------------------------- |
+| Some true text | Some false text                          |
 
 ### Diagrams
 

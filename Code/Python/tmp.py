@@ -3,6 +3,9 @@ Comprehensive Python Keyword & Design Patterns Demo
 Python 3.12+
 """
 
+tetsing = list(1,2,3,4)
+print(tetsing)
+
 # ===============================
 # IMPORT KEYWORDS
 # ===============================
