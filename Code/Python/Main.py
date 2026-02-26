@@ -1,12 +1,8 @@
 import pandas as pd
 
-print(pd.__version__)
+data = [["Alice", 25], ["Bob", 30], ["Charlie", 35]]
 
-x = {"One": 1, "Two": 2, "Three": 3}
-y = [10, 20, 30, 40, 50]
+df = pd.DataFrame(data, columns=["name", "age"])
 
-series = pd.Series(x)
-series2 = pd.Series(y)
-
-print(series)
-print(series2)
+print(type(df.loc[0]))
+print(df.loc[0])

@@ -2219,7 +2219,9 @@ When importing this library, first make sure to install it with pip3 (or pip on 
 
 To see current verision of pandas, print to the screen the dunder variable `__version__` from the pandas library.
 
-To create a **series** object, access the constructor `Series()` from the pandas library. At minimum must at least pass in a **list**, **tuple**, **dict**, or **set**. This will then make a whole column of data with the left side data being the index it is as and the right side being the values for it. At the end of this it will also show the data type that this is holding.
+### Series
+
+To create a **series** object, access the constructor `Series()` from the pandas library. At minimum must at least pass in a **list**, **tuple**, **dict**, or **set**. This will then make a whole column of data with the left side data being the index it is as and the right side being the values for it. At the end of this it will also show the data type that this is holding with the variable "dtype" like in numpy. A *positional parameter* that can be given is "index" which will change the row names starting from the top and assign this a list.
 
 ```python
 import pandas as pd
@@ -2227,13 +2229,13 @@ import pandas as pd
 print(pd.__version__)
 
 x = {"One": 1, "Two": 2, "Three": 3}
-y = [10, 20, 30, 40, 50]
+y = [10, 20, 30]
 
 series = pd.Series(x)
 series2 = pd.Series(y)
 
-print(series)
-print(series2)
+print(series,"\n\n")
+print(series2, index=["a", "b", "c"])
 
 # OUTPUT BELOW
 #3.0.1
@@ -2253,13 +2255,117 @@ A more visual look of a **series** will be:
 
 ![Screenshot 2026-02-25 at 9.31.59 PM](/Users/femboylover/Desktop/Screenshot 2026-02-25 at 9.31.59 PM.png)
 
+> [!TIP]
+>
+> Instead of using the "index" *positional parameter* to change the name of rows, this can be done by passing in a **dict** collection of data. The key names will be that row name and the value pair will be that columns data
+
+> [!NOTE]
+>
+> There can be different data types mixed together when making a **series**. However, when at least of the column data types holds a string then the "dtype" for this will be "object" instead of one constant type. However, when accessing each row data and checking the data type for that column it will show the correct object type. 
+
+
+
+To access data from the **series**, can use the bracket index syntax or can access the series objects ==loc== object and then put the bracket index syntax with it and the row name/index. If trying to access an index that does not exist then a "KeyError" will be raised. The syntax can also be used to change the data
+
+```python
+import pandas as pd
+
+x = {"One": 1, "Two": 2, "Three": 3}
+
+series = pd.Series(x)
+
+print(series.loc["One"])
+series["One"] = 40000
+print(series.loc["One"])
+# Will raise KeyError
+print(series.loc["Five"])
+```
+
+
+
+Just like with numpys *Boolean indexing*, the same thing can be done like `series[ series <= 2]`. This returns a pandas **series** with the values that meet the requirement. However, if done with a **DataFrame** then this will return this will also return a **DataFrame** object back. Another way this can be done is `df.loc[df["age"] > 30, "age"] = 40` which creates a boolean mask (**list** of **True** and **False** values) and this selects the "age" column and replaces those values with forty.
+
+> [!IMPORTANT]
+>
+> While most of the rules for this are the same as numpy, there are some differences:
+>
+> - 
+
+### DataFrame
+
 A more visual look of a **DataFrame** will be:
 
 ![](/Users/femboylover/Desktop/Screenshot 2026-02-25 at 9.33.53 PM.png)
 
-> [!TIP]
+When making a **DataFrame**, this time call the `DataFrame()` constructor and this will return a **DataFrame** object. A good way to make this is by creating a **dict** and for each of the values have that be a **list** of data. The key name will be the column name and the **list** of data will be for the column  and continues on each next row.
+
+```python
+import pandas as pd
+
+data = {
+    "name": ["Alice", "Bob", "Charlie"],
+    "age": [25, 30, 35],
+    "city": ["NY", "LA", "Chicago"]
+}
+
+df = pd.DataFrame(data)
+print(df)
+# OUTPUT
+# --------
+#      name  age     city
+#0    Alice   25       NY
+#1      Bob   30       LA
+#2  Charlie   35  Chicago
+```
+
+This can also take in a **list** of **dicts** like:
+
+```python
+import pandas as pd
+
+data = [
+    {"name": "Alice", "age": 25},
+    {"name": "Bob", "age": 30},
+    {"name": "Charlie", "age": 35},
+]
+
+df = pd.DataFrame(data)
+print(df)
+
+# OUTPUT
+# --------
+#      name  age
+#0    Alice   25
+#1      Bob   30
+#2  Charlie   35
+```
+
+Can also take a **list** of **list** like:
+
+```python
+import pandas as pd
+
+data = [
+    ["Alice", 25],
+    ["Bob", 30],
+    ["Charlie", 35]
+]
+
+df = pd.DataFrame(data, columns=["name", "age"])
+print(df)
+# OUTPUT
+# --------
+#      name  age
+#0    Alice   25
+#1      Bob   30
+#2  Charlie   35
+```
+
+> [!CAUTION]
 >
-> There is a way to change the index name for the row by passing in a **dict** collection of data. Otherwise, each row data will start with zero going up to $n-1$.
+> However, must use the *positional parameter* "columns" and set it equal to a list of strings that contain the names of the columns in that order. However, this is not the same as setting the *positional parameter* "index" which this can have as well.
+
+Unlike the **series** object type where it can use the normal bracket indexing syntax and use the ==loc== keyword to do this, a **DataFrame** can only use the ==loc== keyword. This will be accessed by the row number name, which by default is 0, 1, 2, etc. This will return a **series** and the row names will now be the column names from the **DataFrame** and the values will be the column data for it. It will also contain the name of the row from the **DataFrame** object and "dtype" at the end.
 
 
 
