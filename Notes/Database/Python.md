@@ -1,4 +1,4 @@
-# Python
+# **Python**
 
 ## Chapter 1: Introduction
 
@@ -677,8 +677,6 @@ if __name__ == "__main__":
 
 There is a function called `type()` that takes one argumet and this returns the data type of the variable in a string.
 
-
-
 I am learning python right now. When I give you a function, keyword, or module. I want you to write an example using it for me, parameters it takes, return values, how it works, and when to use it and why. I just need need these example small and to the point. Here is an example of what I wrote for showing the use of f-string string --> 
 
 ```python
@@ -718,6 +716,13 @@ A method called `index()` is used to get the index of where the value lives in t
 A method called `count()` is used to see how many times a certain value appears in the **list**. The parameter for this is the value being searched for and returns an integer of the numebr of times it was found.
 
 The method `sort()` and function `sorted()` are can be used to sort a **list** and check if it is sorted. The first does not need an argument and this just sorts (in place) the collection passed which affects the original, but it does return *None*. The second returns a bool value if it sorted.
+
+There is a function `filter()` that is used to return a **list** of something with the requested filtered data. This takes two parameters:
+
+1. The first is a function for which will be called on every element in the collection type
+2. The actual collection this will be applied to
+
+There is a function called `map()`. This will take the same parameters as the `filter()` function. However, the second can be anything that is considered an *itterable*. This will return a **list** with the new values of each element that the function was applied on.
 
 > [!NOTE]
 >
@@ -1161,6 +1166,12 @@ The **except** portion, if written in the basic way above, will catch all except
 
 There is one more final optional portion of this called **finally**. This will at the end of all the **except** blocks and will execute the code inside regardless of what failed or succedded in any of the blocks. This part should be used to close resources, print final messages, etc.
 
+Just like with the **while** and **for** loop, the **else** keyword can be added at the end of this. This code will only execute if the **try** block did not raise an error.
+
+> [!IMPORTANT]
+>
+> Use the **finally** when there should be some code that will execute no matter what happens. Use the **else** part only when the code should be executed when the **try** section does not fail. The execution order for this is the **else** will come before the **finally**.
+
 There is a way to make custom error types. This requires creating a class object and having it inheriting the Exception class. Creating a class and all that will be talked about in the next section, but that will be shown how to do here. To use the custom exception, just put the exception name like before when specifiying a specific error type.
 
 There is a way to throw an error by hand using the **raise** keyword. This will give the ability to call ANY exception object made or premade. Each one can take in an argument to help specify the error message.
@@ -1434,7 +1445,11 @@ This a more modern and common way to publish
 
 Because python does not need to declare the data type of variables, this makes it easy to declare variables. However, there are time when knowing 100% what a variable is supposed to hold. To do this there is something called *type hints*. This is a way to show what data type the variable SHOULD be. However, it is important to know python does not actually enforce these rules at run time. These are really just used for people reading/writing the code.
 
+### Basics
+
 To do type hints on variables, right after the name put `:dataType`. For example, `age: int = 30`. This can also be done by just doing `VariableName:DataType`. This can also be usesd on the collection types like `holding: dict[str,int]` or `holding: list`. Can also signal that the variable could be more than one type by adding a | between the data types. For example `money: int | float`.
+
+### Type Hint With Functions
 
 When it comes to functions, these are a little different. A type hint is place after the closing parentheses and do `-> DataType`. 
 
@@ -1635,9 +1650,13 @@ When it comes to *Continuous Integration*, there are tools to do stuff like this
 
 ## Chapter 16: Debugging
 
+### Assert Statement
+
 When it comes to debugging, a good way to do this is to use the **assert** statement like used in the previous chapter. If this fails, then this will raise an `AssertException` error.
 
 There is a special function called `pprint()` and this is just a pretty print version that makes the output look nices. For example when wanting to print a dictionary.
+
+### Logging Module
 
 Instead of printing stuff to the screen, writing the errors to a log file will be more useful and much better. Python has a package called `logging` that is used for this.
 
@@ -1711,8 +1730,6 @@ In Python, interacting with a file is done through a **file object** (also calle
 
 To interact with a file, the `open()` function is used. It creates a connection to the file on the disk.
 
-Python
-
 ```python
 file_handle = open("filename.txt", mode="r", encoding="utf-8")
 ```
@@ -1760,15 +1777,13 @@ if __name__ == "__main__":
 
 There are three primary ways to extract data from a file object:
 
-1. **`read(size)`**: Reads the entire file as a single string. If `size` is specified, it reads only that many characters.
-2. **`readline()`**: Reads a single line, including the newline character `\n`.
-3. **`readlines()`**: Reads the entire file and returns a **list** where each element is a line string.
+1. **`read(size)`**: Reads the entire file as a single string. If `size` is specified, it reads only that many characters, else the entire file. This returns a string no matter what.
+2. **`readline()`**: Reads a single line, including the newline character `\n`. This returns a string.
+3. **`readlines()`**: Reads the entire file and returns a **list** where each element is a line string. This returns a **list** with each element being a line from the file.
 
 > [!TIP]
 >
 > **Memory Efficiency**: For large files, never use `read()` or `readlines()`. Instead, iterate over the file object directly. This uses a generator-like approach to read one line at a time into memory.
-
-Python
 
 ```python
 # The optimized way to read large files
@@ -1777,7 +1792,7 @@ with open("huge_data.csv", "r") as f:
         process(line) # Only one line is in memory at a time
 ```
 
-### Context Managers (`with` keyword)
+### Context Managers
 
 In Python, it is standard practice to use the `with` statement. This ensures the `__exit__` dunder method of the file object is called, which automatically closes the file handle. This prevents:
 
@@ -1833,6 +1848,8 @@ This is a third party package that is heavily used to deal with large amounts of
 
 Use `pip` to install numpy. Once done, import it and set it to have an alias name of `np` as this is a very popular convention.
 
+### Numpy array
+
 To make a numpy array, do `numpy.array()` and this takes up to three arguments of some collection type (list, tuple, dict, set). The will create a single dimensional array which is a class of numpy.ndarray.
 
 > [!CAUTION]
@@ -1886,6 +1903,8 @@ Unlike python list, numpy arrays cannot have different types inside. This means 
 - bytes_
 - object_
 
+### Special properties
+
 There are some special things that the numpy.ndarray object has. Here are a few things that can be accessed:
 
 - To see the type of array data this is holding, access the `dtype` variable 
@@ -1910,6 +1929,8 @@ print(new_x)
 print(type(new_x))
 
 ```
+
+### Slicing
 
 When it comes to accessing elements from a numpy array, there are a few ways to do it:
 
@@ -1947,11 +1968,15 @@ print(x[1,2])
 print(x[1][2])
 ```
 
+### Unique Array Creation
+
 There is another way to create an array without having to specify the data inside it, but will fill with all zeros. The function to use from numpy is `zeros()`. The first parameter will be either a single number and this will be just a normal array. However, to have it be two dimensional then put a **tuple** there with the first value inside it being the number of rows and the second being the number of columns. This can also take the *positional argument* "dtype" like the other version does. Can also do a three dimensional array with this. The parts are `(Number of 2D arrays, rows, columns)`. There is also another way to make an array that is called `ones()` and this functions just like the `zeros()` version except all elements are the one value.
 
 There is a more unique way to declare a numpy array and this is calling the `empty()` function. This is declared the exact same way as `zeros()` and `ones()`. The ways these differ is the data that is placed inside it. Each index will get filled with random data and it just based off the actual current state of the memory. Because of this, the actual content inside will not be assured all the time (aka just garbage data). However, this is the fastest way to create a numpy array.
 
 There is also another way called the `.arange()`. This will return a normal one dimensional array with values from a specified range. If only one parameter then it will make values of that types starting from zero index going up to, but not including, the value. Can have a specific range of values by comma separating them where the first argument is the starting point and the second is the max, which is inclusive. There can also be three variables, where the two are the same except the last which is the step.
+
+### Sorting
 
 There is a way to sort the data inside the numpy array by using the function `numpy.sort()`. This will sort the data in ascending order and the only parameter will be . However, the numpy array object also has a method called `sort()` that will sort the data and have it be in-place.
 
@@ -1967,7 +1992,274 @@ There is a method called `reshape()` that is for the numpy.ndarray object. This 
 >
 > If the size of the numpy array is unknown when trying to reshape and want to turn it into a one dimensional array, can just put the value -1 and this will convert it into the one dimensional array automatically.
 
+### Newaxis
 
+There is a special syntax that changes the shape of the numpy array. This uses the `numpy.newaxis`. Take the numpy array and use the bracket notation. Inside there do `numpy.newaxis,:` or `:,numpy.newaxis`. The first way will create a new row for each of the elements in the array while the later will create a new column. For example, doing something the following:
+
+```python
+import numpy as np
+
+x = np.arange(5)
+
+print(x)
+
+x = x[np.newaxis,:]
+x = x[:,np.newaxis]
+
+print(x)
+print(x.shape)
+
+print(x[0][0][0])
+```
+
+### Boolean indexing
+
+Just like the `filter()` function or list, there is a special syntax that can be done with the numpy.ndarray object when accessed based of a condition called *boolean indexing*. This will return a numpy array object that will contain the values **True** or **False** to show what indexes from the original numpy array meet the condition. 
+
+This new mask array can be passed into the original numpy array bracket index syntax and this will only print the values from there that meet the requirements and this is called *direct boolean indexing*. With *direct boolean indexing*  syntax, the conditional stuff can just automatically do it.
+
+Can do an even more complex match by using *bit wise* (~, |, &) operations. However, make sure to wrap each part in parentheses.
+
+There is a special function `where()` in the numpy module. The first parameter is the condition to test it on that should have the numpy array, the second parameter is the value that is should be if true and the third parameter is what it should be if false. This will return a numpy list with the values. However, this cannot be put inside the original array with *direct boolean indexing*.
+
+```python
+import numpy as np
+
+arr = np.array([10, 20, 30, 40, 50])
+print("Original array:", arr)
+
+mask = arr > 25
+print("Boolean mask (arr > 25):", mask)
+
+filtered = arr[mask]
+print("Filtered result:", filtered)
+
+
+arr = np.array([10, 20, 30, 40, 50])
+print("Using arr[arr > 25]:", arr[arr > 25])
+
+
+arr = np.array([10, 20, 30, 40, 50])
+print("Original:", arr)
+
+arr[arr > 25] = 0
+print("After modification (values > 25 set to 0):", arr)
+
+
+arr = np.array([10, 20, 30, 40, 50])
+print("Original:", arr)
+
+# AND condition
+filtered_and = arr[(arr > 20) & (arr < 50)]
+print("Elements > 20 AND < 50:", filtered_and)
+
+# OR condition
+filtered_or = arr[(arr < 20) | (arr > 40)]
+print("Elements < 20 OR > 40:", filtered_or)
+
+# NOT condition
+filtered_not = arr[~(arr > 30)]
+print("Elements NOT > 30:", filtered_not)
+
+
+arr_2d = np.array([[1, 2, 3],
+                   [4, 5, 6]])
+
+print("Original 2D array:\n", arr_2d)
+
+filtered_2d = arr_2d[arr_2d > 3]
+print("Elements > 3 (flattened result):", filtered_2d)
+
+
+result = np.where(arr_2d > 3, arr_2d, 0)
+print("Using np.where(arr_2d > 3, arr_2d, 0):\n", result)
+
+
+arr = np.array([1, 2, 3])
+mask_valid = np.array([True, False, True])
+
+print("Array:", arr)
+print("Valid mask:", mask_valid)
+print("Result with valid mask:", arr[mask_valid])
+
+print("\nAttempting invalid mask (will raise error):")
+try:
+    mask_invalid = np.array([True, False])
+    print(arr[mask_invalid])
+except Exception as e:
+    print("Error:", e)
+```
+
+There is another function from the module `nonzero()`. This will return the indexes at which the value was found where it was non-zero. The single parameter can be just the numpy array object. It can also be conditional thing as well.
+
+> [!NOTE]
+>
+> This will return two different arrays with the first ones being the row and the second being the column. This will say where the values was found each of these is found respectfully in the array index.
+
+```python
+import numpy as np
+
+arr = np.array([0, 5, 0, 8, 12, 0])
+
+# Get indices of non-zero elements
+indices = np.nonzero(arr)
+
+print("Array:", arr)
+print("Non-zero indices:", indices)
+print("Non-zero values:", arr[indices])
+
+matrix = np.array([[0, 2, 0],
+                   [4, 0, 6],
+                   [0, 0, 9]])
+
+rows, cols = np.nonzero(matrix)
+
+print("Matrix:\n", matrix)
+print("Row indices:", rows)
+print("Column indices:", cols)
+
+# Show coordinates with values
+for r, c in zip(rows, cols):
+    print(f"Value {matrix[r, c]} found at position ({r}, {c})")
+    
+arr = np.array([10, 25, 30, 5, 50])
+
+indices = np.nonzero(arr > 20)
+
+print("Indices where arr > 20:", indices)
+print("Values:", arr[indices])
+```
+
+### Broadcasting
+
+The the numpy arrays, they can can operate with all the normal mathmatical functions. For example, adding two arrays will do linear algebra addition on these martix things. However, there are functions `numpy. sum()` and `numpy.prod()`. The first parameter will be the actual numpy array and this will apply the whole operation on it. The second optional *positional parameter* is "axis" and this can be the value zero or one. If the value was zero then it will only the elements vertical, but the other will be horizontal operations.
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3, 4])
+
+total = np.sum(arr)
+
+print("Array:", arr)
+print("Sum:", total)
+
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6]])
+
+print("Matrix:\n", matrix)
+print("Total sum:", np.sum(matrix))
+
+print(np.sum(matrix, axis=1))
+```
+
+Now when it comes to *broadcasting*, this is just how numpy knows how to apply mathmatical operations on an array type because it stretches a smaller operation to be a bigger one to match the larger one. For example, when doing the array multiplication like $array*2$ it knows to multiply all the values in the array by two without having to loop through the array. 
+
+There is an important rule to *broadcasting*, else if the rules are not followed a "ValueError" will be raised.
+
+- The items must be of the same size. For example, if there are two, two dimensional arrays with shape (2,2), then these would work when trying to apply math operations to them. However, if one was (2,2) and the other was (2,4) in shape then an error like the following appears --> "ValueError: operands could not be broadcast together with shapes (2,4) (2,2)". However, something like shape (2,) and another with shape (4,2) would happen then this would work.
+
+The functions above `numpy.sum()` and `numpy.prod()` are just a few functions offered by numpy. Some others are:
+
+- `numpy.max()`: Returns the max value from the array.
+- `numpy.min()`: Returns the min value from the array
+- `numpy.mean()`: Returns the mean value from the array
+- `numpy.std()`: Returns the standard deviation value from the array
+- `numpy.unique()`: This takes in the numpy array and will return all the unique number in that from that array in a **list**. This can also have a *positional parameter* called "return_index" and set this to **True** and then this will make it so it returns two arrays with the first half containing the index for the value and the second array holds the value for that index. These are positioned respective of each other from both arrays. Another *position parameter* is "return_counts" and set this to **True**. This will make it so another array will be returned show how many times a particular index value was appeared in the array. Can also use the *positional parameter* "axis" like all the others and the value can be zero (for horizontal calculations) or one (for vertical calculations).
+
+> [!IMPORTANT]
+>
+>  Can add the *positional parameter* "axis" and have the value be zero or one. If zero then will return the respected thing being found from the column, but if set to one then from each row.
+
+> [!IMPORTANT]
+>
+> Look up more about linear algebra and how to work with these things to get a better understanding of what is going on.
+
+### Matrix Operations
+
+Back to the *slicing*, when doing this on an array that is not a one dimensional one, then it can be more complicated. By default if trying to access an array that is, for example, two dimensional, like $array[0]$ then it just returns the row of that and not the actual element of that. To get back the actual value then something like $array[0][1]$ or $array[0,1]$ which both get the value from the first row in the second column.
+
+When it comes to *slicing*, this is more complex. Doing something like $array[0:3]$ would mean get the rows zero, one, and two. However, there is a way to get a particular value from those rows by doing $array[0:3, 0]$ which will get the first three rows and then return the first column value from those.
+
+### Random Generation
+
+There are ways to create a numpy array with random data, this is not the same as calling the `empty()` function. The numpy module has an inner module called "random". Inside that there is a function called `default_rng()` and this will return numpy random number generator object. One of the methods this has access to is `random()` which takes a **tuple** with the size of the numpy array to make; by default the values are floats. Another method is `integers()` which will make an array of integers. The first parameter for this will be the possible values this will range from. There are *positional parameters* that can added "size" and this will be a **tuple** for the shape of the array, another is "endPoints" and this can be set to **True**, but default is false; this will make it so the range number specified is inclusive.
+
+### Transposing
+
+There is a method called `transpose()` for the numpy object created. This will swap the shape of the array around. For example, if the array had a shape (5,2) then the method was called then it will be (2,5). This can keep going on forever swapping the shape around. This works good for something like two dimensional arrays, but not three and one dimensional arrays.
+
+### Flattening Arrays
+
+There is a function for the numpy module called `flip()` which will a reverse version of all the elements inside for the array passed in. This can also have the usual *positional parameter* "axis" that can be zero for horizontal (row) operations or one for vertical (column) operations.
+
+There is a method `flatten()` that is part of the numpy array objet. This will return a two or three dimensional array into a one dimensional version. There is another version of this called `ravel()`. However, instead of retuning a new copy it returns a *view* version of this.
+
+> [!TIP]
+>
+> Remember *view* was mentioned in the "Slicing" section for numpy
+
+### Saving Numpy Objects
+
+There is a special way to save an object instance of a numpy array. This can be useful if a lot of heavy computations were used to compute the object or a lot of time was spent getting it. This can be done using the function `save()` from numpy. The first parameter will make a string name for this thing and the second is the actual numpy array object to save. This does not return anything, but instead makes an actual file called $GivenNameFromFunction.npy$.
+
+To get back that stored data in the file, use the function `load()` from numpy where the first parameter is the name of the .npy file in the file location. This will then return the loaded numpy array object data to now be used like normal. 
+
+There is a way to store multiple numpy object arrays in a single .npy file by using the `savez()` function from numpy. This works exactly as the other version except can pass in any number of numpy array object comma separated and creates a file $GivenNameFromFunction.npz$. However, when it comes to loading the data back this will be different. To load the data back first use the `load()` function like before. This will return an npz file with key names. These key names are the names of the actual numpy array object instance stored which can be seen by printing the thing out or accessing the object variable "files" paremeter from the thing returned from `load()` which returns a **list** with the file names. Now to actually get back the numpy array object data use *unpacking* like `x,y = loadedThing["Name0"], loadedThing["Name1"]` or can get them one by one whenever and now use them like normal.
+
+# Pandas
+
+### Basics
+
+This is a python library that is built on top of the numpy library.
+
+Unlike numpy where the thing always being worked with was arrays, pandas uses **DataFrames** and **series**. A **series** is like a one dimensionl column in excel; this is just a one dimenstional labeled array. While a **DataFrame** is like a whole excel table because this is two dimensional.
+
+When importing this library, first make sure to install it with pip3 (or pip on windows). Typically, this has an alias of "pd".
+
+To see current verision of pandas, print to the screen the dunder variable `__version__` from the pandas library.
+
+To create a **series** object, access the constructor `Series()` from the pandas library. At minimum must at least pass in a **list**, **tuple**, **dict**, or **set**. This will then make a whole column of data with the left side data being the index it is as and the right side being the values for it. At the end of this it will also show the data type that this is holding.
+
+```python
+import pandas as pd
+
+print(pd.__version__)
+
+x = {"One": 1, "Two": 2, "Three": 3}
+y = [10, 20, 30, 40, 50]
+
+series = pd.Series(x)
+series2 = pd.Series(y)
+
+print(series)
+print(series2)
+
+# OUTPUT BELOW
+#3.0.1
+#One      1
+#Two      2
+#Three    3
+#dtype: int64
+#0    10
+#1    20
+#2    30
+#3    40
+#4    50
+#dtype: int64
+```
+
+A more visual look of a **series** will be:
+
+![Screenshot 2026-02-25 at 9.31.59 PM](/Users/femboylover/Desktop/Screenshot 2026-02-25 at 9.31.59 PM.png)
+
+A more visual look of a **DataFrame** will be:
+
+![](/Users/femboylover/Desktop/Screenshot 2026-02-25 at 9.33.53 PM.png)
+
+> [!TIP]
+>
+> There is a way to change the index name for the row by passing in a **dict** collection of data. Otherwise, each row data will start with zero going up to $n-1$.
 
 
 
