@@ -1,8 +1,5 @@
-import pandas as pd
+with open("Input.txt", "rb") as fp:
+    text = fp.read()
 
-data = [["Alice", 25], ["Bob", 30], ["Charlie", 35]]
-
-df = pd.DataFrame(data, columns=["name", "age"])
-
-print(type(df.loc[0]))
-print(df.loc[0])
+print(text)
+print(fp.closed)

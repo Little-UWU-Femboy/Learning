@@ -104,7 +104,7 @@ When it comes to the data types python can have are:
 - **int**: values 47, -2, 4999494, etc. This is not mutable.
 - **float**: values 3.2, 2.7e5, -1.0, etc. This is not mutable.
 - **complex**: 3j, 5 + 9j, etc. This is not mutable.
-- **str**: "yes", 'no', "Live, Like, Love", `:```Testing``` :`(only need the triple back ticks, but typora quirk) etc. This is not mutable.
+- **str**: "yes", 'no', "Live, Like, Love", \`\`\`TextHere\`\`\`(only need the triple back ticks, but typora quirk) etc. This is not mutable.
 - **list**: This is used to store an array style of data. This is mutable.
 - **tuple**: This is another way to store data like an array. This is not mutable.
 - **bytes**:  Hard to describe the values for this; look it up later. This is not mutable.
@@ -1724,111 +1724,172 @@ Note important right now, but can come back to this
 
 ## Chapter 20: Files
 
-In Python, interacting with a file is done through a **file object** (also called a handle or a stream). This object acts as a middleman between the Python interpreter and the operating system's file system.
+To work with files in the file system, python has native ways to do this. Typically, when working with *flat files* (csv, txt, tsp, etc) which are the simplest files to work with, these are easy to read and write to.
 
-### The `open()` Function
+### Open()
 
-To interact with a file, the `open()` function is used. It creates a connection to the file on the disk.
+To start working with a file, use the `open()` function. This will return a ==<class '_io.TextIOWrapper'>== object. There are at least two parameters this takes:
 
-```python
-file_handle = open("filename.txt", mode="r", encoding="utf-8")
-```
+1. Filename: This will be a string and contain the name of the file to work with using an absolute or relative path
+2. Mode: This is the type of operations that can be done on the file like only reading, only writing, both, creating file, etc.
 
-- **File Path**: Can be relative (starting from the current directory) or absolute.
-- **Mode**: A string that defines how the file is accessed.
-- **Encoding**: While optional, it is highly recommended to specify `encoding="utf-8"` to prevent "mojibake" (garbled text) when moving code between Windows (which often defaults to CP1252) and Linux/macOS.
+| Mode   | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `'r'`  | Read mode. Opens a file for reading. Raises an error if the file does not exist. |
+| `'w'`  | Write mode. Creates a new file or overwrites the file if it already exists. |
+| `'a'`  | Append mode. Opens a file for writing but adds content to the end instead of overwriting. Creates the file if it does not exist. |
+| `'x'`  | Exclusive creation mode. Creates a new file and raises an error of ==FileExistsError== if the file already exists. Can write in this mode. |
+| `'t'`  | Text mode (default). Opens the file in text format.          |
+| `'b'`  | Binary mode. Opens the file in binary format (used for images, videos, etc.). |
+| `'r+'` | Read and write mode. File must exist. Does not truncate the file. |
+| `'w+'` | Write and read mode. Overwrites the file if it exists or creates a new one. |
+| `'a+'` | Append and read mode. Creates the file if it does not exist. Writing happens at the end of the file. |
+| `'rb'` | Read in binary mode.                                         |
+| `'wb'` | Write in binary mode (overwrites if exists).                 |
+| `'ab'` | Append in binary mode.                                       |
 
-### File Access Modes
+Once the object is returned, it has access to special methods to perform read, write, and other operations.
 
-| **Mode** | **Description** | **Detail**                                                   |
-| -------- | --------------- | ------------------------------------------------------------ |
-| **`r`**  | Read            | Opens for reading. Raises `FileNotFoundError` if the file doesn't exist. |
-| **`w`**  | Write           | Opens for writing. **Truncates** (erases) the file if it already exists. |
-| **`a`**  | Append          | Opens for writing, but starts at the end of the file. Does not erase data. |
-| **`r+`** | Read/Write      | Opens for both. The file pointer starts at the beginning.    |
-| **`b`**  | Binary          | Used for non-text files (images, `.exe`). Combined like `rb` or `wb`. |
+It is important to release file resources once done with them othewise this can persist in memory and just hog memory. To do this, use the method `close()` to do this. Afterwards, can access a variable from the object called `closed` and this will be **True** is the resource was closed and **False** if not closed.
 
-### The File Pointer (`tell` and `seek`)
-
-When a file is opened, Python keeps track of the "cursor" or *file pointer*. This is the byte offset where the next read or write operation will occur.
-
-- `tell()`: Returns an integer representing the current position of the pointer in bytes.
-- `seek(offset, whence)`: Moves the pointer to a specific location.
-  - `offset`: Number of bytes to move.
-  - `whence`: (Optional) `0` for start of file, `1` for current position, `2` for end of file.
-
-Python
+There is a special way to direct text written by the `print()` to a file instead of standard output. As a *positional parameter* add "file" and set that equal to the file object returned. 
 
 ```python
-def start():
-    with open("data.txt", "w+") as f:
-        f.write("0123456789")
-        print(f"Position after write: {f.tell()}") # Output: 10
-        
-        f.seek(5) # Move cursor to the 5th byte
-        print(f"Read from 5: {f.read(1)}") # Output: 5
-        print(f"Current position: {f.tell()}") # Output: 6
-
-if __name__ == "__main__":
-    start()
+fileWriting = open("Output.txt", "w")
+print("This came from print()", file=fileWriting)
+fileWriting.close()
+# This will create a file called Output.txt in the current directory or delete all content if already exist
+# After, this will write the text to the file
+# This release the file resources once done with them
 ```
 
-### Reading Methods
+### Read Operations
 
-There are three primary ways to extract data from a file object:
+When wanting to read from a file, use the method `read()`. If this method is called with no argument, it will read the entire file at once as a single string.
 
-1. **`read(size)`**: Reads the entire file as a single string. If `size` is specified, it reads only that many characters, else the entire file. This returns a string no matter what.
-2. **`readline()`**: Reads a single line, including the newline character `\n`. This returns a string.
-3. **`readlines()`**: Reads the entire file and returns a **list** where each element is a line string. This returns a **list** with each element being a line from the file.
+```python
+fp = open("Input.txt", "r")
+
+total = fp.read()
+
+print(total)
+print(f"Content is: {fp.write()}")
+fp.close()
+```
+
+This can take a single argument and that is the total amount of bytes to read at once. This will return a string with that many bytes of data only. If there is less bytes in the file left to read than trying to read, this will just read the remaining about and that is it. Then if when trying to read again from this it will return an empty single quoted string which is just a *Falsely* value secrely. 
+
+```python
+poem = ''
+fin = open('Input.txt', 'r')
+chunk = 100
+while True:
+    fragment = fin.read(chunk)
+    if not fragment:
+        break
+    poem += fragment
+
+fin.close()
+len(poem)
+```
+
+Another way to read a file is with `readline()` method. This will read a single line in the file and then return only that. Just like `read()`, this will return an empty string (aka *Falsely* value) to signle this is empty and done.
+
+```python
+poem = ''
+fin = open("Input.txt", "r")
+
+while True:
+  fragment = fin.readline()
+  if not fragment:
+    break
+  poem += fragment
+
+fin.close()
+print()
+```
+
+Another way to read a file is using the `readlines()` method. This willl read the whole file at once, but this returns a list of strings containing the text for an indiviual line.
+
+```python
+fin = open("Input.txt", "r")
+
+stringHolder = fin.readlines()
+
+fin.close()
+print(stringHolder)
+```
+
+### Write Operations
+
+To write to a file, use the method `write()`. This will write to the file the specified content and return the number of bytes that was written to the file. The only parameter this takes is a string to write to the file. This will not add any \n or spaces to the text. However, if was writing binary then this would have to be **bytes** or **bytearray** data type.
+
+There is a way to write multiple strings at once to a file using the `writelines()`. Unlike `write()`, this does not take a single string parameter. Instead, this takes an *itterable* of strings (**list**, **tuple**, *generators*, etc) as its single parameter. Also, this returns a type of **None** and does not return the bytes back.
+
+```python
+fp = open("Output.txt", "w")
+
+singleString = "This is a single string write"
+stringList = ["First String", "Second String", "Third String\n", "Fourth String"]
+
+# Will only write the single string
+total = fp.write(singleString)
+print(total)
+
+fp.writelines(stringList)
+print(total)
+
+fp.close()
+```
 
 > [!TIP]
 >
-> **Memory Efficiency**: For large files, never use `read()` or `readlines()`. Instead, iterate over the file object directly. This uses a generator-like approach to read one line at a time into memory.
+> Can get `print()` be behave like `write()` by adding the *positional parameters* "sep" and "end" and setting them both to ''. By "sep" will have a space and "end" will have \n.
+
+When writing to a file, sometimes it is better to write this in chunks instead of all at once. Writing at once will load the entire thing into memory and if low on that then this could slow down the program or even crash it. This is also helpful if getting data from API or sockets where it might not come all at once. To do this, make use of *slicing* the string. Only continue writing while the total amount of data written is less than the total string size.
 
 ```python
-# The optimized way to read large files
-with open("huge_data.csv", "r") as f:
-    for line in f:
-        process(line) # Only one line is in memory at a time
+# This will show how to write in chunks
+fout = open('relativity', 'w')   # Open file for writing
+size = len(poem)                 # Total length of the string
+offset = 0                          # Start position
+chunk = 100                      # Chunk size
+
+while True:
+    if offset > size:               # Stop when offset exceeds string length
+        break
+    fout.write(poem[offset:offset+chunk])  # Write a slice of the string from 0 to 99 then 100 to 199, etc
+    offset += chunk                       # Move to next chunk
+
+fout.close()
 ```
 
-### Context Managers
+> [!NOTE]
+>
+> There is no need to do the string *slicing* if the string is super small like the one in the example above. This should only be done if writing a large file.
 
-In Python, it is standard practice to use the `with` statement. This ensures the `__exit__` dunder method of the file object is called, which automatically closes the file handle. This prevents:
-
-- **File corruption**: Ensuring all buffers are "flushed" to the disk.
-- **OS Resource Leaks**: Operating systems have a limit on how many file handles a single process can hold open.
-
-### Writing and Buffering
-
-When calling `write()`, Python doesn't always send the data to the disk immediately for performance reasons. It stores it in a **buffer**.
-
-- **`flush()`**: Manually forces the buffer to write its content to the disk without closing the file.
-- **`close()`**: Flushes the buffer and releases the system resource.
-
-Python
+Earlier there was something called *context manager*. This is something that automatically handles resources that should be freed once out of the scope of it. Python does this using the **with** keyword. The syntax for this is `with <Expression> as <AliasName>`. If used for a file this will automatically call the `close()` method once the scope of the **with** block is done. Even if an exception is raised inside here, it will still automatically close the file.
 
 ```python
-def start():
-    try:
-        with open("secure.log", "a") as f:
-            f.write("Log entry...\n")
-            f.flush() # Ensure it's on disk immediately
-            # Do more work...
-    except OSError as e:
-        print(f"Disk error: {e}")
-
-if __name__ == "__main__":
-    start()
+with open("Input.txt", "r") as fp:
+  STRING = fp.read()
+  
+print(STRING)
 ```
 
-### The `os` and `pathlib` Modules
+> [!CAUTION]
+>
+> It is important to know that **with** does not actually create a new scope like a function or class does. All this does is link the resource opened to that. This means any variables or resources declared inside will still be available outside it; even the resource connected to the **with** block.
+>
+> ```python
+> with open("Input.txt", "r") as fp:
+>   tmp = 30
+> 
+> print(tmp)
+> print(fp.closed)
+> ```
 
-For managing file metadata (checking if a file exists, deleting files, etc.), Python uses these modules:
-
-- `os.path.exists("path")`: Returns a boolean.
-- `os.remove("path")`: Deletes a file.
-- `pathlib.Path`: A more modern, object-oriented way to handle paths (e.g., `Path("data.txt").read_text()`).
+When actually reading and writing to a file, there is a "pointer" that keeps track of where the next read or write should happen in the file; this can be thought of as a cursor.
 
 ## Chapter 21: Concurrency
 
@@ -2253,7 +2314,7 @@ print(series2, index=["a", "b", "c"])
 
 A more visual look of a **series** will be:
 
-![Screenshot 2026-02-25 at 9.31.59 PM](/Users/femboylover/Desktop/Screenshot 2026-02-25 at 9.31.59 PM.png)
+![Image of Excel column with single row data](../Assets/Series.png)
 
 > [!TIP]
 >
@@ -2295,7 +2356,7 @@ Just like with numpys *Boolean indexing*, the same thing can be done like `serie
 
 A more visual look of a **DataFrame** will be:
 
-![](/Users/femboylover/Desktop/Screenshot 2026-02-25 at 9.33.53 PM.png)
+![DataFrameImage](../Assets/DataFrame.png)
 
 When making a **DataFrame**, this time call the `DataFrame()` constructor and this will return a **DataFrame** object. A good way to make this is by creating a **dict** and for each of the values have that be a **list** of data. The key name will be the column name and the **list** of data will be for the column  and continues on each next row.
 
