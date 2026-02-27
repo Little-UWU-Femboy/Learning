@@ -2,7 +2,7 @@
 
 **Phone:** 414-544-5352
 **Email:** Gabrielcenteno2003@icloud.com
-**Address:** 6926 Terra Rye  
+**Address:** 6926 Terra Rye
 
 ## Summary
 
