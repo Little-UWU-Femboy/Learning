@@ -30,11 +30,11 @@ Exploring the different parts of the way data is stored:
 - **reference count**: This tracks how many different variables are referencing this same memory data. Once the reference count hits 0, no variables can reference the data any more. This means python marks it for garbage clean up.
 
 > [!NOTE]
->
+> 
 > When reassigning ANY, be it the same or different, variable data; this creates a whole new object in memory.
 
 > [!IMPORTANT]
->
+> 
 > For optomiation, python actually creates objects for values -5 to 255. This means
 
 ```python
@@ -45,7 +45,7 @@ x = "Yes" # This now holds string data and has a whole new ID value in memory ag
 
 Unlike java, python does have a manual way to get rid of a variable in memory manually using the **del** keyword. It is not a function call and use it like `del VariableName`. This will delete that variable reference and deincrement that objects reference count.
 
-###  Python Keywords
+### Python Keywords
 
 Pythons reservered keywords are:
 
@@ -88,11 +88,11 @@ Pythons reservered keywords are:
 When it comes to naming variables, python using the *snake casing* convention (disgusting). Python using *pascal casing* when defining custom classes. When making a variable name, it follows the standard naming rules: can have letters A-Z,a-z, and underscore. 
 
 > [!WARNING]
->
+> 
 > Python does not have a way to make constant variables. However, it uses the convention of having the word all upper caps with the snake casing like `MAX_AGE`. This symbolizes that variables data should never be reassigned.
 
 > [!NOTE]
->
+> 
 > Python for OOP, python does not have a private keyword, so to indicate a variable is representing a private variable, put a single underscore when naming the variable like `_name`. Anything that starts with a double underscore has a special usage when creating object classes. Names that start AND end with a double underscore are called **dunder methods** that are also used for object classes.
 
 ### Data Types
@@ -102,18 +102,26 @@ When it comes to the data types python can have are:
 - **bool**: values *True* and *False*. This is not mutable.
 
 - **int**: values 47, -2, 4999494, etc. This is not mutable.
+
 - **float**: values 3.2, 2.7e5, -1.0, etc. This is not mutable.
+
 - **complex**: 3j, 5 + 9j, etc. This is not mutable.
+
 - **str**: "yes", 'no', "Live, Like, Love", \`\`\`TextHere\`\`\`(only need the triple back ticks, but typora quirk) etc. This is not mutable.
+
 - **list**: This is used to store an array style of data. This is mutable.
+
 - **tuple**: This is another way to store data like an array. This is not mutable.
+
 - **bytes**:  Hard to describe the values for this; look it up later. This is not mutable.
+
 - **Bytearray**: Hard to describe the values for this; look it up later. This is mutable.
+
 - **set**: Kind of like an array, but for making sets. This is mutable.
+
 - **frozenset**: This is like a set except it is not mutable.
+
 - **dict**: This is a way to make key value pairs. This is mutable.
-
-
 
 ## Chapter 3: Numbers
 
@@ -121,7 +129,7 @@ When it comes to the data types python can have are:
 
 Python has a way to convert a value to a **bool** type by using the type casting `bool(VariabeName, ...)`. This turns the variable(s) inside to be a *True* or *False* value.  Anything is considered *True* if the value is anything besides 0 or a non-empty string and *False* otherwise.
 
-###  Integer
+### Integer
 
 An integer can start with 0b, 0o, or 0x and this will make an binary, octal, or hexadecimal number respectfully. 
 
@@ -139,7 +147,7 @@ There are two special things that can be done:
 2. `//`: For division as well, except this will round the number down to the nearest whole number. Unlike the normal version that keeps it inflating point form.
 
 > [!NOTE]
->
+> 
 > When dividing with /, this will always return a floating point number even if the two numbers being divided are whole numbers.
 
 Can also do the short had opertaions like *= , +=, etc.
@@ -182,13 +190,13 @@ A string made by double or single quotes is treated the same way unlike in C whe
 There are a few special ways to make a string in python:
 
 - **f-string**: This string type will start with the letter "f" BEFORE the quotation marks and not inside. This is used to get string formatting. 
-- **r-string**: This is a raw string. This will not intepert ANYTHING in the string and will keep it in its raw form. This prevents things like escape characters from being converted. This is made the same way as an **f-string** except stats with an "r".
+- **r-string**: This is a raw string. This will not interpret ANYTHING in the string and will keep it in its raw form. This prevents things like escape characters from being converted. This is made the same way as an **f-string** except stats with an "r".
 - **unicode string**: This is the same thing as making a normal string and really no need to put this. However, this does start with a "u"
 - **byte string**: This is used to make a string of bytes.
 
 The reason single or double quotes can be used to make a string is they can both do small different things. If a double quote is used, it can use single quotes inside without having to escape it and vice versa with single quotes.
 
-A string can also be made with three single/double quotes. This are really used to create multi-line strings since it will keep the formatting of text spaning multiple lines.
+A string can also be made with three single/double quotes. This are really used to create multi-line strings since it will keep the formatting of text spanning multiple lines.
 
 With strings, there is a special value called **EOL** and this means the end of line was reached.
 
@@ -196,7 +204,7 @@ Something can be type casted into a string with the `str()` function that takes 
 
 Can use the \ to escape the special characters in a string to be able to use them like \t, \n, \\`, \\", \\\, etc.
 
-To combine two stirngs, the use of the addition operator is used and this concats the strings. The first stirng will have the second added to the back of it.
+To combine two strings, the use of the addition operator is used and this concats the strings. The first string will have the second added to the back of it.
 
 ```python
 x = "Yes"
@@ -222,9 +230,9 @@ print(x[2])
 ```
 
 > [!WARNING]
->
+> 
 > Unlike other languages, indexes can be accessed using negative numbers inside it. Except, this just starts in the opposite direction going from right to left. For example
->
+> 
 > ```python
 > letters = "abcdefg"
 > print(letters[0])
@@ -250,7 +258,7 @@ Another way to get a substring is using *string slicing*. This also uses the squ
 3) skip: this will be how many indexes to skip before copying the next letter. This is the only optional parameter and if nothing is specified then it will skip nothing.
 
 > [!NOTE]
->
+> 
 > Because the third parameter is optional, this means the slice specification can also just be `start:end`. Also, if the entire is to be copied, then all that needs to be done is put `:` for the string slice. Any of these parts can be omitted, 
 
 To get the total size of a string, use the `len()` function. This is a function that will return an integer value of the number of characters in the string.
@@ -267,9 +275,9 @@ print(x[1:12]) # outputs --> ack, 32, L
 Another class **str** specific method is `join()`. This is the opposite of `split()` since this joins strings together based on the specified separator. This takes only one value, that being the list of strings to join together. However, the actual string this method is called on is the thing that it will join based on.
 
 > [!NOTE]
->
+> 
 > A string does not have to be assigned to a variable to use the methods of the respected type. A good example of this is when called the `join()`, this used that particular method.
->
+> 
 > ```python
 > x = ["Yes", "No", "Maybe"]
 > print("\n".join(x))
@@ -285,12 +293,10 @@ Another class **str** specific method is `join()`. This is the opposite of `spli
 
 There are ways to check certain things in a string to see if a certain pattern is there like for a prefix and suffix. The other **str** specific methods are:
 
-1.  `startswith()`: This takes a single string argument and checks if the string starts with that specific string in the argument.
-2.  `endswith()`: This takes a single string argument and checks if the string ends with that specific string in the argument.
-3.  `removeprefix()`: This takes a single string argument and remove that string from the start of the string if it does exist.
-4.  `removesuffix`: This takes a single string argument and remove that string from the end of the string if it does exist.
-
-
+1. `startswith()`: This takes a single string argument and checks if the string starts with that specific string in the argument.
+2. `endswith()`: This takes a single string argument and checks if the string ends with that specific string in the argument.
+3. `removeprefix()`: This takes a single string argument and remove that string from the start of the string if it does exist.
+4. `removesuffix`: This takes a single string argument and remove that string from the end of the string if it does exist.
 
 There is another method called `strip()` that removes content from the string. This is useful to remove whitespace, newlines, tabs, etc. This function takes one argument and that is what the specific type of thing to remove. However, is nothing is provided then it will remote all the different whitespace types. The string provided can contain multiple different things to remove and does not just have to be one. This does NOT remove the content from the middle of the string and JUST the left and right most side of it.
 
@@ -304,9 +310,9 @@ print(x.strip(" !")) # outputs --> Silly ?! Earth
 
 There are two specific **str** functions to find a particular word in a string which are `find()` and `index()`. These both work the same in that they will search the entire string and return the lowest index position that pattern is found. The difference between them is how they handle errors. `find()` will return -1 if the string pattern is not found. `index()` will raise an exception making sure that the issue of the sub string not being there is addressed right away. Both of these take the same arguments:
 
-1.  The specified string pattern to look for
-2.  The starting index this will look in the string
-3.  The ending index - 1 this will look in the string
+1. The specified string pattern to look for
+2. The starting index this will look in the string
+3. The ending index - 1 this will look in the string
 
 ```python
 def start():
@@ -375,13 +381,9 @@ if __name__ == "__main__":
     start()
 ```
 
-
-
 ## Chapter 5: Bytes and Bytearray
 
 Skipped for now as not important for core class leaning, but come back to this
-
-
 
 ## Chapter 6: if and match
 
@@ -450,8 +452,6 @@ if __name__ == "__main__":
 
 There is a way to create a *ternary operator*, which is a shorter more concise way to make an if statement to assign a variable to it. The syntax for this is `VariableName = TrueValue if Condition else FalseValue`. 
 
-
-
 ### Match statement
 
 There is something called **match** which is like a *switch statement* in C except the use of the **break** keyword is not needed at the end of each case to prevent fall through. However, there are different types of **match** statements that can be made:
@@ -498,13 +498,11 @@ if __name__ == "__main__":
     start()
 ```
 
-
-
 ### Structural Guards
 
 There is something called **structural guard** syntax. This allows putting an if statement in the *case statement*. This allows for extra protection in the **match** statement to see if the original . The way these are evaulated is ONLY IF the case statement check passes, then it move on to the **structural guard** and evaulates that, but if the case statement does not pass, then it will not run the **structural guard**. These 
 
-````python
+```python
 def start():
     x = 50
     match x:
@@ -517,7 +515,7 @@ def start():
 
 if __name__ == "__main__":
     start()
-````
+```
 
 There is a special way to declare variables using the **walrus operator**. This is the `:=` like in Go. This is used to declare variables at certain times without having to declare them beforehand. If trying to do the same thing without using the **walrus operator** then this would cause a run time error since it would've needed to be declared before hand.
 
@@ -532,8 +530,6 @@ if __name__ == "__main__":
     # This example puts parentheses around the if statement to make sure the variable
     # can be declared and be used.
 ```
-
-
 
 ## Chapter 7: For and While
 
@@ -596,8 +592,6 @@ if __name__ == "__main__":
     start()
 ```
 
-
-
 ## Chapter 8: Tuples and Lists
 
 A common way to store data in a data structure is a **tuple** and **list**.
@@ -607,7 +601,7 @@ A common way to store data in a data structure is a **tuple** and **list**.
 A **tuple** is a way to store data in an indexed collection, but once that is made then the data inside can never change like adding/remove indexes or changing index values. To make a **tuple** use a set of parentheses and put the data inside comma seperated or can make an empty **tuple** by just putting the parentheses without data.
 
 > [!NOTE]
->
+> 
 > If only adding a single element inside the **tuple**, then it has to end with a comma even if no extra values are inside it. Otherwise, this will see that single value and just assign that single specified value inside it and not make a **tuple**.
 
 When making the **tuple** with multiple values, this can be done by putting the data inside the parentheses and comma seperating it or drop the parentheses and just assign the variable to the comma seperated values and this makes a **tuple** as well. However, it is a little safer and cleaner to use the parentheses.
@@ -631,7 +625,7 @@ A **list** is almost the same as a C array except this does, the data inside it 
 A **list** is made by using brackets and putting the data inside it. This can be an empty **list** by just assigning a variable to a set of brackets or can place values inside it comma seperated.
 
 > [!NOTE]
->
+> 
 > Unlike a **tuple**, if the **list** contains a single value, there is no need to end it with a comma like a **tuple**. This will keep this as a **list** type.
 
 Just like **tuples**, there is a `list()` function to convert a different collection type to a **list** type.
@@ -643,10 +637,8 @@ Just like a **tuple**, **list** elements are accessed using the bracket notation
 Just like strings, the *slice* notation can be used on **list** types to return a new **list** with the specified values to copy. The notation syntax is EXACTLY the same as the string one.
 
 > [!TIP]
->
-> A trick to reverse a list it to do `listName[::-1]`. This will go starting from 0 to end of **list** and move starting from the right moving left and place that item at the top of the list. However, there is a function called `reverse()` that is on ALL collection types that ARE MUTABLE. So this would not be available on a **tuple** or **str**, but will be on a **list** type. However, unlike slicing, `reverse()` does modify the original mutable collection variable.
->
 > 
+> A trick to reverse a list it to do `listName[::-1]`. This will go starting from 0 to end of **list** and move starting from the right moving left and place that item at the top of the list. However, there is a function called `reverse()` that is on ALL collection types that ARE MUTABLE. So this would not be available on a **tuple** or **str**, but will be on a **list** type. However, unlike slicing, `reverse()` does modify the original mutable collection variable.
 
 ```python
 def start():
@@ -661,9 +653,9 @@ def start():
     dimensions = (1920, 1080)
     print(dimensions)
     # dimensions[0] = 1280  #  This would raise an error
-    
+
     testTuple = ("YES",) # Make a single tuple object
-    
+
     # Tuple unpacking
     x, y = dimensions # Now x = 1920 and y = 1080
 
@@ -725,7 +717,7 @@ There is a function `filter()` that is used to return a **list** of something wi
 There is a function called `map()`. This will take the same parameters as the `filter()` function. However, the second can be anything that is considered an *itterable*. This will return a **list** with the new values of each element that the function was applied on.
 
 > [!NOTE]
->
+> 
 > The one argument that can be passed to `sort()` is "reverse=True" and this reverse sorts the **list**.
 
 The function `len()` can be used to check the length of the **list** as an integer.
@@ -747,7 +739,7 @@ if __name__ == "__main__":
 ```
 
 > [!NOTE]
->
+> 
 > The code above does work. If copied into the editor, the line #6 will show an error. However, that is just the IDE saying the value was originally an int and now being switched to a string so this could be very bad. The python inteperter does not actually care about this and will do the change.
 
 To prevent this double reference to a **list**, it has the method `copy()`, function `list()`, or using the *sliceing* syntax. These are used by:
@@ -759,7 +751,7 @@ To prevent this double reference to a **list**, it has the method `copy()`, func
 When it comes to copying **list**, the `copy()` only copies the "first layer" of the **list**. For example, if a **list** contained another **list** inside, then the `copy()` will return a new **list** and its values, but the **list** item does not become a new copy and instead still shared the same object reference as the new one. To prevent this from happening, use the function `deepcopy()`. The only parameter `deepcopy()` takes is the **list** item to be coped.
 
 > [!NOTE]
->
+> 
 > The `deepcopy()` function is actually in the module "copy", so have to do `import copy` at the top of the file and then do `copy.deepcopy(ListVariable)`.
 
 When it comes to compaing **list**, this is just like a comparing a **tuple**. Meaning both have the same rules.
@@ -777,17 +769,17 @@ for xHolder, yHolder in zip(x,y);
 ```
 
 > [!WARNING]
->
+> 
 > The `zip()` will stop going over all the collection types one the shortest one is completed. Meaning the shortest collection is what stops the **for** loop.
 
 There is another version of the `zip()` called `zip_longest()`. This almost has the same rules as the normal version except this goes on for the longest collection size and not the shortest. This if a shorter collection type would have no more data to itterate through, then for that specific type it would get returned *None* for the respected list itterable variable.
 
 > [!NOTE]
->
+> 
 > The `zip_longest()` is located inside the module "itertools", so that needs to be imported before this can be used. Also, there is a secret parameter called "fillvalue" that can be set equal to something that this is what the value *None* will be replaced with if no value is in the collection type.
 
 > [!TIP]
->
+> 
 > The `zip()` and `zip_longest()` are able to be used on a string since it is considered an itterable thing.
 
 The `zip()` and `zip_longest()` can be used without being in a **for** loop; that was just a way to itterate over multiple collection types at the same time. Using one of these functions normally will create a whole zip object type that holds each version of these. Wrap the returned value from it in a `list()` and the indexes of the **list** get filled with **tuples** of the same index type. For example:
@@ -816,8 +808,6 @@ print(a) # OUTPUT --> [0, 1, 4, 9, 16]
 print(b) # OUTPUT --> [0, 2, 4, 6, 8]
 print(c) # OUTPUT --> ['even', 'odd', 'even', 'odd', 'even']
 ```
-
-
 
 ## Chapter 9: Dictionaries and Sets
 
@@ -879,16 +869,16 @@ def start():
     print(x.keys())
     print(x.values())
     print(x.items())
-    
+
     for i in x:
         print(i)
-    
+
     for i in x.keys():
         print(i)
 
     for i in x.values():
         print(i)
-    
+
     for i in x.items():
         print(i)
 
@@ -922,8 +912,6 @@ These can also be compared with == and !=. The biggest difference between compar
 
 The **dictionaries** also can have *list comprehension* and it is all the exact same thing as with **lists** except the expression thing `{KeyExpression: ValueExpression for Expression in IterableVariable}`.
 
-
-
 ### Set
 
 This is a way to have only unique pairs in a collection, so if any duplicates are in it they are removed until one copy is left. This is made the same way as a **dictionary** with curly braces. However, a **set** cannot be empty; if it is then it is converted into a **dictionary**.
@@ -931,7 +919,7 @@ This is a way to have only unique pairs in a collection, so if any duplicates ar
 Another way a **set** can be made is with the `set()` function. This can also be used to convert one collection type to a **set**.
 
 > [!NOTE]
->
+> 
 > If the `set()` is used on a **dictionary**, this will not keep the values of each *key*, but will keep the *keys* themself.
 
 Can use the `len()` function to get the length of the **set**
@@ -955,7 +943,7 @@ When it comes to combining **sets**, this is done with a single & symbol. When c
 - superset: Can check if something is a superset with the `issuperset()` method which returns *True* or *False*.
 
 > [!NOTE]
->
+> 
 > The method the **set** is called on will be the A and the **set** that is passed in will be the B for all functions mentioned above.
 
 ## Chapter 10: Functions
@@ -967,7 +955,7 @@ To create a function start with the **def** keyword, followed by the name of the
 To call the function just use the name and parentheses and pass data inside. Make sure that it is called on the proper indentation or else the function will not be considered made or could be out of scope.
 
 > [!TIP]
->
+> 
 > Just like C, the functions have to be declared BEFORE they can be called as this is not like javascript that hooks all functions to the top.
 
 When it comes to returning a value, just use the **return** keyword. However, unlike C, this does not need to specify a return type and can just return anything if it wants to or not. However, if no specific return value is given, then by default it will return *None*.
@@ -1027,7 +1015,7 @@ if __name__ == "__main__":
 
 There is something called *inner functions* and this just gives the ability to create other functions inside other functions. However, there is something special called **closures**. A **closure** is when a function is declared inside another function and returned back as an instance of that function which gives the ability to call a function and have it remember state. This is created by just returning the function name.
 
-````python
+```python
 def OuterString(stringName):
     def Inner():
         print(f"WOW THIS WAS MADE AND NOW HOLDS {stringName}")
@@ -1053,8 +1041,7 @@ if __name__ == "__main__":
     y()
     print(x)
     print(y)
-
-````
+```
 
 ### Lambda Function
 
@@ -1169,7 +1156,7 @@ There is one more final optional portion of this called **finally**. This will a
 Just like with the **while** and **for** loop, the **else** keyword can be added at the end of this. This code will only execute if the **try** block did not raise an error.
 
 > [!IMPORTANT]
->
+> 
 > Use the **finally** when there should be some code that will execute no matter what happens. Use the **else** part only when the code should be executed when the **try** section does not fail. The execution order for this is the **else** will come before the **finally**.
 
 There is a way to make custom error types. This requires creating a class object and having it inheriting the Exception class. Creating a class and all that will be talked about in the next section, but that will be shown how to do here. To use the custom exception, just put the exception name like before when specifiying a specific error type.
@@ -1215,10 +1202,8 @@ except Exception:
 print("Program continues running normally...")
 ```
 
-
-
 > [!TIP]
->
+> 
 > When it comes to making a generic exception catch, it is conventional to use `except Exception` and not just `except`. This just uses the main Exception object so this still means to catch call exceptions raised.
 
 ## Chapter 11: Objects
@@ -1261,7 +1246,7 @@ When first making a custom class object it always need the `__init__` **dunder**
 When it comes to declaring normal methods for this, this is the same as declaring a normal function except it is within the scope of the class object.
 
 > [!WARNING]
->
+> 
 > When making the *content manager* methods `__enter__` and `__exit__`, they both MUST be present or else this will not work at all with them.
 
 There is a special function called `property()` that is applied to functions. This is a special function that can bind a certain class attribute that when used in certain ways it will call defined function that are inside the current class object. This will take at most four arguments and they are:
@@ -1278,15 +1263,15 @@ Unlike Java, where instance variables are explicitly declared at the class level
 In a Python class, instance variables are created when they are assigned to `self`, typically inside the `__init__` method. The names of the parameters passed into `__init__` do NOT determine the names of the instance variables. Instead, the instance variables are defined by whatever attributes are assigned to `self`.
 
 > [!NOTE]
->
+> 
 > Variables can be declared outside the `__init__` method and these will be declared as *class varibles*. This means declaring an instance of the class object is not needed and can do something like `x = ClassObjName.PI` as this will not make the actual class object and just assign it the value of PI. These need to be declared right after declaing the class name and before the `__init__` method.
 
 > [!TIP]
->
+> 
 > The variable declared outside the `__init__` are called *class variables* and the ones declared inside it are called *instance variables*.
 
 > [!IMPORTANT]
->
+> 
 > Since python does not have access modifiers like the private in Java, conventions are used. Declaring a variable normally without the underscore, this is considered a public variable accessible to all. If it starts with a single underscore, are considered protected variables meaning they should not be accessed outside the class/subclass. If it starts with double underscore then it is considered a private and to help enforce this the interpreter does something called *name mangling* which makes it SUPER HARD to try to access the variable directly. For example, something like `__name` turns into `_ClassName__name`. This naming property also applied to all functions made inside the class as well
 
 One VERY IMPORTANT thing to note is EVERY method inside the class MUST first have the argument keyword **self** and this is how python knows the current object in the interpreter step. Then to use any data inside the class object itself, it have to use the **self** keyword followed by the variable for that class.
@@ -1302,7 +1287,7 @@ When using the actual `super()` inside the `__init__` method, it is called like 
 When it comes to multi *inheritance*, this just means a class inherits more than one class. This can be done by comma separating the classes in the parentheses of the class declaration section. 
 
 > [!NOTE]
->
+> 
 > When it comes to declaring a method in python, this does NOT support *method overloading* like in Java or C++, but it can be done. The way python does it is when making a class and it inherits another class, just redeclare the name of a function inside it and python will know to use that one. However, if wanting to use the parent version of a methd, use the `super()` keyword followed by a dot then the function to call like normally.
 
 There is a way to check if an object is a subclass of another using the `issubclass()` function with the first parameter being the thing to check and the second being the object to see if it is that.
@@ -1316,7 +1301,7 @@ Another way to declare a function in a class is using the *decorator*  **@static
 There is a unique set of decorators called **@property**, `@Variablename.setter`, and `@VariableName.deleter`. This is a way to not have to declare something like *getters* and *setters* methods, but still declare some function to do something to add more functionality. This needs the **self** keyword and the first two property types can have extra arguments. Also, for EACH of these, the method name MUST be the same as the attribute variable name. These are something that auto execute when trying to read data, get data, or delete data with the **del** keyword.
 
 > [!TIP]
->
+> 
 > This helps to be able to make variables private using the _VariableName syntax as this is what should be used most of the time anyways.
 
 There is something called *class doc* and this is a way to document what the class is for, how to use, or anything that needs to be documented for it. This can be seen with an IDE when it detects that class object is being made. It can also be accessed manually by doing  `className.__doc__` without having to declare an instance of the document. To declare this, just put a triple quoted string RIGHT AFTER declaring class name part. This can even be used on function by just declaring it RIGHT after declaring the function and on the next line.
@@ -1328,7 +1313,7 @@ Each class object created will have access to the **dunder** method `__dict__` t
 However, there is something else called `__slots__` which replaces classes underline **dictionary** so the `__dict__` no longer exists. The way this works is it preallocates a small chunk of memory that is ONLY enough for the variables that were specified there. This make the object slightly more memory efficient and little faster to access data values. This done by putting `__slots__ = ("DataNamesHere")` which is assigning it a **tuple** and has the normal rules of a **tuple**. This should be placed after the class name and *class doc*, but before the `__init__` method. If something is trying to be added to the instance variables then an error is raised.
 
 > [!NOTE]
->
+> 
 > If the object being created is going to be inherited by a different object, that other object must use the `__slots__` syntax again or else it will automatically go back to using `__dict__` (which uses a **dictionary** under the hood) which prevents the memory efficiency trying to be achieved.
 
 ### `__name__` dunder variable
@@ -1346,13 +1331,13 @@ from dataclasses import dataclass
 
 @dataclass
 class Test():
-  	name: str
+      name: str
     age: int
     DOB: str
 ```
 
 > [!NOTE]
->
+> 
 > This is just the very bare minimum of this. However, there is [more](https://docs.python.org/3/library/dataclasses.html#class-variables) that can be learned that goes way more advanced.
 
 ## Chapter 12: Modules, Packages, and Libraries
@@ -1370,11 +1355,11 @@ Another file can get the code from a different file using the **import** keyword
 Another way to access code from a *module* is using the **from** keyword along with the **import** keyword to get something specific from that file any nothing else. The syntax is `from ModuleName import SpecificThingName`.
 
 > [!CAUTION]
->
+> 
 > Can also do `from ModuleName import *` and this will import all the content from it, but without the module namespace thing. This is highly discouraged since this can interfear with other things in the program having the same name.
 
 > [!CAUTION]
->
+> 
 > When importing modules from a differnt file, all that code is basically copied and pasted into the file importing. Meaning all that code will run in the new file. So any global content inside will run in the new file. That is why, like mentioned in chapter 11, it is important to use the `__name__` dunder method syntax for files.
 
 When importing a module, the name given of the file does not have to be used. This is done by making an alias to it. Use the **as** keyword at the end of the whole import in both ways then it will be referred as that. For example `import ModuleName as md` will make it so now I do `md.ThingToAccess` instead of `ModuleName.ThingToAccess`.
@@ -1392,10 +1377,8 @@ One way to solve the search path issue is to use absolute and relative path find
 Another way to use the .. and . is to do `from .ModuleName import ThingsToImport` and `from ..ModuleName import ThingsToImport`. The first way will make it so it. This will make it so this looks in the current directory and for that module name and then can import the needed things from it. The latter means go up one directory and look for a module named that answers get the things to access.
 
 > [!IMPORTANT]
->
+> 
 > Doing something like `from . import ModuleName` will look in the current directory and then import that module itself. So then have to do `ModuleName.ThingToAccess` compared to `from .ModuleName import ThingsToImport` so this makes it just be `ThingToImport`.
-
-
 
 ### Packages
 
@@ -1411,10 +1394,6 @@ There is a particular dunder list variable called `__all__` that can be used in 
 
 ### Named packages
 
-
-
-
-
 ## Chapter 13: Development Environment
 
 When it comes to using a package that is not part of the standard library, these are located at [PiPy](https://pypi.org). This is just a large place that contains python packages that can be downloaded from. Another place they can be found it GitHub.
@@ -1428,7 +1407,7 @@ To update a package and the latest version of it run `pip install --upgrade <Pac
 To uninstall a package run `pip uninstall <PackageName>`.
 
 > [!NOTE]
->
+> 
 > MacOS, linux, windows all have differnet ways to run pip and the name to call it. On MacOS use `pip3` while on windows it is just `pip`.
 
 ### Virtual Environments
@@ -1453,10 +1432,6 @@ To do type hints on variables, right after the name put `:dataType`. For example
 
 When it comes to functions, these are a little different. A type hint is place after the closing parentheses and do `-> DataType`. 
 
-
-
-
-
 ## Chapter 15: Testing
 
 ### Pylint
@@ -1478,7 +1453,7 @@ Use the `assert...()` familt of functions are available to the **self** keyword 
 To actually run this do `unittest.main()`. This will then run and return in a nice way the number of test that passed and failed.
 
 > [!NOTE]
->
+> 
 > When writing the text_ functions, there can be multiple `assert...()` family functions made per one. However, if one of those assert cases fail it will says that whole text function failed.
 
 ```python
@@ -1489,8 +1464,6 @@ def checkMeAdd(x: int, y: int) -> int:
 def checkMeSub(x:int, y:int) -> int:
     return x - y
 ```
-
-
 
 ```python
 # Actual test module
@@ -1551,8 +1524,6 @@ This is kinda the same as `unittest` in the fact that the functions have to have
 
 Then to run this do `pytest <FileName>`. Each of the **assert** statements must evaulate to true or that test fails.
 
-
-
 ```python
 import tmpModule # Same file made from unittest example
 
@@ -1597,12 +1568,10 @@ def test_sub(timerGetter):
 ```
 
 > [!IMPORTANT]
->
+> 
 > Each test_ function that is called, it will call that decotator function a brand new time. For example, if getting a time, it will differ per function.
 
 To pass arguments into the test functions, this uses the *decorator* `@pytest.mark.parametrize()`. The way this is made is a little complicated. This will take two separate arguments. The fist is a string that contains the name of the variables and this is comma separated. The second argument is a list of tuples that will contain the values for names. Then the function will have to take the names of string comma values.
-
-
 
 ```python
 import pytest
@@ -1618,7 +1587,7 @@ def test_add(x, y, z):
 ```
 
 > [!NOTE]
->
+> 
 > For each tuple in the list, this will run that test function that many times with those values for this listed in order
 
 ```python
@@ -1641,7 +1610,7 @@ def test_add(x, y, z):
 ```
 
 > [!TIP]
->
+> 
 > Running this with the -v flag is very helpful as this is the more verbose mode and will make it show things like each case in the list of parameters used.
 
 There is another package called `hypothesis`. This is a way to generate a bunch of data randomly so it does not have to be written by hand. Go more into this later
@@ -1662,19 +1631,19 @@ Instead of printing stuff to the screen, writing the errors to a log file will b
 
 In the logging package there are 5 different functions levels of logging that can be done and they are:
 
-1.  debug --> This is for like when debugging for information when trying to find problems
-2.  info --> To confirm things are working as expected
-3.  warning --> To indicate something unexpected happened
-4.  error --> important error that causes some issues
-5.  critical --> application breaking error
+1. debug --> This is for like when debugging for information when trying to find problems
+2. info --> To confirm things are working as expected
+3. warning --> To indicate something unexpected happened
+4. error --> important error that causes some issues
+5. critical --> application breaking error
 
 When actually calling one of these functions from the output will look like `LevelType:root:StringMessage`
 
 The `logger` module has something called a *default logging level*. This makes it so by default only logs of warning (3-5) and higher will actually be output. To change this, there is some setup that needs to be done. To do this, at the top of the file call the function `basicConfig()` and to really work with this the use of *positional parameters* needs to be used. 
 
-1.   The first one that changes the level importance is "level". This needs to get a value which will be a constant with the name of one of names of the functions like "DEBUG" which are constants. 
-2.   Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
-3.   The third thing to change is to change the format of the string that printed to the log with the named parameter "format" which will take a string. Inside the string just paste the format of the string inside there which can be obtained from [here](https://docs.python.org/3/library/logging.html#logrecord-attributes).
+1. The first one that changes the level importance is "level". This needs to get a value which will be a constant with the name of one of names of the functions like "DEBUG" which are constants. 
+2. Another thing that can be done is specify what file to actually write to which is with the parameter "filename" and this set this to a string value of the file name. By default this will check if the file exist and if it does not then make it and appends the information to it. However, if it does then it appends the text to it.
+3. The third thing to change is to change the format of the string that printed to the log with the named parameter "format" which will take a string. Inside the string just paste the format of the string inside there which can be obtained from [here](https://docs.python.org/3/library/logging.html#logrecord-attributes).
 
 ## Chapter 17: Text Data
 
@@ -1704,9 +1673,9 @@ When putting the string inside to match, it can take regex patterns and these af
 - | --> This is used as an or statement to show it can be the pattern on the left or right side of it.
 
 > [!NOTE]
->
+> 
 > There are special way to write things instead of being explicit. Can do something like 10-100 and this will mean between 10 and 100. Another version is a-z, A-Z, A-z to go through the alphabet. However, there are special symbols for these which are:
->
+> 
 > - \d --> single digit
 > - \D --> single non-digit
 > - \w --> alphanumeric character
@@ -1733,20 +1702,20 @@ To start working with a file, use the `open()` function. This will return a ==<c
 1. Filename: This will be a string and contain the name of the file to work with using an absolute or relative path
 2. Mode: This is the type of operations that can be done on the file like only reading, only writing, both, creating file, etc.
 
-| Mode   | Description                                                  |
-| ------ | ------------------------------------------------------------ |
-| `'r'`  | Read mode. Opens a file for reading. Raises an error if the file does not exist. |
-| `'w'`  | Write mode. Creates a new file or overwrites the file if it already exists. |
-| `'a'`  | Append mode. Opens a file for writing but adds content to the end instead of overwriting. Creates the file if it does not exist. |
+| Mode   | Description                                                                                                                                |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `'r'`  | Read mode. Opens a file for reading. Raises an error if the file does not exist.                                                           |
+| `'w'`  | Write mode. Creates a new file or overwrites the file if it already exists.                                                                |
+| `'a'`  | Append mode. Opens a file for writing but adds content to the end instead of overwriting. Creates the file if it does not exist.           |
 | `'x'`  | Exclusive creation mode. Creates a new file and raises an error of ==FileExistsError== if the file already exists. Can write in this mode. |
-| `'t'`  | Text mode (default). Opens the file in text format.          |
-| `'b'`  | Binary mode. Opens the file in binary format (used for images, videos, etc.). |
-| `'r+'` | Read and write mode. File must exist. Does not truncate the file. |
-| `'w+'` | Write and read mode. Overwrites the file if it exists or creates a new one. |
-| `'a+'` | Append and read mode. Creates the file if it does not exist. Writing happens at the end of the file. |
-| `'rb'` | Read in binary mode.                                         |
-| `'wb'` | Write in binary mode (overwrites if exists).                 |
-| `'ab'` | Append in binary mode.                                       |
+| `'t'`  | Text mode (default). Opens the file in text format.                                                                                        |
+| `'b'`  | Binary mode. Opens the file in binary format (used for images, videos, etc.).                                                              |
+| `'r+'` | Read and write mode. File must exist. Does not truncate the file.                                                                          |
+| `'w+'` | Write and read mode. Overwrites the file if it exists or creates a new one.                                                                |
+| `'a+'` | Append and read mode. Creates the file if it does not exist. Writing happens at the end of the file.                                       |
+| `'rb'` | Read in binary mode.                                                                                                                       |
+| `'wb'` | Write in binary mode (overwrites if exists).                                                                                               |
+| `'ab'` | Append in binary mode.                                                                                                                     |
 
 Once the object is returned, it has access to special methods to perform read, write, and other operations.
 
@@ -1843,7 +1812,7 @@ fp.close()
 ```
 
 > [!TIP]
->
+> 
 > Can get `print()` be behave like `write()` by adding the *positional parameters* "sep" and "end" and setting them both to ''. By "sep" will have a space and "end" will have \n.
 
 When writing to a file, sometimes it is better to write this in chunks instead of all at once. Writing at once will load the entire thing into memory and if low on that then this could slow down the program or even crash it. This is also helpful if getting data from API or sockets where it might not come all at once. To do this, make use of *slicing* the string. Only continue writing while the total amount of data written is less than the total string size.
@@ -1865,7 +1834,7 @@ fout.close()
 ```
 
 > [!NOTE]
->
+> 
 > There is no need to do the string *slicing* if the string is super small like the one in the example above. This should only be done if writing a large file.
 
 Earlier there was something called *context manager*. This is something that automatically handles resources that should be freed once out of the scope of it. Python does this using the **with** keyword. The syntax for this is `with <Expression> as <AliasName>`. If used for a file this will automatically call the `close()` method once the scope of the **with** block is done. Even if an exception is raised inside here, it will still automatically close the file.
@@ -1873,14 +1842,14 @@ Earlier there was something called *context manager*. This is something that aut
 ```python
 with open("Input.txt", "r") as fp:
   STRING = fp.read()
-  
+
 print(STRING)
 ```
 
 > [!CAUTION]
->
+> 
 > It is important to know that **with** does not actually create a new scope like a function or class does. All this does is link the resource opened to that. This means any variables or resources declared inside will still be available outside it; even the resource connected to the **with** block.
->
+> 
 > ```python
 > with open("Input.txt", "r") as fp:
 >   tmp = 30
@@ -1914,7 +1883,7 @@ Use `pip` to install numpy. Once done, import it and set it to have an alias nam
 To make a numpy array, do `numpy.array()` and this takes up to three arguments of some collection type (list, tuple, dict, set). The will create a single dimensional array which is a class of numpy.ndarray.
 
 > [!CAUTION]
->
+> 
 > For the dictionary, this will only takes the values from the keys. So if the key names are needed then this will not work for it.
 
 To make a one dimensional array with a list just past a list inside it. To make a two dimensional array, just pass in a single list and inside that put list inside it with there being at least two. To make a three dimensional array, do the same as two dimensional array except The next argument will be a whole other list made like it.
@@ -1988,18 +1957,17 @@ new_x = np.append(x, [[5, 6, 7, 8], [9, 10, 11, 12]])
 print(new_x.dtype)
 print(new_x)
 print(type(new_x))
-
 ```
 
 ### Slicing
 
 When it comes to accessing elements from a numpy array, there are a few ways to do it:
 
-1.  Can access this like a normal list in python with the bracket syntax; this is just like C. However, there is a special way to do this by just having a single set of brackets and have the [row, column] be separated like that
-2.  Can use the *slice notation* on this
+1. Can access this like a normal list in python with the bracket syntax; this is just like C. However, there is a special way to do this by just having a single set of brackets and have the [row, column] be separated like that
+2. Can use the *slice notation* on this
 
 > [!WARNING]
->
+> 
 > When taking a slice of a numpy array, this is not like a list where a new copy of that slice is returned. Instead, this creates something called a *view*. This just means that the "new" numpy array made actually refer to the same memory spaces as the original so modifying the new one affects the original numpy array . This is the same functionality as in Golang when working with slices.
 
 ```python
@@ -2046,11 +2014,11 @@ When it comes to combining two different numpy arrays together, use the function
 There is a method called `reshape()` that is for the numpy.ndarray object. This will change the structure of the whole array. For example, changing the array from two dimensional to one dimensional. The parameters here will be the size of the shape to change this to. If only one parameter is given then will make a one dimensional array, if two parameters (`row, column`) are given then a matrix will be made, if three parameters (`#OfMatrix,rows,columns`) are given then then a *tensor* is made. This will return a new version of the numpy.ndarray object with the new version.
 
 > [!IMPORTANT]
->
+> 
 > When changing the size. It must still be able to hold the original amount of elements. This means the numpy.ndarray object cannot change in number of elements it hold; just how it holds them.
 
 > [!TIP]
->
+> 
 > If the size of the numpy array is unknown when trying to reshape and want to turn it into a one dimensional array, can just put the value -1 and this will convert it into the one dimensional array automatically.
 
 ### Newaxis
@@ -2154,7 +2122,7 @@ except Exception as e:
 There is another function from the module `nonzero()`. This will return the indexes at which the value was found where it was non-zero. The single parameter can be just the numpy array object. It can also be conditional thing as well.
 
 > [!NOTE]
->
+> 
 > This will return two different arrays with the first ones being the row and the second being the column. This will say where the values was found each of these is found respectfully in the array index.
 
 ```python
@@ -2182,7 +2150,7 @@ print("Column indices:", cols)
 # Show coordinates with values
 for r, c in zip(rows, cols):
     print(f"Value {matrix[r, c]} found at position ({r}, {c})")
-    
+
 arr = np.array([10, 25, 30, 5, 50])
 
 indices = np.nonzero(arr > 20)
@@ -2229,11 +2197,11 @@ The functions above `numpy.sum()` and `numpy.prod()` are just a few functions of
 - `numpy.unique()`: This takes in the numpy array and will return all the unique number in that from that array in a **list**. This can also have a *positional parameter* called "return_index" and set this to **True** and then this will make it so it returns two arrays with the first half containing the index for the value and the second array holds the value for that index. These are positioned respective of each other from both arrays. Another *position parameter* is "return_counts" and set this to **True**. This will make it so another array will be returned show how many times a particular index value was appeared in the array. Can also use the *positional parameter* "axis" like all the others and the value can be zero (for horizontal calculations) or one (for vertical calculations).
 
 > [!IMPORTANT]
->
+> 
 >  Can add the *positional parameter* "axis" and have the value be zero or one. If zero then will return the respected thing being found from the column, but if set to one then from each row.
 
 > [!IMPORTANT]
->
+> 
 > Look up more about linear algebra and how to work with these things to get a better understanding of what is going on.
 
 ### Matrix Operations
@@ -2257,7 +2225,7 @@ There is a function for the numpy module called `flip()` which will a reverse ve
 There is a method `flatten()` that is part of the numpy array objet. This will return a two or three dimensional array into a one dimensional version. There is another version of this called `ravel()`. However, instead of retuning a new copy it returns a *view* version of this.
 
 > [!TIP]
->
+> 
 > Remember *view* was mentioned in the "Slicing" section for numpy
 
 ### Saving Numpy Objects
@@ -2317,14 +2285,12 @@ A more visual look of a **series** will be:
 ![Image of Excel column with single row data](../Assets/Series.png)
 
 > [!TIP]
->
+> 
 > Instead of using the "index" *positional parameter* to change the name of rows, this can be done by passing in a **dict** collection of data. The key names will be that row name and the value pair will be that columns data
 
 > [!NOTE]
->
+> 
 > There can be different data types mixed together when making a **series**. However, when at least of the column data types holds a string then the "dtype" for this will be "object" instead of one constant type. However, when accessing each row data and checking the data type for that column it will show the correct object type. 
-
-
 
 To access data from the **series**, can use the bracket index syntax or can access the series objects ==loc== object and then put the bracket index syntax with it and the row name/index. If trying to access an index that does not exist then a "KeyError" will be raised. The syntax can also be used to change the data
 
@@ -2342,14 +2308,12 @@ print(series.loc["One"])
 print(series.loc["Five"])
 ```
 
-
-
 Just like with numpys *Boolean indexing*, the same thing can be done like `series[ series <= 2]`. This returns a pandas **series** with the values that meet the requirement. However, if done with a **DataFrame** then this will return this will also return a **DataFrame** object back. Another way this can be done is `df.loc[df["age"] > 30, "age"] = 40` which creates a boolean mask (**list** of **True** and **False** values) and this selects the "age" column and replaces those values with forty.
 
 > [!IMPORTANT]
->
+> 
 > While most of the rules for this are the same as numpy, there are some differences:
->
+> 
 > - 
 
 ### DataFrame
@@ -2423,12 +2387,9 @@ print(df)
 ```
 
 > [!CAUTION]
->
+> 
 > However, must use the *positional parameter* "columns" and set it equal to a list of strings that contain the names of the columns in that order. However, this is not the same as setting the *positional parameter* "index" which this can have as well.
 
 Unlike the **series** object type where it can use the normal bracket indexing syntax and use the ==loc== keyword to do this, a **DataFrame** can only use the ==loc== keyword. This will be accessed by the row number name, which by default is 0, 1, 2, etc. This will return a **series** and the row names will now be the column names from the **DataFrame** and the values will be the column data for it. It will also contain the name of the row from the **DataFrame** object and "dtype" at the end.
 
-
-
 2k@NLxoktB!pT[!T
-
