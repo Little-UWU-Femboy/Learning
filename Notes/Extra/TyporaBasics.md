@@ -18,7 +18,7 @@ To make text ^superscript^ use `^^` with the text inside
 
 To make text ~subscript~ text use `~~`
 
-To create an external link, use `[]()`. The [] will contain the text to show to go to link. The () will contain the actual URL to go to.
+To create an external link, use `[Link here](https://youtube.com)`. The [] will contain the text to show to go to link. The () will contain the actual URL to go to.
 
 ### List
 
