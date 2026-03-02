@@ -1,4 +1,4 @@
-# **Python**
+# Python
 
 ## Chapter 1: Introduction
 
@@ -1858,7 +1858,67 @@ print(STRING)
 > print(fp.closed)
 > ```
 
-When actually reading and writing to a file, there is a "pointer" that keeps track of where the next read or write should happen in the file; this can be thought of as a cursor.
+### The File Pointer
+
+When reading from or writing to a file, a *cursor* keeps track of where the next read or write operation will occur. This can be thought of as a cursor on paper. The cursor starts at the beginning of the file, and with each character (or byte) read or written, it advances by one character (or byte). The position of the cursor within the file is referred to as the *offset*, which is measured relative to the beginning of the file.
+
+To view the current *offset*, use the `tell()` method on the file object. This returns the cursor's current *offset*.
+
+The cursor can be moved within a file without reading or writing any content. To do this, use the `seek()` method on the file object, which accepts up to two parameters. The first parameter specifies the number of bytes to move the cursor. If the number is negative, the cursor is moved backwards. The second, optional parameter specifies the reference point for the cursor's movement (e.g., relative to the beginning of the file, the current position, or the end of the file).
+
+| Second Parameter | Description                                                  |
+| ---------------- | ------------------------------------------------------------ |
+| 0                | This will move the cursor starting from the top of the file (default) |
+| 1                | This will move the cursor relative to the current *offset* position |
+| 2                | This will move the cursor starting from the end of the file  |
+
+> [!NOTE]
+>
+> These values are also seen in the module ==os==. In that module, it has constants like "SEEK_SET", "SEEK_CUR", and "SEEK_END". Which are really values 0,1, and 2 respectively.
+
+### Mmap module
+
+This is a special module to also use when working with files. However, this is more complex and will only be used in certain cases. [Click here](https://www.youtube.com/watch?v=ky1n6luzL3Y) to watch a video on how to use this.
+
+### os module
+
+Going back to the module ==os==, this contains a lot of unix like functions to do things like, check if a file exist, change permissions, etc.
+
+A few things that can be done is accessing the inner module ==path== from the ==os== module. This looks like `os.path.<fuctionName>`. Here are some functions from it:
+
+- `exists()`: This checks if a specified file or directory exist. Returns **True** if it does and **False** if it doesn't. The only parameter is a string that is the relative or absolute path for the thing.
+- `isfile()`: This is just like `exists()` except it checks if the thing is a file.
+- `isdir()`: This is just like `exists()` except it checks if the thing is a directory.
+- `abspath()`:
+- `basename()`:
+- `join()`: This is used to combine folders and files together to make different paths. This takes any numer of strings with the path to the file/folder name. However, the order in which these are placed do matter. For example, `full_path = os.path.join("folder", "subfolder", "file.txt")` will make "folder/subfolder/file.txt". However, this does not actually make the directory and just returns a string version of what would've been made.
+- 
+
+There are some other things like access the operating system dependent module imported with `os.name`. This will return this as a string
+
+Can get the current working directory name with `os.getcwd()`. This returns a string and does not take parameters.
+
+Can change the current working directory with the function `os.chdir()`. This takes a single string parameter with that being the directory to change to. This does not return anything.
+
+Can see what is in a directory with `os.listdir()`. This will return a **list** of strings that contain names of the file and directories inside that specified directory. This takes one optional parameter. If given it will take that directory path and return the content from there. However, if left blank then does this from the currrent directory.
+
+Can create a directory with `os.mkdir()`. The first parameter will be the path to create the directory at with the last thing in the path being the name of the directory. The second parameter will be the *positional parameter* "mode" to specify the permissions given to this. When giving the permissions, this must be in octal (put in 0o followed by the permission levels like 0o775). If no permissions are specified then it will be 0o777. This does not return anything. If the direcory exist then a "FileExistsError" will be raised.
+
+Can create directories in a specified path when making the desired directory; this is like `mkdir -p` for Linux/Mac. The parameters will be the same as `os.mkdir()` except there is one more *position parameter* "exist_ok" which will determine if to raise an error if the target directory exist. By default this is **False** so the error will be raised, but if **True** then this doesn't.
+
+Can delete a file with `os.remove()`. This takes a single parameter which is a string. The string will be the path of the file to remove. This does not return anything.
+
+Can delete a directory with `os.rmdir()`. However, the direcory must be empty. This will take a single string parameter which will be the path to the directory. This returns nothing.
+
+Can rename a file/directory with `os.rename()`. The first parameter will be a string of the path to the file. The second will be the path and new name of the file/directory.
+
+Can access environment variables using `os.environ`. This is a directory where the key is the variable name and the respected value will be returned.
+
+
+
+### Shutil module
+
+This is another module that can help perform file operation. 
 
 ## Chapter 21: Concurrency
 

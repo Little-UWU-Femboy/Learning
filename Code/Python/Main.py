@@ -1,16 +1,5 @@
-import pandas
+import os
 
-with open("Input.txt", "rb") as fp:
-    pass
+output = os.path.join("top", "sub", "file.txt")
 
-print("This is a test")
-
-print("This might be a scary thing")
-
-df = pandas.DataFrame([{"Name": 1, "Age": 2}])
-
-print(df)
-
-print(fp.mode)
-
-print("This is a good thing")
+print(output)
