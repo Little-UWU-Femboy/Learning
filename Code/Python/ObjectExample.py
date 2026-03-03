@@ -66,12 +66,12 @@ class Dog(Animal):  # Class with inheritance
 
     def inc(self):
         self.PI += 1
-    
+
     def getBreed(self):
         pass
     def setBreed(self):
         pass
-    
+
     breed = property(getBreed, setBreed)
 
 

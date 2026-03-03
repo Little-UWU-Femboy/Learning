@@ -12,3 +12,14 @@
 
 When it comes to the ways that we should be able to interact with each other how
 the dark times would
+
+
+
+How was day
+
+planning to do on break
+
+Have u been to rodo
+
+Picersing
+
