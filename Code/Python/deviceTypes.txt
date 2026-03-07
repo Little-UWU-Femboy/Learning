@@ -1,0 +1,513 @@
+!computer
+!mobile phone
+!smart watch
+#smart watch
+#vehicle
+$laptop
+$vehicle
+%laptop
+&tablet
+&vehicle
+'computer
+'laptop
+'tablet
+'television
+(computer
+)tablet
+)television
+*laptop
+<mobile phone
+<television
+<vehicle
+=computer
+>computer
+>mobile phone
+>television
+>vehicle
+?television
+[computer
+[tablet
+]mobile phone
+]smart watch
+]television
+^computer
+^laptop
+^smart watch
+^tablet
+_laptop
+`smart watch
+`tablet
+a
+ab
+abl
+able
+ablet
+ap
+apt
+apto
+aptop
+art w
+art wat
+atch
+b
+bile
+bile pho
+bile phon
+bl
+ble
+blet
+c*omputer
+c=omputer
+c?omputer
+c[omputer
+ch
+cle
+co
+co#mputer
+co$mputer
+co*mputer
+co>mputer
+co?mputer
+co[mputer
+com
+com!puter
+com'puter
+com=puter
+com`puter
+comp)uter
+comp*uter
+compu
+compu!ter
+compu(ter
+compu*ter
+compu]ter
+comput(er
+comput*er
+comput[er
+compute
+compute!r
+compute#r
+compute$r
+compute&r
+compute*r
+compute@r
+compute[r
+compute^r
+compute_r
+computer
+computer'
+computer*
+computer<
+computer=
+computer>
+computer^
+computer`
+compute|r
+e
+e ph
+e phone
+eh
+ehic
+ehicl
+ehicle
+ele
+elevisi
+elevision
+er
+et
+ev
+evi
+evis
+evisi
+evisio
+evision
+h
+hic
+hicle
+ho
+hone
+i
+ic
+icle
+ile phone
+io
+ion
+is
+isi
+ision
+l
+l#aptop
+l'aptop
+l(aptop
+l)aptop
+l<aptop
+l[aptop
+l]aptop
+la
+la%ptop
+la&ptop
+la(ptop
+la<ptop
+la]ptop
+la^ptop
+lap
+lap!top
+lap&top
+lap'top
+lap(top
+lap=top
+lap[top
+lap]top
+lap_top
+lapt
+lapt%op
+lapt'op
+lapt(op
+lapt)op
+lapt=op
+lapt?op
+lapt[op
+lapto
+lapto!p
+lapto#p
+lapto$p
+lapto%p
+lapto*p
+lapto<p
+lapto>p
+lapto^p
+laptop
+laptop#
+laptop%
+laptop&
+laptop'
+laptop=
+laptop@
+laptop[
+laptop`
+lapt|op
+le
+le p
+le pho
+le phone
+let
+lev
+m
+m=obile phone
+m@obile phone
+m]obile phone
+m`obile phone
+mart
+mart watch
+mo
+mo!bile phone
+mo=bile phone
+mo[bile phone
+mob!ile phone
+mob*ile phone
+mob>ile phone
+mob?ile phone
+mob@ile phone
+mob[ile phone
+mob`ile phone
+mobi!le phone
+mobi`le phone
+mobil%e phone
+mobil*e phone
+mobil[e phone
+mobil_e phone
+mobile !phone
+mobile #phone
+mobile %phone
+mobile >phone
+mobile ]phone
+mobile ^phone
+mobile p&hone
+mobile p'hone
+mobile p)hone
+mobile p*hone
+mobile p<hone
+mobile p]hone
+mobile ph!one
+mobile ph$one
+mobile ph&one
+mobile ph<one
+mobile ph=one
+mobile ph>one
+mobile ph?one
+mobile ph[one
+mobile pho)ne
+mobile pho@ne
+mobile phon#e
+mobile phon%e
+mobile phone
+mobile phone!
+mobile phone$
+mobile phone'
+mobile phone(
+mobile phone<
+mobile phone>
+mobile phone]
+mobile phone^
+mobile phone_
+mobile pho|ne
+mobile |phone
+mobile& phone
+mobile> phone
+mp
+mpu
+mputer
+n
+ne
+o
+ob
+obile ph
+obile pho
+obile phon
+omp
+omput
+omputer
+on
+one
+op
+p
+ph
+phone
+pt
+pto
+ptop
+pute
+puter
+r
+rt w
+rt watch
+s
+s!mart watch
+s#mart watch
+s$mart watch
+s%mart watch
+s'mart watch
+sion
+sm
+sm$art watch
+sm%art watch
+sm'art watch
+sm>art watch
+sm@art watch
+sm^art watch
+sma&rt watch
+sma`rt watch
+smar$t watch
+smar(t watch
+smar*t watch
+smar[t watch
+smar^t watch
+smart #watch
+smart %watch
+smart *watch
+smart <watch
+smart [watch
+smart ^watch
+smart w)atch
+smart w*atch
+smart w?atch
+smart w]atch
+smart w`atch
+smart wa$tch
+smart wa&tch
+smart wa`tch
+smart wat
+smart wat$ch
+smart watc%h
+smart watc]h
+smart watch
+smart watch<
+smart watch@
+smart watch^
+smart watch`
+smart w|atch
+smart! watch
+smart% watch
+smart' watch
+smart( watch
+t
+t w
+t wat
+t watch
+t!ablet
+t%ablet
+t&ablet
+t&elevision
+t(ablet
+t)elevision
+t*elevision
+t=ablet
+t>ablet
+t>elevision
+t^ablet
+t`ablet
+ta
+ta!blet
+ta%blet
+ta=blet
+ta>blet
+ta?blet
+ta^blet
+tab
+tab'let
+tab)let
+tab*let
+tab=let
+tab>let
+tab]let
+tab_let
+tab`let
+tabl!et
+tabl$et
+tabl&et
+tabl'et
+tabl(et
+tabl>et
+tabl[et
+tabl]et
+tabl_et
+table#t
+table't
+table(t
+table*t
+table=t
+table>t
+table@t
+table^t
+table_t
+tablet
+tablet!
+tablet%
+tablet'
+tablet(
+tablet=
+tablet>
+tablet[
+tablet_
+tablet`
+ta|blet
+tch
+te
+te!levision
+te$levision
+te)levision
+te>levision
+te]levision
+te`levision
+tel
+tel?evision
+tel@evision
+tel[evision
+tel^evision
+tel_evision
+tel`evision
+tele
+tele&vision
+tele>vision
+tele]vision
+tele_vision
+telev)ision
+telev*ision
+telev<ision
+telev>ision
+televi
+televi$sion
+televi&sion
+televi?sion
+televi[sion
+televi]sion
+televis!ion
+televis&ion
+televis)ion
+televis*ion
+televis<ion
+televis>ion
+televis?ion
+televisi
+televisi!on
+televisi#on
+televisi&on
+televisi)on
+televisi<on
+televisi>on
+televisi@on
+televisi[on
+televisi_on
+televisio)n
+televisio<n
+televisio=n
+television
+television<
+television>
+television_
+televisi|on
+telev|ision
+ter
+to
+top
+t|ablet
+u
+uter
+v
+v#ehicle
+v%ehicle
+v&ehicle
+v'ehicle
+v*ehicle
+v@ehicle
+v]ehicle
+v^ehicle
+ve
+ve!hicle
+ve%hicle
+ve'hicle
+ve*hicle
+veh!icle
+veh$icle
+veh%icle
+veh'icle
+veh)icle
+veh<icle
+veh=icle
+veh@icle
+veh^icle
+vehi&cle
+vehi'cle
+vehi*cle
+vehi>cle
+vehi@cle
+vehi^cle
+vehi_cle
+vehic%le
+vehic'le
+vehic)le
+vehic>le
+vehic@le
+vehic[le
+vehicl
+vehicl!e
+vehicl&e
+vehicl'e
+vehicl)e
+vehicl*e
+vehicl>e
+vehicl^e
+vehicle
+vehicle#
+vehicle$
+vehicle%
+vehicle?
+vehicle]
+vi
+visio
+vision
+w
+wat
+watch
+|laptop
+|vehicle

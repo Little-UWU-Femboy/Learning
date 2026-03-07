@@ -1,4 +1,4 @@
-# Python
+# Python Basics
 
 ## Chapter 1: Introduction
 
@@ -13,19 +13,19 @@ There are two ways to run python code:
 
 To print text to the screen, use the function `print()`.
 
-Python is like Java where no manual memory needs to be done. Instead, it uses the *garbage collection* to do the memory clean up.
+Python is like Java where no manual memory needs to be done. Instead, it uses the *garbage collection* to do the memory clean up. [link](http://youtube.com)
 
 ## Chapter 2: Types and Variables
 
 ### Declaring Variable
 
-To create a variable, do `VariableName = Value`. However, unlike other languages, the way python stores the data values is different. Other languages have a pointer thing that points directly at the memory address of the data *(statically typed*). However, python is a *dynamically typed* language, meaning it keeps track of data differently. It treats the variable as just a name and stores the data like id, data type, value, reference count, etc in memory on the heap. Because of this, python can reassign a variable to ANY data type at any time unlike a statically types language.
+To create a variable, do `VariableName = Value`. However, unlike other languages, the way python stores the data values is different. Other languages have a pointer thing that points directly at the memory address of the data *(statically typed)*. However, python is a *dynamically typed* language, meaning it keeps track of data differently. It treats the variable as just a name and stores the data like id, data type, value, reference count, etc in memory on the heap. Because of this, python can reassign a variable to ANY data type at any time unlike a statically types language.
 
 Exploring the different parts of the way data is stored:
 
 - **variable name**: This is just the name that data is called in memory and is called the *label* or *reference*.
 - **id**: Each object in memory will have a unique ID number. This helps to identify each variable in memory differently. The ID value of a **variable name** can be see by using the `id(VariableName)` function. This will just return that variables ID value.
-- **types**: This tracks the type of data that it is storing.
+- **types**: This tracks the type of data that it is storing. [link](https)
 - **value**: This stores the actual bits and bytes to represent the data being stored.
 - **reference count**: This tracks how many different variables are referencing this same memory data. Once the reference count hits 0, no variables can reference the data any more. This means python marks it for garbage clean up.
 
@@ -34,7 +34,7 @@ Exploring the different parts of the way data is stored:
 > When reassigning ANY, be it the same or different, variable data; this creates a whole new object in memory.
 
 > [!IMPORTANT]
-> 
+>
 > For optomiation, python actually creates objects for values -5 to 255. This means
 
 ```python
@@ -230,9 +230,9 @@ print(x[2])
 ```
 
 > [!WARNING]
-> 
+>
 > Unlike other languages, indexes can be accessed using negative numbers inside it. Except, this just starts in the opposite direction going from right to left. For example
-> 
+>
 > ```python
 > letters = "abcdefg"
 > print(letters[0])
@@ -296,7 +296,7 @@ There are ways to check certain things in a string to see if a certain pattern i
 1. `startswith()`: This takes a single string argument and checks if the string starts with that specific string in the argument.
 2. `endswith()`: This takes a single string argument and checks if the string ends with that specific string in the argument.
 3. `removeprefix()`: This takes a single string argument and remove that string from the start of the string if it does exist.
-4. `removesuffix`: This takes a single string argument and remove that string from the end of the string if it does exist.
+4. `removesuffix()`: This takes a single string argument and remove that string from the end of the string if it does exist.
 
 There is another method called `strip()` that removes content from the string. This is useful to remove whitespace, newlines, tabs, etc. This function takes one argument and that is what the specific type of thing to remove. However, is nothing is provided then it will remote all the different whitespace types. The string provided can contain multiple different things to remove and does not just have to be one. This does NOT remove the content from the middle of the string and JUST the left and right most side of it.
 
@@ -1331,7 +1331,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Test():
-      name: str
+    name: str
     age: int
     DOB: str
 ```
@@ -1910,7 +1910,7 @@ Can delete a file with `os.remove()`. This takes a single parameter which is a s
 
 Can delete a directory with `os.rmdir()`. However, the direcory must be empty. This will take a single string parameter which will be the path to the directory. This returns nothing.
 
-Can rename a file/directory with `os.rename()`. The first parameter will be a string of the path to the file. The second will be the path and new name of the file/directory.
+Can rename a file/directory with `os.rename()`. The first parameter will be a string of the path to the file. The second will be the path and new name of the file/directory. This will return nothing
 
 Can access environment variables using `os.environ`. This is a directory where the key is the variable name and the respected value will be returned.
 
@@ -1918,7 +1918,9 @@ Can access environment variables using `os.environ`. This is a directory where t
 
 ### Shutil module
 
-This is another module that can help perform file operation. 
+This is another module that can help perform file operation. One of the things is the `copy()` function. This allows copying the content from one file to another. The first parameter will be the string name of the file to get the content from. The second parameter will be the string file name this content is copied to. This returns 
+
+
 
 ## Chapter 21: Concurrency
 
