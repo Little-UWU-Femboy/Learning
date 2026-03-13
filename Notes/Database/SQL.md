@@ -1,2 +1,9 @@
 # SQL basics
 
+
+
+
+
+# Resources
+
+[video]([SQL Full Course for Beginners (30 Hours) – From Zero to Hero](https://www.youtube.com/watch?v=SSKVgrwhzus&t=122s)) from Youtube.
