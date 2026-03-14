@@ -1,5 +1,12 @@
-all:
-	g++ *.cpp -o out
+CXX = clang++
 
-clean: out
-	rm out
+all: out
+
+out: *.cpp
+	$(CXX) *.cpp -o out
+
+run: out
+	./out
+
+clean:
+	rm -f out
