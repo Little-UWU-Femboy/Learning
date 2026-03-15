@@ -1,9 +1,6 @@
 # C++ Basics
 
-# Part One: Fundmentals
-
-
-
+## Test Driving a C++ Application
 
 
 

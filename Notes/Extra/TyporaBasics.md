@@ -49,7 +49,7 @@ These list can also be nested. To do this just click tab on the current and a ne
 
 
 
-- [ ] This is an exmaple
+- [ ] This is an example
 - [ ] Of a check box
   - [ ] that is nested inside
 - [x] here
@@ -66,7 +66,7 @@ This is some wild text[^note]
 
 When writing code, there are two ways to do this: 
 
-- inline --> This just uses `two back ticks` and anything inside, but does not provide complex syntax highlighting. This is good for small single line code examples
+- inline --> This just uses \`\` and anything inside, but does not provide complex syntax highlighting. This is good for small single line code examples
 
 - block --> This is will contain a pair of triple back ticks and this will provide syntax highlighting. Can also select a programming language for this as well by writing out the name right after the
 
@@ -104,9 +104,10 @@ These are made by doing `> [!VersionName]`.
 
 There is a way to make a table. The easiest way to make this is just to go to paragraph -> table -> insert table. After, select the size of the table and work with it.
 
-| True           | False This this is uper super duper wild |
-| -------------- | ---------------------------------------- |
-| Some true text | Some false text                          |
+| True            | False This this is upper super duper wild |
+| --------------- | ----------------------------------------- |
+| Some true text  | Some false text                           |
+| wild stuff here | With the things here                      |
 
 ### Diagrams
 
