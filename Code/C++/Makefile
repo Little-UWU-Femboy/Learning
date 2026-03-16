@@ -1,22 +1,28 @@
 ifeq ($(OS),Windows_NT)
-    # Windows Settings
+    # Windows (Clang)
     CXX = clang++
-    CXXFLAGS = -Wall -g -std=c++20 -static -static-libgcc -static-libstdc++ -pthread
+    CXXFLAGS = -Wall -Wextra -g -std=c++20
+    LDFLAGS =
     TARGET = $(BIN_DIR)/out.exe
+
     MKDIR = if not exist $(OBJ_DIR) mkdir $(OBJ_DIR) && if not exist $(BIN_DIR) mkdir $(BIN_DIR)
     RM = del /Q
     FIX_PATH = $(subst /,\,$1)
     EXEC = $(TARGET)
+
 else
-    # macOS Settings
+    # macOS / Linux (Clang)
     CXX = clang++
-    CXXFLAGS = -std=c++20 -Wall -g
+    CXXFLAGS = -Wall -Wextra -g -std=c++20
+    LDFLAGS = -pthread
     TARGET = $(BIN_DIR)/out
+
     MKDIR = mkdir -p $(OBJ_DIR) $(BIN_DIR)
     RM = rm -rf
     FIX_PATH = $1
     EXEC = ./$(TARGET)
 endif
+
 
 # Directories
 SRC_DIR = src
@@ -26,7 +32,7 @@ BIN_DIR = bin
 # Find all cpp files
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 
-# Convert cpp files to object files in obj directory
+# Convert cpp files to object files
 OBJS = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 
 # Default target
@@ -38,13 +44,13 @@ directories:
 
 # Link object files
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
+	$(CXX) $(OBJS) -o $@ $(LDFLAGS)
 
-# Compile cpp files to object files
+# Compile cpp → obj
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean target
+# Clean
 clean:
 ifeq ($(OS),Windows_NT)
 	@if exist $(BIN_DIR) $(RM) $(call FIX_PATH,$(BIN_DIR)\*) 2>nul
@@ -53,6 +59,6 @@ else
 	@$(RM) $(OBJ_DIR)/*.o $(TARGET)
 endif
 
-# Run the executable
+# Run
 run: all
 	@$(EXEC)
