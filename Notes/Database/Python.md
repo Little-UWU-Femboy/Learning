@@ -2376,7 +2376,6 @@ Just like with numpys *Boolean indexing*, the same thing can be done like `serie
 > 
 > While most of the rules for this are the same as numpy, there are some differences:
 > 
-> - 
 
 ### DataFrame
 

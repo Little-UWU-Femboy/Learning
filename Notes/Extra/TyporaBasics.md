@@ -74,6 +74,9 @@ When writing code, there are two ways to do this:
 
 ```python
 print("Example Here")
+
+def csvparser(x: int,y: int) -> int:
+  return x + y
 ```
 
 ### Math
@@ -85,7 +88,7 @@ When wanting to write math, there are two ways to do this:
 
 Here is example $3+4=7$ math
 $$
-\text{tmp (1)}\\
+\text{tmp hello}\\
 3+4
 $$
 
@@ -144,4 +147,3 @@ classDiagram
       +run()
     }
 ```
-
