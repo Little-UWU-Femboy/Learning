@@ -8,9 +8,9 @@
 
 The basic structure of a program, just like C, contains a main function that is the starting point for the program. The function is set up the same way as in C. However, when it comes to including standard library header files, here they do not need the .h extension.
 
-The library for standard I/O here is called \<<u>iostream</u>\>. This header file will be included the same way as in C with the **#include** which is a *preprocessor directive*.
+The library for standard I/O here is called \<<u>iostream</u>\>. This header file will be included the same way as in C with the **#include** *preprocessor directive* which is a one of many # directives.
 
-To print text to the terminal, use `std::cout`. Unlike C, this does not have the text go inside a function and uses << instead. The << is like saying to send the text to output. Multiple << can be tacked on to this. The `std::endl` is just a way to put an end of line character or can do \n in the string. However, C++ way is to use the `std::endl`.
+To print text to the terminal, use `std::cout`. Unlike C, this does not have the text go inside a function and uses << instead. The << is like saying to send the text to output. Multiple << can be tacked on to this. The `std::endl` is just a way to put an end of line character or can do \n in the string. However, C++ way is to use the first way.
 
 Each statement must end with a semi-colon.
 
@@ -22,3 +22,7 @@ int main(){
   return 0;
 }
 ```
+
+The `std` portion of the print statement is called 
+
+We will make a language that is called "C--" which does source to source conversion into C++ code. This will contain a way to make classes, basic IO, variable

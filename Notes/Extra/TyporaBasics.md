@@ -6,6 +6,18 @@
 
 When it comes to making headers, there is the same level and sizing like in HTML. However, the number of # dictates the header size. Have text follow behind it and it will make the respected header size. Can also do ctrl-[1-6]. 
 
+### Javascript
+
+Can write basic Javascript in here, but this will only work if being exported in HTML.
+
+<button>Click Me</button>
+
+<script>
+document.querySelector("button").addEventListener("click", function() {
+  alert("Hello, World");
+});
+</script>
+
 ### Text Basics
 
 To make text **bold** use `****` and place text inside or ctrl+b
@@ -51,8 +63,7 @@ These list can also be nested. To do this just click tab on the current and a ne
 
 
 
-- [ ] This is an example
-- [ ] Of a check box
+- [ ] This is an exampleOf a check box
   - [ ] that is nested inside
 - [x] here
 
