@@ -4,7 +4,7 @@
 - [ ] [Computer Networking](https://www.youtube.com/watch?v=fQbBPa0ADvs&t=274s) course released on February 18th, 2026
 - [ ] [Relational Database Design](https://www.youtube.com/watch?v=26ls5lNiijk&t=52s) course released on January 27th, 2026
 - [ ] [JavaFX](https://www.youtube.com/watch?v=9XJicRt_FaI) course released on March 21st, 2021
-- [ ] []() course released on 
+- [ ] [Java Gradle](https://www.youtube.com/watch?v=SJKXJHKTRX8&t=341s) course released on May 24th, 2025
 - [ ] []() course released on 
 - [ ] []() course released on 
 - [ ] []() course released on 
