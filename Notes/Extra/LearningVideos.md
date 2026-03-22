@@ -1,0 +1,34 @@
+# Learning Video Links
+
+- [ ] [Kubernetes](https://www.youtube.com/watch?v=_4uQI4ihGVU) course released on Febuary 26th, 2026
+- [ ] [Computer Networking](https://www.youtube.com/watch?v=fQbBPa0ADvs&t=274s) course released on February 18th, 2026
+- [ ] [Relational Database Design](https://www.youtube.com/watch?v=26ls5lNiijk&t=52s) course released on January 27th, 2026
+- [ ] [JavaFX](https://www.youtube.com/watch?v=9XJicRt_FaI) course released on March 21st, 2021
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
+- [ ] []() course released on 
