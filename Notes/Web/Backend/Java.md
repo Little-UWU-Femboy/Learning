@@ -200,14 +200,67 @@ The only requirement for the **var** keyword is a value must be assigned to the 
 
 #### Constant
 
-To declare a varible whos value should never change (like π will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type.
+To declare a variable who's value should never change (like π will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type.
 
 If this variable's value is attempting to be changed during run time, then an error will appear.
 
-It is a common practive to have constants be named all upper case and have _ be a separator between the names.
+It is a common practice to have constants be named all upper case and have _ be a separator between the names.
 
 #### Enum
 
-There are cases when a value will only ever get a subset of values assigned to it. Instead of just assigning values to it manually and possiblly assigning the wrong value; in this case there is a special data type called **enum**. This is made by putting the keyword word followed by the name for the enum.
+In Java, the **enum** keyword defines a specialized data type used to represent a fixed set of constants. This prevents the use of invalid or "magic" values by restricting a variable to only the names defined within the enum container.
 
-When assigning values to the variable, this must be done when declaring the variable. 
+There are two primary ways to implement an enum. The most basic form is a simple list of names, which is ideal for categorizing items like sizes or days of the week. The second form involves using a *constructor* to attach specific data to each name. When this is done, parentheses containing the data follow each constant. To store and retrieve this data, the enum must include a field and a method. While the data types for these values must be consistent across all constants in a single enum, the specific values assigned to them can vary.
+
+Under the hood, Java enums are much more powerful than simple integers. Each enum constant is an instance of a class that inherits from `java.lang.Enum`. This structure allows enums to behave like objects, providing access to built-in methods while maintaining a fixed, restricted set of possible values.
+
+```java
+// Case 1: Basic Enum - Used for simple categorization
+enum Difficulty {
+    EASY, MEDIUM, HARD
+}
+
+// Case 2: Enum with Data - Each constant carries an associated value
+enum Currency {
+    // Each constant passes a symbol to the constructor
+    USD("$"), 
+    EUR("€"), 
+    JPY("¥");
+
+    // Field to store the constructor data
+    private String symbol;
+
+    // Constructor - must match the data type passed in the constants
+    Currency(String symbol) {
+        this.symbol = symbol;
+    }
+
+    // Method to retrieve the stored data
+    public String getSymbol() {
+        return this.symbol;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // --- Working with Basic Enums ---
+        // Declaration and assignment
+        Difficulty level = Difficulty.EASY;
+        System.out.println("Current Difficulty: " + level);
+
+        // Reassignment
+        level = Difficulty.HARD;
+        System.out.println("Updated Difficulty: " + level);
+
+        // --- Working with Enums with Data ---
+        // Accessing the constant and its internal method
+        Currency money = Currency.USD;
+        System.out.println("Currency: " + money);
+        System.out.println("Symbol: " + money.getSymbol());
+
+        // Direct access without a variable
+        System.out.println("The symbol for Yen is: " + Currency.JPY.getSymbol());
+    }
+}
+```
+
