@@ -1,65 +1,57 @@
 # WEEKLY TODO
 
-
-
 ## Monday
-
+- [ ] Read all of java part 1 today
+- [ ] Do assignment for compiler class in python
+- [ ] Do data science paper thing
+- [ ] 
+- [ ] 
 - [ ] 
 
 ## Tuesday 2/17
-
-- [ ] Do assignment for compiler construction
-- [ ] Watch videos for architecture
-- [ ] Do quiz for architecture
-- [ ] Pandas python
-- [ ] Numpy python
-- [ ] Chapter 1 compiler
+- [ ] Start java book part two (1/2 of it)
+- [ ] Computer architecture quiz
+- [ ] Computer architecture redo simulator class assignment
+- [ ] Computer architecture assignment 2
+- [ ] Restart HTML and CSS course
+- [ ] Start javascript course
 
 ## Wednesday 2/18
-
-- [ ] MatPltLib python
-- [ ] Read Chaper 2 and 3 compiler
-- [ ] Finish python readings
-- [ ] Finish HTML 7 CSS video
-
-## Thursday 2/19
-
-- [ ] Start SQL video
-- [ ] Start javascript
-- [ ] Start AWS videos on:
-  - [ ] Amplify
-  - [ ] DynamoDB
-  - [ ] IAM
-
-
-## Friday 2/20 
-
-- [ ] Resume SQL video
-- [ ] Resume javascript video
+- [ ] Computer architecture lab 3
+- [ ] Finish java book part 2 (2/2 of it)
+- [ ] Finish javascript course
+- [ ] Finish HTML and CSS course
+- [ ] Start relational database design course (1/3 of it)
 - [ ] 
 
-## Saturday 2/21
+## Thursday 2/19
+- [ ] Computer Architecture ALU unit
+- [ ] Read typescript book
+- [ ] Start react course
+- [ ] Start small part of SQL video (1/4 of it)
+- [ ] Relational database design course (2/3 of it)
+- [ ] 
 
+## Friday 2/20 
+- [ ] Finish SQL video
+- [ ] Relational database design course finish
+- [ ] Start ELT small book (1/3)
+- [ ] Start AWS cloud computing (1/3)
+- [ ] Start API learning styles (1/3)
+- [ ] Start cloud essencials video (1/3)
+
+## Saturday 2/21
+- [ ] ELT small book (2/3)
+- [ ] AWS cloud computing (2/3)
+- [ ] API learning styles (2/3)
+- [ ] Cloud essencials video (2/3)
+- [ ] 
 - [ ] 
 
 ## Sunday 2/22
-
-- [ ]  
-
-
-
-Hello!
-The project we want to do is a source-to-source compiler. The objective is to utilize ANTLR4 with Java to translate Java source code into C++.
-
-The application will be built using JavaFX to provide a desktop interface. The design will feature a split-screen view where Java code can be entered into a editor. Upon clicking a "Compile" button, the backend will execute the ANTLR4 logic to generate and display the corresponding C++ code in a side by side comparison.
-
-The compiler will implement a specific subset of features like:
-
-- Core Logic: Loops (`while`, `for`), `if` statements (including `else if` and `else`), and arithmetic/logical operators.
-- Data & Variables: Primitive types (`int`, `double`, `boolean`, `char`), variable declarations, and assignments.
-- Object-Oriented Programming: Classes, constructors, instance attributes, access modifiers (`public`, `private`), and object instantiation using the `new` keyword.
-- Functions: Method declarations, return values, and method invocations with argument passing.
-- Additional Features: Print statements and the parsing of single-line and multi-line comments.
-
-The interface will include dedicated functionality to visualize the Abstract Syntax Tree (AST) in a popup window and a viewer to inspect the tokens generated from the lexical analysis phases.
-
+- [ ] ETL book (3/3)
+- [ ] AWS cloud computing (3/3)
+- [ ] API learning styles (3/3)
+- [ ] Cloud essencials video (3/3)
+- [ ] 
+- [ ] 

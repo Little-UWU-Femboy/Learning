@@ -2,8 +2,8 @@
 
 ### Cloud
 
-- [ ] [Docker & Kubernetes]([Docker and Kubernetes Masterclass: From Beginner to Advanced](https://learning.oreilly.com/course/docker-and-kubernetes/9781837025077/)) course released on February 26th, 2026
-- [ ] [Computer Networking](https://www.youtube.com/watch?v=fQbBPa0ADvs&t=274s) course released on February 18th, 2026
+- [ ] [Docker & Kubernetes]([Docker and Kubernetes Masterclass: From Beginner to Advanced](https://learning.oreilly.com/course/docker-and-kubernetes/9781837025077/)) 
+- [ ] [Computer Networking](https://www.youtube.com/watch?v=fQbBPa0ADvs&t=274s) 
 - [ ] [Introduction to Cloud Computing](https://learning.oreilly.com/course/introduction-to-cloud/9780135403082/)
 - [ ] [Container Security](https://learning.oreilly.com/library/view/container-security-2nd/9798341627697/)
 - [ ] [Learn Docker in a Month of Lunches](https://learning.oreilly.com/library/view/learn-docker-in/9781633438460/)
@@ -15,12 +15,12 @@
 - [ ] [Distributed and Parallel Computing](https://learning.oreilly.com/library/view/distributed-and-parallel/9781394288007/)
 - [ ] [Building Multi-Tenant SaaS Architectures](https://learning.oreilly.com/library/view/building-multi-tenant-saas/9781098140632/)
 - [ ] [Using Amazon Bedrock](https://learning.oreilly.com/library/view/using-amazon-bedrock/9781394382620/)
-- [ ] [AWS Foundations](https://learning.oreilly.com/course/aws-foundations/9780135485064/)
+- [x] [AWS Foundations](https://learning.oreilly.com/course/aws-foundations/9780135485064/)
 - [ ] [Patterns of Distributed Systems](https://learning.oreilly.com/library/view/patterns-of-distributed/9780138222246/)
 - [ ] [An Insiders Guide to Cloud Computing](https://learning.oreilly.com/library/view/an-insiders-guide/9780137935819/)
 - [ ] [Kubernetes for the Absolute Beginners - Hands-On](https://learning.oreilly.com/course/kubernetes-for-the/9781838555962/)
 - [ ] [Intro to Docker](https://learning.oreilly.com/course/intro-to-docker/9781836206194/)
-- [ ] [Cloud Essentials](https://learning.oreilly.com/course/cloud-essentials/9780138297640/)
+- [x] [Cloud Essentials](https://learning.oreilly.com/course/cloud-essentials/9780138297640/)
 - [ ] [Identity and Access Management (IAM) Essentials](https://learning.oreilly.com/course/identity-and-access/9780135590041/)
 - [ ] [Cloud Computing](https://www.jblearning.com/science-technology/computing/databases-enterprise-computing/productdetails/9781284233971#productInfo)
 - [ ] 
@@ -34,13 +34,13 @@
 
 ### Java
 
-- [ ] [JavaFX](https://www.youtube.com/watch?v=9XJicRt_FaI) course released on March 21st, 2021
-- [ ] [Java Gradle](https://www.youtube.com/watch?v=SJKXJHKTRX8&t=341s) course released on May 24th, 2025
-- [ ] [Java Introduction Part One]([Core Java, Vol. I: Fundamentals, 14th Edition](https://learning.oreilly.com/library/view/core-java-vol/9780135558553/)) book released on November 2025
-- [ ] [Java Introduction Part Two]([Core Java, Volume II: Advanced Features, 14th Edition](https://learning.oreilly.com/library/view/core-java-volume/9780135558775/)) book released on November 2025
-- [ ] [Java Concurrency]([Modern Concurrency in Java](https://learning.oreilly.com/library/view/modern-concurrency-in/9781098165406/)) book released on September 2035
-- [ ] [Java Performance Tuning]([JVM Performance Engineering: Inside OpenJDK and the HotSpot Java Virtual Machine](https://learning.oreilly.com/library/view/jvm-performance-engineering/9780134659954/)) book released on April 2024
-- [ ] [Java Spring]() course released on 
+- [ ] [JavaFX](https://www.youtube.com/watch?v=9XJicRt_FaI) 
+- [ ] [Java Gradle](https://www.youtube.com/watch?v=SJKXJHKTRX8&t=341s) 
+- [x] [Java Introduction Part One]([Core Java, Vol. I: Fundamentals, 14th Edition](https://learning.oreilly.com/library/view/core-java-vol/9780135558553/)) 
+- [x] [Java Introduction Part Two]([Core Java, Volume II: Advanced Features, 14th Edition](https://learning.oreilly.com/library/view/core-java-volume/9780135558775/)) 
+- [ ] [Java Concurrency]([Modern Concurrency in Java](https://learning.oreilly.com/library/view/modern-concurrency-in/9781098165406/)) 
+- [ ] [Java Performance Tuning]([JVM Performance Engineering: Inside OpenJDK and the HotSpot Java Virtual Machine](https://learning.oreilly.com/library/view/jvm-performance-engineering/9780134659954/)) 
+- [ ] [Java Spring]() 
 - [ ] [Microservices with Spring Boot and Spring Cloud - Fourth Edition](https://learning.oreilly.com/library/view/microservices-with-spring/9781805801276/)
 - [ ] [Java Threads Demystified](https://learning.oreilly.com/course/java-threads-demystified/9780135565834/)
 - [ ] [Java Fundamentals with Paul Deitel, 3rd Edition](https://learning.oreilly.com/course/java-fundamentals-with/9780135353134/)
@@ -54,9 +54,9 @@
 
 ### Linux
 
-- [ ] [Linux Fundamentals](https://learning.oreilly.com/course/linux-fundamentals-3rd/9780135465363/)
+- [x] [Linux Fundamentals](https://learning.oreilly.com/course/linux-fundamentals-3rd/9780135465363/)
 
-- [ ] [CompTIA Linux+ V8](https://learning.oreilly.com/course/comptia-linux-v8/9780135572269/)
+- [ ] [CompTIA Linux+ V8](https://learning.oreilly.com/course/comptia-linux-v8/9780135572269/) 
 
 - [ ] [Linux Shell Scripting](https://learning.oreilly.com/course/linux-shell-scripting/10000DIHV202274/)
 
@@ -75,8 +75,8 @@
 
 ### Databases
 
-- [ ] [Relational Database Design](https://www.youtube.com/watch?v=26ls5lNiijk&t=52s)
-- [ ] [SQL Basics](https://www.youtube.com/watch?v=SSKVgrwhzus)
+- [x] [Relational Database Design](https://www.youtube.com/watch?v=26ls5lNiijk&t=52s)
+- [x] [SQL Basics](https://www.youtube.com/watch?v=SSKVgrwhzus)
 - [ ] [Design Data Intensive Applications](https://learning.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/)
 - [ ] [Data Management at Scale](https://learning.oreilly.com/library/view/data-management-at/9781098138851/)
 - [ ] [Fundamentals of Data Engineering](https://learning.oreilly.com/library/view/fundamentals-of-data/9781098108298/)
@@ -88,7 +88,7 @@
 - [ ] [High Performance MySQL](https://learning.oreilly.com/library/view/high-performance-mysql/9781492080503/)
 - [ ] [Machine Learning Foundations, Volume 1: Supervised Learning](https://learning.oreilly.com/library/view/machine-learning-foundations/9780135337851/)
 - [ ] [Automate Excel with Python](https://learning.oreilly.com/library/view/automate-excel-with/0642572230296/)
-- [ ] [Understanding ETL](https://learning.oreilly.com/library/view/understanding-etl-updated/0642572226961/)
+- [x] [Understanding ETL](https://learning.oreilly.com/library/view/understanding-etl-updated/0642572226961/)
 - [ ] [Deep Learning with Python](https://learning.oreilly.com/videos/deep-learning-with/9781633436589AU/)
 - [ ] [Python for Excel Users](https://learning.oreilly.com/library/view/python-for-excel/0642572230159/)
 - [ ] [Python Fundamentals with Paul Deitel, 2nd Edition](https://learning.oreilly.com/course/python-fundamentals-with/9780135917411/)
@@ -159,12 +159,11 @@
 - [ ] [Fundamentals of Metadata Management](https://learning.oreilly.com/library/view/fundamentals-of-metadata/9781098162818/)
 - [ ] [Monolith to Microservices](https://learning.oreilly.com/library/view/monolith-to-microservices/9781492047834/)
 - [ ] [Building Microservices, 2nd Edition](https://learning.oreilly.com/library/view/building-microservices-2nd/9781492034018/)
-- [ ] [Microservice APIs](https://learning.oreilly.com/library/view/microservice-apis/9781617298417/)
-- [ ] [Mastering API Architecture](https://learning.oreilly.com/library/view/mastering-api-architecture/9781492090625/)
-- [ ] [Mastering API Architecture](https://learning.oreilly.com/library/view/mastering-api-architecture/9781492090625/)
-- [ ] [Learning API Styles](https://learning.oreilly.com/library/view/learning-api-styles/9781098153984/)
+- [ ] [Microservice APIs](https://learning.oreilly.com/library/view/microservice-apis/9781617298417/) 
+- [ ] [Mastering API Architecture](https://learning.oreilly.com/library/view/mastering-api-architecture/9781492090625/) 
+- [x] [Learning API Styles](https://learning.oreilly.com/library/view/learning-api-styles/9781098153984/)
 - [ ] [Boto3 Essentials – Automate AWS Cloud with Python Boto3](https://learning.oreilly.com/course/boto3-essentials-/9781806384150/)
-- [ ] [Systems Analysis and Design: Dennis, Alan, Wixom, Barbara Haley, Roth, Roberta M.: 9781119803782: Amazon.com: Books](https://www.amazon.com/Systems-Analysis-Design-Alan-Dennis/dp/1119803780/ref=tmm_pap_swatch_0)
+- [ ] [Systems Analysis and Design](https://www.amazon.com/Systems-Analysis-Design-Alan-Dennis/dp/1119803780/ref=tmm_pap_swatch_0)
 - [ ] 
 
 ### AI
@@ -241,14 +240,14 @@
 
 ### Web
 
-- [ ] [Total Typescript](https://learning.oreilly.com/library/view/total-typescript/0642572230289/)
+- [x] [Total Typescript](https://learning.oreilly.com/library/view/total-typescript/0642572230289/)
 - [ ] [React Foundations](https://learning.oreilly.com/course/react-foundations/9780135499481/)
-- [ ] [Modern React From The Beginning](https://learning.oreilly.com/course/modern-react-from/9781807424992/)
-- [ ] [Modern JavaScript from The Beginning [Second Edition] - Second Edition](https://learning.oreilly.com/course/modern-javascript-from/9781805127826/)
-- [ ] [Modern HTML & CSS From The Beginning 2.0 - Second Edition](https://learning.oreilly.com/course/modern-html-/9781835880562/)
+- [x] [Modern React From The Beginning](https://learning.oreilly.com/course/modern-react-from/9781807424992/)
+- [x] [Modern JavaScript from The Beginning [Second Edition] - Second Edition](https://learning.oreilly.com/course/modern-javascript-from/9781805127826/)
+- [x] [Modern HTML & CSS From The Beginning 2.0 - Second Edition](https://learning.oreilly.com/course/modern-html-/9781835880562/)
 - [ ] [Responsive Web Design with HTML5 and CSS - Fifth Edition](https://learning.oreilly.com/library/view/responsive-web-design/9781837028238/)
 - [ ] [React Best Practices](https://learning.oreilly.com/course/react-best-practices/9780135588239/)
-- [ ] [Building Micro-Frontends, 2nd Edition](https://learning.oreilly.com/library/view/building-micro-frontends-2nd/9781098170776/)
+- [ ] [Building Micro-Frontends, 2nd Edition](https://learning.oreilly.com/library/view/building-micro-frontends-2nd/9781098170776/) 
 - [ ] [Multithreaded Javascript](https://learning.oreilly.com/library/view/multithreaded-javascript/9781098104429/)
 - [ ] [Learning JavaScript Design Patterns, 2nd Edition](https://learning.oreilly.com/library/view/learning-javascript-design/9781098139865/)
 - [ ] [Designing AI Interfaces](https://learning.oreilly.com/library/view/designing-ai-interfaces/9798341639812/)
