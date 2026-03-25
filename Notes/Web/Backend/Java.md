@@ -640,9 +640,11 @@ There is also `join()`. This is a *static method*, so it is called using the cla
 
 It returns a new string where all elements are combined with the delimiter in between.
 
+Further documentation of the [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) class.
+
 #### Online Documentation
 
-Since java has so many premade classes and methods, it would be hard to remember them all. To avoid having to remember them all, go [here](https://docs.oracle.com/en/java/javase/25/docs/api) to see all the predefined stuff available in the language.
+Since java has so many premade classes and methods, it would be hard to remember them all. To avoid having to remember them all, go [here](https://docs.oracle.com/en/java/javase/25/docs/api) to see all the predefined stuff available in the java 25 API specification.
 
 #### StringBuilder Class
 
@@ -670,6 +672,8 @@ Another instance method `reverse()` will reverse all the char data in the array.
 
 Once done with all the string adding, there is an instance method `toString()` that will return a **String** object with all the string content that the builder contained. This does not take any parameters though. 
 
+Further documention for [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) class.
+
 #### Text Block
 
 A feature added in java 15 allows for creating a multi line string in a string literal way. This makes it easier to use strings in a more human readable way. These are called *text blocks*.
@@ -693,3 +697,89 @@ public class Main{
 
 ### Input and Output
 
+When it comes to getting input from a user, this is typically done though a GUI. However, there is a way to get basic toy user input from the CLI.
+
+There is the before mentioned ways of `System.out.println()` and `IO.println()`. However, the second version is for java version 25 only while the other is for all versions.
+
+However, when it comes to getting input, the basic ways are to use `IO.readln()`, using a Scanner type from java.util.Scanner, or using a BufferedReader type from `java.io.BufferedReader`.
+
+When using the `IO.readln()`, this is the simplest way to get input. This will read text from the user until the enter key is hit. The value obtained will be returned as a string. Because of this, the value has to be type casted to its respectful data type to be unless it is supposed to be a string. To convert the types, this is not done with the normal type cast stuff mentioned before. Intead, there are special objects called *wrapper classes* that represent that data type that are used to do the type casing. For example, Integer is the name of the object to convert a string to an **int** type. The same object are available for each of the *primitive data* types which are: Double, Float, Long, Short, Byte, Boolean, and Character (char type). Each of these have a static method called `parse*()` where * is to be replaced by the name of the wrapper type like `parseInteger()`. These will all take in a single parameter of the string representation of this. It will then return the primitive data type version value of this.
+
+When using the Scanner object from `java.util.Scanner`, this setup is different. Here it will specify where the input is coming from when declaring the Scanner object. This will get the value System.in as the argument. After, that object now has access to methods that can read user input. This will have an instance `nextLine()` method to read in a string of input until enter key is hit. However, unlike the `IO.readln()` version, there data techenically does not need to call the *wrapper classes* since there are special instance methods that can be used to read specifc data and have it auto converted. The methods follow `next*()` where * is to be replaced with the data type name like `nextChar()`. Also unlike other stuff so far, the `java.util.Scanner` is not part of the `java.lang` package so this type is not available by default. At the top of the file put the following: `import java.util.Scanner`.
+
+When using the BufferedReader object, this works similar to the StringBuilder object where this preallocates a large amount of extra memory (8192 bytes by default) to help reduce expensive I/O operations like reading from a hard drive or network. If buffering did not happen, doing a call like `read()` or `readLine()` would cause a direct call to the OS. This is declared differently then the Scanner object. When. Just like the Scanner object, this also needs to be imported with `import java.io.BufferedReader`. More about this will talked about later. [^BufferReader]
+
+Although the `IO.readln()` and `IO.println()` can be used to get user input, theses are more used for programmers compared to displaying information for users. This is because when having to use things like *wrapper classes*, they follow a strict format. For example, entering a numer of 50,000 and having to convert that with the `Integer.parseInteger()` would case an error to occur. However, if done with the Scanner object with `nextInt()` then this would not cause an error and would return back 50000.  The `IO.println()` should only be used to show basic information that does not require formatting as well. Therefore, it is always better to use the Scanner object to get user related input.
+
+There is a final way to interact with I/O that is a specialized way, which is with the Console object.  .This must be imported with `import java.io.Console`. This is really only good when wanting to make CLI applications. This is similar to the Scanner object class in terms of what it does, but slightly different. This can read and write input. However, it can do things like getting passwords without showing the password. It has access to an instance method `readLine()` that is used to get text like normal and will return a **String** version of it. There is also an instance method `readPassword()` that will read in data and return a **Char[]** version of it. It also has access to an instance method `printf()` that works like the C version when it comes to outputing data and data formatting like %s, %d, %f, etc.
+
+```java
+import java.io.Console;
+import java.io.BufferedReader;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        // Make a scanner object to read input
+        Scanner scr = new Scanner(System.in);
+        // Make a console object
+        Console console = System.console();
+        
+        System.out.print("Enter Number: ");
+        int x = scr.nextInt();
+        
+        // Read standard input
+        String username = console.readLine("Enter username: ");
+
+        // Read secure input
+        char[] password = console.readPassword("Enter password for %s: ", username);
+    }
+}
+```
+
+
+
+The full documentation for the java 25 [IO](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IO.html) package, java [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) class,  java [Console](https://docs.oracle.com/javase/8/docs/api/java/io/Console.html) class, and java [BufferedReader](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html) class.
+
+#### Formatting Output
+
+When it comes to outputting formatted text, this is useful when things should be displayed in certain ways. For example, there is an instance method for the **String** object `formatted()`. The actual string this method is called on will be a formatted string version of this. The formatting will use C style formatting with the `printf()` function with things like %s, %d, %f, etc.
+
+| Formatter | Description                     |
+| --------- | ------------------------------- |
+| %d        | Displays integer numbers        |
+| %x        | Displays hexadecimal numbers    |
+| %o        | Displays octal numbers          |
+| %f        | Displays float numbers          |
+| %s        | Displays string types           |
+| %c        | Displays char types             |
+| %b        | Displays boolean types          |
+| %%        | Displays the actual % symbol    |
+| %-        | Displays the actual - separator |
+
+When it comes to displayig float, it has some special flags that can be added to it to change how the float actually appears. 
+
+```java
+public class Main{
+    public static void main(){
+        String templateFormat = "Value is %8.2f and name is %s\n";
+        float x = 5000.3123456;
+        String name = "Jack";
+        
+        // Could also do "Value is %8.2f and name is %s\n".formatted(x,name);
+        System.out.println(templateFormat.formatted(x, name));
+    }
+}
+```
+
+### Control Flow
+
+Just like C/C++, java has both conditional statements and loops to determine control flow.
+
+It is important to know that 
+
+# TODO
+
+[^BufferReader]: Finish writinh about the BufferReader Object
+
+972-392-1144
