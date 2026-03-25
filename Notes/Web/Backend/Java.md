@@ -208,11 +208,15 @@ It is a common practice to have constants be named all upper case and have _ be 
 
 #### Enum
 
-In Java, the **enum** keyword defines a specialized data type used to represent a fixed set of constants. This prevents the use of invalid or "magic" values by restricting a variable to only the names defined within the enum container.
+In Java, when a variable should only ever hold one of a specific set of values, the **enum** (enumeration) data type is used. This acts as a specialized container for a group of constants, ensuring that invalid values cannot be assigned.
 
-There are two primary ways to implement an enum. The most basic form is a simple list of names, which is ideal for categorizing items like sizes or days of the week. The second form involves using a *constructor* to attach specific data to each name. When this is done, parentheses containing the data follow each constant. To store and retrieve this data, the enum must include a field and a method. While the data types for these values must be consistent across all constants in a single enum, the specific values assigned to them can vary.
+An enum is defined using the **enum** keyword followed by a name. After, there is a set of curly braces and inside the curly braces, the allowed constants are listed, typically in uppercase. A variable is then declared using the enum name as its data type. While these variables can be assigned at declaration, they can also be reassigned later to any other constant defined within that same enum.
+
+Enums can also include a *constructor*. This allows specific data to be associated with each constant by placing parentheses and the data immediately after the constant name. When a constructor is defined, it must match the data being passed in. For instance, if one constant stores an integer, all constants in that enum must provide an integer to that constructor. To access this stored data, a field and a method are used within the enum body.
 
 Under the hood, Java enums are much more powerful than simple integers. Each enum constant is an instance of a class that inherits from `java.lang.Enum`. This structure allows enums to behave like objects, providing access to built-in methods while maintaining a fixed, restricted set of possible values.
+
+It it important to note where an enum can be declared. An enum can be declared inside a class; like between the `public class Main` curly braces or it can be declred outside that block. However, it cannot be declared inside methods; like the `main()` method.
 
 ```java
 // Case 1: Basic Enum - Used for simple categorization
@@ -264,3 +268,287 @@ public class Main {
 }
 ```
 
+### Operators
+
+#### Arithmetic Operators
+
+Just like in C/C++, java has the basic arithmetic operators like +, -, *, and / for adding, subtracting, multiplication, and division.
+
+It is important to note when dividing numbers if both of them are integer types then this will perform integer division. However, if one or both of them are a floating point type then it performs floating point arithmetic.
+
+The other symbol, like in C/C++, is the modules (%) operator for getting the remainder of division. This will return an integer only.
+
+#### Mathematical Functions and Constants
+
+Just like in C/C++, there is a special library to deal with more complex math content. In java, this is done in a class called "Math". Inside here are the methods to perform the math equations. Some are:
+
+- `Math.sqrt(x)` that takes in a number and returns the square root result of it.
+- `Math.pow(x,y)` that takes two numbers of type double and returns the value of $x^y$ type double.
+- `Math.sin` is the sin math variable
+- `Math.cos` is the cos math variable
+- `Math.tan` is a tan math variable
+- `Math.log` is the natual log
+- `Math.exp` is the natual log
+- `Math.log10` is the log base 10
+
+In java 21, there is a math method called `clamp(x,y,z)`. This gives the ability to check that a variable (x) is in scope of a minimum (y) and maximum (z) value. The return cases are:
+$$
+f(x,y,z) =
+\begin{cases}
+z & \text{if } x > z \\
+y  & \text{if } x < y \\
+x & \text{if } x \le z & x \ge y
+\end{cases}
+$$
+There are other math constants like PI, E, and T (which is 2π).
+
+#### Type Conversions Rules
+
+There is a way to convert the data type from one variable to another data type. This is helpful when things need to be changed or meet certain requirements. For example, a function MUST take two floats, but have two ints.
+
+The rules for the data type conversion is:
+
+```mermaid
+flowchart LR
+    Byte --> Short
+    Short --> Int
+    Char --> Int
+    Int --> Long
+    Int --> Double
+    Float --> Double
+
+    Int -.-> Float
+    Long -.-> Float
+    Long -.-> Double
+
+    subgraph Legend
+        A[Solid Arrow] -->|means| B[No data loss]
+        C[Dotted Arrow] -.->|means| D[Possible precision loss]
+    end
+```
+
+#### Type Casting
+
+To actually convert between two types, do `(Data Type) VariableName`. It is important that the variable is already declared.
+
+For Example:
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int x = 50;
+        System.out.println(x);
+        double y = (double) x;
+        System.out.println(y);
+    }
+}
+```
+
+> [!WARNING]
+>
+> If trying to type cast from one data type to another that does not support that range, then it will truncate to a number that is can be represented for that data type at random. For example, going from an int to byte type.
+
+There is a way to check that something is of a specific data type. This uses the **instanceof** keyword. This will also have two values like `Variable instanceof DataType`. This will return a boolean value back (true or false) if it meets the requirements of the assignment. However, this data type can ONLY be an object. So *primitive* data types like int, float, etc cannot be checked.
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int x = 50;
+        bool isType = x instanceof int;
+        System.out.println(isType)
+    }
+}
+```
+
+#### Assignment
+
+When it comes to assigning a variable data, it can use the = like before. However, there is a way to also use arithmetic expressions with it at the same time once the variable is declared already. This is done with a short hand math symbol followed by the = symbol (like +=). For example, `x += 50` is the same as doing $x=x+50$.
+
+This can be done with any of the arithmetic symbols.
+
+> [!IMPORTANT]
+>
+> If the value on the right hand side when doing this is not the same type as the variable on the left, then this will auto type cast the resulting value on the right to the type on the left hand side. For example `x += 50.5` and in this case x in an int. Here the 50.5 will convert to 50 because under the hood this turns into `x = (int)(x + 50.5)`.
+>
+> However, as of java 20, can add the flag "-Xlint:lossy-conversions" when compiling and this will show a warning that this is happening.
+
+#### Increment Operator
+
+Instead of having to write mantually adding or subtracting from a value each time by one, java supports a shorthand for this called *incrementing*.  This can be done by putting ++ or -- on a variable name like `x--`. This can be done anywhere in code and this will subtract 1 from the value. There is also a prefix version of this by just putting the ++ or -- before the variable name. However, these do mean different things, but only really matters when being done in assignment expressions. Doing the prefix version willl add/subtract 1 from the number first then do the arithmetic operation, but the postfix version will work with the variable first then add/subtract 1 from it.
+
+For Example
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int m = 7;
+        int n = 7;
+        int a = 2 * ++m; // m will be 8
+        int b = 2 * n++; // n will be 7
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+
+```
+
+#### Relational and boolean Operators
+
+There is a way to show equality between two values and is done with ==. This is used to check if two values are equal to each other. This will also return a boolean value secretly to tell if this was true or false.
+
+There is another version to check inequality which is !=. This checks if the value is NOT equal to the other value and returns a boolean values based on that.
+
+There are other symbols that can be used to like < (less than), > (greater than), <= (less than or equal), and >= (greater than or equal).
+
+There is also a way to do logic operators like && and || to check for logical AND and OR statements. This will also return a boolean value to see if the result did meet the requirements. These both work the same way as in C/C++ where there will be two separete expressions on each side of the logic symbols like `ExpressionOne && Expression2`. The && version will only return true if both expressions are true. The || willl return true of at least 1 of the expressions returns true.
+
+For Example:
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int x = 50;
+        int y = 100;
+        
+        boolean isFalse = x > y;
+        boolean isTrue = x == y || x < y;
+        
+        System.out.println(isTrue);
+        System.out.println(isFalse);
+    }
+}
+```
+
+#### Conditional Operator
+
+There is a shorthand way to to write some logic where if an expression returns true then it can be assigned one value and if false it returns another value. To do this use the format `condition ? ValueTrue:ValueFalse`.
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int x = 50;
+        int y = x > 100 ? 100:-1;
+    
+        System.out.println(y);
+    }
+}
+```
+
+#### Switch Statement
+
+Instead of just just checking one case like the conditional operator, can use **switch** statements. This is a way to check in multiple different cases if a value equals something then it will return a certain value back. This also uses another keyword called **case** which is what is used to check if the value meets the criteria for that case and if yes then that case code goes off and if not then skip that case code or can just do a single thing . There is also another keyword called **default** that will go off only if all the previous cases failed. 
+
+When the cases are being checked, they go in the order in which they are declared.
+
+When a code block is being used to execute multiple things and needs to return something, the use of the **yield** keyword must be used at the end of it. To use this just put the value to return 
+
+The syntax for this is:
+
+```java
+switch(ValueToCheck){
+    case CaseValue -> ThingToDo;
+    case CaseValueTwo -> {
+        ThingsToDo
+    }
+    case caseValueThree -> {
+        ThingsToDo
+        yield ValueToReturn
+    }
+    default -> ThingToDo;
+}
+```
+
+The syntax above is available in java versions 14+. Prior to this, the -> had to use : instead and had to use the **break** keyword at the end of each case block.
+
+Being Used:
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int x = 50;
+        float y = switch(x){
+                case 30 -> 30.30;
+                case 40 -> 40.40;
+                case 50 -> {
+                    System.out.println("The value was 50!");
+                    yield 50.0 * 4.0;
+                }
+                default -> -1;
+        }
+    }
+}
+```
+
+A switch statement can also be used by itself without having to return a value to assign and this will make it so it does not return anything, but can be used to check if a certain condition value is meet and then execute the needed code.
+
+> [!NOTE]
+>
+> If the value to be tested is an enum and the cases are the enum values, then the EnumName.value does not need to be used and can just do the value for each case.
+
+#### Bitwise opertors
+
+Just like in C/C++, there is the common bitwise operators:
+
+- & (AND)
+- | (OR)
+- ^ (XOR)
+- ~ (NOT)
+- \>\> (BITWISE SHIFT RIGHT) --> This will shift all the bits over 1 place 
+- << (BITWISE SHIFT LEFT) --> This will shift all the bits over 1 place 
+
+However, these only work on integer types. These can also be used in expressions in something like `(n & 0b1000) / 0b1000` where n is an int type.
+
+However, if the value being tested on is a boolean type, then this will return a true or false value each time just like the && and || logic operators. Otherwise, returns an int value for this.
+
+When it comes to the >> and <<, these will shift the bits by the specified about on the right hand side. The left hand side of this will be the int or binary number to shift the bits on while the right hand side will be the specific about of bits to shift by.
+
+> [!NOTE]
+>
+> When shifting the bits left, this is like multipling the value by $2^\text{ShiftAmount}$. When moving to the right then it is like diving by $2^\text{ShiftAmount}$.
+
+### Strings
+
+When it comes to strings, under the hood they are just a sequence of **char** types. When it comes to to declaring a string, this will be done using the **String** type. The string type is really just a class in the java.lang module that can be used.
+
+There is eomthign called a *string literal* and that is just when using a string with double quotes that is not being assigned to a variable.
+
+#### Concat
+
+There is something called *concatenation*. This is just combining two strings together to form a bigger one. This is done by adding two different strings together with the + symbol.  This will return a new string with the combined format except 
+
+A string can be added to another data type (int, boolean, float, etc). However, it is converted to a string version and then added to the string like `String age = "I am " + 20 + " years old"`.
+
+If there needs to be sone expression done on the contnet before it is converted into a string, then surround it with parentheses and do everything else with *concatenation* like normal.
+
+Although a string is used make up of **char** type, the single **char** type  cannot do these auto conversions.
+
+There is a special method in the string class called `join()`. This is used to join multiple strings together based on a certain delimiter type. The syntax is the specific delimiter in a string followed by other string variable types like `String x = String.join("\t", "	Hello", "	World")` will join the strings based on a tab delimiter.
+
+There is another method called `repeat()`. This will take the sting of the thing being called on and just return an appended version of the tring to itself the same string over n times. The only argument this takes in an integer on how many times to repeat this.
+
+#### Static and Instance Methods
+
+There are two types of methods here: 
+
+- *instance methods* --> An instance method requires an object (instance of a class) to be created. Once the object exists, it can call methods defined in its class.
+- *static methods* -->  A static method does not require an instance and can be called directly using the class name.
+
+For example, `String.join()` is a static method because it is called using the class name without creating an object. In contrast, `.replace()` is an instance method because it must be called on a specific `String` object.
+
+The easiest way to tell the two apart is if the . is coming right after a stirng type then this is a *insance method*. However, if the . is followed by a class name then it is a *static method*.
+
+#### Indexes and Substrings
+
+There is a method for the string type called `length()`. This will return the number of total of **char** values it takes to represent that string.
+
+There is another method called `charAt()`. This will take in 1 integer parameter. This returns the single character value at that position in the string. However, just like C/C++, strings are zero indexed so this can take any value from 0 to $string.length -1$.
+
+There another method called `indexOf()`. This will take a single string parameter of anything. What this will do is return back the first instance that thing it found in the string in an integer.
+
+Another method is called `substring()`. This will return part of the string this was called on. This takes two variables with the first being the index to start at and the second being the index to end at (no inclusive).
+
+#### String are Immutable
+
+Once a string is declared, they are considered *immutable*. This means that the string itself can never be changed. Even though a string can be reassigned to other strings, under the hood they are really just pointing to a new part of memory to refer to the new string object.
+
+The benefit is java uses something called *memory pooling*. This can be thought of as boxes with content inside. Intead of just 
