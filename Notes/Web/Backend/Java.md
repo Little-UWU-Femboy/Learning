@@ -549,6 +549,147 @@ Another method is called `substring()`. This will return part of the string this
 
 #### String are Immutable
 
-Once a string is declared, they are considered *immutable*. This means that the string itself can never be changed. Even though a string can be reassigned to other strings, under the hood they are really just pointing to a new part of memory to refer to the new string object.
+In Java, **String** objects are *immutable*, meaning their internal character data cannot be modified after creation. If a string variable is updated to a new value, the original data in memory is not overwritten. Instead, a completely new string object is allocated, and the variable is updated to point to this new memory location.
 
-The benefit is java uses something called *memory pooling*. This can be thought of as boxes with content inside. Intead of just 
+A significant advantage of this design is the *String Pool*. To optimize memory, Java maintains a special area where it stores unique string literals. When multiple variables are assigned the exact same literal value, Java saves resources by having all those variables point to the same existing object in the pool. This prevents the redundant creation of identical "boxes" in memory, leading to better performance and reduced memory footprints.
+
+#### String Equality
+
+When it comes to seeing if two strings are equal, this is not done with the equality operator like ==. Instead, the string class has an instance method `equals()` that is a instance method. This will take a single **string** object and will return true if those both are equal and false otherwise.
+
+There is another version of this called `equalsIngoreCase()` where it will also compare two strings and return the same value, except this does not take if the letters are capitalized into consideration.
+
+If the == is used on two strings, all this does it test if those strings are located in the same memory location. So if needed to check that then use the == operation.
+
+#### Empty and Null Strings
+
+An empty string is just "" and this will have a length of zero.
+
+There is an instance method called `isEmpty()` that can be called. This will return true if the string is empty and false otherwise. This does not need any parameters.
+
+The other ways to see if this is empty is using the `length()` instance method and see if it returns zero or use the `equals()` method with "" as the argument.
+
+There is a special value called **null** that is used to represent that the current object does not actually point to anything in memory.
+
+#### The String API
+
+The `String` class in Java has a lot of built-in methods for working with text. Most of these are *instance methods*, meaning they are called on a specific string object. Only a few are *static methods*, which are called using the class name itself.
+
+There is a method called `length()`. This is an *instance method* and it does not take any parameters. It returns an integer that represents the total number of characters in the string.
+
+Another method is `charAt()`. This is an *instance method* and it takes one parameter, which is an integer. This integer represents the index position. It returns a single `char` value at that position. Since strings are zero-indexed, valid values go from 0 to `length() - 1`.
+
+There is an instance method called `equals()`. This takes one parameter, which is another string. It returns a boolean value (true or false) depending on if both strings have the same content.
+
+There is also `equalsIgnoreCase()`. This is an *instance method* and it takes one string parameter. It returns a boolean, just like `equals()`, but it ignores uppercase and lowercase differences.
+
+Another method is `compareTo()`. This is an *instance method* and it takes one string parameter. It returns an integer:
+
+- a negative value if the current string comes before the other string
+- a positive value if it comes after
+- 0 if they are equal
+
+There is a method called `isEmpty()`. This is an *instance method* and it does not take any parameters. It returns true if the string has a length of 0.
+
+There is also `isBlank()`. This is an *instance method* and it does not take any parameters. It returns true if the string is empty or only contains whitespace.
+
+There are also `startsWith()` and `endsWith()`. These are *instance methods* and each takes one parameter, which is a string. They return a boolean depending on whether the string starts or ends with that value.
+
+There are multiple versions of `indexOf()`. All of them are *instance methods*:
+
+- One version takes one parameter, which is a string. It returns the index of the first occurrence.
+- Another version takes two parameters: a string and an integer. The integer represents the starting index for the search.
+- Another version takes three parameters: a string and two integers. These define the range to search in.
+
+All versions return an integer index of where the substring is found, or -1 if it is not found.
+
+There is also `lastIndexOf()`. This is an *instance method*:
+
+- One version takes one string parameter
+- Another version takes a string and an integer (starting position)
+
+These return the last occurrence of the substring, or -1 if not found.
+
+Strings are immutable, so these methods return new strings instead of changing the original.
+
+There is a method called `replace()`. This is an *instance method* and it takes two parameters. Both parameters are sequences of characters (most of the time just strings). The first parameter is what to replace, and the second is what to replace it with. It returns a new string with the changes.
+
+There is also `substring()`. This is an *instance method*:
+
+- One version takes one integer parameter (starting index)
+- Another version takes two integer parameters (start and end index)
+
+It returns a new string that is part of the original. The ending index is not included.
+
+
+
+There are methods called `toLowerCase()` and `toUpperCase()`. These are *instance methods* and do not take any parameters. They return a new string with all characters converted to lower or upper case.
+
+There are also `strip()`, `stripLeading()`, and `stripTrailing()`. These are *instance methods* and do not take any parameters. They return a new string with whitespace removed:
+
+- `strip()` removes from both ends
+- `stripLeading()` removes from the front
+- `stripTrailing()` removes from the end
+
+There is a method called `repeat()`. This is an *instance method* and it takes one integer parameter. This integer represents how many times to repeat the string. It returns a new string with the repeated content.
+
+There is also `join()`. This is a *static method*, so it is called using the class name. It takes at least two parameters:
+
+- the first parameter is a string delimiter
+- the remaining parameters are multiple strings to join together
+
+It returns a new string where all elements are combined with the delimiter in between.
+
+#### Online Documentation
+
+Since java has so many premade classes and methods, it would be hard to remember them all. To avoid having to remember them all, go [here](https://docs.oracle.com/en/java/javase/25/docs/api) to see all the predefined stuff available in the language.
+
+#### StringBuilder Class
+
+There are times when a string needs to be modified a lot, such as reading a file line by line or character by character and continuously adding to the same value. Using a normal **String** for this is inefficient because every time something is added, a completely new string object is created in memory. This takes extra time and uses more memory.
+
+To avoid this, there is a special type called **StringBuilder**.
+
+The **StringBuilder** type is not created the same way as a normal string. It must be created using the **new** keyword, such as`StringBuilder name = new StringBuilder()`.
+
+This creates an object with no initial value (an empty sequence of characters). It can also be initialized with a starting value by passing in a string as a parameter when creating it.
+
+Under the hood, **StringBuilder** works using a resizable array of **char** values. This acts as an internal buffer. Instead of resizing every time something is added, it allocates extra space ahead of time (called *capacity*). The actual number of characters currently being used is the *length*.
+
+When more characters are added and the buffer runs out of space, a larger array is created and the data is copied over. However, this does not happen every single time something is added, which makes it much more efficient than using regular strings for repeated modifications.
+
+There is a special instance method called `append()`. This takes a single sting and adds that to the char buffer.
+
+Another instance method `length()` will return the current amount of chars in the array like the **String** version of this.
+
+Another instance method `insert()` is used to add text at a particular point in char array. The first parameter this takes is the starting index this should enter at. The second parameter will be the actual string to add in. This will return the string builder array.
+
+Another instance method `delete()` will remove string data from the char buffer. The first parameter this takes is the starting index for this to remove at. The second parameter will be the index this will end at (not inclusive). This will return the string builder array.
+
+Another instance method `reverse()` will reverse all the char data in the array. This does not take any parameters. This will return the string builder array.
+
+Once done with all the string adding, there is an instance method `toString()` that will return a **String** object with all the string content that the builder contained. This does not take any parameters though. 
+
+#### Text Block
+
+A feature added in java 15 allows for creating a multi line string in a string literal way. This makes it easier to use strings in a more human readable way. These are called *text blocks*.
+
+Theses are created using three \"\"\" pair instead of \"\" like with strings.
+
+These are really good for writing things like SQL queries and HTML blocks where things can span multiple lines.
+
+```java
+public class Main{
+    public static void main(String[] args){
+        String greetings = """
+            Hello! My name is Jack!
+            I am 20 years old!
+            See you soon!
+            """;
+// Same as --> Hello! My name is Jack!\nI am 20 years old!\nSee you soon!\n
+    }
+}
+```
+
+### Input and Output
+
