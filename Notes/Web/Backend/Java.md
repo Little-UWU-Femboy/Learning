@@ -776,7 +776,86 @@ public class Main{
 
 Just like C/C++, java has both conditional statements and loops to determine control flow.
 
-It is important to know that 
+It is important to know what *block scope* is. All things declared and done live in a particular scope  that is specified between curly brackets. There can be blocks inside other blocks. Things like variables will live inside that scope and anything outside it will no be visable to any inner scopes.
+
+Each block can be thought of as a level. The blocks that are inside other blocks are called *nested blocks* and the block that contains it is called the *outer block*. If something like a variable is declared inside the outer block and then declared again inside an nested block then this will cause an error. There are other programming languages that support this and this is called *shadowing variables*. However, java does not support this.
+
+#### Conditional Statements
+
+*Conditional statements* are ones that execute a certain block of code depending if the specified condition is met.
+
+Just like C/C++, when declaing a conditional statement, this is done with the **if** keyword. The syntax for this is `if(condition){statement(s)}`. The condition MUST be something that can evaulate to a **boolean** true or false. If and only if the result of the condition is true then the code in the if scope will be executed. Otherwise, that code is skipped over.
+
+Another version of this is called an *if-else* conditional. This will make it so it use the **if** and **else** keyword. This makes it so if the if part of the conditional does not evaultate to true, then instead of just skipping over it will execue some other code specified in the else block. The syntax is `if (condition){statement(s)}else{statements}`. Unlike the **if** part, the **else** part does not have a condition to evaulate and therefore does not need parentheses and just needs curly braces.
+
+There is another keyword that is added to this called **else if**. This is not like the **else** where the block code is executed if the **if** part fails. Instead, this will also take a condition just like the **if** part. This code block will only execure only if the **if** part failed and then if the condition for this block passes. Unlike the previous two parts, there can be multiple **else if** blocks for one if statements.
+
+When it comes to adding all three different parts together, the **if** part is always the first one followed by the **else if** parts followed by the **else** as the last part. Also, the conditions are checked in sequenial order until the **if** or the one or more **else if** blocks are true or if they are all false then the **else** part will execute.
+
+There is someting called *flow charts* that help to visualize how the code execute will play out per case.
+
+#### Loops
+
+When wanting to execute a code block repeatly, the use of a loop is needed.
+
+The first type of loop is the **while** loop. This will execute code until the targeted condition results to false. The syntax for this is `while(condition){statement(s)}`. This is used when the number of times a code block needs to execute is unknown and should only stop once a condition is met.
+
+The way a **while** statement works is it first checks to see if the resulting condition returns true. If it is then start the code execution block. Once this block is done, it does not go on to the next set of text. This goes back to check the condition and if it result to true then it will execute the same code block again. This repeats until the condition results to a false value. This means there should be some value being updated, changed, or removed in the code block that will soon result in the condition becoming false. If this does not happen then this will result in an *infinite loop* which is when the **while** loop never actually ends and therefore the program can never end and no further code after that block can be executed.
+
+```java
+public class Main{
+    public static void main(){
+        int x = 50;
+        
+        while (x > 40){
+            IO.println(x);
+            x--; // deincrements the value each time to ensure no infinite loop
+        }
+    }
+}
+```
+
+There is a different version of a while loop called a do-while loop. In a while loop, the condition is checked BEFORE the code block is executed. This means there is a chance the loop never executes because the condition evaulates to false the first time. However, a do-while loop will ALWAYS execute the code block at least once and then check the condition afterwards. 
+
+The syntax for a do-while loop is different compared to a normal while loop since this now uses the **while** and **do** keywords. The syntax is `do {Code to Execute}while(condition);`. The code, the **do** bloxk will always execute that code and then check the condition in the while loop and if it is true then reexecute the code in the **do** block. Another important thing is to make sure the while part ends with a semicolon or this will cause an error.
+
+```java
+public class Main{
+    public static void main(){
+        double balance = 100.00;
+        double payment = 50.53;
+        double interestRate = 0.10;
+        int years = 3;
+        
+        do {
+    		balance += payment;
+    		double interest = balance * interestRate / 100;
+            balance += interest;
+            years++;
+        } while (input.equals("N")); // Loops until user enters "N" for input
+    }
+}
+```
+
+#### For Loops
+
+There may be times when a code block should only execute a certain amount of times max, but not forever like a while loop where it can execute any amount of times until a condition is met. That is where a for loop is used. This is made with the keyword **for**.
+
+The syntax needed in a for loop is different compared to a while loop. This will also have parentheses, but the content inside is broken into three parts:
+
+1. *Initializer* --> This will be a value that acts like a counter to determine how many times the code block will run.
+2. *Condition* --> This will be the condition that is checked each time over and over until the total number of specified times to run is reached or the condition evaulates to false
+3. *Increment* --> This will be how much to increase the initializer value by. This helps increment the counter to reduce the number of times the code needs to run.
+
+The syntax for this is `for(Initializer;Condition;Increment){Code to Execute}`. It is imporant to note that each part is separated by a semicolon.
+
+For the *increment*, this typically uses the increment or decrement syntax.
+
+It is important to note how 
+
+
+
+A *flowchart* is also use to show how the code will be executed.
 
 # TODO
 
