@@ -436,7 +436,7 @@ public class Main{
 
 #### Switch Expression
 
-Instead of just just checking one case like the conditional operator, can use **switch** statements. This is a way to check in multiple different cases if a value equals something then it will return a certain value back. This also uses another keyword called **case** which is what is used to check if the value meets the criteria for that case and if yes then that case code goes off and if not then skip that case code or can just do a single thing . There is also another keyword called **default** that will go off only if all the previous cases failed. 
+Instead of just just checking one case like the conditional operator, can use **switch** expressions. This is a way to check in multiple different cases if a value equals something then it will return a certain value back. This also uses another keyword called **case** which is what is used to check if the value meets the criteria for that case and if yes then that case code goes off and if not then skip that case code or can just do a single thing . There is also another keyword called **default** that will go off only if all the previous cases failed. 
 
 When the cases are being checked, they go in the order in which they are declared.
 
@@ -478,6 +478,8 @@ public class Main{
     }
 }
 ```
+
+When it comes to cases, if there are multiple different results that should execute the same code or return the same value, then instead of putting them for their own case statement, they can be added on a single case statement like by just comma separating the values. For example, `case 1,2,3 ->` will execute the same code when the value is 1, 2, or 3.
 
 > [!NOTE]
 >
@@ -866,7 +868,90 @@ When it comes to making the *initializers* and *increment* variables, there can 
 
 #### Switch Statement
 
-Instead of writing a bunch of if-else statements, a *switch statement* can be used. This is different compared to the *switch expression* mentioned earlier. This is because this does not return a value. Instead, this is just used to check if a value occurred and then 
+Instead of writing a bunch of if-else statements, a *switch statement* can be used. This is different compared to the *switch expression* mentioned earlier. This is because this does not return a value. Instead, this is just used to check if a value occurred like if writing a bunch of if else statements.
+
+The syntax for this is the exact same as the *switch expression*.
+
+Before it was mentioned that there is another way to write switch statements/expressions without -> syntax, but this is the old and outdated method since the -> syntax has been fully supported since java 14. However, versions before that use the old syntax. The old syntax will need to make use of another keyword called **break**. Without **break**, something called *fallthough* will occur. This is when a case does execute all the code assigned to it, but will execute the next case under it as well and this repeats until it hits the **break** keyword or end of the switch statement. To prevent this, the **break** keyword needs to be placed at the end of each case statement block to prevent this. The only part of this that does not need to follow this rule is the **default** case.
+
+Something called exceptions, which are talked about later, can be a return value for this as well.
+
+#### Breaking Control Flow
+
+When it comes to control flow loops, there are times that once or if a certain value is reached, the loop should exit and not continue and otherwise keep on going. This can be done by affecting the condition of the loop expressions, however this can make things more complicated. Instead, there are two keywords:
+
+- **break** --> This one was already seen before, but this will make it so when this statement is executed, it will immediately leave the control flow statement and not execute anything else that was in that block scope.
+- **continue** --> This is used to affect execution of code, but not like the **break**. Instead of leaving the control flow block, this skips executing the rest of the code below it and then will go back to the loop block and start it all over again. This will count as an iteration as well.
+
+When it comes to these keywords, they do not follow anything as they are just used alone.
+
+Both of these only affect the inner most control flow loop. This means if there is a for loop inside another for loop, but the nested for loop as a break statement, then this does not leave both of the for loops. Instead, only the inner one control flow is broken and then 
+
+```java
+public class Main{
+    public static void main(){
+        int x = 50;
+        int y = 50;
+        
+        // using break
+        for(int i = ; i < x; i++){
+            // skips the whole for loop since x > 10
+            if (x > 10){
+                break;
+            }
+            x += 10;
+        }
+        
+        // using continue
+        for (int i = 0; i < y; i++){
+            // adds 2 to i then skips executing the i++ if it is divisable by 2
+            if (i/2 == 0){
+                i+=2;
+                continue;
+            }
+            i++;
+        }
+    }
+}
+```
+
+###  Big Numbers
+
+There are rare times when even the data type like **long** or **double** are not enough for the numbers that need to be held. Instead, there are special classes called **BigInteger** and **BigDecimal** that can make this happen. These are located in the `java.math` package so this needs to be imported first before bring used.
+
+When creating theme, there are two ways to do it:
+
+1. The first is turning a normal small value into a big version. This is done by using the static method of the respected class called `valueOf`. The only argument this takes is the single number being assigned to this.
+2. The second way is using using the constructor of that class. This is when the special keyword **new** will need to be used.
+
+When it comes to math operations like adding and multiplying, the basic +, *, -, and / is not supported with these types. Instead, each of the object types have an instance method called `add`, `multiply`, `subtract`, and `divide`. This will take in a single value and that is another big data type of the same type and do the math on the current value being called on with the one passed in and return the result.
+
+### Arrays
+
+When wanting to hold multiple different values of the same type and be referenced by the same name, this is where *arrays* come in handy. These act as special container to hold multiple different variables of the same type under the same name.
+
+There is no special data type for creating an array. Instead, there is a special syntax. To create an array, put a set of square brackets right after (not spaced) the data type. After, there can be three things done to actually create it:
+
+1. Create an array object by assigning it the syntax like `new <dataType>[SizeOfArray]`. This will create an array of the specified size meaning that can hold n number of variables of that type.
+2. Can just end the variable name without assigning it to anything.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
