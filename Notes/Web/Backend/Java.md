@@ -860,6 +860,7 @@ public class Main{
     public static void main(){
         for(int i = 50; i < 60; i++)
             IO.println(i);
+        // Can even do --> for (int i = 50; i < 60; i++) IO.println(i); 
     }
 }
 ```
@@ -933,17 +934,454 @@ When wanting to hold multiple different values of the same type and be reference
 There is no special data type for creating an array. Instead, there is a special syntax. To create an array, put a set of square brackets right after (not spaced) the data type. After, there can be three things done to actually create it:
 
 1. Create an array object by assigning it the syntax like `new <dataType>[SizeOfArray]`. This will create an array of the specified size meaning that can hold n number of variables of that type.
-2. Can just end the variable name without assigning it to anything.
+2. Do not have to do the `new <dataType>[SizeOfArray]` thing. Instead, assign it equal to a set of curly braces and put the values in there comma separated. What this will do is auto fill the array with that specified amount of data and then it will take the total number of things added to it and make that the size of the array.
+3. Can just end the variable name without assigning it to anything. However, this just declares the variable, but does not assign it to any part in actual memory. Instead, it will be assigned to the keyword **null** which is used to represent that something has no memory for it. So using this array will cause errors.
+
+Once an array is declared, it cannot change size at all. It will always be that size unless a new array is made and all the values from the original are copied to the new array.
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int[] a = null;
+        int[] b  = new int[10];
+        int[] c = {2,4,6,8};
+        
+        if (a == null){
+            System.out.println("Not declared");
+        }
+        else{
+            System.out.println("Declared Now");
+        }
+        System.out.println(b);
+        System.out.println(c);
+    }
+}
+```
+
+There is one more way to declare an array, but it is more used to reuse the same variable and declare it with a new array called an *anonymous array*. This makes use of the 3rd and 1st syntax of declaring an array. It looks like `arr = new int[] {1,2,3,4,5}` which will allow that variable to be reused again and point to the new array and this will also assign the values plus get the size of the array already.  This syntax can be used to pass an array to something without declaring a variable to hold it, so it will not be assigned to anything.
+
+#### Accessing Array Values
+
+When it comes to actually getting values from the array, the syntax is `arrayName[indexOfValue]`. This will get back the value from that position in the array. A position in the array is called an *index*. The indexes start at 0 to $MaxLength-1$. If this is not followed then the common *off by one* error can occur.
+
+This syntax is also how values in an array are changed. Use that same syntax except now assign it to a value.
+
+```java
+public class Main{
+    public static void main(String[] args){
+        int[] b  = new int[10]; // create array to hold 10 integer values
+        b[0] = 40; // assign value 40 to index 0
+        System.out.println(b[0]); // access the variable to print result
+    }
+}
+```
+
+> [!IMPORTANT]
+>
+> When an array is created with the 1st syntax, then this will auto assign all the positions in the array a *default value* respected of their type.
+>
+> | Data Type       | Default Value |
+> | --------------- | ------------- |
+> | int             | 0             |
+> | float           | 0.0           |
+> | double          | 0.0           |
+> | byte            | 0             |
+> | String          | null          |
+> | char            | ''            |
+> | boolean         | false         |
+> | Any Object Type | null          |
+
+All array type have a special variable called "length" that can be accessed using the dot notation like when called methods from objects. This variable contains the total size of the array. This is helpful when just needed the total number of elements possible in the array.
+
+An array can be declared with a size of zero by just using the 1st syntax and then making it size zero or using 2nd syntax and just assign it to curly braces and that is all.
+
+> [!IMPORTANT]
+>
+> There is a difference between an array with a size of zero and array with a value of null
+
+#### The For Each Loop
+
+There is a special *for loop* syntax that is used to go over a collection of something like an array, but this can be used for other things that work to store collections of things called a *for each* loop. 
+
+The way these work is there will be a variable that is declared that only exist in the scope of the loop. This will be assigned the value of the collection from the current index being worked on. Basically this is the same as doing `<dataType> variableName = collectionType[i]` of a normal *for loop*.
+
+Although these loops function the same way as a normal ones, they have two differences:
+
+1. Syntax --> the syntax for this is `for( <dataType> VariableName : CollectionVariable)`.
+2. Declaring Limit --> the limit of the size for this are automatically calculated. This means the loop will automatically know when the end of the collection is reached so it can exit without error.
+
+> [!NOTE]
+>
+> The *for each* loop can only over a collection of things that implement the special class "Iterable". The class stuff will be talked more about in the next chapter.
+
+> [!NOTE]
+>
+> The value assigned to the temporary variable depends on if the data type is a primitive or object type. 
+>
+> 1. If it is a primitive type, then the value assigned to the variable is only a copy of it and not the real thing. This means changing the value of that variable does not affect the version in the collection type
+> 2. If it is a object type, then the value assigned to the variable is the original thing from the collection. This means modification to the variable version also affect the version of it in the collection.
+
+If just wanting to print the output of the array, then this can be done without having to use a *for loop* or *for each* loop. Arrays have access to an instance method called `toString`. This does not take any arguments, but does return a string version of the entire collection type.
+
+#### Array Copying
+
+An array declared as the same type as the other can be assigned value to the other. However, this make the new array refer to the same data in memory as the original. This means changes the data in array 1 affects the data in array 2.
+
+To avoid this, there is a static method in the class "Array" called `copyOf`. This takes 2 parameters with the 1st being the actual array and the 2nd is the length of the array. This returns a new array in memory that just holds the same values as the other to the new variable that is supposed to be assigned to this. It is important to note that the length of this does not have to be exactly the same as the original array. If the value is bigger then it will copy all the values from the other array and give more space for more data to be stored and each extra space will be assigned the *zero value* of the respected data type. However, if the value is smaller then this will truncate the values of the original array and only get the values of the length specified.
+
+> [!NOTE]
+>
+> Unlike C/C++, array values are stored on the *heap* and not the *stack*.
+
+#### CLI arguments
+
+When it comes to getting CLI arguments, there is the special way to get them which is predefined when declaring the main method. Inside the parentheses there will be the things "String[] args". The variable "args" will hold string representations of the values passed in on the CLI space separated. This variable will store them in an array of strings. The first index will always be the name of the program currently running and the second index going on will be the actual CLI arguments.
+
+#### Array Sorting
+
+When it comes to sorting an array, this can be done with own custom algorithm to do so or can use the built in instance method on the array called `sort` which takes no arguments and does not return nothing. All this does is changes the indexes of the values in the array to be from low to high. The method implements a tuned version of the *quick sort* algorithm.
+
+#### Random Numbers
+
+Going back to the "Math" class, there is a static method called `random` that does not take any arguments. However, this returns a random float number between the values 0.0 (inclusive) to 1.0 (exclusive). This means multiplying the result by a number will make the range of values $0\text{ to }n-1$. The values also needs to be *type casted* to an int if the random value to be returned needs to be an integer.
+
+If the random numbers need to also be from a specified range, then add a value to the result after the multiplication of the result is calculated. This will make it then $0+min \text{ to } (n-1)+min$. An example of this is `System.out.println( (int) (Math.random() * 10) + 1)` which will make the value range from 1 to 10.
+
+#### Special Methods For Array Class
+
+The statics methods `toString`, `copyOf`, and `sort` were already mentioned before. However, there are three more that are useful as well:
+
+- `copyOfRange` --> this will copy the values from the array, but only in a specified range. This takes 3 parameters:
+    1. Actual array to copy
+    2. Starting index to copy from inclusive
+    3. Ending index to copy from exclusive. However, if longer than actual array then it will pad the extra slots with *zero values* of the respected type.
+
+- `fill` --> this will be used to set all the index values with a specified value. This takes 2 parameters:
+    1. Actual array to copy from
+    2. Value to actual copy into all the indexes
+- `equals` --> this test of two arrays are the exact same by seeing if both arrays have the same length size and if the index elements match (each element has to also be in the same index).
+
+#### Multi-dimensional Arrays
+
+A special thing called a *multi-dimensional* array exist which is just another version of an array. However, this has 2 square brackets to access indexes that is needed.
+
+To make these just put an extra set of brackets when declaring the array. This follows the same rules for syntax design 1 and 2. A good way to visualize this is using a *matrix* in math.
+
+When it comes to the indexes, it will now require two sets of brackets to be used. The first pair will be which row to access the data from and the second will be which column of that row to access data from.
+
+When it comes to using the 3rd method of declaring variables, these will have a set of main curly brackets. Inside that, there will be a separate pair of them to represent a row and its column of data. This can be repeated to create that many rows and columns of data. However, each column must have the same exact size otherwise this will cause an error.
+
+```java
+public class Main{
+	public static void main(String[] args){
+        int[][] matrix = {
+            {1,2,3},
+            {4,5,6},
+            {7,8, 9}
+        };
+        // Prints the value 6 from row 1 and column 2
+        System.out.println(matrix[1][2]);
+        System.out.println(matrix[1]);
+    }
+}
+```
+
+This can still use the syntax of a single dimensional array when accessing the array. However, this will just return that actual array of data from that column instead of the single value.
+
+#### Jagged Arrays
+
+Before when talking about the multi-dimensional array, the columns of each row had to be the same size. However, there is a way to declare a multi-dimensional array with different sized columns per row called a *jagged array*.
+
+To declare this, use the 1st method of declaring an array and then instead of specifying the size in the 2nd set of brackets, just leave that part empty. Now that the number of rows are specified, assign each row the creating array syntax (`new <dataType>[NumberOfColumns]`). This will need to be done for each row before it is used.
+
+Can also use the curly bracket syntax and just put the creating array syntax as if making multiple rows and the different sizes of the rows.
+
+The easiest way to do this is just declare the array with the curly brackets like normal then declare the nested arrays with the curly brackets like normal, but they just won't be all of the same column size.
+
+Once these steps are done, the array can be accessed like a normal multi-dimensional array.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        // 🔹 #1: Declare first, then allocate rows separately
+        int[][] arr1 = new int[3][];
+        arr1[0] = new int[2];
+        arr1[1] = new int[4];
+        arr1[2] = new int[1];
+
+        arr1[0][0] = 1; arr1[0][1] = 2;
+        arr1[1][0] = 3; arr1[1][1] = 4; arr1[1][2] = 5; arr1[1][3] = 6;
+        arr1[2][0] = 7;
+
+
+        // 🔹 #2: Declare + allocate in one step (different sizes)
+        int[][] arr2 = {
+            new int[2],
+            new int[4],
+            new int[1]
+        };
+
+        arr2[0][0] = 10; arr2[0][1] = 20;
+        arr2[1][0] = 30; arr2[1][1] = 40; arr2[1][2] = 50; arr2[1][3] = 60;
+        arr2[2][0] = 70;
+
+
+        // 🔹 #3: Initialize directly with values
+        int[][] arr3 = {
+            {100, 200},
+            {300, 400, 500, 600},
+            {700}
+        };
+
+
+        // 🔹 #5: Assign rows individually with initialized arrays
+        int[][] arr5 = new int[3][];
+        arr5[0] = new int[] {1, 2};
+        arr5[1] = new int[] {3, 4, 5};
+        arr5[2] = new int[] {6};
+
+
+        // 🔹 #6: Mixed approach (some empty, some initialized)
+        int[][] arr6 = new int[3][];
+        arr6[0] = new int[2];           // empty row
+        arr6[1] = new int[] {7, 8};     // initialized row
+        arr6[2] = new int[4];           // larger empty row
+
+        // Fill some of arr6 manually
+        arr6[0][0] = 9; arr6[0][1] = 10;
+        arr6[2][0] = 11; arr6[2][1] = 12; arr6[2][2] = 13; arr6[2][3] = 14;
+    }
+}
+```
+
+When it does come to multi-dimensional and jagged arrays, each data piece for the array is note stored continuously in memory like in C/C++. Instead, each array is stored in separate parts of memory, but each individual array pieces are stored continuously.
+
+## Objects and Classes
+
+### Introduction to Objected Oriented Programming
+
+#### Classes
+
+
+
+#### Objects
+
+
+
+#### Idenifying Classes
+
+
+
+#### Relationships Between Classes
+
+
+
+### Using Predefined Classes
+
+#### Objects and Object Vartiables
+
+
+
+#### The LocalDate Class
+
+
+
+#### Mutator and Accessor Methods
+
+
+
+### Defining Own Class
+
+
+
+### Static Fields and Methods
+
+#### Static Fields
+
+
+
+#### Static Constants
+
+
+
+#### Statid Methods
+
+
+
+#### Factory Methods
+
+
+
+#### The main Method
+
+
+
+### Method Parameters
+
+
+
+### Object Construction
+
+#### Overloading
+
+
+
+#### Default Field Initialization
+
+
+
+#### Construcor with No Arguments
+
+
+
+#### Explicit Field Initialization
+
+
+
+#### Parameter Names
+
+
+
+#### Calling Another Constructor
+
+
+
+#### Initialization Blocks
+
+
+
+#### Static Initialization
+
+
+
+### Records
+
+
+
+#### Record Concept
+
+
+
+#### Constructors: Canonical, Compact, and Custom
+
+
+
+### Packages
+
+#### Encapsulation
+
+
+
+#### Package Names
+
+
+
+#### Class importation
+
+
+
+#### Module Imports
+
+
+
+#### Static Imports
+
+
+
+#### Class into a Package
+
+
+
+#### Compiling with Packages
+
+
+
+#### Package Access
+
+
+
+#### The Class Path
+
+
+
+#### Setting the Class Path
+
+
+
+### JAR Files
+
+
+
+#### Creating JAR Files
+
+
+
+#### The Manifest
+
+
+
+#### Executable JAR Files
+
+
+
+#### Multi-Release JAR Files
+
+
+
+#### CLI Options
+
+
+
+### Documentation Comments
+
+#### Commit Insertion
+
+
+
+#### Class Comments
+
+
+
+#### Method Comments
+
+
+
+#### Field Comments
+
+
+
+#### Package Comments
+
+
+
+#### HTML Markup
+
+
+
+#### Links
+
+
+
+#### General Comments
+
+
+
+#### Code Snippets
+
+
+
+#### Comment Extraction
+
+
+
+### Class Design Hints
 
 
 
 
 
-
-
-
-
-
+## Inheritance
 
 
 
