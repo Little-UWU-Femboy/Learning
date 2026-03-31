@@ -1,57 +1,1143 @@
-# WEEKLY TODO
+- [ ] Here you go — continuing your exact format for the rest of 2026:
 
-## Monday
-- [ ] Read all of java part 1 today
-- [ ] Do assignment for compiler class in python
-- [ ] Do data science paper thing
-- [ ] 
-- [ ] 
-- [ ] 
+    ------
 
-## Tuesday 2/17
-- [ ] Start java book part two (1/2 of it)
-- [ ] Computer architecture quiz
-- [ ] Computer architecture redo simulator class assignment
-- [ ] Computer architecture assignment 2
-- [ ] Restart HTML and CSS course
-- [ ] Start javascript course
+    # 04/13/2026 to 04/19/2026
 
-## Wednesday 2/18
-- [ ] Computer architecture lab 3
-- [ ] Finish java book part 2 (2/2 of it)
-- [ ] Finish javascript course
-- [ ] Finish HTML and CSS course
-- [ ] Start relational database design course (1/3 of it)
-- [ ] 
+    ##### Monday
 
-## Thursday 2/19
-- [ ] Computer Architecture ALU unit
-- [ ] Read typescript book
-- [ ] Start react course
-- [ ] Start small part of SQL video (1/4 of it)
-- [ ] Relational database design course (2/3 of it)
-- [ ] 
+    - [ ]
 
-## Friday 2/20 
-- [ ] Finish SQL video
-- [ ] Relational database design course finish
-- [ ] Start ELT small book (1/3)
-- [ ] Start AWS cloud computing (1/3)
-- [ ] Start API learning styles (1/3)
-- [ ] Start cloud essencials video (1/3)
+    ##### Tuesday
 
-## Saturday 2/21
-- [ ] ELT small book (2/3)
-- [ ] AWS cloud computing (2/3)
-- [ ] API learning styles (2/3)
-- [ ] Cloud essencials video (2/3)
-- [ ] 
-- [ ] 
+    - [ ]
 
-## Sunday 2/22
-- [ ] ETL book (3/3)
-- [ ] AWS cloud computing (3/3)
-- [ ] API learning styles (3/3)
-- [ ] Cloud essencials video (3/3)
-- [ ] 
-- [ ] 
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 04/20/2026 to 04/26/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 04/27/2026 to 05/03/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 05/04/2026 to 05/10/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 05/11/2026 to 05/17/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 05/18/2026 to 05/24/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 05/25/2026 to 05/31/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 06/01/2026 to 06/07/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 06/08/2026 to 06/14/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 06/15/2026 to 06/21/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 06/22/2026 to 06/28/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 06/29/2026 to 07/05/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 07/06/2026 to 07/12/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 07/13/2026 to 07/19/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 07/20/2026 to 07/26/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 07/27/2026 to 08/02/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 08/03/2026 to 08/09/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 08/10/2026 to 08/16/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 08/17/2026 to 08/23/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 08/24/2026 to 08/30/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 08/31/2026 to 09/06/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 09/07/2026 to 09/13/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 09/14/2026 to 09/20/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 09/21/2026 to 09/27/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 09/28/2026 to 10/04/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 10/05/2026 to 10/11/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 10/12/2026 to 10/18/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 10/19/2026 to 10/25/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 10/26/2026 to 11/01/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 11/02/2026 to 11/08/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 11/09/2026 to 11/15/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 11/16/2026 to 11/22/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 11/23/2026 to 11/29/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 11/30/2026 to 12/06/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 12/07/2026 to 12/13/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 12/14/2026 to 12/20/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 12/21/2026 to 12/27/2026
+
+    ##### Monday
+
+    - [ ]
+
+    ##### Tuesday
+
+    - [ ]
+
+    ##### Wednesday
+
+    - [ ]
+
+    ##### Thursday
+
+    - [ ]
+
+    ##### Friday
+
+    - [ ]
+
+    ##### Saturday
+
+    - [ ]
+
+    ##### Sunday
+
+    - [ ]
+
+    # 12/28/2026 to 01/03/2027
+
+    ##### Monday
+
+    - [ ] 
+
+    ##### Tuesday
+
+    - [ ] 
+
+    ##### Wednesday
+
+    - [ ] 
+
+    ##### Thursday
+
+    - [ ] 
+
+    ##### Friday
+
+    - [ ] 
+
+    ##### Saturday
+
+    - [ ] 
+
+    ##### Sunday
+
+    - [ ] 

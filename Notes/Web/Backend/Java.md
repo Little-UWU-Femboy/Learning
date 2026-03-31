@@ -747,7 +747,6 @@ When it comes to outputting formatted text, this is useful when things should be
 
 | Formatter | Description                     |
 | --------- | ------------------------------- |
-| %d        | Displays integer numbers        |
 | %x        | Displays hexadecimal numbers    |
 | %o        | Displays octal numbers          |
 | %f        | Displays float numbers          |
@@ -756,6 +755,7 @@ When it comes to outputting formatted text, this is useful when things should be
 | %b        | Displays boolean types          |
 | %%        | Displays the actual % symbol    |
 | %-        | Displays the actual - separator |
+| %d        | Displays integer numbers        |
 
 When it comes to displayig float, it has some special flags that can be added to it to change how the float actually appears. 
 
@@ -1161,9 +1161,31 @@ When it does come to multi-dimensional and jagged arrays, each data piece for th
 
 ### Introduction to Objected Oriented Programming
 
+The current development of most modern languages is with something called object orientated programming (OOP). This also happens to be javas biggest strangth.
+
+Object orientated programming is meant to help reduce complexity to people who need to use something and wanting to hide certain things from people. For example, the `sort` static method from the array class does not have it publically shown how the tuned quick sort algorithm is done, but the user can call and use it with ease.
+
 #### Classes
 
+A class specifies how an object is made (data types, methods, etc). A class is just like making a custom data type. The class itself can be thought of as a templeate that all variables of this data type will have, but not all have the same values. For example, a template to make a butterfly knife might be the same design wise. However, the material, color, blade and blade design.
 
+When a object type is actually declared, then it is called an instance of the class. This is because each instance can have unique data apart from other instances.
+
+Java has a lot of default classes in the language for cases like date and time, networking, math, etc. This makes it easier for people to use certain things in the language. An example of this is the "String" class which makes working with strings possible and gives methods to make working with strings easier.
+
+One of the key ideas of OOP is *encapsulation*. This is basically just information hiding. An example of this is, again, the `sort` method of the "Array" class. This is implmented and calling it to be used is easy since all the user has to do it pass in the array as an argument. However, how the quick sort algorithm is actually done is *encapsulated*.
+
+The variables inside an object are called *instances fields*. However, the functions that actually interact with that object data are called *methods*.
+
+The key way to make *encapsulation* work is each object should interact with its own *instance fields* AND this should only be done through that objects own methods. Here are some examples:
+
+- Direct variable value change --> If an object has an *instance field* "age". Then the only way that age should be able to changed is through a method like `person.changeAge(21)`, but not something like `person.age = 21`.
+- Object changing value in other object --> If an object has a method like `changeObjValAge()` and takes in an object just to changes it *internal fields*, then this is also incorrect
+- Only see input and output --> Then methods themselves should be created in a sense where they can be reused 
+
+
+
+ 
 
 #### Objects
 
