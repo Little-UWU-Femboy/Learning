@@ -1181,33 +1181,99 @@ The key way to make *encapsulation* work is each object should interact with its
 
 - Direct variable value change --> If an object has an *instance field* "age". Then the only way that age should be able to changed is through a method like `person.changeAge(21)`, but not something like `person.age = 21`.
 - Object changing value in other object --> If an object has a method like `changeObjValAge()` and takes in an object just to changes it *internal fields*, then this is also incorrect
-- Only see input and output --> Then methods themselves should be created in a sense where they can be reused 
+- Only see input and output --> This means methods should only have it to where it gets inputs and then someout returns. This should be like a blackbox thing.
 
+One class can be made using another class. There is techenically a "mega class" called "Object" that all other classes made will get.
 
-
- 
+When a class uses another class as a building block, it get access to all methods and instance variables declared in the steping stone block. In OOP, this is called *inheritance*. *inheritance* will be talked more about later on.
 
 #### Objects
 
+When working with objects, there should be 3 characteristics of them that should be identified:
 
+- Object Behavior --> what can be done with this object, or what methods can be applied to it?
+- Object State --> how does the object react when methods are invoked?
+- Object Identity --> how is the object distinguished from others that may have the same behavior and state?
+
+All instances of the same object types will make have a resemblance because they all will have the same <u>behavior</u> because they will all have the same methods that can be called.
+
+Next, each object stores information about what it currently looks like. This is the object’s <u>state</u>. An object’s state may change over time, but not spontaneously. A change in the state of an object must be a consequence of method calls. (If an object’s state changed without a method call on that object, someone broke encapsulation.)
+
+However, the state of an object does not completely describe it, because each object has a distinct identity. For example, in an order processing system, two orders are distinct even if they request identical items. The individual objects that are instances of a class always differ in their identity and usually differ in their state.
+
+These key characteristics can influence each other. For example, the state of an object can influence its behavior. (If an order is “shipped” or “paid,” it may reject a method call that asks it to add or remove items. Conversely, if an order is “empty”—that is, no items have yet been ordered—it should not allow itself to be shipped.)
 
 #### Idenifying Classes
 
-
+When it comes to naming conventions, classes are typically named with nouns using *PascalCase*, such as Item, Order, or Payment. When naming methods for an object, verbs are used in *camelCase*. For instance, if a class is named Item, a method might be named add. When expressed in a sentence, it would be: "An add action is performed on an Item object." Variables also follow *camelCase* but use nouns, such as itemPrice, while constants are written in ALL_CAPS to indicate the value never changes.
 
 #### Relationships Between Classes
 
+When it comes to relationship between classes, there are different ways they can be linked. Depending on the type can affect how the system depends on other resources. The relationship types are:
 
+- *dependance* (uses-a) --> when another class uses a different class as one of its parameters in its methods. This can be though of as "Order uses a Item" becase Order relies on the Item class to check the status of an item, but the Account class does not since it does not need to track items. Thus, a class depends on another class if its methods use or manipulate objects of that class. It is important that this is minimized since this can lead to bug errors and changing either of the classes. This usage of classes it called *coupling*.
+- *Aggregion* (has-a) --> This is when one class needs another class as an *instance variable*. For example, the Order class has an Item.
+- *Inheritance* (is-a) --> This is used to express relationships between special or general class. For example, the class RushOrder is an Order class. This means that the RushOrder class got all the methods and instance variables from the other class. The class that inhreits from another should extend the functionality of the previous class. For example, there can be a general class called Employee, but a class Boss, Manager, and Underwriter inherit all the infomration from the Employee class, but also extends that by adding more methods and instance variables.
+
+There is a specal way that classes are represented called a *UML diagram*. With this, there are also arrows that are used to represent the relationships between the things.
+
+![Screenshot 2026-03-31 at 12.44.02 PM](./assets/Screenshot 2026-03-31 at 12.44.02 PM.png)
+
+Learn how to make [UML diagrams](https://www.youtube.com/watch?v=WnMQ8HlmeXc).
 
 ### Using Predefined Classes
 
 #### Objects and Object Vartiables
 
+To work with objects, their initial state has to first be established. This is done by using something called a *constructor*. This is just a special method that is used to create an object in memory and give that object the specified state values for that object instance. When creating the constructor method, this will always have the same exact name as the class itself.
 
+When actually creating the object, the *constructor* method will be called and the use of the **new** keyword will be needed. For example, there is a class named "Employee" and it needs to be initialized with at least a name and age in that order. This will look like `Employee x = new Employee("Jack", 20)` and this first tells the variable x is of type Employee. Then this is assigned to the *constrctor* function while using the **new** keyword and then setting the inital values for this instance object which can now be refered with x.
+
+Just like arrays, the actual object does not have to be assigned to a variable and can just pass that single created instance of the object by just using `new ConstructorName()` like normal. For example, a method called "addHero" needs a Hero object, but this does not need to be assigned to a variable each time, then it can look something like `addHero(new Hero("Jack", "Flying"))`.
+
+When making the object by assigning it to a variable then the variable can call the methods defined in that class. However, when declaring the object without assigning to a variable, the method can still be called for that by just using the dot operator like normal followed by the method name. For example, `new Date().toString()` would create the object and then return the string version of this so there can be a string variable that can hold this.
+
+There is a difference between objects and object variables:
+
+- Object --> This is when the variable of that type is defined, but actually does not assigned an actual object type in memory. This looks like `ObjectType x` only. Because of this, then this variable should not call its methods because techenically this is calling these methods on nothing. When doing this, the variable is not even considered an object yet since it does not even point to one in memory.
+- Object Variable --> This is when the variable of the object type is declared AND is actually assigned an instance of that object to it with a *constructor* or assigned to another variabele of the same object type. When calling methods on this object, they will take the instance values of that then doing somethign with that variable data.
+
+> [!WARNING]
+>
+> When assigning an object to another object that is already declared, just like with arrays, this makes both variables point to the same object in memory. So changing the data of the object will affect both of the variables pointing to it.
+
+There is a way to signal that an object does not point to anything in memory by assigning this to the keyword **null**. This is like the *zero value* for primitive types except for objects. 
 
 #### The LocalDate Class
 
+There is a class called "Date" that is in the package `java.util.Date`. This is used when wanting to work with date and time data. There is also another class called "LocalDate"  located at `java.time.LocalDate`. The two are used in different cases becaue they function differently. The first is used to represent a point in time,  while the other is used to express days in a familer notion to reading a normal calander.
 
+The "Date" object has a constrctor that can be called that does auto creates all the information if nothing is passed in. However, to specifiy initial state data, this will take the values.
+
+The "LocalDate" object does not have a constructor that is called. Instead, it has a static *factory method* called `now` that will return the data information for the current date. This will then also have access to special instance methods that can be used to work with that information. This class also has other *factory methods* that can be called and inside those they call all the needed constructors.
+
+The "LocalDate" object also has a static factory method called `of`. This will take the arguments in the following order: Year, Month, Day which are all integers. After, that object variable can then call the special instance methods for it.
+
+```java
+import java.util.Date;
+import java.time.LocalDate;
+
+public class Main{
+    public static void main(String[] args){
+        Date timer = new Date();
+        LocalDate date = LocalDate.now();
+        LocalDate date2 = LocalDate.of(1999,6,14); // June 14th, 1999
+        
+        IO.println(timer);
+        IO.println(date);
+        IO.println(date2);
+    }
+}
+```
+
+There are some classes that have methods that are *deprecated*. This is when that function is no longer supported and removed from the class. This means only older versions of java before it was *deprecated* in the current version should access it. An example of this is the instance method `getDay` in the "Date" class.
+
+Can read more about [Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html) and [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) objects documentation.
 
 #### Mutator and Accessor Methods
 
