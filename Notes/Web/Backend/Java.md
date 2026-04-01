@@ -1273,6 +1273,16 @@ public class Main{
 
 There are some classes that have methods that are *deprecated*. This is when that function is no longer supported and removed from the class. This means only older versions of java before it was *deprecated* in the current version should access it. An example of this is the instance method `getDay` in the "Date" class.
 
+There is a special CLI tool called `jdeprscan`. This is used to check if there is anything in a .class, .jar, or directory of class being used that is deprecated. The syntax for this tool is `jdeprscan <options><path>`. The \<path\> will be a .class, .jar, or directory of classes.
+
+Some of the flags for this are:
+
+- --release \<Java Version\> --> this checks for deprecation based on that version of java
+- --for-removal --> checks to see if something is remove and not just deprecated
+- --list --> this will just show all deprecations and this actually does not need to specify a path file
+
+
+
 Can read more about [Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html) and [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) objects documentation.
 
 #### Mutator and Accessor Methods

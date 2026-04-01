@@ -7,7 +7,7 @@ public class Main{
         Date timer = new Date();
         LocalDate date = LocalDate.now();
 
-        IO.println(timer);
+        IO.println(timer.getDay());
         IO.println(date.getMonth());
     }
 }
