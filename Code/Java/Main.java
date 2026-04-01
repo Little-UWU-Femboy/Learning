@@ -1,13 +1,8 @@
-import java.util.Date;
-import java.time.LocalDate;
-
 public class Main{
     public static void main(String[] args){
-        IO.println("Starting");
-        Date timer = new Date();
-        LocalDate date = LocalDate.now();
-
-        IO.println(timer.getDay());
-        IO.println(date.getMonth());
+        Employee x = new Employee(20, "Jack");
+        
+        String name = x.info();
+        IO.println(name);
     }
 }

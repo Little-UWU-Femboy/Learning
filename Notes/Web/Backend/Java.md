@@ -1281,15 +1281,66 @@ Some of the flags for this are:
 - --for-removal --> checks to see if something is remove and not just deprecated
 - --list --> this will just show all deprecations and this actually does not need to specify a path file
 
-
-
 Can read more about [Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html) and [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) objects documentation.
 
-#### Mutator and Accessor Methods
-
-
-
 ### Defining Own Class
+
+#### Employee Class Example
+
+When it comes to creating an actual class, this is made with the **class** keyword. The syntax for this is `class <ClassName>` followed by curly braces. This is the simplest way to declare a class. Inside the curly braces is where the constructor, methods, and instance variables are declared.
+
+For example:
+
+```java
+void main() {
+    // fill the staff array with three Employee objects
+    Employee[] staff = new Employee[3];
+
+    staff[0] = new Employee("Carl Cracker", 75000, 1987, 12, 15);
+    staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
+    staff[2] = new Employee("Tony Tester", 40000, 1990, 3, 15);
+
+    for (Employee e : staff) {
+        e.raiseSalary(5);
+    }
+
+    for (Employee e : staff) {
+        IO.println("name=" + e.getName() + ",salary=" + e.getSalary()
+                + ",hireDay=" + e.getHireDay());
+    }
+}
+
+class Employee {
+    private String name;
+    private double salary;
+    private LocalDate hireDay;
+
+    Employee(String n, double s, int year, int month, int day) {
+        name = n;
+        salary = s;
+        hireDay = LocalDate.of(year, month, day);
+    }
+
+    String getName() {
+        return name;
+    }
+
+    double getSalary() {
+        return salary;
+    }
+
+    LocalDate getHireDay() {
+        return hireDay;
+    }
+
+    void raiseSalary(double byPercent) {
+        double raise = salary * byPercent / 100;
+        salary += raise;
+    }
+}
+```
+
+#### Breaking Down Employee Class
 
 
 
