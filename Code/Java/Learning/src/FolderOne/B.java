@@ -1,4 +1,4 @@
-package AccessModifierExample.FolderOne;
+package FolderOne;
 
 public class B{
     void main(){

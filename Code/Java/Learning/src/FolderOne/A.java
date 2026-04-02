@@ -1,4 +1,4 @@
-package AccessModifierExample.FolderOne;
+package FolderOne;
 
 /**
  * Class A demonstrates different Java access modifiers

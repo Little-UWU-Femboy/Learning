@@ -202,7 +202,7 @@ The only requirement for the **var** keyword is a value must be assigned to the 
 
 #### Constant
 
-To declare a variable who's value should never change (like π will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type.
+To declare a variable who's value should never change (like π will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type like `final int x = 60;`.
 
 If this variable's value is attempting to be changed during run time, then an error will appear.
 
@@ -1305,6 +1305,8 @@ When it comes to constructors, there can be more than one defined per class. Thi
 
 When it comes to declaring instance variables, these are declared at the top of the class declaration name, but still the curly braces. These will be the variables that all object instances will have access to. These are declared like normal variables.
 
+When declaring these, there is an option to assign them a default value. This is good if there should be an instance field that is the same across all object instances. For example, if each object instance will have an array with 10 values max then can do `int[] arr = new int[10]` instead of declaring it in the *constructor* method.
+
 #### Var Keyword
 
 There is a special keyword **var** that is used in place of describing the type of the variable. This is used to make code more readable when the type of the variable can easily be infered or seen. For example, when declaring an object type, the object type of it does not need to be specified since the right hand side clearly declares what it is so this can just use the **var** keyword like `var x = new Employee()` instead of `Employee x = new Empployee()`. However, there are some some rules for this:
@@ -1390,11 +1392,40 @@ There are times when *access modifiers* cannot be used or subset can and these a
 
 > [!IMPORTANT]
 >
-> There is a small quirk with this 
+> There is a small quirk with the **private** keyword. If there is a class that takes in an object of the same type, then that parameter object variable can access the private fields of the object which is like class based access privileges.
+>
+> <u>For example</u>
+>
+> ```java
+> public class Employee {
+>     private String name;
+>     private int age;
+> 
+>     public Employee() {
+>         this.name = "Jack";
+>         this.age = 20;
+>     }
+> 
+>     public boolean compare(Employee x) {
+>         // Even though x is a different instance object, since it is part of   			the same class this can access the private fields of it
+>         boolean result = (this.age == x.age);
+>         System.out.println(result ? "Same" : "Not the same");
+>         return result;
+>     }
+> }
+> ```
+
+#### Final Keyword on Instance Variables
+
+When marking an instance variable with the **final** keyword, this does not have to have a value assigned to it right away. Although it can, as long as it is assigned a value in the *constructor* method, then this can be assigned a value. However, once past that *constructor* method then the value cannot be changed and trying to do so will cause an error.
+
+There is a subtle rule to this. For classes that are mutable, as declaring a variable of that type, this mean that variable cannot reference any other object of that type, but the object itself can still change data. For example, `final Employee one = new Employee();` will make it so if there is another Employee class declared and it is trying to be assigned to the "one" variable then it will cause an error, but that Employee class object instance itself can still change its data. Basically, this is like a contract saying "there is no way this variable will ever be assigned to a different object of type Employee ever".
+
+However, the rule above does not apply if the class is already an immutable class like the **String** class as once a string is assigned to it then it cannot be changed. If it is then a whole new object of the **String** type in memory is created and then referenced by that variable now, but the old one is not. However, this small ability to change strings can be countered by just making this a constant with the **final** keyword. 
 
 #### Implicit and Explicit Parameters
 
-There are two definations when it comes to passing in arguments:
+There are two definitions when it comes to passing in arguments:
 
 - *Explicit* --> this is when the arguments are directly passed into the function for it to use
 - *implicit* --> these are arguments that are passed to the function without specifically declaring them.
@@ -1503,11 +1534,17 @@ public class EmployeeGood {
 
 
 
-
-
 ### Static Fields and Methods
 
+Typically when a class object is declared, it will use the specific data from its instance variables and manipulate that data with the instance methods of it. However, there are times that a variable/method needs to be used that pertains nothing to using data of an object created. That is when the **static** keyword is used.
+
 #### Static Fields
+
+When this is used on variables declared inside a class, this does not make that variable part of the object instances that are created, but the actual class itself. This means that if the class itself wants to use that variable then it needs to do something like `<ClassName>.StaticVariableName` or just use the static variable name. This cannot be used with the **this** keyword.
+
+This will only ever create only copy of this variable in memory. Meaning there is not a separate version created per object that is created.
+
+When this is being referenced outside the class itself, then this does not need to declare an instance of that object to access that data. This can just do something like `<ClassName>.StaticVariableName`.
 
 
 
