@@ -65,6 +65,8 @@ In java, everything is considered a class.
 
 When it comes to naming conventions of class files, they use PascalCasing.
 
+// TODO[^ JDK]
+
 ### Commets
 
 To leave commets, this is the same as C with // for single line and /**/ for multi-line commets.
@@ -707,7 +709,7 @@ When using the `IO.readln()`, this is the simplest way to get input. This will r
 
 When using the Scanner object from `java.util.Scanner`, this setup is different. Here it will specify where the input is coming from when declaring the Scanner object. This will get the value System.in as the argument. After, that object now has access to methods that can read user input. This will have an instance `nextLine()` method to read in a string of input until enter key is hit. However, unlike the `IO.readln()` version, there data techenically does not need to call the *wrapper classes* since there are special instance methods that can be used to read specifc data and have it auto converted. The methods follow `next*()` where * is to be replaced with the data type name like `nextChar()`. Also unlike other stuff so far, the `java.util.Scanner` is not part of the `java.lang` package so this type is not available by default. At the top of the file put the following: `import java.util.Scanner`.
 
-When using the BufferedReader object, this works similar to the StringBuilder object where this preallocates a large amount of extra memory (8192 bytes by default) to help reduce expensive I/O operations like reading from a hard drive or network. If buffering did not happen, doing a call like `read()` or `readLine()` would cause a direct call to the OS. This is declared differently then the Scanner object. When. Just like the Scanner object, this also needs to be imported with `import java.io.BufferedReader`. More about this will talked about later. [^BufferReader]
+When using the BufferedReader object, this works similar to the StringBuilder object where this preallocates a large amount of extra memory (8192 bytes by default) to help reduce expensive I/O operations like reading from a hard drive or network. If buffering did not happen, doing a call like `read()` or `readLine()` would cause a direct call to the OS. This is declared differently then the Scanner object. When. Just like the Scanner object, this also needs to be imported with `import java.io.BufferedReader`. More about this will talked about later.  // TODO[^BufferReader]
 
 Although the `IO.readln()` and `IO.println()` can be used to get user input, theses are more used for programmers compared to displaying information for users. This is because when having to use things like *wrapper classes*, they follow a strict format. For example, entering a numer of 50,000 and having to convert that with the `Integer.parseInteger()` would case an error to occur. However, if done with the Scanner object with `nextInt()` then this would not cause an error and would return back 50000.  The `IO.println()` should only be used to show basic information that does not require formatting as well. Therefore, it is always better to use the Scanner object to get user related input.
 
@@ -1289,58 +1291,190 @@ Can read more about [Date](https://docs.oracle.com/javase/8/docs/api/java/util/D
 
 When it comes to creating an actual class, this is made with the **class** keyword. The syntax for this is `class <ClassName>` followed by curly braces. This is the simplest way to declare a class. Inside the curly braces is where the constructor, methods, and instance variables are declared.
 
-For example:
+#### Declaring Methods
+
+To actually declare a method (aka function), this will follow the syntax of `<ReturnType> <MethodName>(Parameter(s))` followed by curly braces and inside those will be the code that runs in that scope. Each parameter will just be the name of the variable name of how to refer to that data passed into that method.
+
+Unlike normal methods, when it comes to making the constructor, this is just named the same exact thing as the class name. This also does not have a return type, but does take in arguments like regular methods do. Also, inside the curly braces of this is where the instance variables will be initialized or other things done to them. This looks like `<ClassName>(parameter(s))` followed by curly braces. because constructors are special methods, this means that initialized instance objects cannot actually be called again as trying to do so will cause a compile time error.
+
+When it comes to constructors, there can be more than one defined per class. This means that when calling the constructor, not all data has to be passed into it as long as there is a constructor to cover that case. For example, say there is a constructor that required name and age, and salary. However, the actual data received is only the name and age as the salary was optional for them to give. Instead of just not making the object at all, there will be a second constructor made that only requires the name and age. A constructor can have any number of parameters (even 0 parameters).
+
+#### Declaring Instance Variables
+
+When it comes to declaring instance variables, these are declared at the top of the class declaration name, but still the curly braces. These will be the variables that all object instances will have access to. These are declared like normal variables.
+
+#### Var Keyword
+
+There is a special keyword **var** that is used in place of describing the type of the variable. This is used to make code more readable when the type of the variable can easily be infered or seen. For example, when declaring an object type, the object type of it does not need to be specified since the right hand side clearly declares what it is so this can just use the **var** keyword like `var x = new Employee()` instead of `Employee x = new Empployee()`. However, there are some some rules for this:
+
+- Can ONLY be used in local methods.
+
+- Cannot be use for method parameters.
+
+- Cannot be used for return types of methods.
+
+- Cannot be used for instance variables.
+- Still considered a *statically typed* variable; meaning the data type is still determined at compile time.
+
+[Go here](https://openjdk.org/projects/amber/guides/lvti-style-guide) to see guidelines on kind of when and where to use the **var** keyword.
+
+When an object is assigned to the **null** keyword and it is trying to be used, this will cause a *NullPointerException* exception. This is a critical thing that will result in the program terminating. Since java 14 the error reporting of this has improved by the *stack trace* returning exactly what line and what variable caused this to occur. However, there are two ways this can be delt with:
+
+1. Use the *conditional operator* or *ternary operator* syntax to check if the type is null and do something based on that to assign it a default value.
+2. In the premade "Object" class, there is a static method called `requireNonNullElse`. If this fails then this will assign the default value specified, otherwise it will return the object back. This takes in two parameters:
+    1. This is the variable of the object itself
+    2. This is the default value to assign IF is that variable is a null object
+3. If there should be no way that the oject is null at all then use the static method `requireNonNull`. This will throw a *NullPointerException* if it is, but returns the object back if it is good. The paraemeters are:
+    1. The object itself to check
+    2. This is an optional second parameters, but it will be a string to represent a custom message to display with the error.
+
+> Both of the static methods in the Object class above were made in java 9 and 7 respectively.
 
 ```java
-void main() {
-    // fill the staff array with three Employee objects
-    Employee[] staff = new Employee[3];
-
-    staff[0] = new Employee("Carl Cracker", 75000, 1987, 12, 15);
-    staff[1] = new Employee("Harry Hacker", 50000, 1989, 10, 1);
-    staff[2] = new Employee("Tony Tester", 40000, 1990, 3, 15);
-
-    for (Employee e : staff) {
-        e.raiseSalary(5);
-    }
-
-    for (Employee e : staff) {
-        IO.println("name=" + e.getName() + ",salary=" + e.getSalary()
-                + ",hireDay=" + e.getHireDay());
-    }
-}
-
-class Employee {
-    private String name;
-    private double salary;
-    private LocalDate hireDay;
-
-    Employee(String n, double s, int year, int month, int day) {
-        name = n;
-        salary = s;
-        hireDay = LocalDate.of(year, month, day);
-    }
-
-    String getName() {
-        return name;
-    }
-
-    double getSalary() {
-        return salary;
-    }
-
-    LocalDate getHireDay() {
-        return hireDay;
-    }
-
-    void raiseSalary(double byPercent) {
-        double raise = salary * byPercent / 100;
-        salary += raise;
+public class Main{
+    public static void main(){
+        String name = null;
+        
+        Object.requireNonNullElse(name, "Was Null");
+        System.out.println(name);
+        
+        // Checks if this is null or not and if it is then throw exception
+        //Object.requireNonNull(n);
+        //System.out.println(name);
     }
 }
 ```
 
-#### Breaking Down Employee Class
+#### Access Modifiers
+
+When it comes to accessing instance fields and methods of objects, this can be bad since not only does this break the *encapsulation* principle, but it can also cause code breaking issues. To prevent this, there are things called *access modifiers*. There are 3 ways to do this using 3 differnt keywords:
+
+1. **private** --> This makes it so ONLY that object can access that instance variable and method. This means trying to do something like `x.age` or `x.info()` will cause an error if called and these are given this keyword.
+2. **protected** --> This makes it so the method and instance variable can ONLY be used inside the current package this class lives in. Packages will be talked about in [packages section](#Packages).
+3. **public** --> This makes it so this can be accessed from any where and anything. This means that once an object instance of this type is declared, that variable or method can be used.
+4. default --> This is when no access modifier is put on the variable or method. By default this will then make all so that variable and method can only be accessed thought the class and current package.
+
+A more visual look of this is with a table below
+
+| Access Modifier       | Class | Package | Subclass | World |
+| --------------------- | ----- | ------- | -------- | ----- |
+| private               | Yes   | No      | No       | No    |
+| default (no modifier) | Yes   | Yes     | No       | No    |
+| protected             | Yes   | Yes     | Yes      | No    |
+| public                | Yes   | Yes     | Yes      | Yes   |
+
+The actual access modifier keyword will be placed before the date type of the variable data type and method return type like `private String info()`.
+
+#### Implicit and Explicit Parameters
+
+There are two definations when it comes to passing in arguments:
+
+- *Explicit* --> this is when the arguments are directly passed into the function for it to use
+- *implicit* --> these are arguments that are passed to the function without specifically declaring them.
+
+For example, in `x.showInfo()`, the "x" would be the *implicit* and the method called would be the *explicit*. Under the hood, *implicit* arguments are passed into the method call without knowing. So the method call actually looks like `x.showInfo(x)`. The x will always be in front even if there are other arguements.
+
+Now when actually inside the method defination, the *implicit* type here will not be the name of the actual object, instead it is refered by the keyword **this**. In the actual method, the first implicit arguement will be "<objectType this". However, this is really only used when the *explicit* variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
+
+For example:
+
+```java
+void info(String name, int a, int count){
+    this.name = name;
+    age = a;
+    // below will cause an error
+    // count = count
+}
+```
+
+
+
+#### Field Accessors
+
+These are methods designed to get/set the value of an objects instance fields as these are a common example of them. The reason something like this is used is to help enforce *encapsulation* principle for objects. The particular of creating methods for getting or setting instance fields are called *getters/setters*. This can also be used to help create more complex logic when it comes to getting and setting instance data to an object.
+
+When return data from an object, it is always bad to return mutable data (like an object that is an instance variable). If this does happen, the actual same object reference in memory is passed back to the thing getting the data. This means that if the external variable makes a change to that data it also affects the one in memory. To fix this return a whole new object of the same data type back instead and initialize it with the data needed to make it the exact same.
+
+> [!NOTE]
+>
+> An object can be returned from a function, but only if that object is an immutable object. For example, the "Data" object is a mutable, but the "LocalDate" object is immutable.
+
+There will be two examples, the 1st showing the bad way and this breaking the *encapsulation* principle, but the 2nd way showing the good way by protecting the *encapsulation* principle.
+
+1st way:
+
+```java
+import java.util.Date;
+
+public class EmployeeBad {
+    private Date hireDay;
+
+    public EmployeeBad(Date hireDay) {
+        this.hireDay = hireDay;
+    }
+
+    // BAD: returns internal reference
+    public Date getHireDay() {
+        return hireDay;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== BAD EXAMPLE ===");
+
+        Date originalDate = new Date();
+        EmployeeBad emp = new EmployeeBad(originalDate);
+
+        // External code gets reference
+        Date externalRef = emp.getHireDay();
+
+        // Mutate it
+        externalRef.setTime(externalRef.getTime() - 10L * 365 * 24 * 60 * 60 * 1000);
+
+        // Internal state changed!
+        System.out.println("Employee hire date after external change: " 
+                + emp.getHireDay());
+    }
+}
+```
+
+2nd way:
+
+```java
+import java.util.Date;
+
+public class EmployeeGood {
+    private Date hireDay;
+
+    public EmployeeGood(Date hireDay) {
+        // defensive copy in constructor
+        this.hireDay = new Date(hireDay.getTime());
+    }
+
+    // GOOD: returns a copy
+    public Date getHireDay() {
+        return new Date(hireDay.getTime());
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== GOOD EXAMPLE ===");
+
+        Date originalDate = new Date();
+        EmployeeGood emp = new EmployeeGood(originalDate);
+
+        // External code gets a copy
+        Date externalRef = emp.getHireDay();
+
+        // Try to mutate it
+        externalRef.setTime(externalRef.getTime() - 10L * 365 * 24 * 60 * 60 * 1000);
+
+        // Internal state unchanged
+        System.out.println("Employee hire date after external change: " 
+                + emp.getHireDay());
+    }
+}
+```
+
+
 
 
 
@@ -1546,6 +1680,9 @@ A *flowchart* is also use to show how the code will be executed.
 
 # TODO
 
-[^BufferReader]: Finish writinh about the BufferReader Object
+[^BufferReader]: Finish writing about the BufferReader Object
+[^ JDK]: Talk about JDK, JVM, JRE, and java CLI tools, etc
+
+
 
 972-392-1144
