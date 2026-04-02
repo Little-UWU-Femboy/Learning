@@ -1299,6 +1299,8 @@ Unlike normal methods, when it comes to making the constructor, this is just nam
 
 When it comes to constructors, there can be more than one defined per class. This means that when calling the constructor, not all data has to be passed into it as long as there is a constructor to cover that case. For example, say there is a constructor that required name and age, and salary. However, the actual data received is only the name and age as the salary was optional for them to give. Instead of just not making the object at all, there will be a second constructor made that only requires the name and age. A constructor can have any number of parameters (even 0 parameters).
 
+// TODO [^OverrideMethod]
+
 #### Declaring Instance Variables
 
 When it comes to declaring instance variables, these are declared at the top of the class declaration name, but still the curly braces. These will be the variables that all object instances will have access to. These are declared like normal variables.
@@ -1349,10 +1351,10 @@ public class Main{
 
 When it comes to accessing instance fields and methods of objects, this can be bad since not only does this break the *encapsulation* principle, but it can also cause code breaking issues. To prevent this, there are things called *access modifiers*. There are 3 ways to do this using 3 differnt keywords:
 
-1. **private** --> This makes it so ONLY that object can access that instance variable and method. This means trying to do something like `x.age` or `x.info()` will cause an error if called and these are given this keyword.
-2. **protected** --> This makes it so the method and instance variable can ONLY be used inside the current package this class lives in. Packages will be talked about in [packages section](#Packages).
+1. **private** --> This makes it so ONLY that object can access that instance variable/method. This means trying to do something like `x.age` or `x.info()` will cause an error if called and these are given this keyword.
+2. **protected** --> This makes it so the instance method/variable can ONLY be used inside the current package this class lives in. Packages will be talked about in [packages section](#Packages).
 3. **public** --> This makes it so this can be accessed from any where and anything. This means that once an object instance of this type is declared, that variable or method can be used.
-4. default --> This is when no access modifier is put on the variable or method. By default this will then make all so that variable and method can only be accessed thought the class and current package.
+4. default --> This is when no access modifier is put on the variable/method. By default this will then make all so that variable and method can only be accessed thought the class and current package.
 
 A more visual look of this is with a table below
 
@@ -1368,7 +1370,9 @@ The actual access modifier keyword will be placed before the date type of the va
 When it does to describing the cases more:
 
 - class --> This is the actual java file itself. Meaning, only that .java file can access those methods or functions. Any other java file in any way cannot access these instance methods/variables.
-- Package --> This is just all java files in the current folder. This means that all java files declared in the same folder gives the ability to have the information accessed. However, if the object type is declared outside the current folder then it cannot be accessed. 
+- Package --> This is just all java files in the current folder. This means that all java files declared in the same folder gives the ability to have the information accessed. However, if the object type is declared outside the current folder then it cannot be accessed.
+- Subclass --> As slightly mentioned before, this is when *inheritance* is done. The class that inherits from the other class, then this makes it get the instance variables/methods from that other class.
+- World --> This is just where that content can be accessed from any part of the system.
 
 There are times when *access modifiers* cannot be used or subset can and these are:
 
@@ -1377,6 +1381,16 @@ There are times when *access modifiers* cannot be used or subset can and these a
 - method parameters --> cannot use when defining arguments for method
 - interface fields --> talked about later, but cannot use any
 - static block --> talked about later, but cannot use any
+
+> [!TIP]
+>
+> Is is very common practice and highly encouraged to make ALL instance variables private as to prevent being accessed from outside the class as that would break the *encapsulation* principle.
+>
+> When it comes to methods, these should be marked private if that method is not to be called outside the class. For example, there are three methods MA, MB, and MC. MA will do some processing, MB takes that processing and count number of processed stuff, MC displays it all. Here MB servers as a helper method that MUST have MA go first to get the needed data. This means if MB or MC is called directly before MA is called then this causes an error. This means the user should only be able to call MA while MB and MC are private so they are never called. This enforces *encapsulation* principle since the user does not know that two additional methods are being called since they just called the single MA method.
+
+> [!IMPORTANT]
+>
+> There is a small quirk with this 
 
 #### Implicit and Explicit Parameters
 
@@ -1387,13 +1401,13 @@ There are two definations when it comes to passing in arguments:
 
 For example, in `x.showInfo()`, the "x" would be the *implicit* and the method called would be the *explicit*. Under the hood, *implicit* arguments are passed into the method call without knowing. So the method call actually looks like `x.showInfo(x)`. The x will always be in front even if there are other arguements.
 
-Now when actually inside the method definition, the *implicit* type here will not be the name of the actual object, instead it is referred by the keyword **this**. In the actual method, the first implicit argument will be "<objectType this". However, this is really only used when the *explicit* variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
+Now when actually inside the method definition, the *implicit* type here will not be the name of the actual object, instead it is referred by the keyword **this**. In the actual method, the first implicit argument will be "\<objectType\> this". However, this is really only used when the *explicit* parameter variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
 
 For example:
 
 ```java
 void info(String name, int a, int count){
-    this.name = name;
+    this.name = name; // the parameter name is the exact as the instance fields name
     age = a;
     // below will cause an error
     // count = count
@@ -1695,6 +1709,7 @@ A *flowchart* is also use to show how the code will be executed.
 
 [^BufferReader]: Finish writing about the BufferReader Object
 [^ JDK]: Talk about JDK, JVM, JRE, and java CLI tools, etc
+[^OverrideMethod]: Talk about method overriding functionality
 
 
 

@@ -1,11 +1,42 @@
 package AccessModifierExample.FolderOne;
 
-class A{
+/**
+ * Class A demonstrates different Java access modifiers
+ * including default, public, protected, and private.
+ * 
+ * It also shows how methods and variables with different
+ * access levels can be accessed from other classes.
+ */
+public class A{
+
+    /** 
+     * Default access variable.
+     * Accessible within the same package.
+     */
     String defaultVar;  // Can be accessed from B, but not C
-    public String publicVar; // Can be accessed from B and  C
+
+    /** 
+     * Public access variable.
+     * Accessible from any class.
+     */
+    public String publicVar; // Can be accessed from B and C
+
+    /** 
+     * Protected access variable.
+     * Accessible within the same package and subclasses.
+     */
     protected String protectedVar; // Can be accessed from B, but not C
+
+    /** 
+     * Private access variable.
+     * Accessible only within this class.
+     */
     private String privateVar; // Cannot be accessed from B and C
     
+    /**
+     * Default constructor that initializes all variables
+     * with sample string values.
+     */
     public A(){
         defaultVar = "DEFAULT";
         publicVar = "PUBLIC";
@@ -13,27 +44,41 @@ class A{
         privateVar = "PRIVATE";
     }
     
-    // This can be called from B, but not C
+    /**
+     * Default access method.
+     * Can be called within the same package.
+     */
     void defaultMethod(){
         IO.println("From Default Method");
     }
     
-    // This can be called from B and C
+    /**
+     * Public method accessible from any class.
+     */
     public void publicMethod(){
         IO.println("From Public Method");
     }
     
-    // This can be called from B, but not C
+    /**
+     * Protected method accessible within the same package
+     * and subclasses.
+     */
     protected void protectedMethod(){
         IO.println("From Public Method");
     }
     
-    // This can only be accessed from this class alone
+    /**
+     * Private method accessible only within this class.
+     */
     private void privateMethod(){
         IO.println("From Private Method");
     }
     
-    // This is the wrapper needed to call the private method and variable since this class can only access them
+    /**
+     * Wrapper method used to access private members.
+     * 
+     * Calls the private method and prints the private variable.
+     */
     public void wrapper(){
         privateMethod();
         IO.println(this.privateVar);

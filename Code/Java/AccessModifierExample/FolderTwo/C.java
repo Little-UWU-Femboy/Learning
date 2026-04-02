@@ -1,5 +1,5 @@
 package AccessModifierExample.FolderTwo;
-import FolderOne.A;
+import AccessModifierExample.FolderOne.A;
 
 
 public class C{
