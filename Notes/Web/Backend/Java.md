@@ -1365,6 +1365,19 @@ A more visual look of this is with a table below
 
 The actual access modifier keyword will be placed before the date type of the variable data type and method return type like `private String info()`.
 
+When it does to describing the cases more:
+
+- class --> This is the actual java file itself. Meaning, only that .java file can access those methods or functions. Any other java file in any way cannot access these instance methods/variables.
+- Package --> This is just all java files in the current folder. This means that all java files declared in the same folder gives the ability to have the information accessed. However, if the object type is declared outside the current folder then it cannot be accessed. 
+
+There are times when *access modifiers* cannot be used or subset can and these are:
+
+- class declaration --> this can only use the public or default version only
+- local variables --> cannot use any of them
+- method parameters --> cannot use when defining arguments for method
+- interface fields --> talked about later, but cannot use any
+- static block --> talked about later, but cannot use any
+
 #### Implicit and Explicit Parameters
 
 There are two definations when it comes to passing in arguments:
@@ -1374,7 +1387,7 @@ There are two definations when it comes to passing in arguments:
 
 For example, in `x.showInfo()`, the "x" would be the *implicit* and the method called would be the *explicit*. Under the hood, *implicit* arguments are passed into the method call without knowing. So the method call actually looks like `x.showInfo(x)`. The x will always be in front even if there are other arguements.
 
-Now when actually inside the method defination, the *implicit* type here will not be the name of the actual object, instead it is refered by the keyword **this**. In the actual method, the first implicit arguement will be "<objectType this". However, this is really only used when the *explicit* variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
+Now when actually inside the method definition, the *implicit* type here will not be the name of the actual object, instead it is referred by the keyword **this**. In the actual method, the first implicit argument will be "<objectType this". However, this is really only used when the *explicit* variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
 
 For example:
 
