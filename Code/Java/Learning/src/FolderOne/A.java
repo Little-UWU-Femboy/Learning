@@ -37,6 +37,7 @@ public class A{
      * Default constructor that initializes all variables
      * with sample string values.
      */
+    
     public A(){
         defaultVar = "DEFAULT";
         publicVar = "PUBLIC";

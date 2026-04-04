@@ -1540,27 +1540,232 @@ Typically when a class object is declared, it will use the specific data from it
 
 #### Static Fields
 
-When this is used on variables declared inside a class, this does not make that variable part of the object instances that are created, but the actual class itself. This means that if the class itself wants to use that variable then it needs to do something like `<ClassName>.StaticVariableName` or just use the static variable name. This cannot be used with the **this** keyword.
+When this is used on variables declared inside a class, this does not make that variable part of the object instances that are created, but the actual class itself. This means that if the class itself wants to use that variable then it needs to do something like `<ClassName>.StaticVariableName` or just use the static variable name. This means that ALL object instances declared will share this value.
 
-This will only ever create only copy of this variable in memory. Meaning there is not a separate version created per object that is created.
+This cannot be used with the **this** keyword.
+
+This will only ever create only copy of this variable in memory. Meaning there is not a separate version created per object that is created. Instead, each object will point to the same memory location. For example, if there are 5 objects variables of the same type. If version 1 changes the value of the static value to 500 then the other 4 instances will also see the value of 500 since these all share the same static variable in memory. 
 
 When this is being referenced outside the class itself, then this does not need to declare an instance of that object to access that data. This can just do something like `<ClassName>.StaticVariableName`.
 
-
+However, static variables are not used too oftern and should be used very rarely.
 
 #### Static Constants
 
+While normal static variables are rare, creating static constants are quite common. An example of this can be found in the "Math" class with the static variable "PI" which in the actual implementation looks like `public static final double PI = 3.14159265358979323846;`. Another example of this is the "out" portion of the `System.out.println()` which looks like `public static final PrintStream out = . . .;`.
+
+> [!NOTE]
+>
+> There are speical ways that something set with **final** keyword can be changed still, however this method would be called a *native method*. These are not part of the languages and are not able to be implemented writing normal java code. *native methods* can by pass access control of any variable so it can do what it wants with any variable.
+
+> [!TIP]
+>
+> Typically, constant static variables are named with all uppercase letters and separated by the _.
 
 
-#### Statid Methods
+
+#### Static Methods
+
+Just like static variables, these are used the exact same way like `<ClassName>.StaticMethod`. Just like a static variable, there does not need to be an created version of that object to use this method. An example of this is the `Math.pow(x,y)` method which takes the power of the values passed in like $x^y$.
+
+Static methods will also not have the *implicit* parameter **this**.
+
+One key thing to note is static methods cannot access instance variables of any type since these do not opperate on objects themselves, but just the data passed into them. However, they can access variables that are static in that class.
+
+For example
+
+```java
+public class Main{
+    static int x = 20;
+    private int y = 50;
+    
+    public static void staticMethod(){
+        System.out.println(x); // Works since this is a static variable
+        System.out.println(y); // Trying to do this will throw an compile time error
+    }
+    
+    public static void main(String[] args){
+        staticMethod();
+    }
+}
+```
+
+Static methods should be used in two cases
+
+1. When a method doesn’t need to access the object state because all needed parameters are supplied as *explicit parameters* (example: Math.pow)
+2. When a method only needs to access static fields of the class
 
 
 
 #### Factory Methods
 
+Another reason to make a method static is to create a *static factory* method. These serve as a replacement for calling a constructor directly with the `new` keyword. This approach promotes modularity and aligns with SOLID principles. Examples of this are found in the "LocalDate" class, where methods like `now()` and `of()` create and return a "LocalDate" object.
+
+When implementing this, the actual constructor is typically given a **private** or **protected** access modifier to prevent direct instantiation.
+
+Some reasons to use factory methods over constructors include:
+
+1. Descriptive Names --> Constructors must share the name of the class. Factory methods can have distinct names, such as `getCurrencyInstance()` versus `getPercentInstance()`, which clarifies the intent.
+2. Varying Return Types --> Unlike constructors, a static factory method can return any subtype of its declared return type. For example, a `Burger.create("cheese")` method could return a `CheeseBurger` object, while `Burger.create("plain")` returns a `PlainBurger`.
+3. Instance Control --> A constructor always creates a new object. A factory method can return the same instance repeatedly. For example, a "Boolean.valueOf(boolean)" method returns pre-existing `TRUE` or `FALSE` objects rather than allocating new memory every time.
+
+```java
+// Example covering Naming, Instance Sharing, and Subtype returns
+public class Burger {
+    private String type;
+
+    // The constructor is private to force the use of factory methods
+    private Burger(String type) {
+        this.type = type;
+    }
+
+    // 1. Descriptive Name: Clarifies that a default burger is being made
+    public static Burger createStandardBurger() {
+        return new Burger("Standard");
+    }
+
+    // 2. Subtype Return: Returns a specific subclass based on input
+    public static Burger createCustomBurger(String flavor) {
+        if (flavor.equalsIgnoreCase("cheese")) {
+            return new CheeseBurger(); // Returns a subclass
+        }
+        return new Burger(flavor);
+    }
+
+    // 3. Instance Sharing: Returns a cached/static instance to save memory
+    private static final Burger PLAIN_BURGER = new Burger("Plain");
+    public static Burger getPlainBurger() {
+        return PLAIN_BURGER; // Returns the same object every time
+    }
+
+    public String getType() {
+        return type;
+    }
+}
+
+// Subclass for the demonstration of returning subtypes
+class CheeseBurger extends Burger {
+    public CheeseBurger() {
+        super("Cheese");
+    }
+}
+
+// Usage in a main context
+class Main {
+    public static void main(String[] args) {
+        // Descriptive name usage
+        Burger b1 = Burger.createStandardBurger();
+        
+        // Instance sharing usage
+        Burger b2 = Burger.getPlainBurger();
+        
+        // Subtype return usage
+        Burger b3 = Burger.createCustomBurger("cheese");
+    }
+}
+```
+
+A specific class can also be created for the sole purpose of object creation, known as a *factory class*. This class exists to support another class by handling all instantiation logic. For example, instead of the `Burger` class deciding which specific object to return, a `BurgerFactory` handles that responsibility. This separation ensures the `Burger` class remains simple, while the `BurgerFactory` centralizes the rules for creating various burger types. When a new burger is needed, the request is made to the factory, which returns the completed object.
+
+<u>For Example</u>
+
+##### Burger Class
+
+```java
+public class Burger {
+    private String flavor;
+
+    // Protected constructor limits creation to the same package or factory
+    protected Burger(String flavor) {
+        this.flavor = flavor;
+    }
+
+    public String getFlavor() {
+        return flavor;
+    }
+}
+```
+
+##### Veggie Burger Class
+
+```java
+public class VeggieBurger extends Burger {
+    public VeggieBurger() {
+        super("Veggie (Plant-Based)");
+    }
+}
+```
+
+
+
+##### Deluxe Burger Class
+
+```java
+public class DeluxeBurger extends Burger {
+    public DeluxeBurger() {
+        super("Deluxe (Bacon and Egg)");
+    }
+}
+```
+
+
+
+##### Burger Factory Class
+
+```java
+// Factory Class
+// This class handles the logic of which specific burger to create
+public class BurgerFactory {
+
+    public static Burger createBurger(String type) {
+        if (type.equalsIgnoreCase("veggie")) {
+            return new VeggieBurger();
+        } else if (type.equalsIgnoreCase("deluxe")) {
+            return new DeluxeBurger();
+        } else {
+            // Static Factory Method logic can still be used for defaults
+            return new Burger("Standard Cheese");
+        }
+    }
+}
+```
+
+##### Main Class
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // The client interacts with the Factory, not the specific subclasses
+        // This uses a topic called polymorphism which will be talked about later
+        Burger order1 = BurgerFactory.createBurger("veggie");
+        Burger order2 = BurgerFactory.createBurger("deluxe");
+
+        System.out.println("Order 1 flavor: " + order1.getFlavor());
+        System.out.println("Order 2 flavor: " + order2.getFlavor());
+    }
+}
+```
+
 
 
 #### The main Method
+
+Every executable Java program requires a special entry point called the `main` method. The standard signature is `public static void main(String[] args)`. The name is fixed because the Java launcher specifically searches for this identifier to begin execution. The `static` modifier is necessary because the JVM must call the method before any objects have been created. The `String[] args` parameter allows the program to accept input from the command line.
+
+In modern Java 25+, this requirement has been simplified through *Implicitly Declared Classes*. It is now possible to write `void main()` without an explicit `class <ClassName>` declaration. Under the hood, the compiler automatically generates a "secret" class (typically the name of the current file running) to wrap the code. The JRE determines which file to execute based on the filename passed to the `java`command in the terminal. So writing any methods outside a class declaration are called *compact compilation unit* files. All the variables and methods are called *Top-level variables and methods*
+
+It is important to know that the two styles of specifically declaring a class part and the *compact compilation* cannot be mixed. Must choose one or the other or this will cause an error.
+
+The rules for the main method are:
+
+1. If there is more than one main method, static main methods are preferred over instance methods
+2. Methods with a String[] parameter are preferred over those with no parameters.
+3. Private main methods are not considered.
+4. If main is not static, the class must have a non-private no-argument constructor. Then the launcher constructs an instance of the class and invokes the main method on it.
+
+
+
+
 
 
 
