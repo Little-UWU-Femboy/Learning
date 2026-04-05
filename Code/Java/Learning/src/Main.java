@@ -1,7 +1,3 @@
-int OutsideClass() {
-	return 1;
-}
-
 public class Main{
     static int x = 20;
     private int y = 50;
