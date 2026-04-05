@@ -1763,12 +1763,6 @@ The rules for the main method are:
 3. Private main methods are not considered.
 4. If main is not static, the class must have a non-private no-argument constructor. Then the launcher constructs an instance of the class and invokes the main method on it.
 
-
-
-
-
-
-
 ### Method Parameters
 
 
