@@ -1,0 +1,39 @@
+.code
+    loadI 10 => r10             
+    loadI 65 => r12              
+    loadI 90 => r13              
+    loadI 97 => r14              
+    loadI 122 => r15            
+    loadI 32 => r16              
+    loadI 0 => r0                
+
+    p_str r_argv                 
+    p_char r10
+
+    i2i r_argv => r2             
+loop:
+    cload r2 => r3             
+    cmp_EQ r3, r0 => r4          
+    cbr r4 => end, process
+process:
+    cmp_GE r3, r12 => r5
+    cmp_LE r3, r13 => r6
+    and r5, r6 => r7
+    cbr r7 => to_lower, check_lower
+to_lower:
+    add r3, r16 => r3            
+    jumpI => print_char
+check_lower:
+    cmp_GE r3, r14 => r8
+    cmp_LE r3, r15 => r9
+    and r8, r9 => r11
+    cbr r11 => to_upper, print_char
+to_upper:
+    sub r3, r16 => r3
+print_char:
+    p_char r3
+    addI r2, 1 => r2            
+    jumpI => loop
+end:
+    p_char r10
+    halt
