@@ -13,8 +13,72 @@ Can write basic Javascript in here, but this will only work if being exported in
 <button>Click Me</button>
 
 <script>
-document.querySelector("button").addEventListener("click", function() {
-  alert("Hello, World");
+// Select the button
+const button = document.querySelector('button');
+
+// Style the button nicely
+button.style.position = 'relative';
+button.style.padding = '20px 40px';
+button.style.fontSize = '20px';
+button.style.border = 'none';
+button.style.borderRadius = '10px';
+button.style.background = 'linear-gradient(135deg, #ff6ec4, #7873f5)';
+button.style.color = '#fff';
+button.style.cursor = 'pointer';
+button.style.overflow = 'visible';
+
+// Function to create particles
+function createParticle(x, y) {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = '10px';
+    particle.style.height = '10px';
+    particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.left = `${x}px`;
+    particle.style.top = `${y}px`;
+    particle.style.opacity = '1';
+    
+    button.appendChild(particle);
+    
+    // Animate the particle
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 50 + Math.random() * 50;
+    const xMove = Math.cos(angle) * distance;
+    const yMove = Math.sin(angle) * distance;
+    
+    particle.animate([
+        { transform: 'translate(0,0)', opacity: 1 },
+        { transform: `translate(${xMove}px, ${yMove}px)`, opacity: 0 }
+    ], {
+        duration: 1000 + Math.random() * 500,
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    });
+    
+    // Remove particle after animation
+    setTimeout(() => particle.remove(), 1500);
+}
+
+// Click event
+button.addEventListener('click', (e) => {
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    for (let i = 0; i < 30; i++) {
+        createParticle(x, y);
+    }
+    
+    // Button flash effect
+    button.animate([
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.2)' },
+        { transform: 'scale(1)' }
+    ], {
+        duration: 300,
+        easing: 'ease-out'
+    });
 });
 </script>
 
@@ -28,7 +92,7 @@ To make text <u>underlined</u> use `<ul></ul>` and place text inside or ctrl+u
 
 To make text ^superscript^ use `^^` with the text inside
 
-To make text ~subscript~ text use `~~`
+To make text ~subscript~ text use `~~` 
 
 To create an external link, use `[Link here](https://youtube.com)`. The [] will contain the text to show to go to link. The () will contain the actual URL to go to.
 
@@ -65,7 +129,7 @@ These list can also be nested. To do this just click tab on the current and a ne
 
 - [ ] This is an exampleOf a check box
   - [ ] that is nested inside
-- [x] here
+- [ ] here
 
 ### Footnote
 

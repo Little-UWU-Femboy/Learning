@@ -1765,9 +1765,16 @@ The rules for the main method are:
 
 ### Method Parameters
 
+When calling a method and passing the parameters to it, there are two ways this is done:
 
+1. *call by reference* --> the parameters passed to the method are the actual memory location of the original. Meaning that the data modified in the method is not just a copy of a local variable, but the original.
+2. *call by value* --> the parameters passed to the method are copies of the original value, This means if the variable data is changed inside the method this will not affect the original variable data. This is basically as declaring a *local variable*.
+
+Java will always use *call by value* no matter what. This will always work for all *primitive* data types. However, when it comes object data types this is different. While the value of the object is still passed by value, the object created will point to the same memory location reference, so when data for that object is modified, it affects the value in that memory location so even thought this is techenically a copy of the original object, the both point to the same memory location.
 
 ### Object Construction
+
+
 
 #### Overloading
 
