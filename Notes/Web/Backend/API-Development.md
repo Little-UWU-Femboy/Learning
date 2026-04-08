@@ -1,3 +1,50 @@
 # API Development
 
 Do you feel the reasons the classes have gone smooth is the python code examples are easier to read here compared to before on the laptop.
+
+- search (200 points total)
+    - by device type
+        - must only return active device types (20 points)
+        - must be able to select all active manufacturers or a specific active manufacturer (20 points)
+    - by manufacturer
+        - must only return active manufacturer types (20 points)
+        - must be able to select all active device types or a specific active device type (20 points)
+    - by serial number
+        - must only return active equipment (20 points)
+    - search all
+        - must allow to show
+            - only active (20 points)
+            - only inactive (20 points)
+            - all (20 points)
+    - all search results must have a view option (20 points)
+    - all search results must be listed in an HTML table with proper table headings (20 points)
+- view equipment (50 points total)
+    - - only available from search results (10 points)
+        - must include a modify button (20 points)
+        - must show all attributes about the equipment: device id, device type, manufacturer type, serial number, status (20 points)
+-  add new (300 points total)
+    - equipment:
+        - check for valid serial number (50 points)
+        - only list active device types and manufacturers in selections (50 points)
+    - device type
+        - check to make sure new type name is not already in database (50 points)
+        - check to not allow characters other than alphabet letters (50 points)
+    - manufacturer
+        - check to make sure new manufacturer name is not already in database (50 points)
+        - check to not allow characters other than alphabet letters and spaces (50 points)
+- modify (500 points total)
+    - equipment
+        - modify device type to only active device types (50 points)
+        - modify manufacturer to only active manufacturers (50 points)
+        - modify serial number
+            - check to make sure new serial number is unique (25 points)
+            - check to make sure it matches the valid structure: SN-xxxxx with xxxx being 0-9A-F (25 points)
+        - modify equipment status: active/inactive (50 points)
+    - manufacturer
+        - check to not allow characters other than alphabet letters (50 points)
+        - check to make sure updated name does not match other current names (50 points)
+        - modify manufacturer status: active/inactive (50 points)
+    - device type
+        - check to not allow characters other than alphabet letters and spaces (50 points)
+        - check to make sure updated name does not match other current names (50 points)
+        - modify device type status: active/inactive (50 points)
