@@ -202,7 +202,7 @@ The only requirement for the **var** keyword is a value must be assigned to the 
 
 #### Constant
 
-To declare a variable who's value should never change (like π will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type like `final int x = 60;`.
+To declare a variable who's value should never change (like $\pi$ will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type like `final int x = 60;`.
 
 If this variable's value is attempting to be changed during run time, then an error will appear.
 
