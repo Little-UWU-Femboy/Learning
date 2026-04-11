@@ -2,72 +2,13 @@
 <html>
     <head>
         <style>
-            body {
-                font-family: Arial;
+            strong{
+                font-size: 50px;
             }
-
-            /* Button */
-            button {
-                padding: 10px 15px;
-                cursor: pointer;
-            }
-
-            /* Dropdown container */
-            .dropdown-content {
-                position: absolute;
-                background-color: #f1f1f1;
-                min-width: 150px;
-
-                /* Hidden state */
-                opacity: 0;
-                transform: translateY(-10px);
-                pointer-events: none;
-
-                /* Smooth animation */
-                transition: all 0.3s ease;
-            }
-
-            /* Visible state */
-            .dropdown-content.show {
-                opacity: 1;
-                transform: translateY(0);
-                pointer-events: auto;
-            }
-
-            /* Links */
-            .dropdown-content a {
-                display: block;
-                padding: 10px;
-                text-decoration: none;
-                color: black;
-            }
-
-            .dropdown-content a:hover {
-                background-color: #ddd;
-            }
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         </style>
     </head>
 
     <body>
-        <button onclick="toggleMenu()">Menu</button>
-
-        <div id="menu" class="dropdown-content">
-            <a href="#">Item 1</a>
-            <a href="#">Item 2</a>
-            <a href="#">Item 3</a>
-        </div>
-
-        <script>
-            function toggleMenu() {
-                document.getElementById("menu").classList.toggle("show");
-            }
-
-            window.onclick = function (event) {
-                if (!event.target.matches("button")) {
-                    document.getElementById("menu").classList.remove("show");
-                }
-            };
-        </script>
+        <p>Hello friend I am <strong>bold</strong> text here</p>
     </body>
 </html>

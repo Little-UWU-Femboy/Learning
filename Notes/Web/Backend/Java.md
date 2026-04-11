@@ -1,12 +1,10 @@
-# An Introduction To Java
+#  An Introduction To Java
 
 
 
 ## The Java Programming Environment
 
 All java files will have the .java extension.
-
-
 
 When it comes to downloading the java versions, there are different terminology used for this.
 
@@ -49,7 +47,7 @@ void main(){
 > }
 > ```
 >
-> The first list will be the same EXACT name as the class file. The second line will be named the normal main function with other extra properties.
+> The first list will be the same EXACT name as the java file. The second line will be named the normal main function with other extra properties.
 
 
 
@@ -302,7 +300,7 @@ y  & \text{if } x < y \\
 x & \text{if } x \le z & x \ge y
 \end{cases}
 $$
-There are other math constants like PI, E, and T (which is 2π).
+There are other math constants like PI, E, and T (which is $2\pi$).
 
 #### Type Conversions Rules
 
@@ -364,7 +362,7 @@ public class Main{
 
 #### Assignment
 
-When it comes to assigning a variable data, it can use the = like before. However, there is a way to also use arithmetic expressions with it at the same time once the variable is declared already. This is done with a short hand math symbol followed by the = symbol (like +=). For example, `x += 50` is the same as doing $x=x+50$.
+When it comes to assigning a variable data, it can use the = like before. However, there is a way to also use arithmetic expressions with it at the same time once the variable is declared already. This is done with a short hand math symbol followed by the = symbol (like +=). For example, `x += 50` is the same as doing `x=x+50`.
 
 This can be done with any of the arithmetic symbols.
 
