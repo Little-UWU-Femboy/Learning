@@ -1,12 +1,12 @@
-#  An Introduction To Java
+#  Chapter 1: An Introduction To Java
 
+<!--Go back and read section-->
 
-
-## The Java Programming Environment
+# Chapter 2: The Java Programming Environment
 
 All java files will have the .java extension.
 
-When it comes to downloading the java versions, there are different terminology used for this.
+When it comes to downloading the java versions, there are *different* terminology used for this.
 
 | Name                     | Acronym | Description                                                  |
 | ------------------------ | ------- | ------------------------------------------------------------ |
@@ -18,15 +18,15 @@ When it comes to downloading the java versions, there are different terminology 
 | GraalVM                  | N/A     | An “ahead of time” compiler for executables that start quickly, but don’t support all Java features. |
 | Long Term Support        | LTS     | A release that is supported for multiple years, unlike the six-month releases that showcase new features. Choose the latest LTS release |
 
-
-
-The way to run a java file it to use the command on the CLI **java** followed by the java file name with the extension like `java Main.java`. There is another version of this called **javac** where this does compile the .java files, but does not compile the code to machine code like in C. Instead, this turns into something called *bytecode*. This creates a new file with the same name, but ends with .class instead. When there is a .class file and wanting to run it, it does not need to have the extension behind it and can just have it without the extension like `java Main`.
+The way to run a java file it to use the command on the CLI **java** followed by the java file name with the extension like `java Main.java`. There is another version of this called **javac** where this does compile the .java files, but does not compile the code to machine code like in C. Instead, this turns into something called <u>bytecode</u>. This creates a new file with the same name, but ends with .class instead. When there is a .class file and wanting to run it, it does not need to have the extension behind it and can just have it without the extension like `java Main`.
 
 > *Bytecode* is just an intermediate step in the compilation process that makes the instructions for the code platform independent. This means that the JVM that actually runs the code can spit out whatever correct instructions for any OS to use correctly.
 
-## Fundamentals of Programming Java
+<!--Go back and read section more-->
 
-### Basic File Outline
+# Chapter 3: Fundamentals of Programming Java
+
+## Basic File Outline
 
 It is important to note that java is case sensitive when it comes to naming things.
 
@@ -47,7 +47,7 @@ void main(){
 > }
 > ```
 >
-> The first list will be the same EXACT name as the java file. The second line will be named the normal main function with other extra properties.
+> The first line name will be the same EXACT name as the java file. The second line will be named the normal main function with other extra properties.
 
 
 
@@ -65,7 +65,7 @@ When it comes to naming conventions of class files, they use PascalCasing.
 
 // TODO[^ JDK]
 
-### Commets
+## Commets
 
 To leave commets, this is the same as C with // for single line and /**/ for multi-line commets.
 
@@ -85,11 +85,11 @@ void main(){
 
 There is a special type of commet called a doc commet. This is basically the same as the the multi line commet except, there is an extra * at the top part of the commit like /***/. Will talk about later when talking about automatic documentation generation.
 
-### Data Types
+## Data Types
 
 Java has 8 primitive data types and these must be used when declaring a variable.
 
-#### Integers
+### Integers
 
 - **byte** --> holds integers -127 - 126. This takes 1 byte of memory.
 - **short** --> holds integers -32,768 - 32,767. This takes 2 bytes of memory.
@@ -110,24 +110,24 @@ Java allows underscores between numbers to imroving readablility.
 
 Unlike C/C++, java does not have a unsigned version of the integer values.
 
-#### Floating Point
+### Floating Point
 
 There is only **float** and **double** types here. The first will takes 4 bytes and the second will take 8 bytes. However, their value ranges are not exact and instead an approximation. The first is about 6 - 7 decimal digits while the other is about 15 decimal digits.
 
-It is important that the **float** type ends with the suffix F just like the **long** integer type. If not, then even if this is specified to be of type float it will still come out to be of type double and could throw an error.
+It is important that the **float** type ends with the suffix F just like the **long** integer type ends with L. If not, then even if this is specified to be of type float it will still come out to be of type double and could throw an error.
 
-All floating point numbers follow the IEEE754 specification. There is a pdf file about this in the Assets folder called IEEE754.pdf
+All floating point numbers follow the [IEEE754](https://mathcenter.oxford.emory.edu/site/cs170/ieee754/) specification.
 
 When decimal point number, the result of dividing a positive floating-point number by 0 is positive infinity. Dividing 0.0 by 0 or the square root of a negative number yields NaN.
 
-There is a class called Double that has access to special methods and variables that cover different cases.
+There is a class called "Double" that has access to special methods and variables that cover different cases.
 
 - `Double.POSITIVE_INFINITY` --> This is when the value is positive infinity
 - `Double.NEGATIVE_INFINITY` --> This is when the value is negative infinity
 - `Double.NaN` --> This is when the value in undefined
 - `Double.IsNaN(float)` --> This is method is used to check if the variable is of not a number type
 
-#### Char
+### Char
 
 To represent a single character use the **char** data type. Unlike something like C/C++, the char type here takes 2 bytes instead of 1.
 
@@ -169,13 +169,13 @@ public class Main {
 >
 > When using the unicode \u literal, this is processed before even the text or commets in the file are. This mens if something like "\u0022+\u0022" is written this this actually turns into trying to add together 2 empty string like ""+""
 
-#### Boolean
+### Boolean
 
 To represent a true or false value, use the **Boolean** data type. This is used to only represent true or false values. The values for true and false in java are literally "true" and "false". Another way these are represented is any non-zero value is considered true and any zero value is considered false.
 
-### Variables
+## Variables
 
-#### Declaring a Variable
+### Declaring a Variable
 
 Java is a *strongly typed* language. This means each variable has to have the type specified and this type cannot be changed once declared. The rule for declaring a variable is data type followed by name space separated and ending with a semicolon like `int x;` . 
 
@@ -185,7 +185,7 @@ Java is a *strongly typed* language. This means each variable has to have the ty
 
 When declaring multiple variables of the same data type, they can be name comma separated instead of having to be declared on separate lines like `int x, y, z;`.
 
-#### Giving a Value
+### Giving a Value
 
 Once a variable is declared, it has to be assigned a value before it can be used anywhere. If it does not get a value before being used then an error in the program will occur.
 
@@ -194,11 +194,11 @@ To give a value, just use the = symbol and the value on the left side will get t
 1. Do it while declaring the variable like `int x = 50;`
 2. Do it after variable is declared like `int x;` then doing `x = 50;`
 
-Java has a keyword called **var**. This can be in palce of the data type and declare the name like normal. This makes it so the data type of the variable can be infered instead of having to specify the data type. This is helpful when declaring object types which will be talked about later.
+> Java has a keyword called **var**. This can be in palce of the data type and declare the name like normal. This makes it so the data type of the variable can be infered instead of having to specify the data type. This is helpful when declaring object types which will be talked about later.
 
 The only requirement for the **var** keyword is a value must be assigned to the variable once it is being declared.
 
-#### Constant
+### Constant
 
 To declare a variable who's value should never change (like $\pi$ will always be 3.14), the use of the keyword **final** will be used. This keyword will go before declaring the data type like `final int x = 60;`.
 
@@ -206,7 +206,7 @@ If this variable's value is attempting to be changed during run time, then an er
 
 It is a common practice to have constants be named all upper case and have _ be a separator between the names.
 
-#### Enum
+### Enum
 
 In Java, when a variable should only ever hold one of a specific set of values, the **enum** (enumeration) data type is used. This acts as a specialized container for a group of constants, ensuring that invalid values cannot be assigned.
 
@@ -268,9 +268,9 @@ public class Main {
 }
 ```
 
-### Operators
+## Operators
 
-#### Arithmetic Operators
+### Arithmetic Operators
 
 Just like in C/C++, java has the basic arithmetic operators like +, -, *, and / for adding, subtracting, multiplication, and division.
 
@@ -278,12 +278,12 @@ It is important to note when dividing numbers if both of them are integer types 
 
 The other symbol, like in C/C++, is the modules (%) operator for getting the remainder of division. This will return an integer only.
 
-#### Mathematical Functions and Constants
+### Mathematical Functions and Constants
 
 Just like in C/C++, there is a special library to deal with more complex math content. In java, this is done in a class called "Math". Inside here are the methods to perform the math equations. Some are:
 
 - `Math.sqrt(x)` that takes in a number and returns the square root result of it.
-- `Math.pow(x,y)` that takes two numbers of type double and returns the value of $x^y$ type double.
+- `Math.pow(x,y)` that takes two numbers of [type](https://youtube.com) double and returns the value of $x^y$ type double.
 - `Math.sin` is the sin math variable
 - `Math.cos` is the cos math variable
 - `Math.tan` is a tan math variable
@@ -302,7 +302,7 @@ x & \text{if } x \le z & x \ge y
 $$
 There are other math constants like PI, E, and T (which is $2\pi$).
 
-#### Type Conversions Rules
+### Type Conversions Rules
 
 There is a way to convert the data type from one variable to another data type. This is helpful when things need to be changed or meet certain requirements. For example, a function MUST take two floats, but have two ints.
 
@@ -327,7 +327,7 @@ flowchart LR
     end
 ```
 
-#### Type Casting
+### Type Casting
 
 To actually convert between two types, do `(Data Type) VariableName`. It is important that the variable is already declared.
 
@@ -360,7 +360,7 @@ public class Main{
 }
 ```
 
-#### Assignment
+### Assignment
 
 When it comes to assigning a variable data, it can use the = like before. However, there is a way to also use arithmetic expressions with it at the same time once the variable is declared already. This is done with a short hand math symbol followed by the = symbol (like +=). For example, `x += 50` is the same as doing `x=x+50`.
 
@@ -372,7 +372,7 @@ This can be done with any of the arithmetic symbols.
 >
 > However, as of java 20, can add the flag "-Xlint:lossy-conversions" when compiling and this will show a warning that this is happening.
 
-#### Increment Operator
+### Increment Operator
 
 Instead of having to write mantually adding or subtracting from a value each time by one, java supports a shorthand for this called *incrementing*.  This can be done by putting ++ or -- on a variable name like `x--`. This can be done anywhere in code and this will subtract 1 from the value. There is also a prefix version of this by just putting the ++ or -- before the variable name. However, these do mean different things, but only really matters when being done in assignment expressions. Doing the prefix version willl add/subtract 1 from the number first then do the arithmetic operation, but the postfix version will work with the variable first then add/subtract 1 from it.
 
@@ -392,7 +392,7 @@ public class Main{
 
 ```
 
-#### Relational and boolean Operators
+### Relational and boolean Operators
 
 There is a way to show equality between two values and is done with ==. This is used to check if two values are equal to each other. This will also return a boolean value secretly to tell if this was true or false.
 
@@ -419,7 +419,7 @@ public class Main{
 }
 ```
 
-#### Conditional Operator
+### Conditional Operator
 
 There is a shorthand way to to write some logic where if an expression returns true then it can be assigned one value and if false it returns another value. To do this use the format `condition ? ValueTrue:ValueFalse`.
 
@@ -434,7 +434,7 @@ public class Main{
 }
 ```
 
-#### Switch Expression
+### Switch Expression
 
 Instead of just just checking one case like the conditional operator, can use **switch** expressions. This is a way to check in multiple different cases if a value equals something then it will return a certain value back. This also uses another keyword called **case** which is what is used to check if the value meets the criteria for that case and if yes then that case code goes off and if not then skip that case code or can just do a single thing . There is also another keyword called **default** that will go off only if all the previous cases failed. 
 
@@ -485,7 +485,7 @@ When it comes to cases, if there are multiple different results that should exec
 >
 > If the value to be tested is an enum and the cases are the enum values, then the EnumName.value does not need to be used and can just do the value for each case.
 
-#### Bitwise opertors
+### Bitwise opertors
 
 Just like in C/C++, there is the common bitwise operators:
 
@@ -506,13 +506,13 @@ When it comes to the >> and <<, these will shift the bits by the specified about
 >
 > When shifting the bits left, this is like multipling the value by $2^\text{ShiftAmount}$. When moving to the right then it is like diving by $2^\text{ShiftAmount}$.
 
-### Strings
+## Strings
 
 When it comes to strings, under the hood they are just a sequence of **char** types. When it comes to to declaring a string, this will be done using the **String** type. The string type is really just a class in the java.lang module that can be used.
 
 There is eomthign called a *string literal* and that is just when using a string with double quotes that is not being assigned to a variable.
 
-#### Concat
+### Concat
 
 There is something called *concatenation*. This is just combining two strings together to form a bigger one. This is done by adding two different strings together with the + symbol.  This will return a new string with the combined format except 
 
@@ -526,7 +526,7 @@ There is a special method in the string class called `join()`. This is used to j
 
 There is another method called `repeat()`. This will take the sting of the thing being called on and just return an appended version of the tring to itself the same string over n times. The only argument this takes in an integer on how many times to repeat this.
 
-#### Static and Instance Methods
+### Static and Instance Methods
 
 There are two types of methods here: 
 
@@ -537,7 +537,7 @@ For example, `String.join()` is a static method because it is called using the c
 
 The easiest way to tell the two apart is if the . is coming right after a stirng type then this is a *insance method*. However, if the . is followed by a class name then it is a *static method*.
 
-#### Indexes and Substrings
+### Indexes and Substrings
 
 There is a method for the string type called `length()`. This will return the number of total of **char** values it takes to represent that string.
 
@@ -547,13 +547,13 @@ There another method called `indexOf()`. This will take a single string paramete
 
 Another method is called `substring()`. This will return part of the string this was called on. This takes two variables with the first being the index to start at and the second being the index to end at (no inclusive).
 
-#### String are Immutable
+### String are Immutable
 
 In Java, **String** objects are *immutable*, meaning their internal character data cannot be modified after creation. If a string variable is updated to a new value, the original data in memory is not overwritten. Instead, a completely new string object is allocated, and the variable is updated to point to this new memory location.
 
 A significant advantage of this design is the *String Pool*. To optimize memory, Java maintains a special area where it stores unique string literals. When multiple variables are assigned the exact same literal value, Java saves resources by having all those variables point to the same existing object in the pool. This prevents the redundant creation of identical "boxes" in memory, leading to better performance and reduced memory footprints.
 
-#### String Equality
+### String Equality
 
 When it comes to seeing if two strings are equal, this is not done with the equality operator like ==. Instead, the string class has an instance method `equals()` that is a instance method. This will take a single **string** object and will return true if those both are equal and false otherwise.
 
@@ -561,7 +561,7 @@ There is another version of this called `equalsIngoreCase()` where it will also 
 
 If the == is used on two strings, all this does it test if those strings are located in the same memory location. So if needed to check that then use the == operation.
 
-#### Empty and Null Strings
+### Empty and Null Strings
 
 An empty string is just "" and this will have a length of zero.
 
@@ -571,7 +571,7 @@ The other ways to see if this is empty is using the `length()` instance method a
 
 There is a special value called **null** that is used to represent that the current object does not actually point to anything in memory.
 
-#### The String API
+### The String API
 
 The `String` class in Java has a lot of built-in methods for working with text. Most of these are *instance methods*, meaning they are called on a specific string object. Only a few are *static methods*, which are called using the class name itself.
 
@@ -642,11 +642,11 @@ It returns a new string where all elements are combined with the delimiter in be
 
 Further documentation of the [String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) class.
 
-#### Online Documentation
+### Online Documentation
 
 Since java has so many premade classes and methods, it would be hard to remember them all. To avoid having to remember them all, go [here](https://docs.oracle.com/en/java/javase/25/docs/api) to see all the predefined stuff available in the java 25 API specification.
 
-#### StringBuilder Class
+### StringBuilder Class
 
 There are times when a string needs to be modified a lot, such as reading a file line by line or character by character and continuously adding to the same value. Using a normal **String** for this is inefficient because every time something is added, a completely new string object is created in memory. This takes extra time and uses more memory.
 
@@ -674,7 +674,7 @@ Once done with all the string adding, there is an instance method `toString()` t
 
 Further documention for [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) class.
 
-#### Text Block
+### Text Block
 
 A feature added in java 15 allows for creating a multi line string in a string literal way. This makes it easier to use strings in a more human readable way. These are called *text blocks*.
 
@@ -695,7 +695,7 @@ public class Main{
 }
 ```
 
-### Input and Output
+## Input and Output
 
 When it comes to getting input from a user, this is typically done though a GUI. However, there is a way to get basic toy user input from the CLI.
 
@@ -741,7 +741,7 @@ public class Main{
 
 The full documentation for the java 25 [IO](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IO.html) package, java [Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) class,  java [Console](https://docs.oracle.com/javase/8/docs/api/java/io/Console.html) class, and java [BufferedReader](https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html) class.
 
-#### Formatting Output
+### Formatting Output
 
 When it comes to outputting formatted text, this is useful when things should be displayed in certain ways. For example, there is an instance method for the **String** object `formatted()`. The actual string this method is called on will be a formatted string version of this. The formatting will use C style formatting with the `printf()` function with things like %s, %d, %f, etc.
 
@@ -772,7 +772,7 @@ public class Main{
 }
 ```
 
-### Control Flow
+## Control Flow
 
 Just like C/C++, java has both conditional statements and loops to determine control flow.
 
@@ -780,7 +780,7 @@ It is important to know what *block scope* is. All things declared and done live
 
 Each block can be thought of as a level. The blocks that are inside other blocks are called *nested blocks* and the block that contains it is called the *outer block*. If something like a variable is declared inside the outer block and then declared again inside an nested block then this will cause an error. There are other programming languages that support this and this is called *shadowing variables*. However, java does not support this.
 
-#### Conditional Statements
+### Conditional Statements
 
 *Conditional statements* are ones that execute a certain block of code depending if the specified condition is met.
 
@@ -794,7 +794,7 @@ When it comes to adding all three different parts together, the **if** part is a
 
 There is someting called *flow charts* that help to visualize how the code execute will play out per case.
 
-#### Loops
+### Loops
 
 When wanting to execute a code block repeatly, the use of a loop is needed.
 
@@ -837,7 +837,7 @@ public class Main{
 }
 ```
 
-#### For Loops
+### For Loops
 
 There may be times when a code block should only execute a certain amount of times max, but not forever like a while loop where it can execute any amount of times until a condition is met. That is where a for loop is used. This is made with the keyword **for**.
 
@@ -867,7 +867,7 @@ public class Main{
 
 When it comes to making the *initializers* and *increment* variables, there can be multiple of them declared as long as they are comma separated. For example, `for(int x = 1, y = 6; x < y; x++, y--)`.
 
-#### Switch Statement
+### Switch Statement
 
 Instead of writing a bunch of if-else statements, a *switch statement* can be used. This is different compared to the *switch expression* mentioned earlier. This is because this does not return a value. Instead, this is just used to check if a value occurred like if writing a bunch of if else statements.
 
@@ -877,7 +877,7 @@ Before it was mentioned that there is another way to write switch statements/exp
 
 Something called exceptions, which are talked about later, can be a return value for this as well.
 
-#### Breaking Control Flow
+### Breaking Control Flow
 
 When it comes to control flow loops, there are times that once or if a certain value is reached, the loop should exit and not continue and otherwise keep on going. This can be done by affecting the condition of the loop expressions, however this can make things more complicated. Instead, there are two keywords:
 
@@ -916,7 +916,7 @@ public class Main{
 }
 ```
 
-###  Big Numbers
+##  Big Numbers
 
 There are rare times when even the data type like **long** or **double** are not enough for the numbers that need to be held. Instead, there are special classes called **BigInteger** and **BigDecimal** that can make this happen. These are located in the `java.math` package so this needs to be imported first before bring used.
 
@@ -927,7 +927,7 @@ When creating theme, there are two ways to do it:
 
 When it comes to math operations like adding and multiplying, the basic +, *, -, and / is not supported with these types. Instead, each of the object types have an instance method called `add`, `multiply`, `subtract`, and `divide`. This will take in a single value and that is another big data type of the same type and do the math on the current value being called on with the one passed in and return the result.
 
-### Arrays
+## Arrays
 
 When wanting to hold multiple different values of the same type and be referenced by the same name, this is where *arrays* come in handy. These act as special container to hold multiple different variables of the same type under the same name.
 
@@ -960,7 +960,7 @@ public class Main{
 
 There is one more way to declare an array, but it is more used to reuse the same variable and declare it with a new array called an *anonymous array*. This makes use of the 3rd and 1st syntax of declaring an array. It looks like `arr = new int[] {1,2,3,4,5}` which will allow that variable to be reused again and point to the new array and this will also assign the values plus get the size of the array already.  This syntax can be used to pass an array to something without declaring a variable to hold it, so it will not be assigned to anything.
 
-#### Accessing Array Values
+### Accessing Array Values
 
 When it comes to actually getting values from the array, the syntax is `arrayName[indexOfValue]`. This will get back the value from that position in the array. A position in the array is called an *index*. The indexes start at 0 to $MaxLength-1$. If this is not followed then the common *off by one* error can occur.
 
@@ -999,7 +999,7 @@ An array can be declared with a size of zero by just using the 1st syntax and th
 >
 > There is a difference between an array with a size of zero and array with a value of null
 
-#### The For Each Loop
+### The For Each Loop
 
 There is a special *for loop* syntax that is used to go over a collection of something like an array, but this can be used for other things that work to store collections of things called a *for each* loop. 
 
@@ -1023,7 +1023,7 @@ Although these loops function the same way as a normal ones, they have two diffe
 
 If just wanting to print the output of the array, then this can be done without having to use a *for loop* or *for each* loop. Arrays have access to an instance method called `toString`. This does not take any arguments, but does return a string version of the entire collection type.
 
-#### Array Copying
+### Array Copying
 
 An array declared as the same type as the other can be assigned value to the other. However, this make the new array refer to the same data in memory as the original. This means changes the data in array 1 affects the data in array 2.
 
@@ -1033,21 +1033,21 @@ To avoid this, there is a static method in the class "Array" called `copyOf`. Th
 >
 > Unlike C/C++, array values are stored on the *heap* and not the *stack*.
 
-#### CLI arguments
+### CLI arguments
 
 When it comes to getting CLI arguments, there is the special way to get them which is predefined when declaring the main method. Inside the parentheses there will be the things "String[] args". The variable "args" will hold string representations of the values passed in on the CLI space separated. This variable will store them in an array of strings. The first index will always be the name of the program currently running and the second index going on will be the actual CLI arguments.
 
-#### Array Sorting
+### Array Sorting
 
 When it comes to sorting an array, this can be done with own custom algorithm to do so or can use the built in instance method on the array called `sort` which takes no arguments and does not return nothing. All this does is changes the indexes of the values in the array to be from low to high. The method implements a tuned version of the *quick sort* algorithm.
 
-#### Random Numbers
+### Random Numbers
 
 Going back to the "Math" class, there is a static method called `random` that does not take any arguments. However, this returns a random float number between the values 0.0 (inclusive) to 1.0 (exclusive). This means multiplying the result by a number will make the range of values $0\text{ to }n-1$. The values also needs to be *type casted* to an int if the random value to be returned needs to be an integer.
 
 If the random numbers need to also be from a specified range, then add a value to the result after the multiplication of the result is calculated. This will make it then $0+min \text{ to } (n-1)+min$. An example of this is `System.out.println( (int) (Math.random() * 10) + 1)` which will make the value range from 1 to 10.
 
-#### Special Methods For Array Class
+### Special Methods For Array Class
 
 The statics methods `toString`, `copyOf`, and `sort` were already mentioned before. However, there are three more that are useful as well:
 
@@ -1061,7 +1061,7 @@ The statics methods `toString`, `copyOf`, and `sort` were already mentioned befo
     2. Value to actual copy into all the indexes
 - `equals` --> this test of two arrays are the exact same by seeing if both arrays have the same length size and if the index elements match (each element has to also be in the same index).
 
-#### Multi-dimensional Arrays
+### Multi-dimensional Arrays
 
 A special thing called a *multi-dimensional* array exist which is just another version of an array. However, this has 2 square brackets to access indexes that is needed.
 
@@ -1088,11 +1088,11 @@ public class Main{
 
 This can still use the syntax of a single dimensional array when accessing the array. However, this will just return that actual array of data from that column instead of the single value.
 
-#### Jagged Arrays
+### Jagged Arrays
 
 Before when talking about the multi-dimensional array, the columns of each row had to be the same size. However, there is a way to declare a multi-dimensional array with different sized columns per row called a *jagged array*.
 
-To declare this, use the 1st method of declaring an array and then instead of specifying the size in the 2nd set of brackets, just leave that part empty. Now that the number of rows are specified, assign each row the creating array syntax (`new <dataType>[NumberOfColumns]`). This will need to be done for each row before it is used.
+To declare this, use the 1st method of declaring an array and then instead of specifying the size in the 2nd set of brackets, just leave that part empty. Now that the number of rows are specified, assign each row the creating array syntax `new <dataType>[NumberOfColumns]`. This will need to be done for each row before it is used.
 
 Can also use the curly bracket syntax and just put the creating array syntax as if making multiple rows and the different sizes of the rows.
 
@@ -1104,7 +1104,6 @@ Once these steps are done, the array can be accessed like a normal multi-dimensi
 public class Main {
     public static void main(String[] args) {
 
-        // 🔹 #1: Declare first, then allocate rows separately
         int[][] arr1 = new int[3][];
         arr1[0] = new int[2];
         arr1[1] = new int[4];
@@ -1114,8 +1113,6 @@ public class Main {
         arr1[1][0] = 3; arr1[1][1] = 4; arr1[1][2] = 5; arr1[1][3] = 6;
         arr1[2][0] = 7;
 
-
-        // 🔹 #2: Declare + allocate in one step (different sizes)
         int[][] arr2 = {
             new int[2],
             new int[4],
@@ -1126,29 +1123,22 @@ public class Main {
         arr2[1][0] = 30; arr2[1][1] = 40; arr2[1][2] = 50; arr2[1][3] = 60;
         arr2[2][0] = 70;
 
-
-        // 🔹 #3: Initialize directly with values
         int[][] arr3 = {
             {100, 200},
             {300, 400, 500, 600},
             {700}
         };
 
-
-        // 🔹 #5: Assign rows individually with initialized arrays
         int[][] arr5 = new int[3][];
         arr5[0] = new int[] {1, 2};
         arr5[1] = new int[] {3, 4, 5};
         arr5[2] = new int[] {6};
 
-
-        // 🔹 #6: Mixed approach (some empty, some initialized)
         int[][] arr6 = new int[3][];
-        arr6[0] = new int[2];           // empty row
-        arr6[1] = new int[] {7, 8};     // initialized row
-        arr6[2] = new int[4];           // larger empty row
+        arr6[0] = new int[2];        
+        arr6[1] = new int[] {7, 8};     
+        arr6[2] = new int[4];         
 
-        // Fill some of arr6 manually
         arr6[0][0] = 9; arr6[0][1] = 10;
         arr6[2][0] = 11; arr6[2][1] = 12; arr6[2][2] = 13; arr6[2][3] = 14;
     }
@@ -1157,15 +1147,15 @@ public class Main {
 
 When it does come to multi-dimensional and jagged arrays, each data piece for the array is note stored continuously in memory like in C/C++. Instead, each array is stored in separate parts of memory, but each individual array pieces are stored continuously.
 
-## Objects and Classes
+# Chapter 4: Objects and Classes
 
-### Introduction to Objected Oriented Programming
+## Introduction to Objected Oriented Programming
 
 The current development of most modern languages is with something called object orientated programming (OOP). This also happens to be javas biggest strangth.
 
 Object orientated programming is meant to help reduce complexity to people who need to use something and wanting to hide certain things from people. For example, the `sort` static method from the array class does not have it publically shown how the tuned quick sort algorithm is done, but the user can call and use it with ease.
 
-#### Classes
+### Classes
 
 A class specifies how an object is made (data types, methods, etc). A class is just like making a custom data type. The class itself can be thought of as a templeate that all variables of this data type will have, but not all have the same values. For example, a template to make a butterfly knife might be the same design wise. However, the material, color, blade and blade design.
 
@@ -1187,7 +1177,7 @@ One class can be made using another class. There is techenically a "mega class" 
 
 When a class uses another class as a building block, it get access to all methods and instance variables declared in the steping stone block. In OOP, this is called *inheritance*. *inheritance* will be talked more about later on.
 
-#### Objects
+### Objects
 
 When working with objects, there should be 3 characteristics of them that should be identified:
 
@@ -1203,11 +1193,11 @@ However, the state of an object does not completely describe it, because each ob
 
 These key characteristics can influence each other. For example, the state of an object can influence its behavior. (If an order is “shipped” or “paid,” it may reject a method call that asks it to add or remove items. Conversely, if an order is “empty”—that is, no items have yet been ordered—it should not allow itself to be shipped.)
 
-#### Idenifying Classes
+### Idenifying Classes
 
 When it comes to naming conventions, classes are typically named with nouns using *PascalCase*, such as Item, Order, or Payment. When naming methods for an object, verbs are used in *camelCase*. For instance, if a class is named Item, a method might be named add. When expressed in a sentence, it would be: "An add action is performed on an Item object." Variables also follow *camelCase* but use nouns, such as itemPrice, while constants are written in ALL_CAPS to indicate the value never changes.
 
-#### Relationships Between Classes
+### Relationships Between Classes
 
 When it comes to relationship between classes, there are different ways they can be linked. Depending on the type can affect how the system depends on other resources. The relationship types are:
 
@@ -1221,9 +1211,9 @@ There is a specal way that classes are represented called a *UML diagram*. With 
 
 Learn how to make [UML diagrams](https://www.youtube.com/watch?v=WnMQ8HlmeXc).
 
-### Using Predefined Classes
+## Using Predefined Classes
 
-#### Objects and Object Vartiables
+### Objects and Object Vartiables
 
 To work with objects, their initial state has to first be established. This is done by using something called a *constructor*. This is just a special method that is used to create an object in memory and give that object the specified state values for that object instance. When creating the constructor method, this will always have the same exact name as the class itself.
 
@@ -1244,7 +1234,7 @@ There is a difference between objects and object variables:
 
 There is a way to signal that an object does not point to anything in memory by assigning this to the keyword **null**. This is like the *zero value* for primitive types except for objects. 
 
-#### The LocalDate Class
+### The LocalDate Class
 
 There is a class called "Date" that is in the package `java.util.Date`. This is used when wanting to work with date and time data. There is also another class called "LocalDate"  located at `java.time.LocalDate`. The two are used in different cases becaue they function differently. The first is used to represent a point in time,  while the other is used to express days in a familer notion to reading a normal calander.
 
@@ -1283,13 +1273,13 @@ Some of the flags for this are:
 
 Can read more about [Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html) and [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) objects documentation.
 
-### Defining Own Class
+## Defining Own Class
 
-#### Employee Class Example
+### Employee Class Example
 
 When it comes to creating an actual class, this is made with the **class** keyword. The syntax for this is `class <ClassName>` followed by curly braces. This is the simplest way to declare a class. Inside the curly braces is where the constructor, methods, and instance variables are declared.
 
-#### Declaring Methods
+### Declaring Methods
 
 To actually declare a method (aka function), this will follow the syntax of `<ReturnType> <MethodName>(Parameter(s))` followed by curly braces and inside those will be the code that runs in that scope. Each parameter will just be the name of the variable name of how to refer to that data passed into that method.
 
@@ -1299,13 +1289,13 @@ When it comes to constructors, there can be more than one defined per class. Thi
 
 // TODO [^OverrideMethod]
 
-#### Declaring Instance Variables
+### Declaring Instance Variables
 
 When it comes to declaring instance variables, these are declared at the top of the class declaration name, but still the curly braces. These will be the variables that all object instances will have access to. These are declared like normal variables.
 
 When declaring these, there is an option to assign them a default value. This is good if there should be an instance field that is the same across all object instances. For example, if each object instance will have an array with 10 values max then can do `int[] arr = new int[10]` instead of declaring it in the *constructor* method.
 
-#### Var Keyword
+### Var Keyword
 
 There is a special keyword **var** that is used in place of describing the type of the variable. This is used to make code more readable when the type of the variable can easily be infered or seen. For example, when declaring an object type, the object type of it does not need to be specified since the right hand side clearly declares what it is so this can just use the **var** keyword like `var x = new Employee()` instead of `Employee x = new Empployee()`. However, there are some some rules for this:
 
@@ -1347,7 +1337,7 @@ public class Main{
 }
 ```
 
-#### Access Modifiers
+### Access Modifiers
 
 When it comes to accessing instance fields and methods of objects, this can be bad since not only does this break the *encapsulation* principle, but it can also cause code breaking issues. To prevent this, there are things called *access modifiers*. There are 3 ways to do this using 3 differnt keywords:
 
@@ -1413,7 +1403,7 @@ There are times when *access modifiers* cannot be used or subset can and these a
 > }
 > ```
 
-#### Final Keyword on Instance Variables
+### Final Keyword on Instance Variables
 
 When marking an instance variable with the **final** keyword, this does not have to have a value assigned to it right away. Although it can, as long as it is assigned a value in the *constructor* method, then this can be assigned a value. However, once past that *constructor* method then the value cannot be changed and trying to do so will cause an error.
 
@@ -1421,7 +1411,7 @@ There is a subtle rule to this. For classes that are mutable, as declaring a var
 
 However, the rule above does not apply if the class is already an immutable class like the **String** class as once a string is assigned to it then it cannot be changed. If it is then a whole new object of the **String** type in memory is created and then referenced by that variable now, but the old one is not. However, this small ability to change strings can be countered by just making this a constant with the **final** keyword. 
 
-#### Implicit and Explicit Parameters
+### Implicit and Explicit Parameters
 
 There are two definitions when it comes to passing in arguments:
 
@@ -1445,7 +1435,7 @@ void info(String name, int a, int count){
 
 
 
-#### Field Accessors
+### Field Accessors
 
 These are methods designed to get/set the value of an objects instance fields as these are a common example of them. The reason something like this is used is to help enforce *encapsulation* principle for objects. The particular of creating methods for getting or setting instance fields are called *getters/setters*. This can also be used to help create more complex logic when it comes to getting and setting instance data to an object.
 
@@ -1532,11 +1522,11 @@ public class EmployeeGood {
 
 
 
-### Static Fields and Methods
+## Static Fields and Methods
 
 Typically when a class object is declared, it will use the specific data from its instance variables and manipulate that data with the instance methods of it. However, there are times that a variable/method needs to be used that pertains nothing to using data of an object created. That is when the **static** keyword is used.
 
-#### Static Fields
+### Static Fields
 
 When this is used on variables declared inside a class, this does not make that variable part of the object instances that are created, but the actual class itself. This means that if the class itself wants to use that variable then it needs to do something like `<ClassName>.StaticVariableName` or just use the static variable name. This means that ALL object instances declared will share this value.
 
@@ -1548,7 +1538,7 @@ When this is being referenced outside the class itself, then this does not need 
 
 However, static variables are not used too oftern and should be used very rarely.
 
-#### Static Constants
+### Static Constants
 
 While normal static variables are rare, creating static constants are quite common. An example of this can be found in the "Math" class with the static variable "PI" which in the actual implementation looks like `public static final double PI = 3.14159265358979323846;`. Another example of this is the "out" portion of the `System.out.println()` which looks like `public static final PrintStream out = . . .;`.
 
@@ -1560,9 +1550,7 @@ While normal static variables are rare, creating static constants are quite comm
 >
 > Typically, constant static variables are named with all uppercase letters and separated by the _.
 
-
-
-#### Static Methods
+### Static Methods
 
 Just like static variables, these are used the exact same way like `<ClassName>.StaticMethod`. Just like a static variable, there does not need to be an created version of that object to use this method. An example of this is the `Math.pow(x,y)` method which takes the power of the values passed in like $x^y$.
 
@@ -1593,9 +1581,7 @@ Static methods should be used in two cases
 1. When a method doesn’t need to access the object state because all needed parameters are supplied as *explicit parameters* (example: Math.pow)
 2. When a method only needs to access static fields of the class
 
-
-
-#### Factory Methods
+### Factory Methods
 
 Another reason to make a method static is to create a *static factory* method. These serve as a replacement for calling a constructor directly with the `new` keyword. This approach promotes modularity and aligns with SOLID principles. Examples of this are found in the "LocalDate" class, where methods like `now()` and `of()` create and return a "LocalDate" object.
 
@@ -1667,7 +1653,7 @@ A specific class can also be created for the sole purpose of object creation, kn
 
 <u>For Example</u>
 
-##### Burger Class
+#### Burger Class
 
 ```java
 public class Burger {
@@ -1684,7 +1670,7 @@ public class Burger {
 }
 ```
 
-##### Veggie Burger Class
+#### Veggie Burger Class
 
 ```java
 public class VeggieBurger extends Burger {
@@ -1694,9 +1680,7 @@ public class VeggieBurger extends Burger {
 }
 ```
 
-
-
-##### Deluxe Burger Class
+#### Deluxe Burger Class
 
 ```java
 public class DeluxeBurger extends Burger {
@@ -1706,9 +1690,7 @@ public class DeluxeBurger extends Burger {
 }
 ```
 
-
-
-##### Burger Factory Class
+#### Burger Factory Class
 
 ```java
 // Factory Class
@@ -1728,7 +1710,7 @@ public class BurgerFactory {
 }
 ```
 
-##### Main Class
+#### Main Class
 
 ```java
 public class Main {
@@ -1744,9 +1726,7 @@ public class Main {
 }
 ```
 
-
-
-#### The main Method
+### The main Method
 
 Every executable Java program requires a special entry point called the `main` method. The standard signature is `public static void main(String[] args)`. The name is fixed because the Java launcher specifically searches for this identifier to begin execution. The `static` modifier is necessary because the JVM must call the method before any objects have been created. The `String[] args` parameter allows the program to accept input from the command line.
 
@@ -1761,7 +1741,7 @@ The rules for the main method are:
 3. Private main methods are not considered.
 4. If main is not static, the class must have a non-private no-argument constructor. Then the launcher constructs an instance of the class and invokes the main method on it.
 
-### Method Parameters
+## Method Parameters
 
 When calling a method and passing the parameters to it, there are two ways this is done:
 
@@ -1770,175 +1750,167 @@ When calling a method and passing the parameters to it, there are two ways this 
 
 Java will always use *call by value* no matter what. This will always work for all *primitive* data types. However, when it comes object data types this is different. While the value of the object is still passed by value, the object created will point to the same memory location reference, so when data for that object is modified, it affects the value in that memory location so even thought this is techenically a copy of the original object, the both point to the same memory location.
 
-### Object Construction
+## Object Construction
 
+### Overloading
 
 
-#### Overloading
 
+### Default Field Initialization
 
 
-#### Default Field Initialization
 
+### Construcor with No Arguments
 
 
-#### Construcor with No Arguments
 
+### Explicit Field Initialization
 
 
-#### Explicit Field Initialization
 
+### Parameter Names
 
 
-#### Parameter Names
 
+### Calling Another Constructor
 
 
-#### Calling Another Constructor
 
+### Initialization Blocks
 
 
-#### Initialization Blocks
 
+### Static Initialization
 
 
-#### Static Initialization
 
+## Records
 
 
-### Records
 
+### Record Concept
 
 
-#### Record Concept
 
+### Constructors: Canonical, Compact, and Custom
 
 
-#### Constructors: Canonical, Compact, and Custom
 
+## Packages
 
+### Encapsulation
 
-### Packages
 
-#### Encapsulation
 
+### Package Names
 
 
-#### Package Names
 
+### Class importation
 
 
-#### Class importation
 
+### Module Imports
 
 
-#### Module Imports
 
+### Static Imports
 
 
-#### Static Imports
 
+### Class into a Package
 
 
-#### Class into a Package
 
+### Compiling with Packages
 
 
-#### Compiling with Packages
 
+### Package Access
 
 
-#### Package Access
 
+### The Class Path
 
 
-#### The Class Path
 
+### Setting the Class Path
 
 
-#### Setting the Class Path
 
+## JAR Files
 
 
-### JAR Files
 
+### Creating JAR Files
 
 
-#### Creating JAR Files
 
+### The Manifest
 
 
-#### The Manifest
 
+### Executable JAR Files
 
 
-#### Executable JAR Files
 
+### Multi-Release JAR Files
 
 
-#### Multi-Release JAR Files
 
+### CLI Options
 
 
-#### CLI Options
 
+## Documentation Comments
 
+### Commit Insertion
 
-### Documentation Comments
 
-#### Commit Insertion
 
+### Class Comments
 
 
-#### Class Comments
 
+### Method Comments
 
 
-#### Method Comments
 
+### Field Comments
 
 
-#### Field Comments
 
+### Package Comments
 
 
-#### Package Comments
 
+### HTML Markup
 
 
-#### HTML Markup
 
+### Links
 
 
-#### Links
 
+### General Comments
 
 
-#### General Comments
 
+### Code Snippets
 
 
-#### Code Snippets
 
+### Comment Extraction
 
 
-#### Comment Extraction
 
+## Class Design Hints
 
 
-### Class Design Hints
 
 
 
-
-
-## Inheritance
-
-
-
-
-
-
+# Chapter 5: Inheritance
 
 
 
