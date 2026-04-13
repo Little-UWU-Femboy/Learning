@@ -11,5 +11,6 @@ public class Main{
     	
     	System.out.println(signal);
     	System.out.println(Light.RED);
+    	System.out.println(signal.name());
     }
 }

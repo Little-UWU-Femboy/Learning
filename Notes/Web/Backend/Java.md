@@ -208,9 +208,11 @@ It is a common practice to have constants be named all upper case and have _ be 
 
 ### Enum
 
-In Java, when a variable should only ever hold one of a specific set of values, the **enum** (enumeration) data type is used. This acts as a specialized container for a group of constants, ensuring that invalid values cannot be assigned.
+In Java, when a variable should only ever be a specific set of values, the **enum** (enumeration) data type should be used.
 
-An enum is defined using the **enum** keyword followed by a name. After, there is a set of curly braces and inside the curly braces, the allowed constants are listed, typically in uppercase. A variable is then declared using the enum name as its data type. While these variables can be assigned at declaration, they can also be reassigned later to any other constant defined within that same enum.
+An **enum** is really just a special type of class. When declared, this is just an object under the hood and gets access to all the methods from the `java.lang.Object` class since it <u>inherits</u> them.
+
+An enum is defined using the **enum** keyword followed by a name to reference it. After, there is a set of curly braces and inside the curly braces, the allowed constants are listed, typically in uppercase. A variable is then declared using the enum name as its data type. While these variables can be assigned at declaration, they can also be reassigned later to any other constant defined within that same enum.
 
 Enums can also include a *constructor*. This allows specific data to be associated with each constant by placing parentheses and the data immediately after the constant name. When a constructor is defined, it must match the data being passed in. For instance, if one constant stores an integer, all constants in that enum must provide an integer to that constructor. To access this stored data, a field and a method are used within the enum body.
 
