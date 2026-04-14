@@ -212,7 +212,34 @@ In Java, when a variable should only ever be a specific set of values, the **enu
 
 An **enum** is really just a special type of class. When declared, this is just an object under the hood and gets access to all the methods from the `java.lang.Object` class since it <u>inherits</u> them.
 
-An enum is defined using the **enum** keyword followed by a name to reference it. After, there is a set of curly braces and inside the curly braces, the names will be given.
+This is defined using the **enum** keyword followed by a name to reference it. After, there is a set of curly braces and inside the curly braces, the names will be given. However, these do not need a data type or be assigned any value. These will be comma separated if more than one is given.
+
+Create a variable of that enum data type. However, this can not only get values from that enum specific type. To assign this values, use the enum type name followed by the value name to assign this. This works since under the hood all the specified types are given the **static** keyword which will be talked about later.
+
+> [!TIP]
+>
+> Is it convention to name the variable names all uppercase.
+
+```java
+class Main{
+    public static void main(String[] args){
+        enum Signal{
+    		YELLOW,
+    		GREEN,
+   		 	BLUE
+		}
+        
+        Signal light;
+        light = Signal.GREEN;
+        System.out.println(light); // prints the text "GREEN"
+        System.out.println(Signal.YELLOW)
+    }
+}
+```
+
+There is a way to specify the enum values to be by using the <u>constructor</u> syntax and creating the names as if they're function calls by putting parenthses by them and passing a value inside.
+
+
 
 Enums can also include a <u>constructor</u>. This allows specific data to be associated with each constant by placing parentheses and the data immediately after the constant name. When a constructor is defined, it must match the data being passed in. For instance, if one constant stores an integer, all constants in that enum must provide an integer to that constructor. To access this stored data, a field and a method are used within the enum body.
 
@@ -221,51 +248,11 @@ Under the hood, Java enums are much more powerful than simple integers. Each enu
 It it important to note where an enum can be declared. An enum can be declared inside a class; like between the `public class Main` curly braces or it can be declred outside that block. However, it cannot be declared inside methods; like the `main()` method.
 
 ```java
-// Case 1: Basic Enum - Used for simple categorization
-enum Difficulty {
-    EASY, MEDIUM, HARD
-}
-
-// Case 2: Enum with Data - Each constant carries an associated value
-enum Currency {
-    // Each constant passes a symbol to the constructor
-    USD("$"), 
-    EUR("€"), 
-    JPY("¥");
-
-    // Field to store the constructor data
-    private final String symbol;
-
-    // Constructor - must match the data type passed in the constants
-    Currency(String symbol) {
-        this.symbol = symbol;
-    }
-
-    // Method to retrieve the stored data
-    public String getSymbol() {
-        return this.symbol;
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        // --- Working with Basic Enums ---
-        // Declaration and assignment
-        Difficulty level = Difficulty.EASY;
-        System.out.println("Current Difficulty: " + level);
-
-        // Reassignment
-        level = Difficulty.HARD;
-        System.out.println("Updated Difficulty: " + level);
-
-        // --- Working with Enums with Data ---
-        // Accessing the constant and its internal method
-        Currency money = Currency.USD;
-        System.out.println("Currency: " + money);
-        System.out.println("Symbol: " + money.getSymbol());
-
-        // Direct access without a variable
-        System.out.println("The symbol for Yen is: " + Currency.JPY.getSymbol());
+class Main{
+    public static void main(String[] args){
+    	enum Signal{
+            
+        }
     }
 }
 ```
