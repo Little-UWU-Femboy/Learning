@@ -194,7 +194,7 @@ To give a value, just use the = symbol and the value on the left side will get t
 1. Do it while declaring the variable like `int x = 50;`
 2. Do it after variable is declared like `int x;` then doing `x = 50;`
 
-> Java has a keyword called **var**. This can be in palce of the data type and declare the name like normal. This makes it so the data type of the variable can be infered instead of having to specify the data type. This is helpful when declaring object types which will be talked about later.
+> Java has a keyword called **var**. This can be in palce of the data type and declare the name like normal. This makes it so the data type of the variable can be infered instead of having to specify the data type. This is helpful when declaring object types which will be talked about later. This was finalized in java 11.
 
 The only requirement for the **var** keyword is a value must be assigned to the variable once it is being declared.
 
@@ -212,9 +212,9 @@ In Java, when a variable should only ever be a specific set of values, the **enu
 
 An **enum** is really just a special type of class. When declared, this is just an object under the hood and gets access to all the methods from the `java.lang.Object` class since it <u>inherits</u> them.
 
-An enum is defined using the **enum** keyword followed by a name to reference it. After, there is a set of curly braces and inside the curly braces, the allowed constants are listed, typically in uppercase. A variable is then declared using the enum name as its data type. While these variables can be assigned at declaration, they can also be reassigned later to any other constant defined within that same enum.
+An enum is defined using the **enum** keyword followed by a name to reference it. After, there is a set of curly braces and inside the curly braces, the names will be given.
 
-Enums can also include a *constructor*. This allows specific data to be associated with each constant by placing parentheses and the data immediately after the constant name. When a constructor is defined, it must match the data being passed in. For instance, if one constant stores an integer, all constants in that enum must provide an integer to that constructor. To access this stored data, a field and a method are used within the enum body.
+Enums can also include a <u>constructor</u>. This allows specific data to be associated with each constant by placing parentheses and the data immediately after the constant name. When a constructor is defined, it must match the data being passed in. For instance, if one constant stores an integer, all constants in that enum must provide an integer to that constructor. To access this stored data, a field and a method are used within the enum body.
 
 Under the hood, Java enums are much more powerful than simple integers. Each enum constant is an instance of a class that inherits from `java.lang.Enum`. This structure allows enums to behave like objects, providing access to built-in methods while maintaining a fixed, restricted set of possible values.
 
@@ -234,7 +234,7 @@ enum Currency {
     JPY("¥");
 
     // Field to store the constructor data
-    private String symbol;
+    private final String symbol;
 
     // Constructor - must match the data type passed in the constants
     Currency(String symbol) {

@@ -1,5 +1,7 @@
-class Employee:
-    pass
+import os
 
+cwd = os.getcwd()
 
-print("Hello")
+print(f"Current Directory: {cwd}")
+
+print("I am a bad IDE")

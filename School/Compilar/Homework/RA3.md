@@ -115,17 +115,23 @@ The advantage of **Three Address Code** connverts instructions into more simple 
 
 ## Review Question 2 --> 226
 
-Assume that the compiler builds a disticent symbol table and search path for each scope. For a simple PASCAL like language, what actions should the parser take on entry to and exit from each scope.
+$$
+\begin{array}{lcll}
+\textbf{Production} & & \textbf{Semantic Rules} \\ \hline
+Stmt & \rightarrow & \textbf{if } Expr \textbf{ then } Stmt_1 & \{ Stmt.n = \text{node}(\text{'if'}, Expr.n, Stmt_1.n, \text{null}) \} \\
+& | & \textbf{if } Expr \textbf{ then } WithElse \textbf{ else } Stmt_1 & \{ Stmt.n = \text{node}(\text{'if-else'}, Expr.n, WithElse.n, Stmt_1.n) \} \\
+& | & Other & \{ Stmt.n = Other.n \} \\ \hline
+WithElse & \rightarrow & \textbf{if } Expr \textbf{ then } WithElse_1 \textbf{ else } WithElse_2 & \{ WithElse.n = \text{node}(\text{'if-else'}, Expr.n, WithElse_1.n, WithElse_2.n) \} \\
+& | & Other & \{ WithElse.n = Other.n \} \\
+\end{array}
+$$
+
+
+
+
 
 ## Review Question 1 --> 239
 
 When entering into a new scope, a separate but linked symbol table will need to be created. This will be linked to the original outer symbol table so it can go up the parent symbol to check for references if one does not exist in the current local symbol table. After this symbol table can store references to what exist in that local scope.
 
 When leaving the symbol table scope, the parent symbol table will no longer reference that child symbol table and the pointer will no longer point to the child, but the current parent symbol table. The child symbol table will now no longer exist if it is not needed or it will be kept around if needing to be used later by something else.
-
-## Question 8 --> 272
-
-$$
-\{ \text{target} = \text{ResultType}(Term_1.type, Factor.type); $<br>$ r1 = \text{Coerce}(Term_1.reg, Term_1.type, \text{target}); $<br>$ r3 = \text{Coerce}(Factor.reg, Factor.type, \text{target}); $<br>$ \$
-$$
-
