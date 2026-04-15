@@ -1,18 +1,19 @@
-public class Main{
+class Main{
+    static int add(){
+        return 1 + 1;
+    }
+    
+    static int add(int x){
+        return x + 1;
+    }
+    
+    static String add(String x){
+        return x+".";
+    }
     
     public static void main(String[] args){
-    	enum Light {
-    		RED,
-    		Yellow,
-    		GREEN
-    	}
-    	
-    	Light signal = Light.GREEN;
-    	
-    	System.out.println(signal);
-    	System.out.println(Light.RED);
-    	System.out.println(signal.name());
-        System.out.println("");
-        System.out.println("This is a good test");
+        System.out.println(add());
+        System.out.println(add(3));
+        System.out.println(add("Hello, friend"));
     }
 }

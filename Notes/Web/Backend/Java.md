@@ -226,7 +226,7 @@ class Main{
         enum Signal{
     		YELLOW,
     		GREEN,
-   		 	BLUE
+   		 	RED
 		}
         
         Signal light;
@@ -237,22 +237,43 @@ class Main{
 }
 ```
 
-There is a way to specify the enum values to be by using the <u>constructor</u> syntax and creating the names as if they're function calls by putting parenthses by them and passing a value inside.
+There is a way to specify the enum values to be by using the <u>constructor</u> syntax and creating the names as if they're function calls by putting parenthses by them and passing a value inside. When making the <u>constructor</u>, make sure to have this be the exact same name as the enum type name. However, if doing this then make sure all the variable names declared a specific value as well. There can even be more than one value passed into each constant variable.
 
-
-
-Enums can also include a <u>constructor</u>. This allows specific data to be associated with each constant by placing parentheses and the data immediately after the constant name. When a constructor is defined, it must match the data being passed in. For instance, if one constant stores an integer, all constants in that enum must provide an integer to that constructor. To access this stored data, a field and a method are used within the enum body.
+To actuallty access the data for each specific constant type, a variable must be declared for each value that will be per type. These shoud have a <u>access modifier</u> of **private**. This <u>access modifier</u> stuff will be talked about later. This will also be declared in the constructor. This will use the **this** keyword which will also be talked about later. After, make sure to declare methods thats sole purpose is to get the values of that type requested.
 
 Under the hood, Java enums are much more powerful than simple integers. Each enum constant is an instance of a class that inherits from `java.lang.Enum`. This structure allows enums to behave like objects, providing access to built-in methods while maintaining a fixed, restricted set of possible values.
 
-It it important to note where an enum can be declared. An enum can be declared inside a class; like between the `public class Main` curly braces or it can be declred outside that block. However, it cannot be declared inside methods; like the `main()` method.
+It it important to note where an enum can be declared. An enum can be declared inside a class; like between the `public class Main` curly braces or it can be declred outside that block. However, it cannot be declared inside methods; like the `main()` method. It can even be declared inside its own file since this is considered a special type of class.
 
 ```java
 class Main{
+	public enum Status {
+	    SUCCESS(200, "OK"),
+	    NOT_FOUND(404, "Not Found"),
+	    ERROR(500, "Internal Server Error");
+
+	    private int code;
+	    private String message;
+
+	    Status(int code, String message) {
+	        this.code = code;
+	        this.message = message;
+	    }
+
+	    public int getCode() {
+	        return code;
+	    }
+
+	    public String getMessage() {
+	        return message;
+	    }
+	}
+	
     public static void main(String[] args){
-    	enum Signal{
-            
-        }
+    	Status x = Status.NOT_FOUND;
+    	
+    	System.out.println(x);
+    	System.out.println(Status.SUCCESS);
     }
 }
 ```
@@ -337,14 +358,20 @@ public class Main{
 >
 > If trying to type cast from one data type to another that does not support that range, then it will truncate to a number that is can be represented for that data type at random. For example, going from an int to byte type.
 
-There is a way to check that something is of a specific data type. This uses the **instanceof** keyword. This will also have two values like `Variable instanceof DataType`. This will return a boolean value back (true or false) if it meets the requirements of the assignment. However, this data type can ONLY be an object. So *primitive* data types like int, float, etc cannot be checked.
+There is a way to check that something is of a specific data type. This uses the **instanceof** keyword. This will also have two values like `Variable instanceof DataType`. This will return a boolean value back (true or false) if it meets the requirements of the assignment. However, this data type can ONLY be an object. So <u>primitive</u> data types like int, float, etc cannot be checked. 
 
 ```java
 public class Main{
     public static void main(String[] args){
         int x = 50;
+        // Following two lines below will cause an error
         bool isType = x instanceof int;
-        System.out.println(isType)
+        System.out.println(isType);
+        
+        // This will work and prints "true"
+        Integer y = 50;
+        isType = y instanceof Integer;
+        System.out.println(isType);
     }
 }
 ```
@@ -497,7 +524,7 @@ When it comes to the >> and <<, these will shift the bits by the specified about
 
 ## Strings
 
-When it comes to strings, under the hood they are just a sequence of **char** types. When it comes to to declaring a string, this will be done using the **String** type. The string type is really just a class in the java.lang module that can be used.
+When it comes to strings, under the hood they are just a sequence of **char** types. When it comes to to declaring a string, this will be done using the **String** type, which is secretly an object type. The string type is really just a class in the java.lang module that can be used.
 
 There is eomthign called a *string literal* and that is just when using a string with double quotes that is not being assigned to a variable.
 
@@ -635,6 +662,8 @@ Further documentation of the [String](https://docs.oracle.com/javase/8/docs/api/
 
 Since java has so many premade classes and methods, it would be hard to remember them all. To avoid having to remember them all, go [here](https://docs.oracle.com/en/java/javase/25/docs/api) to see all the predefined stuff available in the java 25 API specification.
 
+There are other version of specific java versions or classes that can be see by going to the site above and looking something up specifically.
+
 ### StringBuilder Class
 
 There are times when a string needs to be modified a lot, such as reading a file line by line or character by character and continuously adding to the same value. Using a normal **String** for this is inefficient because every time something is added, a completely new string object is created in memory. This takes extra time and uses more memory.
@@ -692,7 +721,7 @@ There is the before mentioned ways of `System.out.println()` and `IO.println()`.
 
 However, when it comes to getting input, the basic ways are to use `IO.readln()`, using a Scanner type from java.util.Scanner, or using a BufferedReader type from `java.io.BufferedReader`.
 
-When using the `IO.readln()`, this is the simplest way to get input. This will read text from the user until the enter key is hit. The value obtained will be returned as a string. Because of this, the value has to be type casted to its respectful data type to be unless it is supposed to be a string. To convert the types, this is not done with the normal type cast stuff mentioned before. Instead, there are special objects called *wrapper classes* that represent that data type that are used to do the type casing. For example, Integer is the name of the object to convert a string to an **int** type. The same object are available for each of the *primitive data* types which are: Double, Float, Long, Short, Byte, Boolean, and Character (char type). Each of these have a static method called `parse*()` where * is to be replaced by the name of the wrapper type like `parseInteger()`. These will all take in a single parameter of the string representation of this. It will then return the primitive data type version value of this.
+When using the `IO.readln()`, this is the simplest way to get input. This will read text from the user until the enter key is hit. The value obtained will be returned as a string. Because of this, the value has to be type casted to its respectful data type to be unless it is supposed to be a string. To convert the types, this is not done with the normal type cast stuff mentioned before. Instead, there are special objects called *wrapper classes* that represent that data type that are used to do the type casing. For example, Integer is the name of the object to convert a string to an **int** type. The same object are available for each of the <u>primitive data types</u> which are: Double, Float, Long, Short, Byte, Boolean, and Character (char type). Each of these have a static method called `parse*()` where * is to be replaced by the name of the wrapper type like `parseInteger()`. These will all take in a single parameter of the string representation of this. It will then return the primitive data type version value of this.
 
 When using the Scanner object from `java.util.Scanner`, this setup is different. Here it will specify where the input is coming from when declaring the Scanner object. This will get the value System.in as the argument. After, that object now has access to methods that can read user input. This will have an instance `nextLine()` method to read in a string of input until enter key is hit. However, unlike the `IO.readln()` version, there data techenically does not need to call the *wrapper classes* since there are special instance methods that can be used to read specifc data and have it auto converted. The methods follow `next*()` where * is to be replaced with the data type name like `nextChar()`. Also unlike other stuff so far, the `java.util.Scanner` is not part of the `java.lang` package so this type is not available by default. At the top of the file put the following: `import java.util.Scanner`.
 
@@ -701,6 +730,10 @@ When using the BufferedReader object, this works similar to the StringBuilder ob
 Although the `IO.readln()` and `IO.println()` can be used to get user input, theses are more used for programmers compared to displaying information for users. This is because when having to use things like *wrapper classes*, they follow a strict format. For example, entering a numer of 50,000 and having to convert that with the `Integer.parseInteger()` would case an error to occur. However, if done with the Scanner object with `nextInt()` then this would not cause an error and would return back 50000.  The `IO.println()` should only be used to show basic information that does not require formatting as well. Therefore, it is always better to use the Scanner object to get user related input.
 
 There is a final way to interact with I/O that is a specialized way, which is with the Console object. This must be imported with `import java.io.Console`. This is really only good when wanting to make CLI applications AND certain information entered must be private. This is similar to the Scanner object class in terms of what it does, but slightly different. This can read and write input. However, it can do things like getting passwords without showing the password. It has access to an instance method `readLine()` that is used to get text like normal and will return a **String** version of it. There is also an instance method `readPassword()` that will read in data and return a **Char[]** version of it. It also has access to an instance method `printf()` that works like the C version when it comes to outputting data and data formatting like %s, %d, %f, etc. The `System.console()` *static method* must be called and assigned to this to actually return an instance of this.
+
+> [!IMPORTANT]
+>
+> The `IO.println()` and `IO.readln()` are from java 25+ only.
 
 ```java
 import java.io.Console;
@@ -1742,6 +1775,33 @@ Java will always use *call by value* no matter what. This will always work for a
 ## Object Construction
 
 ### Overloading
+
+When creating a constructor, there does not need to be only one declared per object declaration. For example, assigning `new StringBuilder("To do:\n");` or `new StringBuilder();` to a variable of that type will still create that object type and the program will not fail. This is a java feature called <u>overloading</u>. This happens there are more than one method (remember a constructor is just a special method) with the exact same name exist, but have different parameter requirements.
+
+When choosing which correct method to use when there is <u>overloading</u>, the actual JDK (javac tool from here) will figure out which needs to be called at compile time. A compile time error occurs if the compiler cannot match the parameters, either because there is no match at all or because there is not one that is better than all others. The process of finding a match is called <u>overloading resolution</u>. The different unique names of the methods are called <u>signatures</u>. A <u>signature</u> is the name of the method combined with that unique parameter instance for it. The return type does not affect a <u>signature</u>. So `void `
+
+```java
+class Main{
+    static int add(){
+        return 1 + 1;
+    }
+    
+    static int add(int x){
+        return x + 1;
+    }
+    
+    static String add(String x){
+        return x+".";
+    }
+    
+    public static void main(String[] args){
+        System.out.println(add());
+        System.out.println(add(3));
+        System.out.println(add("Hello, friend"));
+    }
+}
+// Needed to give the methods the static keyword only because the main method is static.
+```
 
 
 
