@@ -2170,7 +2170,7 @@ Side not, it is legal in java to have instance fields and method with the same e
 
 ## Packages
 
-When it comes to grouping classes together to keep things more organized, 
+When writing 
 
 ### Encapsulation
 

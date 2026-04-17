@@ -1,6 +1,6 @@
 # Bash Basics
 
-## Basics
+## File Setup & Shell Behavior
 
 ### File Setup
 
@@ -29,7 +29,7 @@ To write commits in bash use the # symbol. All text after it will be a commit. A
 echo "Hello, World!"
 ```
 
-### Sourcing VS Executing Scripts
+## Sourcing VS Executing Scripts
 
 Running the bash script can be done in two different ways. This matters because it determines if the current shell process runs the script or a child process will run the script.
 
@@ -42,7 +42,7 @@ There are something called *alias* that can be made. This can be made with the *
 
 
 
-### CLI Commands Built-in vs External
+## CLI Commands Built-in vs External
 
 When it comes to two different command categories:
 
@@ -61,9 +61,9 @@ When it comes to performance, using *built-in* commands is better since this req
 
 Another command called **man**. This is short for "manual". The syntax for this is `man <Command>`. This will tell what the command does, types of flags and what they do, and more.
 
-## Variables & Arrays
+# Data Types, Variables, Arrays
 
-### Variables
+## Variables
 
 To create a variables do `VariableName=Value`. It is important that there is no space between the equal sign, value, and name. This same style is used when assigning values to variables again as well.
 
@@ -79,7 +79,7 @@ x=100 # Do not need to use the $ on the x since this is not being referenced to 
 echo $x # Needs to use the $ again because this is being referenced to get its value.
 ```
 
-### Data Types
+## Data Types
 
 Unlike C/C++, bash treats most values as strings. For example, 50 and "50" are really both strings. However, there are ways to get a number to work in an arithmetic context.
 
@@ -94,21 +94,21 @@ While bash likes to treat all variables values as strings, there is a way to spe
 - -u --> this will make the string value uppercase
 - -f --> this will tell if a function exist or not. This must have the same name as the function itself. Also, this is not actually a variable, but just a way to check if a funcion does exist. This returns what the function actually looks like, but does not execute the code. However, this output can be stored in a variable by wrapping the whole thing in `$()`. For example `x=$(declare -f FunctionName)`.
 
-### Global Variable/Function
+## Global Variable/Function
 
 Bash has the typical local variables and global variables. However, there is an extra scope of variables that are allowed. This is when child processes are created from the current process. If it needs to use a variable that was declared in the parent process this would fail since it would not have access to it. To fix this, there is a keyword `export` that will give the ability to have that variable be seen by child processes. Place the keyword in front of the variable name.
 
 This same thing applies to functions as well. The same steps are takes for functions to make the function available to the child process as well. The only difference is the -f option must be added to this like if using the **declare** keyword.
 
-### Array
+## Array
 
-#### Creating array
+### Creating array
 
 To declare an array, set this equal to parentheses and put values inside it like normal. However, unlike other languages to add more than one value it is space separated and not comma separated. For example `arr=(1 2 3)` or `arr=(1)`.
 
 Just like python list, these can have any data of any type. For example, `arr=(4 "yes" 9 "")`.
 
-#### Accessing Indexes
+### Accessing Indexes
 
 To access a value from the array, the syntax is `${ArrayName[Index]}` where the index is zero based meaning starts at 0 and ends at $\text{Max Length}-1$. There is a special way to access all the elements at once by putting the @ symbol inside the brackets. This @ symbol will make this return all the values from inside the array at once. For example:
 
@@ -117,7 +117,7 @@ arr=(4 "yes" 9 "")
 echo ${arr[@]}
 ```
 
-#### Adding Indexes
+### Adding Indexes
 
 To add a value to the the array it can be appended or added at a specific index.
 
@@ -126,7 +126,7 @@ To add a value to the the array it can be appended or added at a specific index.
 
 Since a value can be added to any index at any point, this means doing something like `arr[10]=50` when there is only 2 indexes currently in the array will not create empty indexes that are missing. Instead, this will make it so only the indexes 0,1, and 10 exist.
 
-#### Removing Indexes
+### Removing Indexes
 
 To remove a value from the array there is a keyword **unset** that must be used. This will be placed before the variable name and using the bracket notation on it. For example `unset arr[1]` will remove the index 1 from the array. However, the array will not be reindexed; which means if the array has indexes 0,1, and 2 and 1 is removed then the indexes 0 and 2 exist as this will not be remade to 0 and 1 indexes.
 
@@ -134,7 +134,7 @@ To remove a value from the array there is a keyword **unset** that must be used.
 >
 > To fix the messed up indexing issue, reassign the value of the array to the same thing using the @ symbol syntax for the index. For example `arr=(${arr[@]})` will reassign an array to the same variable again and then the indexes will be fixed.
 
-#### Unique Syntax
+### Unique Syntax
 
 To get the total size of the array using the syntax `${#ArrayName[@]}`, but this will not say the values inside or the index they are at. Can also specify a specific index and will return the total size of that index (in characters even if a number).
 
@@ -146,7 +146,7 @@ To get all the values, but not the indexes they exist at or total number of inde
 >
 > It is important to wrap the array when being accessed with $, no matter how, with double quotes. This is just to help prevent breaking logic changes to the content. For example, if there is a string "Hello World" that exist in the array and wanting to loop throgh the array will treat this as two separate values ("Hello" and "World") if done without quotes, but with them will treat it as "Hello World".
 
-#### Associative Array
+### Associative Array
 
 These are like dictionaries in python. Unlike a normal array, to first declare this the use of the **declare** keyword must be used with the specific -A flag. To give it values when being created the syntax is `declare -A AssocArr=([Key]=Value)`.
 
@@ -154,11 +154,11 @@ When it comes to all the rules of making, using, add, removing, etc stuff from t
 
 
 
-#### Storing CLI output
+### Storing CLI output
 
 Arrays are a good place to store CLI command output in. For exampe, doing `arr="$(ls)"` will store the output of command "ls" inside this array.
 
-### Quoting, Escaping, & Word Splitting
+## Quoting, Escaping, & Word Splitting
 
 When deciding which quote types to use there are two different versions:
 
@@ -193,26 +193,144 @@ echo ${arr[@]} # will print One Two Three
 echo ${#arr[@]} # will print 3 since there are that many indexes
 ```
 
-### Shell Expansion & Substitution
+## Shell Expansion & Substitution
+
+### Shell Expansion
+
+When writing commands, there are ways to write short hand versions of them to avoid repeation when writing code out. This acts like a pre-processing stage by first evaulating the short hand and replacing the desired result replaced with it. There are a few times this has already been done when doing the `${VariableName}` syntax. This does not keep that actual variable name there, instead it replaces that with the value assigned to that variable. Another example of this is using the tilde (~) symbol. Instead of staying as that, it is secretly converted to the absolute path to the home directory of  the current user on the system.
+
+### Brace Expansion
+
+This is a special way to write shorter code, but mean the same thing if was most explicit. This is useful for pattern matching things to get results. For example, doing `ls *.java` will mean list only all files that end with ".java" instead of having to write out every java file name. Another example is `touch file{1..100}.txt` will make 100 txt files all with the names "file#.txt" where # is the number 1 to 100. Another example is `echo ${A,B}1.txt` will print to the screen "A1.txt" and "B1.txt".
+
+### Command Substitution
+
+There are times when the output of a command is needed. To do this, use the $ like normal except after put a set of parentheses and put the command to run inside it. For example, `$(ls)` will run that command and then return the output to that spot to replace it just like replacing a variable.
+
+### Arithmetic Expansion
+
+There is a special way to do math unlike normal languages. For example, something in python like $3+5$ will work fine and return 8, but doing that in bash will not result in 8 but the actual string "3+5". If spaces were put between the values this would be even worse since it would cause an error. To do math use the $ like normal, except now have to put two sets of parentheses in each other like `$((Math Here))`. The result will be returned back as a string. For example `x=$((3 + 5))` returns 8, but doing `x=3 + 5` does not return a string and just breaks the program.
+
+### Globbing
+
+This is more where the syntax like `ls *.java` comes in. This will make it so it reads all java files. Using something like this is called <u>regex pattern matching</u>. Regex are special symbols that have special meanings to help make commands more dynamic. For example, can list only files that start with "Hello" and end with a ".txt" extension, but the file name, after the word hello, can have any name after just as long as the file name starts with hello which would look like `^Hello.*\.txt$`.
+
+Visit [here](https://www.rexegg.com/regex-quickstart.php) to see what spcial symbols are available to use to get more advanced globbing.
+
+> [!NOTE]
+>
+> On Mac, it uses bash version 3.2.57, but the downside to this is there are a lot of new bash features this does not have. However, Mac now use tells users to use a shell called "zsh". This is very similar to bash, but there are a few differences. One difference is arrays do not start at index 0. Instead they start at index 1.
+>
+> There is a way to use the most up to date bash on Mac, but it has to be installed with homebrew. The command is `brew install bash`. If this is done, insted of using `#!bin/bash` for the shebang line use `#!/opt/homebrew/bin/bash`.
 
 
 
-### Functions
+## If, For, and While Blocks
+
+#### Conditional
+
+There are times when certain could shoul execute based on if a certain condition was met. Bash using something called <u>exit codes</u> to determine if the result of something was successful or not. When a command is successful, it returns a code of 0, but values 1 - 255 are used to indicate errors of different types.
+
+An <u>exit code</u> value will be generated each time a command or expression is evaulated and completed. For example, running `ls` should (about %99.9 of the time) return a code of 0. Doing something like `echo $(3 + 5))` returns an exit code 127 on Mac to signal there are too many braces. 
+
+The exist code value can be seen by running a special command `$?`. This will return the specifc exist code and the message for that code.
+
+Now, when it comes to executing code based on a specific <u>exit code</u>, this can be done with an if statement. To make an if statement is much different compared to normal languages. The syntax is:
+
+```bash
+if [ condition ]; then
+	# Code Here
+fi
+```
+
+Inside the conditional, it can also use the && (AND) and ||(OR) for the logical conditions, but there are more than one set of [] separated by the logical symbol like `if [] && []`.
+
+However, there is another way this can be made and instead of having just one set of brackets, another set is placed inside it. However, this will makes the result something totally different.
+
+> [!TIP]
+>
+> The syntax for the if statement is just an alias for the linux command **test**. So doing `if [$x=5]` is the same as `test $x=5`. This will return an <u>exist code</u>. However, the version of `if [[]]` is different since this is just a special bash keyword and it is a more safe and powerful version. The bash version supports pattern matching (regex), logical operators, and no need to quote variables that have a string with a space.
+
+> [!CAUTION]
+>
+> Notice there is a space on both sides of the condition. If there is no space placed there then this WILL cause an error and code will fail. Always make sure to add the extra spaces.
+
+> [!IMPORTANT]
+>
+> The single bracket version is POSIX complient since it can works on shells like dash, sh, etc. However, the double bracket version is a bash version that is not POSIX compliant.
+
+Can also do comparisons like using "=" to test if two things are equal, using "!=" to test if they are not equal, using "-z" to test if the value is empty, and "-n" is the value is not empty. However, that only works when comparing strings. 
+
+```bash
+x="Hello, World"
+
+if [ "$x"="Hello" ]; then
+	echo "Matched"
+	exit 0
+fi
+
+exit 1
+```
 
 
 
-### Loops
+Even though everything is considered a string, to make this do numeric comparisons use the following instead:
+
+| flag | Meaning                                      |
+| ---- | -------------------------------------------- |
+| -eq  | Checks if values are equal                   |
+| -ne  | Checks if values are not equal               |
+| -lt  | Checks if value is less than other $x<50$    |
+| -gt  | Checks if value is greater than other $x>50$ |
+
+```bash
+x="Hello, World"
+y=50
+
+if [ "$y" -eq 50 ]; then
+	echo "Matched"
+	exit 0
+fi
+
+exit 1
+```
+
+Can also check if the name of something is a file or directory and if it exist or not. This is done with the following flags:
+
+| flag | Meaning                                             |
+| ---- | --------------------------------------------------- |
+| -f   | Checks if thing is a file and it exist              |
+| -d   | Checks if thing is a directory and it exist         |
+| -e   | Chechs if thing is a file or directory and it exist |
+
+```bash
+if [ -f "myfile.txt" ]; then
+  echo "File exists"
+fi
+```
 
 
 
-### Conditionals
+## Functions
+
+
+
+## Loops
+
+
+
+
+
+
+
+##### TODO Check List
 
 - [x] File Setup 
 - [x] Variables
 - [x] Data Types
 - [ ] Functions
-- [ ] Loops
-- [ ] Conditionals
+- [x] Loops
+- [x] Conditionals
 - [ ] CLI Arguments
 - [x] Shell Expansion & Substitution
 - [x] Quoting & Escaping
@@ -232,7 +350,7 @@ echo ${#arr[@]} # will print 3 since there are that many indexes
 - [x] Built-in Commands vs External Tools
 - [ ] Pipes and Command Chaining
 - [ ] Job Control
-- [ ] Sourcing vs Executing Scripts
+- [x] Sourcing vs Executing Scripts
 - [ ] Traps
 
 
