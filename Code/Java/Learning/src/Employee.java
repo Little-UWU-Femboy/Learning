@@ -3,9 +3,14 @@ public class Employee{
 	private int age;
 	protected int salary;
 	
-	public Employee(String name, int age){
+	public Employee(String name, int age, int salary){
 		this.name = name;
 		this.age = age;
+		this.salary = salary;
+	}
+	
+	Employee(){
+		this("Jack", 50, 500);
 	}
 	
 	private int salaryIncrease() {
@@ -15,6 +20,8 @@ public class Employee{
 	
 	protected void displaySalary() {
 		System.out.println(this.salary);
+		System.out.println(this.name);
+		System.out.println(this.age);
 	}
 	
 	public void wrapper() {

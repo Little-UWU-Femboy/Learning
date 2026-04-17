@@ -1440,9 +1440,9 @@ There are two definitions when it comes to passing in arguments:
 - *Explicit* --> this is when the arguments are directly passed into the function for it to use
 - *implicit* --> these are arguments that are passed to the function without specifically declaring them.
 
-For example, in `x.showInfo()`, the "x" would be the *implicit* and the method called would be the *explicit*. Under the hood, *implicit* arguments are passed into the method call without knowing. So the method call actually looks like `x.showInfo(x)`. The x will always be in front even if there are other arguements.
+For example, in `x.showInfo()`, the "x" would be the <u>implicit</u> and the method called would be the <u>explicit</u>. Under the hood, <u>implicit</u> arguments are passed into the method call without knowing. So the method call actually looks like `x.showInfo(x)`. The x will always be in front even if there are other arguments.
 
-Now when actually inside the method definition, the *implicit* type here will not be the name of the actual object, instead it is referred by the keyword **this**. In the actual method, the first implicit argument will be "\<objectType\> this". However, this is really only used when the *explicit* parameter variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
+Now when actually inside the method definition, the <u>implicit</u> type here will not be the name of the actual object, instead it is referred by the keyword **this**. In the actual method, the first implicit argument will be "\<objectType\> this". However, this is really only used when the *explicit* parameter variables are named the same exact way as the objects *instance field* names. The way this is use is by doing `this.<instanceFieldName>`.
 
 For example:
 
@@ -1459,7 +1459,7 @@ void info(String name, int a, int count){
 
 ### Field Accessors
 
-These are methods designed to get/set the value of an objects instance fields as these are a common example of them. The reason something like this is used is to help enforce *encapsulation* principle for objects. The particular of creating methods for getting or setting instance fields are called *getters/setters*. This can also be used to help create more complex logic when it comes to getting and setting instance data to an object.
+These are methods designed to get/set the value of an objects instance fields as these are a common example of them. The reason something like this is used is to help enforce *encapsulation* principle for objects. The particular of creating methods for getting or setting instance fields are called <u>getters/setters</u>. This can also be used to help create more complex logic when it comes to getting and setting instance data to an object.
 
 When return data from an object, it is always bad to return mutable data (like an object that is an instance variable). If this does happen, the actual same object reference in memory is passed back to the thing getting the data. This means that if the external variable makes a change to that data it also affects the one in memory. To fix this return a whole new object of the same data type back instead and initialize it with the data needed to make it the exact same.
 
@@ -1467,7 +1467,7 @@ When return data from an object, it is always bad to return mutable data (like a
 >
 > An object can be returned from a function, but only if that object is an immutable object. For example, the "Data" object is a mutable, but the "LocalDate" object is immutable.
 
-There will be two examples, the 1st showing the bad way and this breaking the *encapsulation* principle, but the 2nd way showing the good way by protecting the *encapsulation* principle.
+There will be two examples, the 1st showing the bad way and this breaking the <u>encapsulation</u> principle, but the 2nd way showing the good way by protecting the <u>encapsulation</u> principle.
 
 1st way:
 
@@ -1576,9 +1576,9 @@ While normal static variables are rare, creating static constants are quite comm
 
 Just like static variables, these are used the exact same way like `<ClassName>.StaticMethod`. Just like a static variable, there does not need to be an created version of that object to use this method. An example of this is the `Math.pow(x,y)` method which takes the power of the values passed in like $x^y$.
 
-Static methods will also not have the *implicit* parameter **this**.
+Static methods will also not have the <u>implicit</u> parameter **this**.
 
-One key thing to note is static methods cannot access instance variables of any type since these do not opperate on objects themselves, but just the data passed into them. However, they can access variables that are static in that class.
+One key thing to note is static methods cannot access instance variables of any type since these do not operate on objects themselves, but just the data passed into them. However, they can access variables that are static in that class.
 
 For example
 
@@ -1605,7 +1605,7 @@ Static methods should be used in two cases
 
 ### Factory Methods
 
-Another reason to make a method static is to create a *static factory* method. These serve as a replacement for calling a constructor directly with the `new` keyword. This approach promotes modularity and aligns with SOLID principles. Examples of this are found in the "LocalDate" class, where methods like `now()` and `of()` create and return a "LocalDate" object.
+Another reason to make a method static is to create a <u>static factory</u> method. These serve as a replacement for calling a constructor directly with the `new` keyword. This approach promotes modularity and aligns with SOLID principles. Examples of this are found in the "LocalDate" class, where methods like `now()` and `of()` create and return a "LocalDate" object.
 
 When implementing this, the actual constructor is typically given a **private** or **protected** access modifier to prevent direct instantiation.
 
@@ -1671,7 +1671,7 @@ class Main {
 }
 ```
 
-A specific class can also be created for the sole purpose of object creation, known as a *factory class*. This class exists to support another class by handling all instantiation logic. For example, instead of the `Burger` class deciding which specific object to return, a `BurgerFactory` handles that responsibility. This separation ensures the `Burger` class remains simple, while the `BurgerFactory` centralizes the rules for creating various burger types. When a new burger is needed, the request is made to the factory, which returns the completed object.
+A specific class can also be created for the sole purpose of object creation, known as a <u>factory class</u>. This class exists to support another class by handling all instantiation logic. For example, instead of the `Burger` class deciding which specific object to return, a `BurgerFactory` handles that responsibility. This separation ensures the `Burger` class remains simple, while the `BurgerFactory` centralizes the rules for creating various burger types. When a new burger is needed, the request is made to the factory, which returns the completed object.
 
 <u>For Example</u>
 
@@ -1752,7 +1752,7 @@ public class Main {
 
 Every executable Java program requires a special entry point called the `main` method. The standard signature is `public static void main(String[] args)`. The name is fixed because the Java launcher specifically searches for this identifier to begin execution. The `static` modifier is necessary because the JVM must call the method before any objects have been created. The `String[] args` parameter allows the program to accept input from the command line.
 
-In modern Java 25+, this requirement has been simplified through *Implicitly Declared Classes*. It is now possible to write `void main()` without an explicit `class <ClassName>` declaration. Under the hood, the compiler automatically generates a "secret" class (typically the name of the current file running) to wrap the code. The JRE determines which file to execute based on the filename passed to the `java`command in the terminal. So writing any methods outside a class declaration are called *compact compilation unit* files. All the variables and methods are called *Top-level variables and methods*
+In modern Java 25+, this requirement has been simplified through <u>Implicitly Declared Classes</u>. It is now possible to write `void main()` without an explicit `class <ClassName>` declaration. Under the hood, the compiler automatically generates a "secret" class (typically the name of the current file running) to wrap the code. The JRE determines which file to execute based on the filename passed to the `java`command in the terminal. So writing any methods outside a class declaration are called *compact compilation unit* files. All the variables and methods are called *Top-level variables and methods*
 
 It is important to know that the two styles of specifically declaring a class part and the *compact compilation* cannot be mixed. Must choose one or the other or this will cause an error.
 
@@ -1767,10 +1767,10 @@ The rules for the main method are:
 
 When calling a method and passing the parameters to it, there are two ways this is done:
 
-1. *call by reference* --> the parameters passed to the method are the actual memory location of the original. Meaning that the data modified in the method is not just a copy of a local variable, but the original.
-2. *call by value* --> the parameters passed to the method are copies of the original value, This means if the variable data is changed inside the method this will not affect the original variable data. This is basically as declaring a *local variable*.
+1. <u>call by reference</u> --> the parameters passed to the method are the actual memory location of the original. Meaning that the data modified in the method is not just a copy of a local variable, but the original.
+2. <u>call by value</u> --> the parameters passed to the method are copies of the original value, This means if the variable data is changed inside the method this will not affect the original variable data. This is basically as declaring a <u>local variable</u>.
 
-Java will always use *call by value* no matter what. This will always work for all *primitive* data types. However, when it comes object data types this is different. While the value of the object is still passed by value, the object created will point to the same memory location reference, so when data for that object is modified, it affects the value in that memory location so even thought this is techenically a copy of the original object, the both point to the same memory location.
+Java will always use *call by value* no matter what. This will always work for all <u>primitive</u> data types. However, when it comes object data types this is different. While the value of the object is still passed by value, the object created will point to the same memory location reference, so when data for that object is modified, it affects the value in that memory location so even thought this is techenically a copy of the original object, the both point to the same memory location.
 
 ## Object Construction
 
@@ -1778,7 +1778,7 @@ Java will always use *call by value* no matter what. This will always work for a
 
 When creating a constructor, there does not need to be only one declared per object declaration. For example, assigning `new StringBuilder("To do:\n");` or `new StringBuilder();` to a variable of that type will still create that object type and the program will not fail. This is a java feature called <u>overloading</u>. This happens there are more than one method (remember a constructor is just a special method) with the exact same name exist, but have different parameter requirements.
 
-When choosing which correct method to use when there is <u>overloading</u>, the actual JDK (javac tool from here) will figure out which needs to be called at compile time. A compile time error occurs if the compiler cannot match the parameters, either because there is no match at all or because there is not one that is better than all others. The process of finding a match is called <u>overloading resolution</u>. The different unique names of the methods are called <u>signatures</u>. A <u>signature</u> is the name of the method combined with that unique parameter instance for it. The return type does not affect a <u>signature</u>. So `void `
+When choosing which correct method to use when there is <u>overloading</u>, the actual JDK (javac tool from here) will figure out which needs to be called at compile time. A compile time error occurs if the compiler cannot match the parameters, either because there is no match at all or because there is not one that is better than all others. The process of finding a match is called <u>overloading resolution</u>. The different unique names of the methods are called <u>signatures</u>. A signature is the name of the method combined with that unique parameter instance for it. The return type does not affect a signature. 
 
 ```java
 class Main{
@@ -1794,6 +1794,11 @@ class Main{
         return x+".";
     }
     
+    // Will cause failure because has same signature as first add() version. The return type is not part of the signature
+    /*static void add(){
+        System.out.println("WILL CAUSE ERROR");
+    }*/
+    
     public static void main(String[] args){
         System.out.println(add());
         System.out.println(add(3));
@@ -1807,45 +1812,365 @@ class Main{
 
 ### Default Field Initialization
 
+Not all field variables have to be initialized when an object is created, that is no value assigned to it when declared or when the constructor is called. When this happens, that variable will get a <u>default value</u>. A default value is just a value that is automatically assigned to the variable. The default values for the different types are:
 
+| Data Type                 | Value |
+| ------------------------- | ----- |
+| int (other numeric types) | 0     |
+| String                    | ""    |
+| char                      | ''    |
+| boolean                   | false |
+| Object                    | null  |
+| float/double              | 0.0   |
 
-### Construcor with No Arguments
+However, relying on this behavior is considered bad practice since it makes the code harder to read.
 
+> [!TIP]
+>
+> Is it important to note that <u>default value</u> initialization only happens for object instance variables, but when it comes to local variables (method scope) theses do not happen automatically so a value must be assigned to them.
 
+### Constructor with No Arguments
+
+This is when a constructor is defined to take in no arguments. This means that the values inside the constructor will be set to their <u>default values</u> implicitly or explicitly (constructor call).
+
+```java
+public class Employee{
+    private String name;
+    private int age;
+    
+    Employee(){
+        this.name=""; // Set custom default value to "" instead of null
+        // The age variable gets a default value of 0 since nothing was even assigned
+    }
+    
+    Employee(String name){
+		// This will set the name to the custom type, but sets the age to 50 by default
+        this.age = 50;
+        this.name = name;
+    }
+}
+```
+
+> [!cAUTION]
+>
+> An object can be defined with no constructor and this will automatically make one without any parameters when being compiled. However, this feature should not be relied on.
 
 ### Explicit Field Initialization
 
-
+It is always a good idea to always set the instance variable fields to some default value or specific value regardless of the number of constructor methods created. This is just a good safety measure. The values can be set set a specific value or even a value from a method call. Specific values being assigned are carried out BEFORE the constructor method is called.
 
 ### Parameter Names
+
+Since parameters can do something call <u>shadow</u> instance variables (create a local variable with the same name), it is a common practice to have the parameters be named the same exact same thing as the instance fields then when needed to affect the instance field versions, that is where the **this** keyword syntax is used. However, that only needs to be used really if the parameters or local variables have the same name, otherwise can call the instance variable like normal. However, it is still good practice to use the **this** keyword.
+
+```java
+public class Employee{
+	private String name;
+    private int age;
+    
+    Employee(int a, String name){
+        this.name = name;
+        age = a;
+    }
+}
+```
 
 
 
 ### Calling Another Constructor
 
+There is a way to have a constructor call another constructor when first being called. This makes use of the **this** keyword. Inside the current constructor being called, do something like `this(argument(s))` where the arguments must match an existing signature for a method. This process is called <u>constructor chaining</u>. Important to know that this does not return anything as this is just a redirection of how to initialize the instance field variables.
+
+The reason for using this is to follow the <u>DRY</u> (don't repeat yourself) design principle. This will be talked about in another file about design principles. There is a way to overuse the <u>DRY</u> principle, but to help counter this there are the design principles <u>WET</u> and <u>AHA</u>.
+
+> [!IMPORTANT]
+>
+> In versions of java 22 - 24 (with the preview mode enabled) or java25+ (default feature), the chained constructor does not need to be the first thing called in the original constructor. However, in versions lower than java 22 this will cause a compile time error since this has to be the first thing in constructor body.
+
+```java
+public class Employee{
+	private String name;
+	private int age;
+	protected int salary;
+	
+	public Employee(String name, int age, int salary){
+		this.name = name;
+		this.age = age;
+		this.salary = salary;
+	}
+	
+    // this calls the Employee constructor with the three parameters instead of calling it directly
+	Employee(){
+		this("Jack", 50, 500);
+	}
+}
+```
 
 
-### Initialization Blocks
+
+Although that rule was lifted, there are new ruled to be followed if doing this. This is called the <u>early construction phase</u> and the following cannot cannot happen until the constructor is called:
+
+- Read any instance variable
+- Write any instance variable that has an explicit initialization
+- Invoke any methods on this object
+- Pass this to any other methods
+
+However, there are still things that can be done like (as long as using parameters only):
+
+- Default Naming
+- Input Validation
+- Cleaning data
+- Parameter changing
+
+*Example of breaking the rules*
+
+Example base part of class
+
+```java
+class Employee {
+    private String name = "Unknown"; // explicit initialization
+    private double salary;
+    
+    static int nextId = 1;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+}
+```
 
 
 
-### Static Initialization
+#### Reading Instance Variable
+
+```java
+Employee(double s) {
+    System.out.println(name); //  NOT allowed
+    this("Employee #" + nextId, s);
+}
+```
+
+#### Write to Instance Variable
+
+```java
+Employee(double s) {
+    name = "Temp"; //  NOT allowed (has initializer)
+    this("Employee #" + nextId, s);
+}
+```
+
+#### Invoke Method on Keyword
+
+```java
+Employee(double s) {
+    printInfo(); // NOT allowed
+    this("Employee #" + nextId, s);
+}
+
+void printInfo() {
+    System.out.println(name + " earns " + salary);
+}
+```
+
+#### Pass to Other Method
+
+```java
+Employee(double s) {
+    log(this); // NOT allowed
+    this("Employee #" + nextId, s);
+}
+
+static void log(Employee e) {
+    System.out.println("Logging employee");
+}
+```
 
 
+
+*Example of working cases*
+
+#### Default Naming
+
+```java
+Employee(double s) {
+    this("Employee #" + nextId, s);
+    nextId++;
+}
+```
+
+#### Input Validation
+
+```java
+Employee(double s) {
+    if (s < 0) s = 0;
+    this("Employee #" + nextId, s);
+    nextId++;
+}
+```
+
+#### Normalizing Data
+
+```java
+Employee(String name) {
+    name = name.trim(); // normalize input
+    this(name, 50000);  // default salary
+}
+```
+
+#### Parameter Transformaion
+
+```java
+Employee(double monthlySalary) {
+    double yearly = monthlySalary * 12;
+    this("Employee #" + nextId, yearly);
+    nextId++;
+}
+```
+
+
+
+### Initialization Blocks and Static Version
+
+These are basically a way to run code like a constructor. [Watch this](https://www.youtube.com/watch?v=8N_6LIRZyJc) to learn about this for extra information.
 
 ## Records
 
+There are times when a class is created, but it is not meant to do anything, but hold data. For example, there is a class called "point" and this is used to just take an X and Y point and just hold the data. No actual methods will be made to manipulate that data besides ones to look at the data like `toString()` and implement an equals method to compare two points. However, the actual data itself will never be changed at all. An example class of this is made below:
 
+```java
+class Point {
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int x() { return x; }
+    public int y() { return y; }
+
+    public String toString() {
+        return "Point[x=" + x + ", y=" + y + "]";
+    }
+
+    public boolean equals(Object o) { /* long code */ }
+    public int hashCode() { /* long code */ }
+}
+```
+
+Instead of making all this code for this single class, it can all be made automatically with something called a record.
 
 ### Record Concept
 
+A record is a fast way to skip all the boilerplate code to making a class that will just be used for reading and storing data. A record, just like an enum, is a special type of class is java.
 
+To make a record, just like an enum where declaring this is `enum <name>`, to make a record class is `record <name>`. However, right after the name, put a set of parentheses and inside there will be all the data types along with their names like if this is a set of parameters in a method call. At the end just put a set of empty curly braces. For example, `record Point(int x, int y){}`. In java terms, the instance fields made here are called "components".
+
+> [!NOTE]
+>
+> The record feature was not introduced until java 14, but finalized in java 16.
+
+> [!NOTE]
+>
+> Records are considered immutable objects since not only are their fields set with the **final** keyword, but there are also no setter method generated like there are getter methods. However, just like talked about earlier, the variable might be mutable, but if the thing is an object, then the data inside that object is mutable still, just that record cannot be assigned to point to a different object in memory.
+
+What a record actually does is make a class EXACRTLY as the giant one given in the example above. The only difference is it actually puts code inside the `hashCode()` and `equals()` method to get these to actually work.
+
+Despite there being base methods generated, there can still be custom methods defined inside this. There can even be methods that have the **static** keyword defined in here. Just put them inside the curly braces of the record instead of leaving it empty.
+
+However, this rule is not the same when it comes to creating instance variables. There can be custom variables made, but they MUST be static instance variables. Adding a normal instance variable will cause an error. The only way to add instance variables is to pass them as a parameter.
+
+Another important thing about records is they cannot extend other classes (inheritance which will be talked about later). This is because be default, just like enums extend the enum class, records extend the record class already. Under the hood, a record class itself gets the **final** keyword which means other classes cannot extend from it (inherit from it).
+
+However, a record can inherit from an interface; this will be talked about more later as well.
+
+> [!IMPORTANT]
+>
+> Java does not extending a class by more than one at a time (multiple inheritance).
 
 ### Constructors: Canonical, Compact, and Custom
 
+#### Canonical Constructor
 
+When creating a record in the basic example above, since the constructor is automatically made, this is called a <u>canonical constructor</u> which is just a constructor that implements all the instance variables as parameters and assigns all values to each one. However, there are ways to make a custom constructor, but this is not typical of a normal constructor.
+
+#### Compact Constructor
+
+This is a special way to define a constructor that is ONLY available to records. This is a way to create a custom constructor, but not have to define all the parameters like the canonical constructor because they will be defined automatically. This means the constructor does not even need parentheses to add the parameters since they will be auto added later one. Also, the constructor does not need to assign the values to the instance variables since this will also be done automatically as well. For example:
+
+```java
+    public Point {
+        if (x < 0) x = 0;
+        if (y < 0) y = 0;
+    }
+	// This really turns into the version below 
+
+	 /*Point(int x, int y){
+        if (x < 0) x = 0;
+        if (y < 0) y = 0;
+         
+        this.x = x;
+        this.y = y;
+    }*/
+```
+
+#### Custom Constructor and Method
+
+Instead of having this generate the predefined basic constructor like the one in the big code example, this an be done the custom way like in a normal class. This is really only done if the data passed in needs to be validated or transformed before being assigned. There can even be <u>overloading</u> inside a record as well. However, it is important that the parameters of the custom constructor are listed and defined EXACTLY as in the records parentheses in the same order listed and with the same names.
+
+```java
+record Point(int x, int y){
+    // this constructor will cause an error since this parameter listing is not the exact same.
+    /*Point(int y, int x){
+    	if (x < 0 || y < 0){
+    		x = 0;
+    		y = 0;
+    	}
+        this.x = x;
+        this.y = y;
+    }*/
+    
+    // This constructor will work fine because the names are the same AND they are listed exactly the same as in the parentheses of the record
+    Point(int x, int y){
+    	if (x < 0 || y < 0){
+    		x = 0;
+    		y = 0;
+    	}
+        this.x = x;
+        this.y = y;
+    }
+    
+    //  Custom method to be defined
+    void int difference(){
+        return this.x - this.y;
+    }
+}
+```
+
+> [!NOTE]
+>
+> When making more one or more constructor(s) inside a record, it must ALWAYS call the <u>canonical constructor</u> (aka constructor that implements all the fields). The <u>canonical constructor</u> is made regardless if it was defined custom wise or not. Each constructor MUST call that with the `this()` constructor call syntax. If a constructor does not call this then an error will be thrown because under the hood ONLY a the <u>canonical constructor</u> can assign values to the record and nothing else.
+
+```java
+// This works since this called the this() canonical constructor version
+Point(int y){
+    this(5,y);
+}
+
+// This will cause errors since this the canonical constructor was not called
+/*Point(int y){
+    this.y = y;
+    this.x = 50;
+}*/
+```
+
+Side not, it is legal in java to have instance fields and method with the same exact name. That is why the custom methods generated to get access to the data are not like `getX` and are just `x()`.
 
 ## Packages
+
+When it comes to grouping classes together to keep things more organized, 
 
 ### Encapsulation
 
