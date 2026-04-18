@@ -580,6 +580,21 @@ When it comes to calling the actual program on CLI or inside the bash scripts is
 - `&2>` --> This is used to redirect stdout and stderr data to a specific file
 - `> /dev/null 2>&1` --> This is used to totally discard the stdout and stderr data into what is called the "void".
 
+```bash
+echo "Hello" > greet.txt          # overwrite file
+echo "World" > greet.txt          # overwrite again
+echo "Bye" >> greet.txt           # append to file
+
+x=$(cat < greet.txt)               # read file via stdin
+
+ls greet.txt non_existent 2> err.txt     # write errors only to file
+ls greet.txt non_existent &> all.txt     # write stdout + stderr to file
+
+ls greet.txt > /dev/null 2>&1     # discard all output (stdout + stderr)
+```
+
+
+
 
 
 
