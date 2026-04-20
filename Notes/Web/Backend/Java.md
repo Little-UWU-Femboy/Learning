@@ -2170,9 +2170,11 @@ Side not, it is legal in java to have instance fields and method with the same e
 
 ## Packages
 
-When writing 
+Once there become a large amount of java files made, there needs to be a way to organize them. The way java does this is using something called <u>packages</u> 
 
 ### Encapsulation
+
+When using packages, the **encapsulation** principle is enforced by default. The way this works is only classes that a
 
 
 
