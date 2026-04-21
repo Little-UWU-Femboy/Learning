@@ -2170,19 +2170,55 @@ Side not, it is legal in java to have instance fields and method with the same e
 
 ## Packages
 
-Once there become a large amount of java files made, there needs to be a way to organize them. The way java does this is using something called <u>packages</u> 
+Once there becomes a large amount of java files in the current folder, there needs to be a way to organize them. The way java does this is using something called <u>packages</u> which is just a folder. This makes it good to be able to organize and group files based on what they do. To actually make a package, use the keyword **package** followed by the folder path of the folder separated by dots this file will live in. This will be placed as the first thing in the file. For example, `package store` will mean from the root folder, the path to this file is ./store. The below example of how file are stored in the folder as well.
+
+> For Example
+>
+> .
+> │   Employee.java
+> │   Main.java
+> │   Point.java
+> │
+> ├───FolderOne
+> │       A.java
+> │       B.java
+> │
+> └───FolderTwo
+>         C.java
+>
+> 
+>
+> Here the files A and B will have the package line `package FolderOne` and file C will have `package FolderTwo`
 
 ### Encapsulation
 
-When using packages, the **encapsulation** principle is enforced by default. The way this works is only classes that a
-
-
+When using packages, the **encapsulation** principle is enforced by default. This is really where the <u>access modifiers</u> talked about before really matters. The only way for any package (folder) file to access code in another package (folder) it has the **public** access modifier. The default, private, and protected will only make code accessible in the same package (folder).
 
 ### Package Names
 
+The practice of naming package is to give it the name of the website (i.e youtube.com) and reverse the name of it then append the name of the package to be declared and go that way. For example, `com.youtube.FolderOne` and `com.youtube.FolderTwo`.
 
+A package (folder) can contain other packages (folders) inside it. This makes it so the can be even deeper nesting of files.
+
+One important thing to know is two files can have the same name as long as they're in different folders. For example, there are two files called "Employee" and one lives in `com.youtube.FolderOne.Employee` and the other is `com.youtube.FolderTwo.Employee`, but these two files live in different folders, so this is considered valid.
 
 ### Class importation
+
+All class files in the same folder can have access to each other with no restrictions. However, this is where the <u>access modifiers</u> play a key role again.   In the class file, if something is marked as **private** then that thing can only be accessed within the file itself. If it is marked as **protected** then itself, any class file inside current package, and any class that inherits from it (talked about in next chapter) will be able to access it. If it has no access modifier then it gets the default modifier which means only the class itself and other classes inside the package can access it. Finally, if it has the **public** modifier then anything from anywhere can access this.
+
+When it comes to actually accessing the content of another package, this can be done in two ways. However, the second way is much better and used 99.99% of the time compared to the first.
+
+1. <u>qualified name</u> --> when wanting to use something from a package, the full path name to that class must be used. For example, there is an "Employee" class located at "com.youtube.people.workers.Employee". Using this method it would be `com.youtube.people.workers.Employee x = new com.youtube.people.workers.Employee()`, but to make another "Employee" object that would need to be done each time.
+2. **import** keyword --> this is a way to bring something into scope so the path to the item can be shortened. This bring the item(s) into scope of the current project so the long name for them does not need to be typed each time. For example, using the "Employee" class from the first way of doing this, at the top of the file add `import com.youtube.people.workers.Employee` which will now allow to just do `Employee x = new Employee()` each time when wanting to make an "Employee" object. This is basically like saying "I need this particular class file from this folder only".
+3. star method --> If there are multiple class files that are needed from the same folder then instead of importing them one at a time just add a * at the end of the import path and this will signal to being all class files from that folder into scope. For example, there are ten class files in the package "com.youtube.people.workers" then instead of importing each one at a time just do `import com.youtube.people.workers.*` which signals bring all files in that package into the current scope.
+
+> [!IMPORTANT]
+>
+> When using the * method, it will not get the files from the subfolders of that current folder. So if there is another folder at "com.youtube.people.workers" called "notMe" and `import com.youtube.people.workers.*` is done then only the files from the "workers" folder will be brought into scope, but not the files from the "notMe" folder.
+
+> [!IMPORTANT]
+>
+> Anything that is defined in the folder `java.lang` never actually needs to be imported.
 
 
 
