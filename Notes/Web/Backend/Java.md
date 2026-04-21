@@ -2218,7 +2218,7 @@ When it comes to actually accessing the content of another package, this can be 
 
 > [!IMPORTANT]
 >
-> Anything that is defined in the folder `java.lang` never actually needs to be imported.
+> Anything that is defined in the folder `java.lang` never actually needs to be imported. This is because at the top of each file during the compiling stage that line is added to the top of each f
 
 
 
