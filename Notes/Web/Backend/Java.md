@@ -2338,7 +2338,7 @@ There is a way to inspect a .class file to see how it is implemented at the byte
 
 
 
-## Classpath
+## Class Path (ALL WRONG! FIXME)
 
 When running the command like `java` or `javac` this looks for the .class files in the following order:
 
@@ -2346,11 +2346,26 @@ When running the command like `java` or `javac` this looks for the .class files 
 2. <u>Extension Classes</u> --> These are the 
 3. <u>User Classes</u> --> These are the specific classes that are defined by the user that the JVM will reference to know how to use the object.
 
-For example, the class "String" is never specified, but the JVM knows places to look for it automatically. However, there is a way to specify where to actually look for these files.
+For example, the class "String" is never specified, but the JVM knows places to look for it automatically.
 
-There is a special way to specify where the JVM should is what determines where the JVM will start looking for user defined .class files called <u>classpath</u>. There are three ways this can be set:
+There is a special way to specify where the JVM should look to find user defined class files i called the <u>classpath</u>. There are two ways this can be set:
 
-1. Environment Variable --> In the shell, create an environment variable called "CLASSPATH" and set it 
+1. Environment Variable --> In the shell, create an environment variable called "CLASSPATH" and set it equal the path of the class files
+2. `-cp` or `-classpath` argument --> right after declaring the java command to run, declare one of theses flags and right after put the path to the class files as an argument
+
+> [!TIP]
+>
+> Use the first version if that path will ALWAYS be used no matter what. However, it is more common to use the second version of this.
+
+The value to be assigned to the class path is `<prefix>:<pathToClassFiles>`. The first part will be telling where to start from and the second will tell where those files actually are.
+
+> [!WARNING]
+>
+> Windows uses a semicolon instead of a colon like on Linux/Mac.
+
+Each path should will have a prefix that first specifies where the current directory this will be starting from. For example, if working in the directory "~/newTime" but the class files are in "~/time/yikes/" and "~/time/nope" then the prefix would be "~/time". Another common way to do this just put the dot to signal current directory. For the previous example too, there is a way to signal to look in more than one path. This is done by separating the path of the class files with another colon (semicolon if on windows) and just adding the path there. For example `.:~/Times/:~/Washing`.
+
+An example would be if the current working directory is "~/App/Test/Running" and class files are located somewhere else. Run the command like `java -cp ~:/Code/Java/:/Wild/Classes Main.java`. This signals these each start from the home directory. Moving from there it would be check for the class file at "~/Code/Java" or "~/Wild/Classes" and see if it exist there.
 
 # TODO
 
