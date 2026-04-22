@@ -2204,8 +2204,6 @@ One important thing to know is two files can have the same name as long as they'
 
 ### Class importation
 
-All class files in the same folder can have access to each other with no restrictions. However, this is where the <u>access modifiers</u> play a key role again.   In the class file, if something is marked as **private** then that thing can only be accessed within the file itself. If it is marked as **protected** then itself, any class file inside current package, and any class that inherits from it (talked about in next chapter) will be able to access it. If it has no access modifier then it gets the default modifier which means only the class itself and other classes inside the package can access it. Finally, if it has the **public** modifier then anything from anywhere can access this.
-
 When it comes to actually accessing the content of another package, this can be done in two ways. However, the second way is much better and used 99.99% of the time compared to the first.
 
 1. <u>qualified name</u> --> when wanting to use something from a package, the full path name to that class must be used. For example, there is an "Employee" class located at "com.youtube.people.workers.Employee". Using this method it would be `com.youtube.people.workers.Employee x = new com.youtube.people.workers.Employee()`, but to make another "Employee" object that would need to be done each time.
@@ -2226,11 +2224,17 @@ TODO[^ModuleImports]
 
 ### Static Imports
 
+Usually to use thing defined with the **static** keyword, the use of the class name followed by the dot is needed to access it. However, there is a way to import the static content as well so that prefix is not needed. To do this just add the **static** keyword after the **import** keyword, but before the package import like `import static <Classpath>`. This will not only import the package and the content, but the static content into scope as well.
 
+For example, the class "java.lang.System" has the static object "err". Doing something like `import static java.lang.System.*` will import all content in the system class and bring into scope all the static content as well. Now instead of doing `System.err.println("A")` now can do `err.println("A")`.
 
-### Class into a Package
+There is a way to specifically import only a single or some particular static content from the class file. For example, instead of putting the * symbol to bring all static content into scope, just do `import static java.lang.System.err` and this only being the "err" object into scope. This is unique to importing static content and cannot be done when just importing a class by itself without the **static** keyword added. 
 
+### Class into a Package 
 
+When it comes to specifying which classes belong to which package, make sure that the class file is in the current package (folder) is should belong in. Then, at the top put the keyword **package** followed by the path to that folder from the root directory. For example, the root directory is "top" and the class "Employee" will be located, from the root directory, "./com/tmp/code/Employee.java" then at the top of the file put `package com.tmp.code`. Repeat this for all class files inside that folder path.
+
+Any files that do not have a package given to them will automatically be added to the "unnamed" or "default" package. Each package (folder) will have their own version of a "default"/"unnamed" folder. However, these classes are isolated to only ever exist in that environment; meaning these cannot be imported or used even if something like `import com.test.*` those files are still not included.
 
 ### Compiling with Packages
 
@@ -2238,11 +2242,17 @@ TODO[^ModuleImports]
 
 ### Package Access
 
-
+All class files in the same folder can have access to each other with no restrictions. However, this is where the <u>access modifiers</u> play a key role again.   In the class file, if something is marked as **private** then that thing can only be accessed within the file itself. If it is marked as **protected** then itself, any class file inside current package, and any class that inherits from it (talked about in next chapter) will be able to access it. If it has no access modifier then it gets the default modifier which means only the class itself and other classes inside the package can access it. Finally, if it has the **public** modifier then anything from anywhere can access this.
 
 ### The Class Path
 
+All class files can be stored in something called a <u>JAR</u> (java archive) file. This is a special files that just contains the multiple java files and their package (folder) structure intact in a compressed format. This file can not only help save space, but also increase performance. Is is very common for third party packages to have multiple <u>JAR</u> files to use.
 
+> [!TIP]
+>
+> <u>JAR</u> files are compressed using the ZIP format. This means any ZIP tool can be used to see the actual content of a <u>JAR</u> file.
+
+ 
 
 ### Setting the Class Path
 
