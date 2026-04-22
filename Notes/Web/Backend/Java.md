@@ -2220,11 +2220,9 @@ When it comes to actually accessing the content of another package, this can be 
 >
 > Anything that is defined in the folder `java.lang` never actually needs to be imported. This is because at the top of each file during the compiling stage that line is added to the top of each f
 
-
-
 ### Module Imports
 
-
+TODO[^ModuleImports]
 
 ### Static Imports
 
@@ -2330,11 +2328,36 @@ When it comes to actually accessing the content of another package, this can be 
 
 A *flowchart* is also use to show how the code will be executed.
 
+# Extra Information
+
+## CLI Commands
+
+### javap
+
+There is a way to inspect a .class file to see how it is implemented at the byte code level by running `javap -c <ClassName>` and this will print out to the screen the content of the file in the bytecode version.
+
+
+
+## Classpath
+
+When running the command like `java` or `javac` this looks for the .class files in the following order:
+
+1. <u>Bootstrap Classes</u> --> Theses are the core java API classes located at "java.lang"
+2. <u>Extension Classes</u> --> These are the 
+3. <u>User Classes</u> --> These are the specific classes that are defined by the user that the JVM will reference to know how to use the object.
+
+For example, the class "String" is never specified, but the JVM knows places to look for it automatically. However, there is a way to specify where to actually look for these files.
+
+There is a special way to specify where the JVM should is what determines where the JVM will start looking for user defined .class files called <u>classpath</u>. There are three ways this can be set:
+
+1. Environment Variable --> In the shell, create an environment variable called "CLASSPATH" and set it 
+
 # TODO
 
 [^BufferReader]: Finish writing about the BufferReader Object
 [^ JDK]: Talk about JDK, JVM, JRE, and java CLI tools, etc
 [^OverrideMethod]: Talk about method overriding functionality
+[^ModuleImports]: Talk more about the complicated module system
 
 
 
