@@ -2256,19 +2256,44 @@ All class files can be stored in something called a <u>JAR</u> (java archive) fi
 
 ### Setting the Class Path
 
+// TODO[^CLASSPATH]
+
 
 
 ## JAR Files
 
+Instead of seting a whole bunch of files, folders, metadata, assets, etc for someone who wants to run a java program, there is a way to send a single file only called a <u>JAR</u> file. Under the hood this is just a zip file, so any zip software can be used to see what is inside this. The only files this takes is .class files.
 
+A <u>JAR</u> zip file will end with the .jar extension.
 
 ### Creating JAR Files
+
+To make a <u>JAR</u> file, this is done by doing one of two ways:
+
+1. Running `java cvf <JARName>.jar *.class` --> This is a basic <u>JAR</u> file. This means the <u>JAR</u> file itself is not runnable. This means that this is mostly just used to hold java resources that is needed in another program. For example, a folder called "EmployeeLibraray" is made and contains all the classes, assets, metadata, etc needed and there are three different project that need Employee needed content. Instead of remaking that content for each project, a <u>JAR</u> file can be made so each of those projects can use that content instead and those files inside that project can import and use content inside there without actully having to declare the content. Another project can use this by doing `java -cp <PathToJAR> <PathToMainClassFile>` so now that project can use those resources.
+2. Running `java cvfe <JARName>.jar <EntryPointFileName> *.class` --> This will make a <u>JAR</u> file, but this will be considered a runnable <u>JAR</u> file. This is an entire program that someone can run without having to know anything about the files themselves. This is more used to create a sharable program for others to use. When declaring, the big difference is the entry point (file containing the main function) has to be specified so the program knows where to start at. Once the .jar file is created is then can do `java -jar <JARName>.jar` and this will run the program.
+
+In both of these special specific flags had to be used, but there are many more that can be used and they are:
+
+| Flag | Description                                                  |
+| ---- | ------------------------------------------------------------ |
+| c    | Create a new or empty archive and adds files to it           |
+| f    | This is how to speify the <u>JAR</u> file name given. The name of this MUST be the second argument |
+| e    | Specifies the entry point to the program                     |
+| v    | Gives verbose output                                         |
+| C    | Temporary used to change the directory. This is not added to the group of flages, but is more like the -o command for gcc which is added at the end |
+| i    | Creates an index file for faster for speeding up looks in the archive file |
+| m    | Adds a manifest file to the <u>JAR</u> file                  |
+| M    | Does not create a manifest file for the entries              |
+| u    | Updates an existing <u>JAR</u> file                          |
+| x    | Extracts files from the <u>JAR</u> file. One or more specific files can be extracted or if no specific files given then everything is extracted |
+| 0    | Stores without a ZIP compress                                |
 
 
 
 ### The Manifest
 
-
+The manifest file is made in all <u>JAR</u> files which is basically metadata about the archive itself. The manifest file will always be called "MANIFEST.MF" and is located in a special subdirectory called "META-INF".
 
 ### Executable JAR Files
 
@@ -2383,6 +2408,7 @@ An example would be if the current working directory is "~/App/Test/Running" and
 [^ JDK]: Talk about JDK, JVM, JRE, and java CLI tools, etc
 [^OverrideMethod]: Talk about method overriding functionality
 [^ModuleImports]: Talk more about the complicated module system
+[^CLASSPATH]: Try to fix adding specific information there for this
 
 
 
