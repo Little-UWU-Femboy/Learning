@@ -6,5 +6,9 @@ class Main{
     	Point p = new Point(5);
 
     	System.out.println(p.p());
+    	
+    	
+    	Employee x = new Employee();
+    	System.out.println(x);
     }
 }
