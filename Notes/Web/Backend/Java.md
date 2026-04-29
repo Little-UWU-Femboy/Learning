@@ -2271,7 +2271,7 @@ A <u>JAR</u> zip file will end with the .jar extension.
 To make a <u>JAR</u> file, this is done by doing one of two ways:
 
 1. Running `java cvf <JARName>.jar *.class` --> This is a basic <u>JAR</u> file. This means the <u>JAR</u> file itself is not runnable. This means that this is mostly just used to hold java resources that is needed in another program. For example, a folder called "EmployeeLibraray" is made and contains all the classes, assets, metadata, etc needed and there are three different project that need Employee needed content. Instead of remaking that content for each project, a <u>JAR</u> file can be made so each of those projects can use that content instead and those files inside that project can import and use content inside there without actully having to declare the content. Another project can use this by doing `java -cp <PathToJAR> <PathToMainClassFile>` so now that project can use those resources.
-2. Running `java cvfe <JARName>.jar <EntryPointFileName> *.class` --> This will make a <u>JAR</u> file, but this will be considered a runnable <u>JAR</u> file. This is an entire program that someone can run without having to know anything about the files themselves. This is more used to create a sharable program for others to use. When declaring, the big difference is the entry point (file containing the main function) has to be specified so the program knows where to start at. Once the .jar file is created is then can do `java -jar <JARName>.jar` and this will run the program.
+2. Running `java cvfe <JARName>.jar <EntryPointFileName> *.class image.png` --> This will make a <u>JAR</u> file, but this will be considered a runnable <u>JAR</u> file. This is an entire program that someone can run without having to know anything about the files themselves. This is more used to create a sharable program for others to use. When declaring, the big difference is the entry point (file containing the main function) has to be specified so the program knows where to start at. Once the .jar file is created is then can do `java -jar <JARName>.jar` and this will run the program.
 
 In both of these special specific flags had to be used, but there are many more that can be used and they are:
 
@@ -2295,11 +2295,68 @@ In both of these special specific flags had to be used, but there are many more 
 
 The manifest file is made in all <u>JAR</u> files which is basically metadata about the archive itself. The manifest file will always be called "MANIFEST.MF" and is located in a special subdirectory called "META-INF".
 
-### Executable JAR Files
+> [!NOTE]
+>
+> A manifest file will not be auto created only if the flag "M" (reference table above) is given
 
+The minimum content inside each manifest file will be `Manifest-Version: 1.0`.
 
+Complex manifests can have many more entries. The manifest entries are grouped into sections. The first section in the manifest is called the main section and it applies to the whole JAR file. Subsequent entries can specify properties of named entities such as individual files, packages, or URLs. Those entries must begin with a Name entry. Sections are separated by blank lines. Those sections and anything applied to them will only affect that section.
+
+Each of the sections added in here must have a "key: value" pair. When it comes to the key section, there are certain predefined keys that can be used, so adding something random will just cause the JVM and other tools to ignore that key-pair value.
+
+> [!IMPORTANT]
+>
+> There are some fields that actually do affect the <u>JAR</u> file itself and how it works.
+
+```
+Manifest-Version: 1.0
+Created-By: 17.0.8 (Oracle Corporation)
+Main-Class: com.example.app.Main
+Class-Path: lib/dependency1.jar lib/dependency2.jar
+
+Name: com/example/app/Main.class
+SHA-256-Digest: AbCdEf1234567890
+
+Name: com/example/utils/
+Sealed: true
+
+Name: config/settings.properties
+Content-Type: text/plain
+```
+
+Some other predefined values are:
+
+| Key                          | Required | Description                                                  |
+| ---------------------------- | -------- | ------------------------------------------------------------ |
+| Manifest-Version             | Yes      | Tells the current version of the manifest file. Something simple like 1.0.0 for first iterations |
+| Created-By                   | No       | Tells who made this JAR file. Just text describing who made it |
+| Main-Class                   | Depends  | Tells which class to call to run the JAR file. This is only needed when the JAR file needs to be an executable. |
+| Class-Path                   | No       | Gives the class path to find particular files or other JAR files. Just specify class path of one or more space separated |
+| SHA-256-Digest (and similar) | No       | Used for signing and verifying JAR contents. Give the SHA as a value like 1023Abwn9 |
+| Sealed                       | No       | Prevents classes in a package from being split across multiple JARs. Gets a "true" or "false" value only |
+| Name                         | Yes      | This is needed for the second section and beyond. This tells which resource this is affecting and it can be a folder or a class itself. |
+| Content-Type                 | No       | Tells what type of content a package (folder) or file will contain |
+
+While there are many more, these are just some of the values that can be used.
+
+When it comes to actually making a custom manifest file and adding it to the <u>JAR</u> file, this is done by first creating a file called "manifest.mf" (or something like it) and then doing `jar cfm <JARFileName>.jar <ManifestFileName> <Resources>`.
+
+However, there is a way to just update the manifest file by doing `jar ufm <JARFileName>.jar <ManifestFileName>`.
+
+Documentation about [JAR](https://docs.oracle.com/en/java/javase/25/docs/specs/jar/jar.html) files is available in official documentation.
 
 ### Multi-Release JAR Files
+
+If a user is using a specific version of java (like java 25) but the other person only has access to java version 21, then that person cannot run the JAR program since they would not not have the correct JVM to run the JAR file. However, there is a way to fix so a single JAR file can have multiple versions of the same code, but can run on different versions call a <u>multi-release JAR</u> file. For example, an employee class file written in java 25 might use `IO.println()` but if someone running java 21 tried to run this it would fail. To fix this, a <u>multi-release</u> JAR file would make it so they can call the java 21 version standard code to run and get the same exact features. This is a good way to add backwards compatibility for software or libraries.
+
+This works by first having the key-value pair `Multi-Release: true` in the manifest file. The way the different version of the same classes are stored in the different versions is in the typical subdirectory "META-INF" where the manifest file itself is stored. However, this time there will be a subdirectory called "versions". Inside that folder there will be other folders named "8", "11", "17", etc for the LTS version that code it supporting or any other versions.
+
+> [!CAUTION]
+>
+> This will only work if ``Multi-Release: true`` AND the JVM is version 9+ since this is when this feature started to be supported. Otherwise this will not work.
+
+To actually create this do the use of the `--release` flag needs to be used. Right after the flag it will specify the version that this will target. This looks like `jar -uf <JARFileName>.jar --release <VersionNumber> <PathToClassVersionFiles> `. This will just 
 
 
 

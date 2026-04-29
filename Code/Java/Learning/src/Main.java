@@ -7,7 +7,6 @@ class Main{
 
     	System.out.println(p.p());
     	
-    	
     	Employee x = new Employee();
     	System.out.println(x);
     }
