@@ -2356,7 +2356,9 @@ This works by first having the key-value pair `Multi-Release: true` in the manif
 >
 > This will only work if ``Multi-Release: true`` AND the JVM is version 9+ since this is when this feature started to be supported. Otherwise this will not work.
 
-To actually create this do the use of the `--release` flag needs to be used. Right after the flag it will specify the version that this will target. This looks like `jar -uf <JARFileName>.jar --release <VersionNumber> <PathToClassVersionFiles> `. This will just 
+To actually create this do the use of the `--release` flag needs to be used. Right after the flag it will specify the version that this will target. This looks like `jar -uf <JARFileName>.jar --release <VersionNumber> <PathToClassVersionFiles> `. This will just create a folder inside the manifest for that corresponding version.
+
+The special flag `-C` is used when multiple versions for something need to be added. The way this works is right after the `-C` put the path that will contain that version of the respected code then after put the name of the class. For example, `jar cf MyProgram.jar -C bin/8 . --release 9 -C bin/9 Application.class`.
 
 
 
