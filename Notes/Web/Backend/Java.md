@@ -2348,25 +2348,42 @@ Documentation about [JAR](https://docs.oracle.com/en/java/javase/25/docs/specs/j
 
 ### Multi-Release JAR Files
 
-If a user is using a specific version of java (like java 25) but the other person only has access to java version 21, then that person cannot run the JAR program since they would not not have the correct JVM to run the JAR file. However, there is a way to fix so a single JAR file can have multiple versions of the same code, but can run on different versions call a <u>multi-release JAR</u> file. For example, an employee class file written in java 25 might use `IO.println()` but if someone running java 21 tried to run this it would fail. To fix this, a <u>multi-release</u> JAR file would make it so they can call the java 21 version standard code to run and get the same exact features. This is a good way to add backwards compatibility for software or libraries.
+If a user is using a specific version of java (like java 25) but the other person only has access to java version 21, then that person cannot run the JAR program since they would not not have the correct JVM to run the JAR file containing java 25 code. However, there is a way to fix so a single JAR file can have multiple versions of the same code, but can run on different versions call a <u>multi-release JAR</u> file. For example, an employee class file written in java 25 might use `IO.println()` but if someone running java 21 tried to run this it would fail. To fix this, a <u>multi-release</u> JAR file would make it so they can call the java 21 version standard code to run and get the same exact features.
 
-This works by first having the key-value pair `Multi-Release: true` in the manifest file. The way the different version of the same classes are stored in the different versions is in the typical subdirectory "META-INF" where the manifest file itself is stored. However, this time there will be a subdirectory called "versions". Inside that folder there will be other folders named "8", "11", "17", etc for the LTS version that code it supporting or any other versions.
+This is a good way to add backwards compatibility for software or libraries.
+
+This works by first having the key-value pair `Multi-Release: true` in the manifest file. The way the different version of the same classes are stored in the different versions is in the typical subdirectory "META-INF" where the manifest file itself is stored. However, this time there will be a subdirectory called "versions" inside that folder which contains other folders named "8", "11", "17", etc for the LTS version that code it supporting or any other versions.
 
 > [!CAUTION]
 >
 > This will only work if ``Multi-Release: true`` AND the JVM is version 9+ since this is when this feature started to be supported. Otherwise this will not work.
 
-To actually create this do the use of the `--release` flag needs to be used. Right after the flag it will specify the version that this will target. This looks like `jar -uf <JARFileName>.jar --release <VersionNumber> <PathToClassVersionFiles> `. This will just create a folder inside the manifest for that corresponding version.
+To actually create this do the use of the `--release` flag needs to be used. Right after the flag it will specify the version that this will target and the file(s) that is for it. This looks like `jar -uf <JARFileName>.jar --release <VersionNumber> <PathToClassVersionFiles> `. This will just create a folder inside the manifest for that corresponding version.
 
-The special flag `-C` is used when multiple versions for something need to be added. The way this works is right after the `-C` put the path that will contain that version of the respected code then after put the name of the class. For example, `jar cf MyProgram.jar -C bin/8 . --release 9 -C bin/9 Application.class`.
+The special flag `-C` is used when multiple versions for something need to be added. The way this works is right after the `-C` put the path that will contain that version of the respected code then after put the name of the class.
 
+```java
+jar cf MyProgram.jar \
+  -C bin/8 . \
+  --release 9 -C bin/9 Application.class \
+  --release 11 -C bin/11 Application.class
+```
 
+> The example above tells to get all base files from the folder 8 path. It also changes the classpath to version 9 and get the single "application.class" file and the same is done for the version 11. What determines which "Application.class" file to use is based on the current JVM version that is running this.
 
-### CLI Options
+>  [!NOTE]
+>
+> Under the hood, the JVM does not check each subfolder version inside the "versions" folder. It only checks ones less than or equal to the current JVM version. For example, there are folder versions 17 - 9 (nine lowest since this feature only existed from 9+) but the JVM running this is 12. The JVM will only check folder 12 - 9 and ignore folder versions 17 - 13.
 
+The JVM will search through all the version path for each class file and if it is not found then it will check the base path provided.
 
+> [!IMPORTANT]
+>
+> If functionality is added or change to an API is made, then a new version of a JAR should be made instead. Only make a multi-relase JAR file when the program just needs to execute the program in different versions and functionality is kept the same across versions.
 
 ## Documentation Comments
+
+
 
 ### Commit Insertion
 
