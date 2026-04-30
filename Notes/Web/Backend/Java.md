@@ -2395,11 +2395,176 @@ The **javadoc** command generates the HTML code based on commits written in the 
 - Public and protected fields
 - Public and protected constructors and methods
 
+The way these are written is like writing a multiline commit exccept the opening part of it has an extra *; it looks like `/** Content Here *` except this works like a multiline commit. All content that is written directly above the method, class, variable, etc can have this. That content will be assoicated the **javadoc** commit for it.
 
+For the commit, there are special things called <u>tags</u> which are just things that start with the @ symbol. The @ symbol is used to symbolize (and how it is processed) that something specific is there. For example, having `@param x is the age`. The content followed right after the @ symbol will be the <u>tag</u> and the content that is spaced after is will be the descriptor for that <u>tag</u>.
+
+There are specific <u>tag</u> names that are used to do signal what something is:
+
+| Tag          | Meaning                                                      | Example                                                    |
+| ------------ | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| @author      | Specifies the author of the class                            | `@author John Doe`                                         |
+| @version     | Provides version information                                 | `@version 1.0`                                             |
+| @param       | Describes a method parameter. Syntax is `@parame VarName Description` | `@param name the name of the user`                         |
+| @return      | Describes the return value of a method. Syntax is `@return Description` | `@return the user's full name`                             |
+| @throws      | Describes an exception thrown by a method. Syntax is `@throws ClassError Description` | `@throws IOException if an input error occurs`             |
+| @exception   | Same as @throws (older usage)                                | `@exception NullPointerException if input is null`         |
+| @see         | Adds a reference to another class or method                  | `@see String#length()`                                     |
+| @since       | Indicates when the element was introduced                    | `@since 1.5`                                               |
+| @deprecated  | Marks an element as deprecated                               | `@deprecated Use newMethod() instead`                      |
+| @link        | Inserts an inline link                                       | `Use {@link Math#max(int, int)} to get the maximum value.` |
+| @code        | Displays text in code font                                   | `{@code List<String>}`                                     |
+| @literal     | Displays text exactly as written (no HTML interpretation)    | `{@literal <T>}`                                           |
+| @inheritDoc  | Inherits documentation from superclass or interface          | `{@inheritDoc}`                                            |
+| @implSpec    | Describes implementation-specific behavior                   | `@implSpec This method runs in O(n) time.`                 |
+| @implNote    | Provides implementation notes                                | `@implNote Uses caching for performance.`                  |
+| @apiNote     | Provides API usage notes                                     | `@apiNote This method is not thread-safe.`                 |
+| @serial      | Documents default serializable fields                        | `@serial description of the field`                         |
+| @serialField | Documents ObjectStreamField components                       | `@serialField name type description`                       |
+| @serialData  | Documents data written by writeObject()                      | `@serialData Data is written in UTF-8 format.`             |
+
+It is important to know that there does not always need to be a <u>tag</u> written for the content. There can just be normal text written inside there.
+
+It is also important to know that this just translates to raw HTML. This means to add any special designs raw html can be added like normal. For example, can write `<p style="color:#FF0000;">Hello <strong>World</strong></p>` would give color to the text.
+
+For example:
+
+```java
+/**
+ * A simple class representing a bank account.
+ *
+ * <p>This class demonstrates common Javadoc tags on classes, fields,
+ * constructors, and methods.</p>
+ *
+ * @author Jane Doe
+ * @version 1.0
+ * @since 1.0
+ */
+public class BankAccount {
+
+    /**
+     * The name of the account holder.
+     */
+    private String ownerName;
+
+    /**
+     * The current balance of the account.
+     */
+    private double balance;
+
+    /**
+     * The unique account ID.
+     */
+    private final int accountId;
+
+    /**
+     * Creates a new BankAccount.
+     *
+     * @param ownerName the name of the account holder
+     * @param initialBalance the starting balance (must be &gt;= 0)
+     * @param accountId the unique account identifier
+     * @throws IllegalArgumentException if initialBalance is negative
+     */
+    public BankAccount(String ownerName, double initialBalance, int accountId) {
+        if (initialBalance < 0) {
+            throw new IllegalArgumentException("Initial balance cannot be negative");
+        }
+        this.ownerName = ownerName;
+        this.balance = initialBalance;
+        this.accountId = accountId;
+    }
+
+    /**
+     * Deposits money into the account.
+     *
+     * <p>Example usage:
+     * {@code account.deposit(100.0);}</p>
+     *
+     * @param amount the amount to deposit (must be positive)
+     * @throws IllegalArgumentException if amount is not positive
+     */
+    public void deposit(double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Deposit must be positive");
+        }
+        balance += amount;
+    }
+
+    /**
+     * Withdraws money from the account.
+     *
+     * @param amount the amount to withdraw (must be positive and &lt;= balance)
+     * @return the new balance after withdrawal
+     * @throws IllegalArgumentException if amount is invalid
+     */
+    public double withdraw(double amount) {
+        if (amount <= 0 || amount > balance) {
+            throw new IllegalArgumentException("Invalid withdrawal amount");
+        }
+        balance -= amount;
+        return balance;
+    }
+
+    /**
+     * Gets the current balance.
+     *
+     * @return the current account balance
+     * @see #deposit(double)
+     * @see #withdraw(double)
+     */
+    public double getBalance() {
+        return balance;
+    }
+
+    /**
+     * Gets the account owner's name.
+     *
+     * @return the owner's name
+     */
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    /**
+     * Gets the account ID.
+     *
+     * @return the account ID
+     */
+    public int getAccountId() {
+        return accountId;
+    }
+
+    /**
+     * Updates the account owner's name.
+     *
+     * @param newName the new owner name
+     * @deprecated Use a verified profile update system instead.
+     */
+    @Deprecated
+    public void setOwnerName(String newName) {
+        this.ownerName = newName;
+    }
+
+    /**
+     * Returns a string representation of the account.
+     *
+     * @return a string containing account details
+     * <p><b>Implementation Note:</b> This implementation is simple and not secure for real systems.</p>
+     */
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+               "ownerName='" + ownerName + '\'' +
+               ", balance=" + balance +
+               ", accountId=" + accountId +
+               '}';
+    }
+}
+```
 
 ### Class Comments
 
-
+Writting a javadoc comment for a class must have the commet come after the import statements.
 
 ### Method Comments
 
