@@ -2383,9 +2383,17 @@ The JVM will search through all the version path for each class file and if it i
 
 ## Documentation Comments
 
-
+When it comes to creating documentation for a class or even a package, instead of doing this by reading commits in code, java has a CLI command that can create an HTML page from those commits that is read in a much easier format. The CLI tool is **javadoc**.
 
 ### Commit Insertion
+
+The **javadoc** command generates the HTML code based on commits written in the follow:
+
+- Modules
+- Packages
+- Public classes and interfaces
+- Public and protected fields
+- Public and protected constructors and methods
 
 
 

@@ -84,5 +84,15 @@ public class A{
         privateMethod();
         IO.println(this.privateVar);
     }
+    /**
+     * 
+     * @param num1
+     * @param num2
+     * @return number with lots of math
+     */
+    
+    public int numbers(int num1, int num2) {
+    	return ((num1+num2) / 3) * 4 + 20 / 50;
+    }
     
 }
