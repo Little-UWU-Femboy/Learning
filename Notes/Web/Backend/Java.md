@@ -1437,8 +1437,8 @@ However, the rule above does not apply if the class is already an immutable clas
 
 There are two definitions when it comes to passing in arguments:
 
-- *Explicit* --> this is when the arguments are directly passed into the function for it to use
-- *implicit* --> these are arguments that are passed to the function without specifically declaring them.
+- <u>Explicit</u> --> this is when the arguments are directly passed into the function for it to use
+- <u>implicit</u> --> these are arguments that are passed to the function without specifically declaring them.
 
 For example, in `x.showInfo()`, the "x" would be the <u>implicit</u> and the method called would be the <u>explicit</u>. Under the hood, <u>implicit</u> arguments are passed into the method call without knowing. So the method call actually looks like `x.showInfo(x)`. The x will always be in front even if there are other arguments.
 
@@ -2564,19 +2564,21 @@ public class BankAccount {
 
 ### Class Comments
 
-Writting a javadoc comment for a class must have the commet come after the import statements.
+Writing a javadoc comment for a class must have the commit come after the import statements. Some of the best for this are **@author** and **@version**.
 
 ### Method Comments
 
-
+This must come before the method starts. The most useful <u>tags</u> for these are **@return**, **@param**, and **@throws**. Another useful one is **@deprecated**.
 
 ### Field Comments
 
-
+This comes right before each instance variable for the class.
 
 ### Package Comments
 
+When it comes to writing commits for packages themselves, this is drastically different. There are two ways to do this:
 
+1. Create a file name called `package-info.java`
 
 ### HTML Markup
 
