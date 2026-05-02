@@ -2578,15 +2578,33 @@ This comes right before each instance variable for the class.
 
 When it comes to writing commits for packages themselves, this is drastically different. There are two ways to do this:
 
-1. Create a file name called `package-info.java`
+1. Create a file name called "package-info.java". Inside here write a **javadoc** commit like normal. However, at the end of the file put the package name and that is all. The **javadoc** commit will even come before the package name.
+1. Create a file called "package.html". Inside there, put a pair of \<html\> and \<body\> tags. Inside the \<body\> tags write the description of the class.
 
-### HTML Markup
+> [!TIP]
+>
+> The first way of doing this is the more common and new way of doing this. The second way is the old school method of doing this
 
+### Custom design
 
+There is a way to have the content be inline to have more precise formatting. Put the content inside a pair of curly braces. Anything inside these will make it so the that formatting will be absolute.
 
 ### Links
 
+The `@see` and `@link` are two special tags that give the ability to give navigation around the page and make it so there can be external resources linked. However, these are both used slightly differently.
 
+- The `@see` is a block version of the HTML element.
+- The `@link` is the inline version of the HTML elements for links. The only difference is this must be placed in a pair of curly braces
+
+When it comes to actually writing the links, there are a few different ways to do this:
+
+- There is a way to do current class navigation by just putting # followed by the method name with its parameters like `#add(int x, int y)`. There is another way to do this with classes as well internally by just putting the class name like `#Employee`.
+- The way to start linking to other classes is to put the class name followed by the # and the method name or class name. This will then first navigate to that class then find the content inside there. For example, `@see Math#add(int x, int y)` or `{@link Math#add(int x, int y)}`.
+- The way to do external linking to other resource like other web pages is putting an actual pair of anchor HTML tags in there and use that like normal. For example, `@see <a href="https://youtube.com">Youtube</a>`. The same applies to using the `@link` version.
+
+> [!IMPORTANT]
+>
+> When it comes to linking to the constructor method, there is a special way to go to this and that is use `<init>()` instead of the actual method name.
 
 ### General Comments
 
