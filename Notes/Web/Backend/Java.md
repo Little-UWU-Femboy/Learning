@@ -2669,7 +2669,7 @@ public record Card(int value, Suit suit) { }
 
 # Chapter 5: Inheritance
 
-Sometimes when creating a class, but needed to declare another. However, that new class is closely related to the first class created with instance variable and methods. Instead of redeclaring declaring all the same content in the second class, there is a feature called <u>inheritance</u> that make this easier as the second class can just build on top of that first class. It will get access to all the methods and instance fields of the class it inherits from. <u>Inheritance</u> is a fundamental 
+Assume there are two classes that need to be created. However, the second class is closely related to the first class created with instance variable and methods features needed. Instead of redeclaring declaring all the same content in the second class, there is a feature called <u>inheritance</u> that make this easier as the second class can just build on top of that first class. It will get access to all the methods and instance fields of the class it inherits from. <u>Inheritance</u> is a fundamental,
 
 
 
