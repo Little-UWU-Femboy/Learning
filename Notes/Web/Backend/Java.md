@@ -2622,11 +2622,60 @@ When it comes to actually writing the links, there are a few different ways to d
 
 When creating a class, there are a few design principles that make things easier.
 
-1. <u>Always keep data private</u> --> 
+1. <u>Always keep data private</u> --> When creating instance variables for a class, always set them to private. It is better to write accessor and mutator methods (getters and setter methods) than let the user access the data itself as this would break encapsulation.
+1. <u>Always initialize fields</u> --> Not only does this ensure clearly what is going on to explicitly, but ensure that data always gets assigned to the variable; never relay on java assigning default data as it only does it sometimes.
+1. <u>Do not use many basic types in a class</u> --> To keep things cleaner and simpler to manage, always create smaller classes to hold other data that is related to each other and just add that class into the other. For example, there needs to be a "Customer" class, but instead of adding all of those variables into that customer class, just create a class called "address" and add those there. Then just create an instance variable of that object inside that "Customer" class.
 
+```java
+private String street;
+private String city;
+private String state;
+private int zip;
+```
 
+4. <u>Not all fields change data</u> --> Not all instance fields will need to be changed or accessed. For example, the hire date of someone will never need to be changed, but can be looked at. Another example is someone else trying to look access someone's social security as no one should ever need to see that, but it should be able to changed if needed.
+5. <u>Break up responsibilities</u> --> When creating a class it should only be managing one thing and not multiple different task. If something can be broken up into two separate classes then it should be done. However, make sure to not over break classes. For example, The following class has to manage two different things: a deck of cards, with its shuffle and draw methods, and a card, with the methods to inspect its value and suit. Instead, doing the second version makes it so there is a class "card" and the "CardDeck" class that contains an instance of the "card" class as seen in the second example.
+
+```java
+public class CardDeck { // bad design
+    private int[] value;
+    private int[] suit;
+
+    public CardDeck() { . . . }
+    public void shuffle() { . . . }
+    public int getTopValue() { . . . }
+    public int getTopSuit() { . . . }
+    public void draw() { . . . }
+}
+```
+
+```java
+public class CardDeck {
+    private Card[] cards;
+
+    public CardDeck() { . . . }
+    public void shuffle() { . . . }
+    public Card getTop() { . . . }
+    public void draw() { . . . }
+}
+
+public enum Suit { DIAMONDS, HEARTS, SPADES, CLUBS }
+
+public record Card(int value, Suit suit) { }
+```
+
+6. <u>Naming ideas</u> --> A good convention is that a class name should be a noun (Order), or a noun preceded by an adjective (RushOrder) or a gerund (an “-ing” word, as in BillingAddress). As for methods, follow the standard convention that accessor methods begin with a lowercase get (getSalary) and mutator methods use a lowercase set (setSalary).
+7. <u>Immutable Objects</u> --> This is when a class is created, the data inside it cannot be changed at all. If anything would need to be changed then the creation of a new object of that type would be made and returned instead. One reason this is good is the problem with mutation. It can happen concurrently when multiple threads try to update an object at the same time. The results are unpredictable. When classes are immutable, it is safe to share their objects among multiple threads. However, not all classes need to be immutable. For example, something like an "User" class will constantly be changing so having that be immutable (changing username, bio, etc) would be inefficient to actually do so.
 
 # Chapter 5: Inheritance
+
+Sometimes when creating a class, but needed to declare another. However, that new class is closely related to the first class created with instance variable and methods. Instead of redeclaring declaring all the same content in the second class, there is a feature called <u>inheritance</u> that make this easier as the second class can just build on top of that first class. It will get access to all the methods and instance fields of the class it inherits from. <u>Inheritance</u> is a fundamental 
+
+
+
+
+
+
 
 
 
