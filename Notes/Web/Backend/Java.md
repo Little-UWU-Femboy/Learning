@@ -1219,7 +1219,7 @@ These key characteristics can influence each other. For example, the state of an
 
 When it comes to naming conventions, classes are typically named with nouns using *PascalCase*, such as Item, Order, or Payment. When naming methods for an object, verbs are used in *camelCase*. For instance, if a class is named Item, a method might be named add. When expressed in a sentence, it would be: "An add action is performed on an Item object." Variables also follow *camelCase* but use nouns, such as itemPrice, while constants are written in ALL_CAPS to indicate the value never changes.
 
-### Relationships Between Classes
+### 
 
 When it comes to relationship between classes, there are different ways they can be linked. Depending on the type can affect how the system depends on other resources. The relationship types are:
 
@@ -2669,7 +2669,9 @@ public record Card(int value, Suit suit) { }
 
 # Chapter 5: Inheritance
 
-Assume there are two classes that need to be created. However, the second class is closely related to the first class created with instance variable and methods features needed. Instead of redeclaring declaring all the same content in the second class, there is a feature called <u>inheritance</u> that make this easier as the second class can just build on top of that first class. It will get access to all the methods and instance fields of the class it inherits from. <u>Inheritance</u> is a fundamental,
+Assume there are two classes that need to be created. However, the second class is closely related to the first class created with instance variable and methods features needed, but just needs minor things different. Instead of redeclaring declaring all the same content in the second class, there is a feature called <u>inheritance</u> that make this easier as the second class can just build on top of that first class. It will get access to all the methods and instance fields of the class it inherits from. <u>Inheritance</u> the fundamental building block of OOP programming. For example, say there is a class called "employee" and this has all the information like age, DOB, salary, etc and the methods associated with them. There is another class called "manager" that needs to be created, but it will have all of those same instance fields. Instead of recreating those in the "manager" class, just have that inherit from the "employee" class and then add the extra instance fields and methods that it needs.
+
+> In the example, the manager class is-a employee. This here is reference to earlier [section](#relationships-between-classes) describing relationships between classes.
 
 
 
