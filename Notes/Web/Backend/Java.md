@@ -6,7 +6,7 @@
 
 All java files will have the .java extension.
 
-When it comes to downloading the java versions, there are *different* terminology used for this.
+When it comes to downloading the java versions, there are *different*  terminology used for this.
 
 | Name                     | Acronym | Description                                                  |
 | ------------------------ | ------- | ------------------------------------------------------------ |
@@ -1368,14 +1368,14 @@ When it comes to accessing instance fields and methods of objects, this can be b
 3. **public** --> This makes it so this can be accessed from any where and anything. This means that once an object instance of this type is declared, that variable or method can be used.
 4. default --> This is when no access modifier is put on the variable/method. By default this will then make all so that variable and method can only be accessed thought the class and current package.
 
-A more visual look of this is with a table below
+A more visual look of this is with a table below:
 
-| Access Modifier       | Class | Package | Subclass | World |
-| --------------------- | ----- | ------- | -------- | ----- |
-| private               | Yes   | No      | No       | No    |
-| default (no modifier) | Yes   | Yes     | No       | No    |
-| protected             | Yes   | Yes     | Yes      | No    |
-| public                | Yes   | Yes     | Yes      | Yes   |
+| Modifier  | Class | Package (Same) | Package (Different) | Subclass (Same Package) | Subclass (Different Package) | World |
+| --------- | ----- | -------------- | ------------------- | ----------------------- | ---------------------------- | ----- |
+| public    | Yes   | Yes            | Yes                 | Yes                     | Yes                          | Yes   |
+| protected | Yes   | Yes            | No                  | Yes                     | Yes                          | No    |
+| default   | Yes   | Yes            | No                  | Yes                     | No                           | No    |
+| private   | Yes   | No             | No                  | No                      | No                           | No    |
 
 The actual access modifier keyword will be placed before the date type of the variable data type and method return type like `private String info()`.
 
@@ -2677,15 +2677,57 @@ Assume there are two classes that need to be created. However, the second class 
 
 ### Defining Subclasses
 
-To implement <u>inheritance</u>, the use of the keyword **extends**. The way this works doing `class <NewClass> extends <ClassToInherit>`. This makes it so the new class will inherit all the methods and instance fields from that class. However, this is where the page about [Access Modifiers](#Access-Modifiers) coms into play.
+To implement <u>inheritance</u>, the use of the keyword **extends**. The way this works doing `class <NewClass> extends <ClassToInherit>`. This makes it so the new class will inherit all the methods and instance fields from that extended class. However, this is where the page about [Access Modifiers](#Access-Modifiers) comes into play with how subclass can inherit methods and instance variables.
+
+> [!NOTE]
+>
+> The existing class that has its methods and variables taken is called the "parent", "base" or "super class". The class that inherits from the "parent" class is called a "subclass", "child class", or "derived class". For example, is Employee class exist and a new class called "Manager" does `class Manager extends Employee` then the "Manager" is the child class and the "Employee" is the parent class.
+
+Is is import to know that a subclass should always have more features compared to the superclass. This is because the subclass just wants to build on top of what was already made by the superclass.
+
+```java
+class Employee{
+    private name = "Jack";
+    Employee(){
+    	// ...
+    }
+    
+    void display(){
+        System.out.println("Hello");
+    }
+}
+```
+
+```java
+class Manager extends Employee{
+    // variables
+    Manager(){
+        // ...
+    }
+    
+    void displayTwo(){
+        System.out.println("Hello Two");
+    }
+}
+```
+
+```java
+class Main{
+    Manager x = new Manager();
+    Employee y = new Employee();
+    
+    x.display();
+    x.displayTwo();
+    y.display();
+    // y.displayTwo();
+}
+```
+
+> In this example, since the Manager class extends from the Employee class, the Manager class not only has access to the `displayTwo()` version created in its own class, but also the `display()` version in the Employee. However, the Employee class will not have access to the `displayTwo()` version. One big thing is even though Manager got access to that method, it does not have access to the private name variable declared in Employee because private variables are only accessable in the class it was declared in. Make sure to use the table in [Access Modifier](#Access-Modifier) to see more about the content.
 
 
 
 
-
-
-
-A *flowchart* is also use to show how the code will be executed.
 
 # Extra Information
 

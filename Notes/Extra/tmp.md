@@ -1,52 +1,8 @@
-# Computer Science & Programming Learning Roadmap
-
-## 1. Programming Languages
-- **Python** – general-purpose, data science, backend
-- **Java** – backend, enterprise applications, Android
-- **C++** – systems programming, performance-critical apps
-- **TypeScript** – modern frontend, web development
-
-## 2. Frontend Development
-- **HTML** – structure of web pages
-- **CSS** – styling web pages
-- **React** – frontend framework for interactive UIs
-
-## 3. Backend & Databases
-- **SQL** – querying relational databases
-- **Database Design** – normalization, relationships, ER diagrams
-- **AWS** – cloud infrastructure (EC2, S3, Lambda, RDS)
-- **Nginx** – web server, reverse proxy
-- **Docker** – containerization
-- **Kubernetes** – orchestration of containers
-
-## 4. Data Science / Machine Learning
-- **Numpy** – numerical computing
-- **Pandas** – data manipulation and analysis
-- **Matplotlib** – data visualization
-- **PyTorch** – machine learning / deep learning
-- **Excel** – data manipulation, basic analysis
-- **Scikit-learn** (optional) – classical ML algorithms
-
-## 5. Mathematics
-- **Discrete Math** – logic, sets, combinatorics, graph theory
-- **Linear Algebra** – vectors, matrices, transformations
-- **College Algebra** – functions, equations, polynomials
-- **Calculus** – derivatives, integrals, series
-
-## 6. Computer Science Fundamentals
-- **Data Structures & Algorithms** – arrays, linked lists, trees, graphs, sorting, searching
-- **Computer Architecture** – CPU, memory, instruction sets
-- **Concurrency** – threads, processes, synchronization
-- **System Design** – designing scalable, reliable systems
-- **Software Architecture** – design patterns, modular design
-
-## 7. Operating Systems / DevOps / Networking
-- **Linux** – commands, shell scripting, file systems
-- **Networking Basics (Internet Focus)** – TCP/IP, HTTP, DNS, routing
-- **CI/CD Basics** (optional) – GitHub Actions, Jenkins
-- **Version Control (Git)** – repositories, branches, merges
-
-## 8. Optional / Advanced Topics
-- **Security Basics** – HTTPS, encryption, authentication
-- **Distributed Systems Concepts** – CAP theorem, consensus, replication
-- **Monitoring / Logging** – Prometheus, Grafana
+1. <u>Customer Segment Stability</u> --> Which customer segment (Local vs. Non-Local) provides the most consistent revenue stream across different months or seasonal shifts?
+2. <u>Operational Efficiency and Labor Profit Equilibrium</u> --> At what specific daily labor cost threshold does the operating profit begin to diminish, indicating an overstaffing issue?
+3. <u>Menu Category Performance</u> --> Which specific menu categories act as the strongest indicators for high-revenue periods, allowing for optimized inventory procurement?
+4. C<u>hannel-Specific Profitability</u> --> How does the gross profit margin compare between delivery orders and in-person dining, and which channel should be prioritized for growth? 
+5. <u>ROI of Promotional Discount</u> --> Do promotional discounts result in a statistically significant increase in total revenue, or do they primarily erode the gross profit margin? 
+6. <u>Strategic Workforce Planning</u> --> Can staff hourly rates and roles be optimized against forecasted busy periods to maximize the labor efficiency ratio? 
+7. <u>Model Performance Comparison</u> --> How does the predictive accuracy of a traditional Decision Tree compare to a Random Forest and a temporal LSTM model when using 10 years of historical data?
+8. <u>2025–2026 Profit Forecasting</u> --> Can an accurate regression-based temporal model be trained to forecast daily and monthly profits for the 2025 and 2026 fiscal years?
