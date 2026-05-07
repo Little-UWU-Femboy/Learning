@@ -2723,7 +2723,7 @@ class Main{
 }
 ```
 
-> In this example, since the Manager class extends from the Employee class, the Manager class not only has access to the `displayTwo()` version created in its own class, but also the `display()` version in the Employee. However, the Employee class will not have access to the `displayTwo()` version. One big thing is even though Manager got access to that method, it does not have access to the private name variable declared in Employee because private variables are only accessable in the class it was declared in. Make sure to use the table in [Access Modifier](#Access-Modifier) to see more about the content.
+> In this example, since the Manager class extends from the Employee class, the Manager class not only has access to the `displayTwo()` version created in its own class, but also the `display()` version in the Employee. However, the Employee class will not have access to the `displayTwo()` version. One big thing is even though Manager got access to that method, it does not have access to the private name variable declared in Employee because private variables are only accessible in the class it was declared in. Make sure to use the table in [Access Modifier](#Access-Modifier) to see more about the content.
 
 ## Method Overriding
 
@@ -2825,7 +2825,60 @@ class Main{
 
 ## Subclass Constructor
 
-When a subclass inherits from the superclass, it does not inherit the private data fields. However, they can still be accessed and used, but through different means. 
+When a subclass inherits from the superclass, it does not inherit the private data fields. However, they can still be accessed and used, but through different means. For example, if the subclass has a parent with private fields then they cannot be given a value in the constructor like normal. Instead, the `super()` method must be used. This signals to the JVM to call the parent constructor so it can initialize the values. For that method pass in the parameters, like a normal constructor, to get it to work. After, the subclass constructor can continue to declare the data inside its constructor. For Example:
+
+```java
+public Manager(String name, double salary, int year, int month, int day) {
+    super(name, salary, year, month, day);
+    bonus = 0;
+}
+```
+
+Once done then those variables will get a value that can then only be accessed through the interface of the superclass methods. For example, cannot create a method in the subclass `getSalary()` if that variable was created in the superclass because only the superclass has access to it. To access it declare that method inside the superclass and then the subclass can do `super.getSalary()`.
+
+> [!IMPORTANT]
+>
+> Before java 25, the `super()` constructor method had to be called as the first thing in the subclass constructor. In java 25+ this is no longer the case as this can now be declared anywhere in the constructor. However, just like before in [chapter 4](#Chapter-4:-Objects-and-Classes) there can only be limited things done when it comes to accessing any of the instance fields variables. They cannot be read (printed) or used (math) in any way. For example:
+>
+> ```java
+> public class Manager extends Employee{
+> 	boolean isNice = false;
+> 	
+> 	Manager(String name, int age, int salary){
+> 		System.out.println(isNice); // NOT allowed as the super() must be called first
+> 		super(name, age, salary);
+> 	}
+> }
+> ```
+>
+> > Here it is trying to read from the data field of that type, but even though this has a value, it still cannot be read because the object is technically not declared yet.
+
+If there is no `super()` declared in the subclass constructor, then the superclass must have an no argument constructor from the superclass that must exist. This is because java will automatically insert the `super()` inside the subclass constructor no matter what. This means that there must always be a call to the superclass constructor even if all data fields in it are public and given a value in the subclass constructor. If the superclass would not contain an no argument constructor then a compile time error will occur. For example:
+```java
+class Child extends Parent {
+    Child() {
+        // super();
+        // If this is not called explicitly then java will automatically insert this anyways just like this
+        System.out.println("Child constructor");
+    }
+}
+```
+
+
+
+There is something 
+
+## Inheritance Hierarchies
+
+
+
+## Polymorphism
+
+
+
+## Understanding Method Calls
+
+## Preventing Inheritance: Final Class and Methods
 
 
 

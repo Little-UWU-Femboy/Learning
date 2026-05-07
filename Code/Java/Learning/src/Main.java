@@ -1,9 +1,6 @@
 class Main{
     public static void main(String[] args){
-    	//Employee tmp = new Employee();
-    	var x = new Manager();
-    	
-    	x.displaySalary();
-    	System.out.println("WORKING");
+    	var x = new Manager(null, 0, 0);
+    	System.out.println(x);
     }
 }
