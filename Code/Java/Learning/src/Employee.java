@@ -9,9 +9,9 @@ public class Employee{
 		this.salary = salary;
 	}
 	
-	Employee(){
+	/*Employee(){
 		this("Jack", 50, 500);
-	}
+	}*/
 	
 	private int salaryIncrease() {
 		this.salary+=300;

@@ -1215,7 +1215,7 @@ However, the state of an object does not completely describe it, because each ob
 
 These key characteristics can influence each other. For example, the state of an object can influence its behavior. (If an order is “shipped” or “paid,” it may reject a method call that asks it to add or remove items. Conversely, if an order is “empty”—that is, no items have yet been ordered—it should not allow itself to be shipped.)
 
-### Idenifying Classes
+### Identifying Classes
 
 When it comes to naming conventions, classes are typically named with nouns using *PascalCase*, such as Item, Order, or Payment. When naming methods for an object, verbs are used in *camelCase*. For instance, if a class is named Item, a method might be named add. When expressed in a sentence, it would be: "An add action is performed on an Item object." Variables also follow *camelCase* but use nouns, such as itemPrice, while constants are written in ALL_CAPS to indicate the value never changes.
 
@@ -1223,7 +1223,7 @@ When it comes to naming conventions, classes are typically named with nouns usin
 
 When it comes to relationship between classes, there are different ways they can be linked. Depending on the type can affect how the system depends on other resources. The relationship types are:
 
-- *dependance* (uses-a) --> when another class uses a different class as one of its parameters in its methods. This can be though of as "Order uses a Item" becase Order relies on the Item class to check the status of an item, but the Account class does not since it does not need to track items. Thus, a class depends on another class if its methods use or manipulate objects of that class. It is important that this is minimized since this can lead to bug errors and changing either of the classes. This usage of classes it called *coupling*.
+- *dependance* (uses-a) --> when another class uses a different class as one of its parameters in its methods. This can be though of as "Order uses a Item" because Order relies on the Item class to check the status of an item, but the Account class does not since it does not need to track items. Thus, a class depends on another class if its methods use or manipulate objects of that class. It is important that this is minimized since this can lead to bug errors and changing either of the classes. This usage of classes it called *coupling*.
 - *Aggregion* (has-a) --> This is when one class needs another class as an *instance variable*. For example, the Order class has an Item.
 - *Inheritance* (is-a) --> This is used to express relationships between special or general class. For example, the class RushOrder is an Order class. This means that the RushOrder class got all the methods and instance variables from the other class. The class that inhreits from another should extend the functionality of the previous class. For example, there can be a general class called Employee, but a class Boss, Manager, and Underwriter inherit all the infomration from the Employee class, but also extends that by adding more methods and instance variables.
 
@@ -1235,7 +1235,7 @@ Learn how to make [UML diagrams](https://www.youtube.com/watch?v=WnMQ8HlmeXc).
 
 ## Using Predefined Classes
 
-### Objects and Object Vartiables
+### Objects and Object Variables
 
 To work with objects, their initial state has to first be established. This is done by using something called a *constructor*. This is just a special method that is used to create an object in memory and give that object the specified state values for that object instance. When creating the constructor method, this will always have the same exact name as the class itself.
 
@@ -1258,9 +1258,9 @@ There is a way to signal that an object does not point to anything in memory by 
 
 ### The LocalDate Class
 
-There is a class called "Date" that is in the package `java.util.Date`. This is used when wanting to work with date and time data. There is also another class called "LocalDate"  located at `java.time.LocalDate`. The two are used in different cases becaue they function differently. The first is used to represent a point in time,  while the other is used to express days in a familer notion to reading a normal calander.
+There is a class called "Date" that is in the package `java.util.Date`. This is used when wanting to work with date and time data. There is also another class called "LocalDate"  located at `java.time.LocalDate`. The two are used in different cases because they function differently. The first is used to represent a point in time,  while the other is used to express days in a familiar notion to reading a normal calendar.
 
-The "Date" object has a constrctor that can be called that does auto creates all the information if nothing is passed in. However, to specifiy initial state data, this will take the values.
+The "Date" object has a constrictor that can be called that does auto creates all the information if nothing is passed in. However, to specify initial state data, this will take the values.
 
 The "LocalDate" object does not have a constructor that is called. Instead, it has a static *factory method* called `now` that will return the data information for the current date. This will then also have access to special instance methods that can be used to work with that information. This class also has other *factory methods* that can be called and inside those they call all the needed constructors.
 
@@ -2725,9 +2725,103 @@ class Main{
 
 > In this example, since the Manager class extends from the Employee class, the Manager class not only has access to the `displayTwo()` version created in its own class, but also the `display()` version in the Employee. However, the Employee class will not have access to the `displayTwo()` version. One big thing is even though Manager got access to that method, it does not have access to the private name variable declared in Employee because private variables are only accessable in the class it was declared in. Make sure to use the table in [Access Modifier](#Access-Modifier) to see more about the content.
 
+## Method Overriding
 
+There are times when a superclass will have a method that the subclass needs to use, but the version implemented in the superclass is not how the subclass want it to work. In this case, there is a way for the subclass to make its own version of that method with the same name and parameters called <u>overriding</u>.
 
+> [!NOTE]
+>
+> <u>Overriding</u> and <u>overloading</u> are different. <u>Overloading</u> is when two or more methods with the same name are created and each has different parameters called the method signature. However, <u>overriding</u> is when a subclass takes the parent method version with the same method signature and redesigns it.
 
+The way this is done is adding a special thing called a <u>marker annotation</u>. These are special, to say, symbols that help the JVM identify something in a the code for better checking. Each of the annotations will being with a @ followed by text for that annotation. The special annotation to use here is **@override**. This will go the line before the function is declared.
+
+```java
+class Employee{
+    public Employee(){
+        //
+    }
+    
+    void display(){
+        System.out.println("I AM AN EMPLOYEE");
+    }
+}
+```
+
+```java
+class Manager extends Employee{
+    public Manager(){
+        //
+    }
+    
+    @override
+    void display(){
+        System.out.println("I AM A MANAGER");
+    }
+}
+```
+
+```java
+class Main{
+    public static void main(String){
+        var x = new Manager();
+        var y = new Employee();
+        x.display(); // prints "I AM A MANAGER"
+        y.display(); // prints "I AM AN EMPLOYEE"
+    }
+}
+```
+
+> The method `display()` was created in the Employee class. However, the Manager class does not want that version since it prints the wrong information. To change this a version of the same method is created in the Manger class to make this override the version that was inherited in the Employee superclass. Now when 
+
+> [!IMPORTANT]
+>
+> Even if the @override is left out, this will still override the method in the subclass. However, this symbol signals to the compiler to do a validation check that the method (with same signature) exist in the superclass version. If it does not then there is a compilation error, but if it does find it then it compiles like normal. A big example is the `toString()` method. This is a special method that is part of the "Object" class that each class created will ever have. If not overridden then when trying to print an object itself, this will just return the memory address location of that object because secretly under the hood that method is called on that object when it tries to print the information. If this is overridden then a special version of that will be called. The main point of this is if the method is accidently typed like `tostring()` then this will not catch that error.
+
+There are times when a method is inherited, the way it was designed to work was with the private fields of the super class only. Because of this, calling that method will not work. Even trying to override it will not work because those original instance fields are private. To get around this can all the super class implementation of the method and get access to that classes fields (private or not) there is a keyword called **super**. This works just like the **this** keyword except this is used to call methods only from the super class with their respected version of the method implementation. For example:
+
+```java
+class Employee{
+    private double salary;
+    private String name;
+    
+    public Employee(double salary, String name){
+        this.salary = salary;
+        this.name = name;
+    }
+    
+    void display(){
+        System.out.println("My name is " + this.name + " and I make " + "$" +this.salary);
+    }
+}
+```
+
+```java
+class Manager extends Employee{
+    public Manager(){}
+}
+```
+
+```java
+class Main{
+    public static void main(String){
+        var x = new Manager();
+        var y = new Employee(4340.43);
+        x.display(); // Causes error becasue access to those instnace fields is not allowed even if override is given
+        y.display(); // prints --> My name is Jack and I make $4340.4
+    }
+}
+```
+
+> The above code will error out because the Manager tries to call a method that is trying to access private variables in the super class. Even if an overridden version of this was made, the subclass can still not access those fields. Because of this the method needs to use `super.display()` instead in the overridden version of that method. Even if that methods has the same name this is specifically telling the JVM to look at the super class version of this method and not the current one. If it did look at the current class version then this would cause an infinite loop.
+>
+> ```java
+> @override
+> void display(){
+> 	super.dispay();
+> }
+> ```
+>
+> 
 
 # Extra Information
 

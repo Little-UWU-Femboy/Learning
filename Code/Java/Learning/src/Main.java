@@ -1,13 +1,9 @@
 class Main{
     public static void main(String[] args){
-    	Employee tmp = new Employee();
-    	tmp.wrapper();
-
-    	Point p = new Point(5);
-
-    	System.out.println(p.p());
+    	//Employee tmp = new Employee();
+    	var x = new Manager();
     	
-    	Employee x = new Employee();
-    	System.out.println(x);
+    	x.displaySalary();
+    	System.out.println("WORKING");
     }
 }
