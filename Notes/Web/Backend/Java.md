@@ -2675,7 +2675,7 @@ Assume there are two classes that need to be created. However, the second class 
 
 
 
-### Defining Subclasses
+## Defining Subclasses
 
 To implement <u>inheritance</u>, the use of the keyword **extends**. The way this works doing `class <NewClass> extends <ClassToInherit>`. This makes it so the new class will inherit all the methods and instance fields from that extended class. However, this is where the page about [Access Modifiers](#Access-Modifiers) comes into play with how subclass can inherit methods and instance variables.
 
@@ -2822,6 +2822,12 @@ class Main{
 > ```
 >
 > 
+
+## Subclass Constructor
+
+When a subclass inherits from the superclass, it does not inherit the private data fields. However, they can still be accessed and used, but through different means. 
+
+
 
 # Extra Information
 
