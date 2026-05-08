@@ -2864,8 +2864,6 @@ class Child extends Parent {
 }
 ```
 
-
-
 There is something 
 
 ## Inheritance Hierarchies
