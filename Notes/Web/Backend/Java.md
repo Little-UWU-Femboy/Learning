@@ -2857,22 +2857,76 @@ If there is no `super()` declared in the subclass constructor, then the supercla
 ```java
 class Child extends Parent {
     Child() {
-        // super();
         // If this is not called explicitly then java will automatically insert this anyways just like this
+        // super();
         System.out.println("Child constructor");
     }
 }
 ```
 
-There is something 
+There is a topic called <u>polymorphism</u>. This is a big topic that will be talked more about later, but for now it is important to know that polymorphism allows for a single object type to refer and be assigned to multiple different objects. For example, the Employee object can be assigned an object of type Manager. This is really good because something called <u>dynamic binding</u> where even if the Employee is assigned to a type Manager, it will know which correct method type to use.
+
+```java
+class Main{
+    public static void main(String[] args){
+        Employee x = new Manager();
+        x.display(); // This will call the version of the Manager override method and not the version of Employee 
+    }
+}
+```
 
 ## Inheritance Hierarchies
 
+When <u>inheritance</u> is done multiple times over and over again, especially on class that inherit from others, this can make an <u>inheritance hierarchy</u>. This is a way to see what classes get what in a more visual way. The chain from a particular class going up is called the <u>inheritance chain</u>.
 
+```mermaid
+classDiagram
+    Employee <|-- Manager
+    Employee <|-- Security
+    Employee <|-- Programmer
+    Manager <|-- Executive
+```
+
+- Manager IS-AN Employee
+- Security IS-AN Employee
+- Programmer IS-AN Employee
+- Executive IS-A Manager
+- therefore Executive IS-AN Employee
 
 ## Polymorphism
 
+When it comes to deciding if inheritance is a good design for a class, there is the is-a rule that states "every object of the subclass is an object of the superclass" which basically means that the subclass is just a more specific version of the superclass, so anything created from the subclass also counts as the superclass. For example, every manager is an employee. Thus, it makes sense for the Manager class to be a subclass of the Employee class. Naturally, the opposite is not true; not every employee is a manager.
 
+Another way of formulating the is–a rule is the <u>substitution principle</u>. That principle states that a subclass object can be used in place whenever the program expects the respected superclass object. For example:
+
+```java
+Employee e;
+e = new Employee(); // Employee object expected
+e = new Manager(); // OK, Manager can be used as well
+```
+
+> Here, an object of type Employee is made. This was able to be assigned to an instance of Employee because it matches its type. However, it is also able to be assigned to an instance of type Manager. Even though Manager is the subclass of Employee, it still counts as an Employee as well. Employee can also be assigned to an object of type Security and Programmer. Even though Executive is a subclass of Manger; a Manager is an Employee, therefore Executive is an Employee as well.
+>
+> This will always work because the Manager will inherit all methods from the Employee class. This means that the Employee object can call the methods like normal or access variables (if scope allows) and if a method is called it will use <u>dynamic binding</u> to see if it calls the Employee version of it, but if the Manger has an overloaded version of this then it will call the Manager version.
+
+Another example is:
+
+```java
+Manager boss = new Manager();
+Security tech = new Security();
+Executive ceo = new Executive();
+
+Employee[] staff = new Employee[3];
+staff[0] = boss;
+staff[1] = tech;
+staff[2] = ceo;
+```
+
+> Here, a Manager, Executive, and Security object is created and instantiated. However, instead of creating a separate array for each respected type, <u>polymorphism</u> can be used here so an array holding type Employee can be used. This in turn can hold all three of those different object types that are descendants of type Employee. Even though the variable "boss" and the staff[0] refer to the same object in memory, the staff[0] version is only considered to be of type Employee by the compiler.
+>
+> This means that if there is a certain method only in the Manager object the staff[0] version cannot call it because it is considered an Employee object which does not have access to that method in its class.
+
+It is important to know that a superclass object cannot be assigned any object that is a subclass of it. Referencing back to the example diagram, a Manager is-a Employee, but an Employee is not an Manager. A good way to remember this rule is anything that is a descendant of the current class hierarchy spot then it can be assigned to that superclass. However, subclasses can not be assigned equal to things above it in the hierarchy. For example, a Manger object cannot be assigned equal to 
 
 ## Understanding Method Calls
 
