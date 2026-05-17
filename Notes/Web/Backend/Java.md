@@ -2926,7 +2926,11 @@ staff[2] = ceo;
 >
 > This means that if there is a certain method only in the Manager object the staff[0] version cannot call it because it is considered an Employee object which does not have access to that method in its class.
 
-It is important to know that a superclass object cannot be assigned any object that is a subclass of it. Referencing back to the example diagram, a Manager is-a Employee, but an Employee is not an Manager. A good way to remember this rule is anything that is a descendant of the current class hierarchy spot then it can be assigned to that superclass. However, subclasses can not be assigned equal to things above it in the hierarchy. For example, a Manger object cannot be assigned equal to 
+It is important to know that a superclass object cannot be assigned any object that is a subclass of it. Referencing back to the example diagram, a Manager is-a Employee, but an Employee is not an Manager. A good way to remember this rule is anything that is a descendant of the current class hierarchy spot then it can be assigned to that superclass. However, subclasses can not be assigned equal to things above it in the hierarchy. For example, a Manger object cannot be assigned equal to Employee objects, but it Employee object can be assigned equal to Manger objects.
+
+> [!NOTE]
+>
+> There is a very particular thing that can happen. 
 
 ## Understanding Method Calls
 
