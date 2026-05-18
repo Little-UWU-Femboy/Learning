@@ -2930,7 +2930,7 @@ It is important to know that a superclass object cannot be assigned any object t
 
 > [!NOTE]
 >
-> There is a very particular thing that can happen. 
+> There is a very particular thing that can happen. When creating the 
 
 ## Understanding Method Calls
 
