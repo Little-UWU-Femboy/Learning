@@ -2930,7 +2930,7 @@ It is important to know that a superclass object cannot be assigned any object t
 
 > [!NOTE]
 >
-> There is a very particular thing that can happen. When creating the 
+> There is a very particular thing that can happen. When creating an array of an object type that contains all subclass types and another that is the super class version, the subclass who array can be assigned to the superclass
 
 ## Understanding Method Calls
 
