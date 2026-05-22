@@ -2929,10 +2929,44 @@ staff[2] = ceo;
 It is important to know that a superclass object cannot be assigned any object that is a subclass of it. Referencing back to the example diagram, a Manager is-a Employee, but an Employee is not an Manager. A good way to remember this rule is anything that is a descendant of the current class hierarchy spot then it can be assigned to that superclass. However, subclasses can not be assigned equal to things above it in the hierarchy. For example, a Manger object cannot be assigned equal to Employee objects, but it Employee object can be assigned equal to Manger objects.
 
 > [!NOTE]
+> In Java, arrays are covariant, meaning a subclass array like `Manager[]` can be assigned to a superclass reference like `Employee[]`. However, both variables still reference the same array, so Java keeps track of the original array type at runtime. Because of this, trying to store an `Employee` object inside an array that was originally created as `new Manager[10]` will compile successfully but throw an `ArrayStoreException` at runtime to prevent invalid objects from being stored in the array.
 >
-> There is a very particular thing that can happen. When creating an array of an object type that contains all subclass types and another that is the super class version, the subclass who array can be assigned to the superclass
+> ```java
+> class Employee {
+>     String name;
+> 
+>     Employee(String name) {
+>         this.name = name;
+>     }
+> }
+> 
+> class Manager extends Employee {
+>     Manager(String name) {
+>         super(name);
+>     }
+> 
+>     void setBonus(int bonus) {
+>         System.out.println("Bonus: " + bonus);
+>     }
+> }
+> 
+> public class Main {
+>     public static void main(String[] args) {
+> 
+>         Manager[] managers = new Manager[2];
+> 
+>         Employee[] staff = managers; // Allowed because arrays are covariant
+> 
+>         staff[0] = new Employee("Harry"); // Compiles, but throws ArrayStoreException
+>     }
+> }
+> ```
+
+
 
 ## Understanding Method Calls
+
+When a method is called on an object, 
 
 ## Preventing Inheritance: Final Class and Methods
 
