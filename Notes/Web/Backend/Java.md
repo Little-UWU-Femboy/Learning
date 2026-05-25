@@ -2966,7 +2966,9 @@ It is important to know that a superclass object cannot be assigned any object t
 
 ## Understanding Method Calls
 
-When a method is called on an object, 
+When a method is called on an object, it has an order to do this.
+
+1. Looks at that current object types declaration and see if the method or an overrided version exists there. If it does then it calls 
 
 ## Preventing Inheritance: Final Class and Methods
 
