@@ -2966,9 +2966,12 @@ It is important to know that a superclass object cannot be assigned any object t
 
 ## Understanding Method Calls
 
-When a method is called on an object, it has an order to do this.
+When it comes to how a method is applied to an object, here are the steps taken:
 
-1. Looks at that current object types declaration and see if the method or an override version exists there. If it does then it calls 
+1. When a method like `x.f("Hello")` is called, the compiler checks the class type of `x` and searches for all available methods named `f` in that class and its parent classes. It looks at the data types of the arguments being passed (like a `String` vs. an `int`) to find the single best match, a process known as overloading resolution. If no match is found, or if the match is ambiguous due to automatic type conversions, the compiler throws an error.
+2. A method's signature consists of its name and its parameter types (e.g., `f(int)`), which uniquely identifies it to the compiler; the return type is not included in this signature. If a subclass defines a method with the exact same signature as one in its parent class, it overrides that method. While overriding, the return type must remain compatible, meaning a subclass can narrow the return type to a more specific subclass, which is known as a covariant return type.
+3. If a method is marked as `private`, `static`, `final`, or is a constructor, the compiler determines the exact method to run ahead of time, which is called static binding. For all other methods, the decision is postponed until the program runs because the true identity depends on the specific object type at runtime, which is called dynamic binding.
+4. During dynamic binding, the Java Virtual Machine (JVM) must find the correct method version by checking the actual object type, searching from the current subclass upward through its parent classes. To avoid wasting time repeating this search during every single method call, the JVM creates a "method table" for each class ahead of time. This table acts as a quick-reference cheat sheet, allowing the program to instantly look up and execute the correct method.
 
 ## Preventing Inheritance: Final Class and Methods
 
