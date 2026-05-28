@@ -2973,6 +2973,10 @@ When it comes to how a method is applied to an object, here are the steps taken:
 3. If a method is marked as `private`, `static`, `final`, or is a constructor, the compiler determines the exact method to run ahead of time, which is called static binding. For all other methods, the decision is postponed until the program runs because the true identity depends on the specific object type at runtime, which is called dynamic binding.
 4. During dynamic binding, the Java Virtual Machine (JVM) must find the correct method version by checking the actual object type, searching from the current subclass upward through its parent classes. To avoid wasting time repeating this search during every single method call, the JVM creates a "method table" for each class ahead of time. This table acts as a quick-reference cheat sheet, allowing the program to instantly look up and execute the correct method.
 
+When wanting to <u>override</u> a method from the superclass in the subclass, it is important that it has at least the same scope visibility as the superclass version as not doing so will cause an compile time error to occur. For example, if the superclass version has protected, then the subclass override version can have it protected or public, but not private.
+
+
+
 ## Preventing Inheritance: Final Class and Methods
 
 
