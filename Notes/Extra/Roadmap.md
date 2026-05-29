@@ -1,69 +1,122 @@
 # Full Stack Engineering Roadmap
 
-### Phase 1: The Foundations (Web & Logic)
+## Phase 1: The Job-Ready Launchpad (Weeks 1–16)
 
+### Weeks 1–2: Frontend Foundations & Utility Styling
 
+- Core Focus: Re-activating foundational web execution knowledge and adopting utility-first styling workflows.
+- Topics:
+    - [ ] HTML5
+    - [ ] CSS3
+    - [ ] Vanilla JavaScript
+    - [ ] Tailwind CSS
+- End Goal: Mastery of creating responsive, semantic web page layouts from scratch. Completion of multiple layout templates using both raw CSS and Tailwind CSS establishes production-level speed and fluency. Deep comprehension of JavaScript execution context, scopes, closures, and handling asynchronous data fetching using Promises and Async/Await is fully solidified.
 
-- [ ] [HTML & CSS](https://learning.oreilly.com/course/modern-html-/9781835880562/)
+### Weeks 3–4: TypeScript & Component Architecture Foundations
 
-- [ ] [Tailwind CSS](https://learning.oreilly.com/course/tailwind-css-from/9781804611630/)
+- Core Focus: Transitioning to strongly-typed client-side code and component-based UI libraries.
+- Topics:
+    - [ ] TypeScript
+    - [ ] React
+- End Goal: The capability to build robust, type-safe interactive components. Clear mental models of state management, properties (props), side effects using `useEffect`, and the component lifecycle are established. Existing vanilla JavaScript scripts are successfully migrated into strict TypeScript configurations without type compilation errors.
 
-- [ ] [JavaScript](https://learning.oreilly.com/course/modern-javascript-from/9781805127826/)
+### Weeks 5–6: Advanced Client-Side Applications
 
-- [ ] [Java Fundamentals part one](https://learning.oreilly.com/library/view/core-java-vol/9780135558553/) and [Java Fundamentals part two](https://learning.oreilly.com/library/view/core-java-volume/9780135558775/)
+- Core Focus: Managing complex client-side state and building complete frontend applications.
+- Topics:
+    - [ ] Context API & Custom Hooks
+    - [ ] React Routing
+    - [ ] Form Validation
+    - [ ] REST API Consumption
+- End Goal: A fully realized, production-grade frontend single-page application dashboard. Competency includes global state management without prop-drilling, secure client-side routing, dynamic form processing with custom validation error handling, and seamless integration with external backend REST data streams.
 
-- [ ] [Java Concurrency](https://learning.oreilly.com/library/view/modern-concurrency-in/9781098165406/)
+### Weeks 7–8: Object-Oriented Java Core & Version Control
 
-- [ ] [Java generics and collections](https://learning.oreilly.com/library/view/java-generics-and/9781098136710/)
+- Core Focus: Re-establishing core backend programming proficiency and professional development workflows.
+- Topics:
+    - [ ] Java Core (OOP, Collections, Exceptions)
+    - [ ] Git & GitHub
+- End Goal: Fluid execution of Object-Oriented design principles (Inheritance, Polymorphism, Encapsulation, Abstraction) in Java. Proficient use of the Java Collections Framework (Lists, Sets, Maps) for algorithmic data restructuring. Total fluency in Git command-line workflows, including clean feature-branching, rebasing, and resolving complex merge conflicts on GitHub.
 
-- [ ] [Java reflection](https://learning.oreilly.com/course/learn-reflection-with/9780138314767/)
+### Weeks 9–10: Relational Databases & Database Design
 
-- [ ] [Java test driven development](https://learning.oreilly.com/library/view/test-driven-development-with/9781803236230/)
+- Core Focus: Transitioning to relational data persistence and architecture.
+- Topics:
+    - [ ] PostgreSQL
+    - [ ] Entity-Relationship Diagrams (ERDs)
+    - [ ] Database Normalization (1NF, 2NF, 3NF)
+    - [ ] SQL Joins & Indexing
+- End Goal: A normalized, high-performance relational database schema built in PostgreSQL. Practical ability to model complex real-world data structures, eliminate data redundancy via Third Normal Form normalization, write optimized multi-table JOIN queries, and apply indexing strategies to minimize database retrieval latency.
 
-- [ ] [Java memory mangement](https://learning.oreilly.com/library/view/java-memory-management/9781801812856/)
+### Weeks 11–13: Enterprise Backend & Secure API Development
 
-- [ ] [Java maven](https://www.youtube.com/watch?v=uAQs-YXnY-U&t=394s)
+- Core Focus: Engineering robust server-side architectures and secure endpoints.
+- Topics:
+    - [ ] Spring Boot Framework
+    - [ ] Dependency Injection & Inversion of Control
+    - [ ] Spring Data JPA
+    - [ ] RESTful API Design Standards
+    - [ ] Software Testing (JUnit, Mockito)
+    - [ ] JSON Web Tokens (JWT) Authentication
+- End Goal: A production-ready, highly secure Java backend service. Implementation of automated testing layers using unit and integration tests guarantees code stability. Secure REST endpoints compliant with modern architectural standards are established, utilizing custom JWT authentication pipelines to handle stateless user sessions and secure data access.
 
-- [ ] [Object-Oriented Programming (OOP)](https://learning.oreilly.com/library/view/the-object-oriented-thought/9780135182130/) and [another version](https://learning.oreilly.com/library/view/head-first-design/9781492077992/)
+### Weeks 14–15: DevOps, Containerization, & Cloud Deployment
 
-- [ ] **Design Patterns:** Familiarity with Singleton, Factory, Strategy, and Observer patterns.
+- Core Focus: Moving software applications from local environments to automated cloud hosting.
+- Topics:
+    - [ ] Linux Basics
+    - [ ] Docker & Docker Compose
+    - [ ] Nginx
+    - [ ] GitHub Actions (CI/CD)
+    - [ ] AWS (EC2, VPC, Security Groups)
+- End Goal: A fully automated deployment pipeline serving a live full-stack application on the cloud. Application of containerization for isolated environments using Docker, configuring Nginx as a reverse proxy for SSL management and request routing, writing automated GitHub Actions scripts to execute test suites and build images on every main branch commit, and orchestrating virtual cloud infrastructure securely within AWS.
 
-### Phase 2: Data & Backend Core
-- [ ] **Database Concepts:** Study ACID properties, normalization, and relational design.
-- [ ] **SQL (MySQL):** Complex joins, indexing, and query optimization.
-- [ ] **Java Spring Boot (REST APIs):** Building robust, stateless backend services.
-- [ ] **Spring Data JPA / Hibernate:** Mastery of Object-Relational Mapping (ORM).
-- [ ] **Networking Basics:** Understanding the OSI model, DNS, TCP/IP, and TLS/SSL.
-- [ ] **API Development:** Designing clean endpoints with appropriate HTTP methods and status codes.
+### Week 16: Core Data Structures & Job Application Launch
 
-### Phase 3: Modern Frontend & Integration
-- [ ] **TypeScript:** Implementing type safety for scalable frontend logic.
-- [ ] **Angular:** Master components, dependency injection, and RxJS observables.
-- [ ] **State Management:** Handling data flow across the application.
-- [ ] **Full Stack Integration:** Connecting the Angular frontend to Spring Boot services.
+- Core Focus: Maximizing technical interview readiness and entering the job market.
+- Topics:
+    - [ ] Data Structures and Algorithms (Arrays, Hash Maps, Two-Pointer)
+    - [ ] Big O Notation
+    - [ ] Technical Resume & Portfolio Optimization
+- End Goal: Live deployment of the official software engineering portfolio website alongside an optimized technical resume highlighting architectural and infrastructure choices. Immediate interview readiness for foundational technical screening patterns, with the capability to analyze and optimize algorithmic runtime and memory usage using Big O notation.
 
-### Phase 4: Professional Engineering Standards
-- [ ] **Git & GitHub:** Mastering branching, merging, and collaboration workflows.
-- [ ] **Testing:** JUnit and Mockito (Backend); Jasmine and Karma (Frontend).
-- [ ] **Security:** Implementing Spring Security, JWT, and OAuth2.
-- [ ] **Linux & Command Line:** Proficiency in bash, file permissions, and environment variables.
-- [ ] **Software Engineering Principles:** - [ ] **SOLID** (Single Responsibility, Open-Closed, etc.)
-    - [ ] **DRY** (Don't Repeat Yourself)
-    - [ ] **KISS** (Keep It Simple, Stupid)
-    - [ ] **YAGNI** (You Ain't Gonna Need It)
-- [ ] **Methodologies:** Agile, Scrum, and Kanban.
+## Phase 2: Advanced Scaling & Computer Science Foundations (Weeks 17–24)
 
-### Phase 5: Infrastructure & DevOps
-- [ ] **Docker:** Containerizing the frontend, backend, and database.
-- [ ] **GitHub Actions:** Setting up automated CI/CD pipelines.
-- [ ] **AWS (Amazon Web Services):** Deployment via EC2, S3, and RDS.
-- [ ] **Kubernetes:** Orchestration and scaling of containerized services.
+### Weeks 17–18: Advanced Algorithms & Technical Interview Mastery
 
-### Phase 6: Computer Science & Advanced Scaling
-- [ ] **Data Structures & Algorithms (DSA):** Big O analysis, trees, graphs, and sorting.
-- [ ] **System Design:** Load balancing, horizontal scaling, and microservices.
-- [ ] **Concurrency:** Java multithreading and memory management.
-- [ ] **Caching & Search:** Redis for performance; Elasticsearch for full-text search.
-- [ ] **Monitoring:** Prometheus and Grafana for real-time observability.
-- [ ] **Reverse Proxy:** Using NGINX for traffic management and security.
-- [ ] **Academic Foundations:** Discrete math, college algebra, and computer architecture (optional based on depth of interest).
+- Core Focus: Navigating rigorous technical screening processes.
+- Topics:
+    - [ ] Sliding Window Pattern
+    - [ ] Recursion
+    - [ ] Trees & Graphs
+    - [ ] Breadth-First Search & Depth-First Search
+    - [ ] Sorting Algorithms
+- End Goal: Intermediate-to-advanced proficiency in complex data structures and algorithmic patterns. Fluid execution of algorithms traversing non-linear data structures like trees and graphs using search algorithms, and the mental baseline required to break down multi-step computing puzzles into elegant recursive solutions during live technical interview screenings.
+
+### Weeks 19–20: High-Performance Caching & Infrastructure as Code
+
+- Core Focus: Optimizing application performance and automating infrastructure creation.
+- Topics:
+    - [ ] Redis
+    - [ ] Java Concurrency & Multi-threading
+    - [ ] Terraform
+- End Goal: A highly resilient, performant backend setup capable of handling heavy concurrent traffic spikes. Practical implementation of multi-threaded logic and memory caching tiers using Redis prevents database bottlenecks. Total conversion of cloud infrastructure into fully automated, version-controlled, and reproducible script configurations using Terraform.
+
+### Weeks 21–22: System Design & Enterprise Architecture Patterns
+
+- Core Focus: Designing scalable, resilient distributed systems.
+- Topics:
+    - [ ] System Design (Load Balancers, Scaling, Rate Limiting, Message Queues)
+    - [ ] Design Patterns (Singleton, Factory, Strategy, Observer)
+    - [ ] Computer Architecture Basics
+- End Goal: Comprehensive system-level planning fluency. Ability to sketch scalable system blueprints incorporating horizontal scaling, load balancing, rate limiting, and asynchronous message queues. Codebase-level mastery of classic software design patterns ensures large enterprise backend services remain clean, decoupled, and maintainable.
+
+### Weeks 23–24: Production Security, Monitoring, & Performance
+
+- Core Focus: Fortifying enterprise web applications against vulnerabilities and ensuring continuous infrastructure uptime.
+- Topics:
+    - [ ] OWASP Top 10 Web Vulnerabilities
+    - [ ] Application Monitoring (Prometheus & Grafana)
+    - [ ] Content Delivery Networks (CDNs)
+    - [ ] Database Connection Pooling & Query Optimization
+- End Goal: Advanced capability to secure, audit, and maintain live production web systems. Comprehensive understanding of mitigation strategies for major web vulnerabilities (such as SQL Injection, XSS, and broken authentication). Implementation of centralized metrics dashboards and proactive alert systems to monitor application health, combined with static asset caching through CDNs to ensure global low-latency content delivery.
