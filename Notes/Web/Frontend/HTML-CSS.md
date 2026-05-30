@@ -49,6 +49,12 @@ To tell if the request made was good something called **status codes** are used.
 
 ## Chapter 2
 
+### Creating an HTML File
+
+To make an HTML file, create a new file ending with the ".html" extension.
+
+When it comes to naming a file, it is popular to name the main file "index". This is because if the specifiv resource path is not specified in the URL
+
 ### HTML tag rules and attributes
 
 When it comes for writing anything in HTML, each thing is called an **HTML tag**. A tag is the way to declare the thing that needs to be created. The syntax is `<tagName>Content here</tagName>`. The part of the first tag name is called the _opening tag_ and the second part with the / is called the _closing tag_. Each tag can have something called an **attribute** and this is used to apply special designs to that particular item like `<tagName attribute="value">Content here</tagName>`
