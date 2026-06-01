@@ -87,7 +87,7 @@ To write a comment in HTML do `<!-- text here-->`.
 
 ### Meta Tags
 
-Theses are used to **help** with *search engine optimization (SEO)*. Basically, making it easier to find when people look up pages.
+Theses are used to help with *search engine optimization (SEO)*. Basically, making it easier to find when people look up pages.
 
 Some of the common _SEO_ tags are:
 
@@ -216,6 +216,32 @@ Some other important attributes are:
 - _width_: this sets how long the image will be horizontally. The value in this will be a number followed by "px"
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
 - _title_: This functions like when added to the `<a></a>` tag
+
+```mermaid
+packet-beta
+title TCP Segment Header Structure (32-bit Wide Rows)
+0-15: "Source Port"
+16-31: "Destination Port"
+32-63: "Sequence Number"
+64-95: "Acknowledgment Number"
+96-99: "Data Offset"
+100-102: "Reserved"
+103: "NS"
+104: "CWR"
+105: "ECE"
+106: "URG"
+107: "ACK"
+108: "PSH"
+109: "RST"
+110: "SYN"
+111: "FIN"
+112:127: "Window Size"
+128:143: "Checksum"
+144:159: "Urgent Pointer"
+160:191: "Options / Padding (Optional, Variable Length)"
+```
+
+
 
 ### Block vs Inline Elements
 
@@ -735,8 +761,6 @@ The **pesudo class** is made by choosing a selector type like normal then follow
 - disabled: this will style all elements that have the *disabled* attribute
 - checked: will style specifically radio and checkbox input types when clicked
 
-
-
 #### Logic & Miscellaneous
 
 > This are just logical ones to make writing CSS a little easier
@@ -798,6 +822,24 @@ The *box model* shows things like the spacing the actual content takes, the *pad
 2. The *padding* is the space between the *content* and the *border*. A good way to think of this is it being the inner spacing in the element.
 3. The *border* is the space between the *padding* and *margin*
 4. The *margin* is the space outside the border. This is like the outer spacing of the element pushing other elements away from it
+
+```mermaid
+flowchart TB
+    subgraph margin ["Margin (Outer Space)"]
+        style margin fill:#f9cb9c,stroke:#e69138,stroke-width:1px,color:#000
+        subgraph border ["Border"]
+            style border fill:#fff2cc,stroke:#f1c232,stroke-width:3px,color:#000
+            subgraph padding ["Padding (Inner Space)"]
+                style padding fill:#d9ead3,stroke:#6aa84f,stroke-width:1px,color:#000
+                subgraph content ["Content"]
+                    style content fill:#c9daf8,stroke:#3c78d8,stroke-width:1px,color:#000
+                    element["Core Element Content<br>(Width × Height)"]
+                    style element fill:#ffffff,stroke:#3c78d8,stroke-width:1px,color:#000
+                end
+            end
+        end
+    end
+```
 
 Each of these layers has a left, right, bottom, and top pixel size they take.
 
@@ -927,193 +969,3 @@ Another important thing is called **z-index**. This controls the ordering of how
 6. *color*: This determines the color.
 
 **text-shadow**: This is the same as **box-shadow** except this will add the shadowing around the text. This can take all the same values in the same order except the *inset* one which it does not take.
-
-## Chapter 7
-
-### What Is Flexbox
-
-### Flexbox Basics
-
-### Align & Justify Items
-
-### Flex Properties & Dynamic Sizing
-
-### Flex Order
-
-
-
-##  Chapter 8
-
-### What Is Responsive Design
-
-### Flexible Layouts & Percentages
-
-### Rem & Em Units
-
-### Viewport Units
-
-### Media Queries
-
-### Responsive Flexbox Layout
-
-### Container Queries
-
-### Container Units
-
-
-
-## Chapter 10
-
-### Custom Properties
-
-### Vendor Prefixes
-
-### Filters
-
-### Sticky Nav & Style On Scroll
-
-### calc function
-
-### Nesting
-
-
-
-## Chapter 14
-
-### Attribute Selectors
-
-### Child & Sibling Combinators
-
-### Pseudo Elements
-
-### Pseudo Classes
-
-### Before & After Pseudo Elements
-
-### Image Overlay With :Before
-
-### is, where, & has functions
-
-### Styling Forms
-
-
-
-## Chapter 15
-
-### CSS Grid Overview
-
-### Grid Columns & Gap
-
-### repeat & minmax function
-
-### Grid Rows
-
-### Align & Justify Properties
-
-### repeat function with autofit & autofill
-
-### Positioning Spanning Items
-
-### Named Grid Lines
-
-### CSS Grid & Media Queries
-
-### Grid Template Areas
-
-
-
-## Chapter 16
-
-### Transitions Overview
-
-### Creating Transitions
-
-### Transform Property
-
-### Absolute Centering with Transform/Translate
-
-### Introduction JS With CSS
-
-### Keyframes
-
-
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body></body>
-</html>
-```
-
-
-
-# ALL HTML TAGS
-
-> [!IMPORTANT]
->
-> Any tags that has a C means it has a closing tag and any tag that has a V means it is a void tag
-
-- `<div>` C
-- `<p>` C
-- `<h1 - h6>` C
-- `<ul>` C
-- `<ol>` C
-- `<li>` C
-- `<table>` C
-- `<form>` C
-- `<header>` C
-- `<footer>` C
-- `<section>` C
-- `<nav>` C
-- `<article>` C
-- `<aside>` C
-- `<main>` C
-- `<blockquote>` C
-- `<hr>` V
-- `<pre>` C
-- `<span>` C
-- `<a>` C
-- `<img>` V
-- `<button>` C
-- `<input>` V
-- `<label>` C
-- `<strong>` C
-- `<em>` C
-- `<mark>` C
-- `<ins>` C
-- `<del>` C
-- `<sub>` C
-- `<sup>` C
-- `<div>` C
-- `<span>` C
-- `<br>` C
-- `<header>` C
-- `<footer>` C
-- `<nav>` C
-- `<main>` C
-- `<article>` C
-- `<section>` C
-- `<aside>` C
-- `<form>` C
-  - _method_
-  - _action_
-- `<input>` V
-  - _type_
-  - _placeholder_
-- `<label>` C
-  - _for_
-  - _value_
-- `details` C
-
-# Attributes
-
-- `contenteditable` --> has a value of true or false. By default all things have this set to false. If set to true, it can allow that element to be editable. This means the user can add more content or delete the item. This can be an alternative way to collect data without using a **form**.
-
-
-
-# CSS Properties
-
