@@ -63,33 +63,6 @@ When it comes for writing anything in HTML, each thing is called an **HTML tag**
 >
 > There are some special tags called **void tags**. These are tags that do not have an _opening tag_ and _closing tag_. Instead, they just have a _closing tag_ and the / comes at then end and not start of the name like `<tagName/>`
 
-Some of the most common **HTML tags** are:
-
-1. `<html></html>`: this is used as the root element of the web page
-2. `<head></head>`: this is a section to hold metadata about the page
-3. `<body></body>`: this is a section to hold the main content that the user will actually see
-4. `<title></title>`: this is a tag to change the name of the page in the tab bar
-5. `<h1-h6></h1-h6>`: this is a heading tag and can range from h1 to h6 in size. The smaller the number the bigger the text
-6. `<p></p>`: this is a tag where normal writing text will go
-7. `<a></a>`: this is a link tag and this is used to create links to go navigate to different sites
-8. `<img>`: this is a tag to add images to the page. This is a _void element_
-9. `<ul></ul>`: this is used to create an unordered list of items. Like having bullet points
-10. `<ol></ol>`: this is used to create an order list of items. Like having each thing numbered one to n
-11. `<table></table>`: this is used to create a table to organize content in
-12. `<div></div>`: this is a special way to group up other tags together and break content up into its own sections. This has a _block level property_
-13. `<span></span>`: this is just like the `<div>` tag except this is used to style elements with an _inline level property_
-14. `<form></form>`: this is used to create a form where a user can submit data for a server to process
-
-> [!IMPORTANT]
->
-> The `<html></html>` tag will wrap ALL OTHER tags EXCEPT the doctype tag.
-
-> <u>For Example</u>
->
-> `<a href="about.html">About</a>` is an example of a regular tag with an attribute
->
-> `<img src="/images/yes.png">` is am example of a void tag with an attribute
-
 ### Document Structure
 
 The basic structure that every HTML page will follow is:
@@ -110,11 +83,11 @@ The basic structure that every HTML page will follow is:
 </html>
 ```
 
-To write a comment in HTML do `<-- text here-->`.
+To write a comment in HTML do `<!-- text here-->`.
 
 ### Meta Tags
 
-Theses are used to help with _search engine optimization (SEO)_. Basically, making it easier to find when people look up pages.
+Theses are used to **help** with *search engine optimization (SEO)*. Basically, making it easier to find when people look up pages.
 
 Some of the common _SEO_ tags are:
 
