@@ -53,7 +53,7 @@ To tell if the request made was good something called **status codes** are used.
 
 To make an HTML file, create a new file ending with the ".html" extension.
 
-When it comes to naming a file, it is popular to name the main file "index". This is because if the specifiv resource path is not specified in the URL
+When it comes to naming a file, it is popular to name the main file "index". This is because if the specific resource path is not specified in the URL, then by default it will look for the resource "index.html".
 
 ### HTML tag rules and attributes
 
@@ -61,7 +61,19 @@ When it comes for writing anything in HTML, each thing is called an **HTML tag**
 
 > [!NOTE]
 >
-> There are some special tags called **void tags**. These are tags that do not have an _opening tag_ and _closing tag_. Instead, they just have a _closing tag_ and the / comes at then end and not start of the name like `<tagName/>`
+> There are some special tags called **void tags**. These are tags that do not have an _opening tag_ and _closing tag_. Instead, they just have a _closing tag_ and the / comes at then end and not start of the name like `<tagName/>`. These will not have any content between them, but can have attributes.
+
+There is a tag `<p></p>` that is just used to put text to the screen. just like `print()` in python.
+
+There is a tag `<h1></h1>` that is used to make headers. The smaller the number the larger the text will be. This ranges from h1 - h6. However, should only use h1 - h3 at most.
+
+There is a tag `<a></a>` that is used to make hyperlinks to other things
+
+There is a tag `<body></body>` that is more of a structural thing that is meant to signal where the main content the user will see will go. This will only hold other HTML tags.
+
+There is a tag `<head></head>` that is used to hold metadata about the page itself. This is information the user does not see. This will only hold other HTML tags.
+
+There is a tag `<title></title>` that is used change the name that is displayed in the tab bar of the web browser. This would actually go in the \<header\> tags.
 
 ### Document Structure
 
@@ -75,13 +87,15 @@ The basic structure that every HTML page will follow is:
 <html>
   <head>
     <!-- This section will contain metadate about the page-->
-    <title></title>
+    <title>Title of Tab</title>
   </head>
   <body>
     <!-- This section will contain content the user can see-->
   </body>
 </html>
 ```
+
+The only new tag here is the `<html></html>`. This is what actually holds the \<body\> and \<head\> tags. These should be the only things inside it.
 
 To write a comment in HTML do `<!-- text here-->`.
 
@@ -216,32 +230,6 @@ Some other important attributes are:
 - _width_: this sets how long the image will be horizontally. The value in this will be a number followed by "px"
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
 - _title_: This functions like when added to the `<a></a>` tag
-
-```mermaid
-packet-beta
-title TCP Segment Header Structure (32-bit Wide Rows)
-0-15: "Source Port"
-16-31: "Destination Port"
-32-63: "Sequence Number"
-64-95: "Acknowledgment Number"
-96-99: "Data Offset"
-100-102: "Reserved"
-103: "NS"
-104: "CWR"
-105: "ECE"
-106: "URG"
-107: "ACK"
-108: "PSH"
-109: "RST"
-110: "SYN"
-111: "FIN"
-112:127: "Window Size"
-128:143: "Checksum"
-144:159: "Urgent Pointer"
-160:191: "Options / Padding (Optional, Variable Length)"
-```
-
-
 
 ### Block vs Inline Elements
 
