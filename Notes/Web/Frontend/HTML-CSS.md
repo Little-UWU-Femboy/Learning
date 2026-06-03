@@ -99,19 +99,27 @@ The only new tag here is the `<html></html>`. This is what actually holds the \<
 
 To write a comment in HTML do `<!-- text here-->`.
 
+> [!TIP]
+>
+> The way the document structure is made above is how it should be at minimum for each html document made. If not most places will consider it to be invalid HTML.
+>
+> There is a way to [validate html](https://validator.w3.org) to ensure it meets current standards.
+
 ### Meta Tags
 
-Theses are used to help with *search engine optimization (SEO)*. Basically, making it easier to find when people look up pages.
+*meta tags* are used to help with *search engine optimization (SEO)*. Basically, making it easier to find when people look up pages using search engines.
 
 Some of the common _SEO_ tags are:
 
-1. `<meta charset="UTF-8" />`: this will help the browser to display the characters correctly
-2. `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: helps to create a responsive layout
-3. `<meta name="descripion" content="Describe page"`: This will be the text that appears under all sites when before clicking the link to go to the site. This should be something brief like 150 characters max
+1. `<meta charset="UTF-8" />` --> this will help the browser to display the characters correctly
+2. `<meta name="viewport" content="width=device-width, initial-scale=1.0">` --> helps to create a responsive layout
+3. `<meta name="descripion" content="Describe page"` --> This will be the text that appears under all sites when before clicking the link to go to the site. This should be something brief like 150 characters max.
+
+All of these tag types will go inside the \<head\> tags of the document.
 
 > [!NOTE]
 >
-> There are many other **meta tags** available, but the above three would be the most important
+> There are many other *meta tags* available, but the above three would be the most important.
 
 ### Headings, Paragraphs, and Emphasis
 
