@@ -114,6 +114,7 @@ Some of the common _SEO_ tags are:
 1. `<meta charset="UTF-8" />` --> this will help the browser to display the characters correctly
 2. `<meta name="viewport" content="width=device-width, initial-scale=1.0">` --> helps to create a responsive layout
 3. `<meta name="descripion" content="Describe page"` --> This will be the text that appears under all sites when before clicking the link to go to the site. This should be something brief like 150 characters max.
+4. `<meta name="author" content="Jack Mack"/>` --> Used to give the author of a site
 
 All of these tag types will go inside the \<head\> tags of the document.
 
@@ -125,12 +126,18 @@ All of these tag types will go inside the \<head\> tags of the document.
 
 When it comes to tags, there can be tags inside other tags. Some tags are supposed to be nested inside other tags, otherwise it is just for styling purposes.
 
+There are some that are <u>text emphasis</u> tags. Meaning it is supposed to be used to style text.
+
 There are some HTML tags are are kind of styling tags in a way like:
 
-1. `<strong></strong>`: Will make text bold
-2. `<em></em>`: Will make text italic
-3. `<mark></mark>`: Will add highlight over text
-4. `<del></del>`: Will draw line through text
+1. `<strong></strong>`: Will make text bold. This is a <u>text emphasis</u> tag.
+2. `<em></em>`: Will make text italic. This is a <u>text emphasis</u> tag.
+3. `<mark></mark>`: Will add highlight over text. This is a <u>text emphasis</u> tag.
+4. `<del></del>`: Will draw line through text. This is a <u>text emphasis</u> tag.
+5. `<sub></sub>`: This makes the text in a subscript form. This is a <u>text emphasis</u> tag.
+6. `<sup></sup>`: This makes the text in a superscript form. This is a <u>text emphasis</u> tag.
+7. `<h1 - h6></h1 - h6>` --> This will be used to make a heading. This ranges from size h1 to h6 with h1 being the largest and h6 being the smallest. These are like chapter section separators.
+8. `<p></p>` --> This is how to make normal text. Same as something like `print()` in python.
 
 > <u>For Example</u>
 >
@@ -146,7 +153,7 @@ There are some HTML tags are are kind of styling tags in a way like:
 
 ### List
 
-To create list, there are two ways to do so with the previously mentioned `<ol></ol>` or `<ul></ul>` tags. These two tags will define how the list is actually made. To create an item in the list, inside each of the tags add `<li></li>`. This will create an item in the list and add the correct thing defined by the list (number for `<ol>` or bullet point for `<ul>`).
+To create list, there are two ways to do so with the previously mentioned `<ol></ol>` (ordered list) or `<ul></ul>` (unordered list) tags. These two tags will define how the list is actually made. To create an item in the list, inside each of the tags add `<li></li>`. This will create an item in the list and add the correct thing defined by the list (number for `<ol>` or bullet point for `<ul>`).
 
 ```html
 <!DOCTYPE html>
@@ -154,12 +161,20 @@ To create list, there are two ways to do so with the previously mentioned `<ol><
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="descripion" content="Describe page"
+    <title>Sample Page</title>
   </head>
   <body>
     <ol>
       <li>Item 1</li>
       <li>Item 2</li>
     </ol>
+
+    <ul>
+    	<li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
 
     <!-- Can have list inside other list-->
     <ol>
@@ -195,6 +210,8 @@ Another type of link is called **file link**. These are ones that link to things
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="descripion" content="Describe page"
+    <title>Sample Page</title>
   </head>
   <body>
     <p id="greet">This is a good test</p>
