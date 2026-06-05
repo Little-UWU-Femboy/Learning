@@ -239,6 +239,10 @@ A small attribute that can be added to this is _title_. This will make it so whe
 
 `<a href="Anime.jpg" title="Anime girl with cat">Image Here</a>`
 
+> [!TIP]
+>
+> There is a way to specify that a file should be downloaded instead of just opened in the browser by adding the <u>download</u> attribute. However, it is important to know this will not work when the HTML file is opened locally on the system because of the cross site origin sctipting stuff.
+
 ### Images
 
 When it comes to adding images to the actual page, the `<img />` tag must be used. There are two common attributes used with this, but one is more important than another:
