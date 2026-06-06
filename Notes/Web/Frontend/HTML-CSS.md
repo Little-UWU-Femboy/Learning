@@ -192,17 +192,17 @@ To create list, there are two ways to do so with the previously mentioned `<ol><
 
 ### Anchor Tags
 
-When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. The will always needs at least one **attribute** to work and that is the _href_ attribute. The value for the _href_ will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing.
+When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. The will always needs at least one **attribute** to work and that is the <u>href</u> attribute. The value for the <u>href</u> will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>`.
 
-Some good extra attributes to use are _target_. This will determine that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the thing in a new tab, but by default will open in same tab (but can differ by browser like edge). A link made like this is called an **external link**.
+Some good extra attributes to use are <u>target</u>. This will determine that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the thing in a new tab, but by default will open in same tab (but can differ by browser like edge). A link made like this is called an **external link**.
 
 When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that.
 
-There is a way that when a user click on the link, it will bring them to a specific part the page and this is called a **internal link**. The value for this will be something like "#IdOfTagGiven". The attribute of _id_ will be talked about later, but the value that it is set to will be the same thing that _href_ attribute will get with the added # in front of it.
+There is a way that when a user click on the link, it will bring them to a specific part the page and this is called a **internal link**. The value for this will be something like "#IDOfTagGiven". The attribute of <u>id</u> will be talked about later, but the value that it is set to will be the same thing that <u>href</u> attribute will get with the added # in front of it.
 
-Another type of link can be an **email link**. This will make it so when someone clicks on the link, it will open that users chosen email client on their system with who to send to filled out so all they have to do is write the email and the title for it. This time set the _href_ attribute value to "mailto:EmailOfPerson".
+Another type of link can be an **email link**. This will make it so when someone clicks on the link, it will open that users chosen email client on their system with who to send to filled out so all they have to do is write the email and the title for it. This time set the <u>href</u> attribute value to "mailto:EmailOfPerson".
 
-Another type of link is called **file link**. These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The _href_ value for this will be nothing special and it is just the relative path from the current document to that resource.
+Another type of link is called **file link**. These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The <u>href</u> value for this will be nothing special and it is just the relative path from the current document to that resource.
 
 ```html
 <!DOCTYPE html>
@@ -275,7 +275,7 @@ Some properties of each are:
 
 > [!NOTE]
 >
-> Margin is just a spacing that pushes away other HTML tag elements
+> Margin is just a spacing that pushes away other HTML tag elements $$
 
 Some examples of **block** HTML tags are:
 
