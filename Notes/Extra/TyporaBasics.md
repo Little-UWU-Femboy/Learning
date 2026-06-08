@@ -15,7 +15,6 @@ Can write basic Javascript in here, but this will only work if being exported in
 <script>
 // Select the button
 const button = document.querySelector('button');
-
 // Style the button nicely
 button.style.position = 'relative';
 button.style.padding = '20px 40px';
