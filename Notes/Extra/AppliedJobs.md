@@ -37,9 +37,20 @@
 - [ ] Marriott
 - [ ] Hobby Lobby
 - [ ] Plato's Closet
-
-
-
+- [ ] Cava
+- [ ] Nordstrom
+- [ ] Top Golf
+- [ ] Academy
+- [x] Victoria Secret
+- [x] Dominion Country Club
+- [x] Eilan Hotel
 - [x] Chase
 - [x] USAA
 - [x] Merit Coffee
+- [x] San Antonio Country Club
+
+
+
+# Replied Jobs
+
+- 
