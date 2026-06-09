@@ -28,8 +28,6 @@
 - [ ] Best Buy
 - [ ] Tillys
 - [ ] June & Julys
-- [ ] Pink
-- [ ] Victoria Secret
 - [ ] Total Wine
 - [ ] Cosco
 - [ ] In & Out
@@ -41,6 +39,8 @@
 - [ ] Nordstrom
 - [ ] Top Golf
 - [ ] Academy
+- [ ] Fashoin Nova
+- [ ] Soma Intimates
 - [x] Victoria Secret
 - [x] Dominion Country Club
 - [x] Eilan Hotel
@@ -48,6 +48,8 @@
 - [x] USAA
 - [x] Merit Coffee
 - [x] San Antonio Country Club
+- [x] Pink
+- [x] Victoria Secret
 
 
 
