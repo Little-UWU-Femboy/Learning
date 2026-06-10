@@ -18,7 +18,7 @@ When it comes to downloading the java versions, there are *different*  terminolo
 | GraalVM                  | N/A     | An “ahead of time” compiler for executables that start quickly, but don’t support all Java features. |
 | Long Term Support        | LTS     | A release that is supported for multiple years, unlike the six-month releases that showcase new features. Choose the latest LTS release |
 
-The way to run a java file it to use the command on the CLI **java** followed by the java file name with the extension like `java Main.java`. There is another version of this called **javac** where this does compile the .java files, but does not compile the code to machine code like in C. Instead, this *turns* into something called <u>bytecode</u>. This creates a new file with the same name, but ends with .class instead. When there is a .class file and wanting to run it, it does not need to have the extension behind it and can just have it without the extension like `java Main`.
+The way to run a java file it to use the command on the CLI **java** followed by the java file name with the extension like `java Main.java`. There is another version of this called **javac** where this does compile the .java files, but does not compile the code to machine code like in C. Instead, this *turns* into something called <u>bytecode</u>. This creates a new file with the same name, but ends with .class instead. When there is a .class file and wanting to run it, it does not need to have the extensiws on behind it and can just have it without the extension like `java Main`.
 
 > *Bytecode* is just an intermediate step in the compilation process that makes the instructions for the code platform independent. This means that the JVM that actually runs the code can spit out whatever correct instructions for any OS to use correctly.
 
@@ -51,7 +51,7 @@ void main(){
 
 
 
-Just like in C/C++, the use of curly brackets is used to define a scope of a function.
+Just like in C/C++, the **use** of curly brackets is used to define a scope of a function.
 
 In java, "functions" are actually called a *method*.
 
@@ -239,7 +239,7 @@ class Main{
 
 There is a way to specify the enum values to be by using the <u>constructor</u> syntax and creating the names as if they're function calls by putting parenthses by them and passing a value inside. When making the <u>constructor</u>, make sure to have this be the exact same name as the enum type name. However, if doing this then make sure all the variable names declared a specific value as well. There can even be more than one value passed into each constant variable.
 
-To actuallty access the data for each specific constant type, a variable must be declared for each value that will be per type. These shoud have a <u>access modifier</u> of **private**. This <u>access modifier</u> stuff will be talked about later. This will also be declared in the constructor. This will use the **this** keyword which will also be talked about later. After, make sure to declare methods thats sole purpose is to get the values of that type requested.
+To actually access the data for each specific constant type, a variable must be declared for each value that will be per type. These should have an <u>access modifier</u> of **private**. This <u>access modifier</u> stuff will be talked about later. This will also be declared in the constructor. This will use the **this** keyword which will also be talked about later. After, make sure to declare methods thats sole purpose is to get the values of that type requested.
 
 Under the hood, Java enums are much more powerful than simple integers. Each enum constant is an instance of a class that inherits from `java.lang.Enum`. This structure allows enums to behave like objects, providing access to built-in methods while maintaining a fixed, restricted set of possible values.
 
