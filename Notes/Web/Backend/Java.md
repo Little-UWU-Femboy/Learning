@@ -65,9 +65,9 @@ When it comes to naming conventions of class files, they use PascalCasing.
 
 // TODO[^ JDK]
 
-## Commets
+## Commits
 
-To leave commets, this is the same as C with // for single line and /**/ for multi-line commets.
+To leave commets, this is the same as C with // for single line and /**/ for multi-line commits.
 
 Each statement has to end with a semi-colon as this is the only way to mark that the statement is done. This means that multiple parts of a single statement can span multiple lines like the following below:
 
@@ -167,7 +167,7 @@ public class Main {
 
 > [!CAUTION]
 >
-> When using the unicode \u literal, this is processed before even the text or commets in the file are. This mens if something like "\u0022+\u0022" is written this this actually turns into trying to add together 2 empty string like ""+""
+> When using the Unicode \u literal, this is processed before even the text or commets in the file are. This means if something like "\u0022+\u0022" is written this this actually turns into trying to add together 2 empty string like ""+""
 
 ### Boolean
 
