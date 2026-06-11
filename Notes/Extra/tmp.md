@@ -1,8 +1,0 @@
-1. <u>Customer Segment Stability</u> --> Which customer segment (Local vs. Non-Local) provides the most consistent revenue stream across different months or seasonal shifts?
-2. <u>Operational Efficiency and Labor Profit Equilibrium</u> --> At what specific daily labor cost threshold does the operating profit begin to diminish, indicating an overstaffing issue?
-3. <u>Menu Category Performance</u> --> Which specific menu categories act as the strongest indicators for high-revenue periods, allowing for optimized inventory procurement?
-4. C<u>hannel-Specific Profitability</u> --> How does the gross profit margin compare between delivery orders and in-person dining, and which channel should be prioritized for growth? 
-5. <u>ROI of Promotional Discount</u> --> Do promotional discounts result in a statistically significant increase in total revenue, or do they primarily erode the gross profit margin? 
-6. <u>Strategic Workforce Planning</u> --> Can staff hourly rates and roles be optimized against forecasted busy periods to maximize the labor efficiency ratio? 
-7. <u>Model Performance Comparison</u> --> How does the predictive accuracy of a traditional Decision Tree compare to a Random Forest and a temporal LSTM model when using 10 years of historical data?
-8. <u>2025–2026 Profit Forecasting</u> --> Can an accurate regression-based temporal model be trained to forecast daily and monthly profits for the 2025 and 2026 fiscal years?
