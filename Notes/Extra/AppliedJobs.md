@@ -10,7 +10,7 @@ gabrielcenteno2003@icloud.com
 
 San Antonio
 
-6926 Terra Rye
+6926 Terra Rye, San Antonio, TX, 78240
 
 Jfyetdhfyd#1
 
@@ -70,34 +70,35 @@ Front of Store Attendant
 
 ● Collaborated with team members and leaders to resolve guest concerns while maintaining Target’s service standards.
 
-● Trained new Front of Store Attendants to teach them essential skills needed to succeed.
+● Trained new Front of Store Attendants to teach them essential skills needed to succeed. 
 
 # Jobs
 
 - [ ] Cloths Mentor north star mall
 - [x] Bath & Body Works
-- [ ] Altar'd State
-- [ ] Brandy Melville
-- [ ] Francesca's
-- [ ] Aerie
-- [ ] Lululemon
-- [ ] Free People
-- [ ] Anthropologie
-- [ ] Madewell
-- [ ] Zara
-- [ ] Forever 21
-- [ ] H&M
-- [ ] Ann Taylor
-- [ ] Versona
-- [ ] Vans
-- [ ] Abercrombie & Fitch
-- [ ] Hollister Co.
-- [ ] Alo Yoga
-- [ ] American Eagle
-- [ ] Nordstrom
-- [ ] Nike
-- [ ] Apple
-- [ ] Walmart
+- [x] Altar'd State
+- [x] Brandy Melville
+- [ ] *Francesca's* --> Closing Down
+- [x] Aerie
+- [ ] *Lululemon* --> No Jobs For Me
+- [ ] *Free People* --> No Jobs For Me
+- [ ] *Anthropologie* --> No Jobs For Me
+- [x] Madewell
+- [x] **Zara** --> Maybe applied? Wanted to use WhatsApp?
+- [ ] *Forever 21* --> No Jobs For Me
+- [x] H&M
+- [x] Ann Taylor
+- [x] LOFT
+- [ ] **Versona** --> Too Confusing LOL
+- [x] Vans
+- [x] Abercrombie & Fitch
+- [x] Hollister Co.
+- [x] Alo Yoga
+- [x] American Eagle
+- [x] Nordstrom
+- [ ] *Nike* --> No Jobs For Me
+- [x] Apple
+- [ ] Walmart --> Skipped For Now
 - [ ] Best Buy
 - [ ] Tillys
 - [ ] June & Julys
