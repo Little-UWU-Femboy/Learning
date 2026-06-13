@@ -100,12 +100,11 @@ Front of Store Attendant
 - [x] Apple
 - [ ] **Walmart** --> Skipped For Now
 - [ ] Best Buy
-- [ ] Tillys
-- [ ] June & Julys
-- [ ] Total Wine
+- [ ] *June & Julys* --> No Jobs For Me
+- [x] Total Wine
 - [ ] Cosco
-- [ ] In & Out
-- [ ] Aritzia
+- [x] In & Out
+- [ ] **Aritzia** --> Call to ask about application under review still
 - [ ] Marriott
 - [ ] Hobby Lobby
 - [ ] Plato's Closet
@@ -113,9 +112,8 @@ Front of Store Attendant
 - [ ] Nordstrom
 - [ ] Top Golf
 - [ ] Academy
-- [ ] Fashoin Nova
 - [ ] Home Depot (my mexican family)
-- [ ] Soma Intimates
+- [x] **Soma Intimates** --> Call To Confirm
 - [ ] HEB
 - [x] Dominion Country Club
 - [x] Eilan Hotel
