@@ -14,6 +14,12 @@ San Antonio
 
 Jfyetdhfyd#1
 
+
+
+I will need off September 17th - 21st
+I will need off July 5th, 6th, and 22nd
+All other days I will be free to work whenever
+
 ## Macys
 
 Women’s Shoes
@@ -22,29 +28,21 @@ OCT 2025 - FEB 2026
 
 
 
-● Handled POS system with checkout and returns.
-
-● Promoted customer loyalty by advertising the Macy's credit card and rewards system.
-
-● Drove daily sales by actively engaging customers and matching them with desired products.
-
-● Executed daily recovery tasks, including folding, hanging, and sensor-tagging merchandise to ensure the sales floor adhered to Macy’s visual standards.
-
-● Assisted with inventory auditing to ensure all stock is accounted for.
+- Handled POS system with checkout and returns.
+- Promoted customer loyalty by advertising the Macy's credit card and rewards system.
+- Drove daily sales by actively engaging customers and matching them with desired products.
+- Executed daily recovery tasks, including folding, hanging, and sensor-tagging merchandise to ensure the sales floor adhered to Macy’s visual standards.
+- Assisted with inventory auditing to ensure all stock is accounted for.
 
 ## Stadium People
 
 OCT 2025- CURRENT
 
-● Assisted customers by offering product recommendations and actively supporting sales.
-
-● Managed the setup and tear down of merchandise displays for clothing and other items.
-
-● Handled customer transactions using the Point of Sale system.
-
-● Contributed to merchandising through restocking and organizing products on shelves.
-
-● Maintained the cleanliness and organization of the checkout area, to create a positive customer experience.
+- Assisted customers by offering product recommendations and actively supporting sales.
+- Managed the setup and tear down of merchandise displays for clothing and other items.
+- Handled customer transactions using the Point of Sale system.
+- Contributed to merchandising through restocking and organizing products on shelves.
+- Maintained the cleanliness and organization of the checkout area, to create a positive customer experience.
 
 
 
@@ -54,23 +52,16 @@ AUG 2023 - NOV 2024
 
 Front of Store Attendant
 
+- Maintained a clean, organized, and guest ready store environment to support a welcoming  shopping experience.
+- Greeted guests and assisted with checkout, returns, and order pickup, including Drive Up service.
+- Supported store operations by unloading small pallet deliveries and restocking essential front of  store items such as carts and baskets.
+- Maintained safety by assisting with spill response and keeping guest areas hazard free.
+- Cross trained at in-store Starbucks, preparing and serving beverages and service coverage during  peak times.
+- Demonstrated knowledge of store products and services to effectively assist and direct guests.
+- Collaborated with team members and leaders to resolve guest concerns while maintaining Target’s service standards.
+- Trained new Front of Store Attendants to teach them essential skills needed to succeed. 
 
-
-● Maintained a clean, organized, and guest ready store environment to support a welcoming shopping experience.
-
-● Greeted guests and assisted with checkout, returns, and order pickup, including Drive Up service.
-
-● Supported store operations by unloading small pallet deliveries and restocking essential front of store items such as carts and baskets.
-
-● Maintained safety by assisting with spill response and keeping guest areas hazard free.
-
-● Cross trained at in-store Starbucks, preparing and serving beverages and service coverage during peak times.
-
-● Demonstrated knowledge of store products and services to effectively assist and direct guests.
-
-● Collaborated with team members and leaders to resolve guest concerns while maintaining Target’s service standards.
-
-● Trained new Front of Store Attendants to teach them essential skills needed to succeed. 
+​                                                                                       
 
 # Jobs
 
@@ -102,19 +93,19 @@ Front of Store Attendant
 - [ ] Best Buy
 - [ ] *June & Julys* --> No Jobs For Me
 - [x] Total Wine
-- [ ] Cosco
+- [x] Cosco
 - [x] In & Out
 - [ ] **Aritzia** --> Call to ask about application under review still
-- [ ] Marriott
 - [ ] Hobby Lobby
-- [ ] Plato's Closet
-- [ ] Cava
-- [ ] Nordstrom
-- [ ] Top Golf
+- [x] **Plato's Closet** --> Call to see if application went through on indeed
+- [ ] **penny lane boutique** --> Call to See if Hiring
+- [x] Cava
+- [x] Nordstrom
+- [x] Top Golf
 - [ ] Academy
-- [ ] Home Depot (my mexican family)
+- [x] Target
 - [x] **Soma Intimates** --> Call To Confirm
-- [ ] HEB
+- [ ] *HEB* --> Nothing available
 - [x] Dominion Country Club
 - [x] Eilan Hotel
 - [x] Chase
@@ -122,6 +113,22 @@ Front of Store Attendant
 - [x] Merit Coffee
 - [x] San Antonio Country Club
 
-# Replied Jobs
 
-- f
+
+# Malls To Look At
+
+## Shops at La Cantera
+
+- 
+
+## Ingram Park Mall
+
+- 
+
+## North Star Mall
+
+- 
+
+## Quarry Market
+
+- 
