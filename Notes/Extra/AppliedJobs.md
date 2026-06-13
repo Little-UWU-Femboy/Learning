@@ -85,7 +85,7 @@ Front of Store Attendant
 - [ ] *Anthropologie* --> No Jobs For Me
 - [x] Madewell
 - [x] **Zara** --> Maybe applied? Wanted to use WhatsApp?
-- [ ] *Forever 21* --> No Jobs For Me
+- [ ] *Forever 21* --> Closed Down Physical Locations
 - [x] H&M
 - [x] Ann Taylor
 - [x] LOFT
@@ -98,7 +98,7 @@ Front of Store Attendant
 - [x] Nordstrom
 - [ ] *Nike* --> No Jobs For Me
 - [x] Apple
-- [ ] Walmart --> Skipped For Now
+- [ ] **Walmart** --> Skipped For Now
 - [ ] Best Buy
 - [ ] Tillys
 - [ ] June & Julys
