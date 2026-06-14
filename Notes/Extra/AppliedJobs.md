@@ -65,61 +65,58 @@ Front of Store Attendant
 
 # Jobs
 
-- [ ] Cloths Mentor north star mall
-- [x] Bath & Body Works
-- [x] Altar'd State
-- [x] Brandy Melville
-- [ ] *Francesca's* --> Closing Down
-- [x] Aerie
-- [ ] *Lululemon* --> No Jobs For Me
-- [ ] *Free People* --> No Jobs For Me
-- [ ] *Anthropologie* --> No Jobs For Me
-- [x] Madewell
-- [x] **Zara** --> Maybe applied? Wanted to use WhatsApp?
-- [ ] *Forever 21* --> Closed Down Physical Locations
-- [x] H&M
-- [x] Ann Taylor
-- [x] LOFT
-- [ ] **Versona** --> Too Confusing LOL
-- [x] Vans
 - [x] Abercrombie & Fitch
-- [x] Hollister Co.
+- [x] Aerie
 - [x] Alo Yoga
+- [x] Altar'd State
 - [x] American Eagle
-- [x] Nordstrom
-- [ ] *Nike* --> No Jobs For Me
+- [x] Ann Taylor
 - [x] Apple
-- [ ] **Walmart** --> Skipped For Now
-- [ ] Best Buy
-- [ ] *June & Julys* --> No Jobs For Me
-- [x] Total Wine
-- [x] Cosco
-- [x] In & Out
-- [ ] **Aritzia** --> Call to ask about application under review still
-- [ ] Hobby Lobby
-- [x] **Plato's Closet** --> Call to see if application went through on indeed
-- [ ] **penny lane boutique** --> Call to See if Hiring
+- [x] Bath & Body Works
+- [x] Brandy Melville
 - [x] Cava
-- [x] Nordstrom
-- [x] Top Golf
-- [ ] Academy
-- [x] Target
-- [x] **Soma Intimates** --> Call To Confirm
-- [ ] *HEB* --> Nothing available
+- [x] Cosco
+- [x] Chase
 - [x] Dominion Country Club
 - [x] Eilan Hotel
-- [x] Chase
-- [x] USAA
+- [x] H&M
+- [x] Hollister Co.
+- [x] In & Out
+- [x] LOFT
+- [x] Madewell
 - [x] Merit Coffee
+- [x] Nordstrom
+- [x] Plato's Closet
 - [x] San Antonio Country Club
+- [x] **Soma Intimates** --> Call To Confirm
+- [x] Target
+- [x] Top Golf
+- [x] Total Wine
+- [x] Banana Republic
+- [x] USAA
+- [x] Vans
+- [x] Hotel Emma
+- [x] **Zara** --> Maybe applied? Wanted to use WhatsApp?
+- [x] **Aritzia** --> Call to ask about application under review still
+- [x] **penny lane boutique** --> Call to See if Hiring
+- [x] **Versona** --> Too Confusing LOL
+- [ ] **Walmart** --> Skipped For Now
+- [ ] **Brandy Melville** --> Call to See if Hiring
+- [ ] *Anthropologie* --> No Jobs For Me
+- [ ] *Forever 21* --> Closed Down Physical Locations
+- [ ] *Francesca's* --> Closing Down
+- [ ] *Free People* --> No Jobs For Me
+- [ ] *HEB* --> Nothing available
+- [ ] *June & Julys* --> No Jobs For Me
+- [ ] *Lululemon* --> No Jobs For Me
+- [ ] *Nike* --> No Jobs For Me
+- [ ] Academy
+- [ ] Best Buy
+- [ ] Cloths Mentor north star mall
+- [ ] Hobby Lobby
+- [ ] Starbucks
 
 
-
-# Malls To Look At
-
-## Shops at La Cantera
-
-- 
 
 ## Ingram Park Mall
 
@@ -127,7 +124,7 @@ Front of Store Attendant
 
 ## North Star Mall
 
-- 
+- Garage --> Call 726-239-3049 to see if hiring
 
 ## Quarry Market
 
