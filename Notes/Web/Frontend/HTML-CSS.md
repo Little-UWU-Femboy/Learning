@@ -192,11 +192,11 @@ To create list, there are two ways to do so with the previously mentioned `<ol><
 
 ### Anchor Tags
 
-When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. The will always needs at least one **attribute** to work and that is the <u>href</u> attribute. The value for the <u>href</u> will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>`.
+When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. This will always need at least one **attribute** to work and that is the <u>href</u> attribute. The value for the <u>href</u> will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>`.
 
 Some good extra attributes to use are <u>target</u>. This will determine that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the thing in a new tab, but by default will open in same tab (but can differ by browser like edge). A link made like this is called an **external link**.
 
-When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that.
+When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that. For example, `<a href="../Testing.html">Go Here</a>`
 
 There is a way that when a user click on the link, it will bring them to a specific part the page and this is called a **internal link**. The value for this will be something like "#IDOfTagGiven". The attribute of <u>id</u> will be talked about later, but the value that it is set to will be the same thing that <u>href</u> attribute will get with the added # in front of it.
 
