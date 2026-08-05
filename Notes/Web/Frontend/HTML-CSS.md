@@ -11,7 +11,7 @@ When it comes to how the web works, a good thing to start with is the _URL (unif
 5.  **Host (full domain)**: This is just the combination of #2, #3, and #4 combined together.
 6.  **Port**: This comes right after the **top-level domain** separated by a colon and this will be a number. The number is used to tell what port to connect to on the server receiving the request.
 7.  **Path**: This is the location on the server where the requested resource is located. This comes after the **port** would go.
-8.  **Query string**: This is the part that sends data to the receiving device. This will be seen after the **path** is listed. It will have a question mark right after the **path** then followed by the pattern _VariableName=value_. There can be more than one value sent and this will be by adding & right after the value of the previous data passed until no more needs to be passed.
+8.  **Query string**: This is the part that sends data to the receiving device. This will be seen after the **path** is listed. It will have a question mark right after the **path** then followed by the pattern _VariableName=value_. There can be more than one value sent and this will be by adding *&* right after the value of the previous data passed until no more needs to be passed.
 9.  **Fragment**: This is used to specify what particular part of the page to go to once it is loaded into the web browser. This is the only part of the _URL_ that is not handled by the receiving server, but by the users web browser. This would also come right after the **query string**.
 
 > <u>For Example</u>
@@ -156,56 +156,66 @@ There are some HTML tags are are kind of styling tags in a way like:
 
 ### List
 
-To create a list, there are two ways to do so with the previously mentioned `<ol></ol>` (ordered list) or `<ul></ul>` (unordered list) tags. These two tags will define how the list is actually made. To create an item in the list, inside each of the tags add `<li></li>`. This will create an item in the list and add the correct thing defined by the list (number for `<ol>` or bullet point for `<ul>`).
+To create a list, there are two ways to do so with the previously mentioned `<ol></ol>` (ordered list) or `<ul></ul>` (unordered list) tags. These two tags will define how the list is actually made. 
+
+To create an item in the list, inside each of the tags add `<li></li>`. This will create an item in the list and add the correct thing defined by the list (number for `<ol>` or bullet point for `<ul>`).
+
+There is a way to nest list inside others. The way this is done is by putting an `<ol></ol>` or `<ul></ul>` inside the `<li></li>` tag.
+
+> [!NOTE]
+>
+> While the nested ordered or unordered tag will still work if placed outside of the `<li></li>` tag, it is not considered valid HTML. This can be checked by going to the [HTML Validator](https://validator.w3.org).
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="descripion" content="Describe page"
-    <title>Sample Page</title>
-  </head>
-  <body>
-    <ol>
-      <li>Item 1</li>
-      <li>Item 2</li>
-    </ol>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+</head>
+<body>
+<ol>
+	<li>Item 1</li>
+	<li>Item 2</li>
+</ol>
 
-    <ul>
-    	<li>Item 1</li>
-        <li>Item 2</li>
-    </ul>
+<ul>
+	<li>Item 1</li>
+	<li>Item 2</li>
+</ul>
 
-
-    <!-- Can have list inside other list-->
-    <ol>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <ul>
-        <li>Sub Item 1</li>
-        <li>Sub Item 2</li>
-        <li>Sub Item 3</li>
-      </ul>
-    </ol>
-  </body>
+<ol>
+	<li>Item 1</li>
+	<li>
+		Item 2
+		<ul>
+			<li>Nested Item 1</li>
+			<li>Nested Item 2</li>
+		</ul>
+	</li> <!-- The </li> goes AFTER the nested list -->
+</ol>
+</body>
 </html>
 ```
 
+Another type of list, but very uncommon is called a [definition list](https://www.w3schools.com/TAGS/tag_dl.asp).
+
 ### Anchor Tags
 
-When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. This will always need at least one **attribute** to work and that is the <u>href</u> attribute. The value for the <u>href</u> will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>`.
+When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. This will always need at least one **attribute** to work and that is the *href* attribute. The value for the *href* will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>` will make clicking the words "Click Me" open up another tab in Youtube.
 
-One extra attribute is <u>target</u>. This determines that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the link in a new tab, but by default will open in same tab (but can differ by browser like edge). A link made like this is called an **external link**. Another attribute is the <u>title</u> attribute. This makes it so when hovering over the link with the cursor some text will appear. What will appear in here is the value given to the the <u>title</u> attribute.
+One extra attribute is *target*. This determines that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the link in a new tab, but by default will open in same tab (but can differ by browser like edge). A link made like this is called an **external link**.
+
+Another attribute is the *title* attribute. This makes it so when hovering over the link with the cursor some text will appear. What will appear in here is value given to the attribute.
 
 When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that. For example, `<a href="../Testing.html">Go Here</a>`
 
-There is a way that when a user click on the link, it will bring them to a specific part the page and this is called a **internal link**. The value for this will be something like "#IDOfTagGiven". The attribute of <u>id</u> will be talked about later, but the value that it is set to will be the same thing that <u>href</u> attribute will get with the added # in front of it.
+There is a way that when a user click on the link, it will bring them to a specific part the page and this is called a **internal link**. The value for this will be something like "#IDOfTagGiven". The attribute of <u>id</u> will be talked about later, but the value that it is set to will be the same thing that *href* attribute will get with the added # in front of it.
 
-Another type of link can be an **email link**. This will make it so when someone clicks on the link, it will open that users chosen email client on their system with who to send to filled out so all they have to do is write the email and the title for it. This time set the <u>href</u> attribute value to "mailto:EmailOfPerson".
+Another type of link can be an **email link**. This will make it so when someone clicks on the link, it will open that users chosen email client on their system with who to send to filled out so all they have to do is write the email and the title for it. This time set the *href* attribute value to "mailto:EmailOfPerson".
 
-Another type of link is called **file link**. These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The <u>href</u> value for this will be nothing special and it is just the relative path from the current document to that resource.
+Another type of link is called **file link**. These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The *href* value for this will be nothing special and it is just the relative path from the current document to that resource.
 
 ```html
 <!DOCTYPE html>
