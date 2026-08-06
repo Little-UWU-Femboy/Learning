@@ -1,20 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Image Learning</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HTML Images and Figures Example</title>
 </head>
 <body>
-<h1>Images</h1>
 
-<h2>Image Exists</h2>
-<img src="Image.webp">
+<!-- SECTION 1: LOCAL IMAGE FILE -->
+<h2>1. Local Image File</h2>
+<p>Loading an image stored in your local project folder:</p>
+<img src="Image.webp" alt="Anime Girl Character">
 
-<h2>Image URL</h2>
-<img src="https://www.informit.com/ShowCover.aspx?isbn=9780135323618&type=f" alt="Link Image" title="Image from site">
+<hr>
 
-<h2>Image Not Exists</h2>
-<img src="mage.webp" alt="Anime Girl" style="min-width: 200px; min-height: 200px;">
+<!-- SECTION 2: REMOTE IMAGE URL -->
+<h2>2. External Image URL (with Title Attribute)</h2>
+<p>Loading an image directly from the web with a tooltip on hover:</p>
+<!-- 'title' creates a native browser tooltip when hovering over the image -->
+<img src="https://www.informit.com/ShowCover.aspx?isbn=9780135323618&type=f"
+     alt="HTML and CSS Book Cover"
+     title="Image from site">
+
+<hr>
+
+<!-- SECTION 3: BROKEN IMAGE / FALLBACK (ALT TEXT) -->
+<h2>3. Missing Image (Alt Text Fallback)</h2>
+<p>If the image fails to load, the browser displays the 'alt' text instead:</p>
+<img src="mage.webp"
+     alt="Anime Girl (Image failed to load)"
+     style="min-width: 200px; min-height: 200px;">
+
+<hr>
+
+<!-- SECTION 4: FIGURE AND CAPTION -->
+<h2>4. Semantic Figure with Caption (&lt;figure&gt; &amp; &lt;figcaption&gt;)</h2>
+<p>Grouping an image together with its descriptive text semantically:</p>
+<figure>
+	<img src="Image.webp" alt="Anime Girl Character">
+	<figcaption>Figure 1: Illustration retrieved from the internet.</figcaption>
+</figure>
+
 </body>
 </html>

@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Classes vs IDs Example</title>
+	<style>
+		/* CLASSES (Targeted with a dot '.') - Reusable */
+		.highlight {
+			background-color: yellow;
+		}
+
+		.badge {
+			background-color: lightblue;
+			padding: 2px 6px;
+		}
+
+		/* IDs (Targeted with a hashtag '#') - Unique */
+		#main-header {
+			background-color: lightcoral;
+		}
+
+		#special-notice {
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+
+<!-- ID EXAMPLE (Unique to one element) -->
+<h1 id="main-header">1. Unique ID Example</h1>
+<p>This header uses a unique ID <code>id="main-header"</code>.</p>
+
+<hr>
+
+<!-- CLASS EXAMPLE (Reusable across multiple elements) -->
+<h1>2. Reusable Class Examples</h1>
+
+<p class="highlight">
+	This entire paragraph uses the <code>class="highlight"</code> class.
+</p>
+
+<p>
+	This paragraph is normal, but <span class="highlight">these words</span> reuse the exact same <code>class="highlight"</code>
+	class!
+</p>
+
+<hr>
+
+<!-- MULTIPLE CLASSES ON ONE ELEMENT -->
+<h1>3. Combining Multiple Classes</h1>
+
+<!-- An element can have multiple space-separated classes -->
+<p class="highlight badge">
+	This paragraph uses BOTH <code>class="highlight"</code> and <code>class="badge"</code> at the same time.
+</p>
+
+<div id="special-notice">
+	This box has its own unique <code>id="special-notice"</code>.
+</div>
+</body>
+</html>

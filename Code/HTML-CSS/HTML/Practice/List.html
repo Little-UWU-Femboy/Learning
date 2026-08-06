@@ -3,28 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Document</title>
+	<title>Ordered, Unordered, and Nested Lists</title>
 </head>
 <body>
+
+<!-- ORDERED LIST -->
+<h1>1. Ordered List</h1>
+<p>Numbered list for items that follow a specific sequence:</p>
 <ol>
-	<li>Item 1</li>
-	<li>Item 2</li>
+	<li>First Step</li>
+	<li>Second Step</li>
+	<li>Third Step</li>
 </ol>
 
+<hr>
+
+<!-- UNORDERED LIST -->
+<h1>2. Unordered List</h1>
+<p>Bulleted list for items where order doesn't matter:</p>
 <ul>
-	<li>Item 1</li>
-	<li>Item 2</li>
+	<li>First Item</li>
+	<li>Second Item</li>
+	<li>Third Item</li>
 </ul>
 
+<hr>
+
+<!-- NESTED LIST -->
+<h1>3. Nested List</h1>
+<p>Placing an unordered list inside a specific list item:</p>
 <ol>
-	<li>Item 1</li>
+	<li>Main Category 1</li>
 	<li>
-		Item 2
+		Main Category 2
 		<ul>
-			<li>Nested Item 1</li>
-			<li>Nested Item 2</li>
+			<li>Nested Sub-item 1</li>
+			<li>Nested Sub-item 2</li>
 		</ul>
-	</li> <!-- The </li> goes AFTER the nested list -->
+	</li> <!-- Note: The closing </li> is after the nested <ul> -->
+	<li>Main Category 3</li>
 </ol>
+
 </body>
 </html>

@@ -1,6 +1,4 @@
-# HTML and CSS
-
-## Chapter 1
+# Chapter 1
 
 When it comes to how the web works, a good thing to start with is the _URL (uniform resource locator)_. There are parts to a _URL_:
 
@@ -38,8 +36,6 @@ When it comes to the web, the way data is sent to the other device is called **c
 >
 > This is a very brief and high level overview of how the web sends data to each other.
 
-> The best thing that we could see here is the small place that we all want to leave to
-
 **HTTP (hypertext transfer protocol)** has ways to tell if the sent information was ok or if any type of error happened when trying to get the data. This particular protocol is called a **stateless** once since each request made by the _client_ to the _server_ is independent meaning each request do not know about each other. When it comes to the actual type of HTTP request, there can be many different types like _POST_, _GET_, _PUT_, _DELETE_, etc.
 
 To tell if the request made was good something called **status codes** are used. Some of the most common are:
@@ -47,15 +43,17 @@ To tell if the request made was good something called **status codes** are used.
 1. **200 (OK)**
 2. **404 (not found)**
 
-## Chapter 2
+# Chapter 2
 
-### Creating an HTML File
+## Creating an HTML File
 
 To make an HTML file, create a new file ending with the ".html" extension.
 
 When it comes to naming a file, it is popular to name the main file "index". This is because if the specific resource path is not specified in the URL, then by default it will look for the resource "index.html".
 
-### HTML tag rules and attributes
+> Going forward, all examples showing all the content will be written in a separate file. However, very small brief examples showing particular will be written out here as a small example.
+
+## HTML tag rules and attributes
 
 When it comes for writing anything in HTML, each thing is called an **HTML tag**. A tag is the way to declare the thing that needs to be created. The syntax is `<tagName>Content here</tagName>`. The part of the first tag name is called the _opening tag_ and the second part with the / is called the _closing tag_. Each tag can have something called an **attribute** and this is used to apply special designs to that particular item like `<tagName attribute="value">Content here</tagName>`
 
@@ -75,7 +73,7 @@ There is a tag `<head></head>` that is used to hold metadata about the page itse
 
 There is a tag `<title></title>` that is used change the name that is displayed in the tab bar of the web browser. This would actually go in the \<header\> tags.
 
-### Document Structure
+## Document Structure
 
 The basic structure that every HTML page will follow is:
 
@@ -105,7 +103,7 @@ To write a comment in HTML do `<!-- text here-->`.
 >
 > There is a way to [validate html](https://validator.w3.org) to ensure it meets current standards.
 
-### Meta Tags
+## Meta Tags
 
 *meta tags* are used to help with *search engine optimization (SEO)*. Basically, making it easier to find when people look up pages using search engines.
 
@@ -122,7 +120,7 @@ All of these tag types will go inside the \<head\> tags of the document.
 >
 > There are many other *meta tags* available, but the above three would be the most important.
 
-### Headings, Paragraphs, and Emphasis
+## Headings, Paragraphs, and Emphasis
 
 When it comes to tags, there can be tags inside other tags. Some tags are supposed to be nested inside other tags, otherwise it is just for styling purposes.
 
@@ -154,7 +152,7 @@ There are some HTML tags are are kind of styling tags in a way like:
 >
 > When typing out the HTML code, it does not matter how the code is formatted. The browser will still be able to understand. This means a whole HTML file can be written on a single line without any formatting and it will all still work and look good.
 
-### List
+## List
 
 To create a list, there are two ways to do so with the previously mentioned `<ol></ol>` (ordered list) or `<ul></ul>` (unordered list) tags. These two tags will define how the list is actually made. 
 
@@ -201,7 +199,7 @@ There is a way to nest list inside others. The way this is done is by putting an
 
 Another type of list, but very uncommon is called a [definition list](https://www.w3schools.com/TAGS/tag_dl.asp).
 
-### Anchor Tags
+## Anchor Tags
 
 When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. This will always need at least one **attribute** to work and that is the *href* attribute. The value for the *href* will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>` will make clicking the words "Click Me" open up another tab in Youtube.
 
@@ -230,44 +228,7 @@ For the **file link** (resouce link), this can have a special attribute added to
 <a href="Image.webp" download="SillyImage.webp">Click me</a>
 ```
 
-<u>Anchor Element Example</u>
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="descripion" content="Describe page"
-    <title>Sample Page</title>
-  </head>
-  <body>
-    <p id="greet">This is a good test</p>
-    <!--  External link-->
-    <a href="youtube.com">Click Me</a>
-
-    <!-- Relative link-->
-    <!-- This will go back on directory and take the user to about.html-->
-    <a href="../about.html">Click Me</a>
-
-    <!-- internal link-->
-    <!-- brings user back to top of page to the element with the id value of "greet"-->
-    <a href="#greet">Click Me</a>
-
-    <!-- mail links-->
-    <a href="beck@gmail.com">Email Here</a>
-
-    <!-- File link-->
-    <a href="Anime.jpg">Image Here</a>
-  </body>
-</html>
-```
-
-> [!NOTE]
->
-> Check the version in the practice folder as that is the most up to date one.
-
-### Images
+## Images
 
 When it comes to adding images to the actual page, the `<img />` tag must be used. There are two common attributes used with this, but one is more important than another:
 
@@ -284,20 +245,29 @@ Some other important attributes are:
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
 - _title_: This functions like when added to the `<a></a>` tag. This will just display the text value given when hovering over the image.
 
-There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img>` tag inside the pair of figure tags. After, put another set of tags called `>figcaptian></figcaptian>` inside those as well.
+There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img>` tag inside the pair of figure tags. After, put another set of tags called `>figcaptian></figcaptian>` inside. Inside the `<figcaption>` tags just add text inside there and this will display under the thing
 
-### Block vs Inline Elements
+<u>For Example</u>
+
+```html
+<figure>
+	<img src="Image.webp" alt="Anime Girl">
+    <figcaptian>This was taken from the internet</figcaptian>
+</figure>
+```
+
+## Block vs Inline Elements
 
 When it comes to all tag elements, each one has something called a **block** or **inline** value to it. This means that when the HTML tag is added to the page, it determines how much space it takes up. If a HTML tag is an **inline** then it will only take up the space it needs and other HTML tags can be displayed right beside it. However, if it has the **block** value then no matter how small the content is, NOTHING else will share the same line space as it.
 
 Some properties of each are:
 
-| Inline                                                                                 | Block                                                                  |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Inline elements occupy only sufficient width required                                  | Block elements occupy the full width irrespective of their sufficiency |
-| Inline elements don't start a newline                                                  | Block elements always start a newline                                  |
-| Inline elements allow other inline elements to sit behind                              | Block elements doesn't allow other elements to sit behind              |
-| Inline elements don't have top and bottom margin. However, can have top left and right | Block elements have top and bottom margin                              |
+| Inline                                                       | Block                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Inline elements occupy only sufficient width required        | Block elements occupy the full width irrespective of their sufficiency |
+| Inline elements don't start a newline                        | Block elements always start a newline                        |
+| Inline elements allow other inline elements to sit side by side | Block elements doesn't allow other elements to sit behind    |
+| Inline elements don't have top and bottom margin.            | Block elements have top and bottom margin                    |
 
 > [!NOTE]
 >
@@ -305,147 +275,107 @@ Some properties of each are:
 
 Some examples of **block** HTML tags are:
 
-- `<div>`
-- `<p>`
-- `<h1 - h6>`
-- `<ul>`
-- `<ol>`
-- `<li>`
-- `<table>`
-- `<form>`
-- `<header>`
-- `<footer>`
-- `<section>`
-- `<nav>`
-- `<article>`
-- `<aside>`
-- `<main>`
-- `<blockquote>`
-- `<hr>`
-- `<pre>`
+| Tag                         | Closing Tag | What it does                                               |
+| --------------------------- | ----------- | ---------------------------------------------------------- |
+| `<div></div>`               | Yes         | Groups content into a section.                             |
+| `<p></p>`                   | Yes         | Creates a paragraph.                                       |
+| `<h1></h1>` – `<h6></h6>`   | Yes         | Creates headings (largest to smallest).                    |
+| `<ul></ul>`                 | Yes         | Creates an unordered (bulleted) list.                      |
+| `<ol></ol>`                 | Yes         | Creates an ordered (numbered) list.                        |
+| `<li></li>`                 | Yes         | Creates a list item.                                       |
+| `<table></table>`           | Yes         | Creates a table.                                           |
+| `<form></form>`             | Yes         | Creates a form for user input.                             |
+| `<header></header>`         | Yes         | Defines the top section of a page or section.              |
+| `<footer></footer>`         | Yes         | Defines the bottom section of a page or section.           |
+| `<section></section>`       | Yes         | Groups related content into a section.                     |
+| `<nav></nav>`               | Yes         | Contains navigation links.                                 |
+| `<article></article>`       | Yes         | Contains independent content, like a blog post or article. |
+| `<aside></aside>`           | Yes         | Contains related or sidebar content.                       |
+| `<main></main>`             | Yes         | Contains the main content of the page.                     |
+| `<blockquote></blockquote>` | Yes         | Displays a long quotation.                                 |
+| `<hr>`                      | **No**      | Creates a horizontal line or thematic break.               |
+| `<pre></pre>`               | Yes         | Displays preformatted text exactly as written.             |
 
 Some examples of **inline** HTML tags are:
 
-- `<span>`
-- `<a>`
-- `<img>`
-- `<button>`
-- `<input>`
-- `<label>`
-- `<strong>`
-- `<em>`
-- `<mark>`
-- `<ins>`
-- `<del>`
-- `<sub>`
-- `<sup>`
+| Tag                 | Closing Tag | What it does                                     |
+| ------------------- | ----------- | ------------------------------------------------ |
+| `<span></span>`     | Yes         | Groups inline content for styling or scripting.  |
+| `<small></small>`   | Yes         | Makes text smaller.                              |
+| `<a></a>`           | Yes         | Creates a hyperlink.                             |
+| `<img>`             | **No**      | Displays an image.                               |
+| `<button></button>` | Yes         | Creates a clickable button.                      |
+| `<input>`           | **No**      | Creates an input field.                          |
+| `<label></label>`   | Yes         | Labels a form input.                             |
+| `<strong></strong>` | Yes         | Makes text bold (important).                     |
+| `<em></em>`         | Yes         | Emphasizes text (usually italic).                |
+| `<mark></mark>`     | Yes         | Highlights text.                                 |
+| `<ins></ins>`       | Yes         | Shows inserted (added) text, usually underlined. |
+| `<del></del>`       | Yes         | Shows deleted text, usually crossed out.         |
+| `<sub></sub>`       | Yes         | Makes text subscript (below the line).           |
+| `<sup></sup>`       | Yes         | Makes text superscript (above the line).         |
 
-### Entities, Break line, and Horizontal Line
+## Entities, Break line, and Horizontal Line
 
-There are times when a special character needs to be displayed to the screen or a pre-used one like the >.
+There are times when a special character needs to be displayed to the screen or a pre-used one like the >. For example, if wanting to write out in a raw formatting `<h1></h1>` then writing it normally will cause it to render like normal. To fix this, there is a special symbol syntax called **entites** that allow this. To use them do `&codeName;`. For example, to have an actual < symbol be displayed to the browser have to type `&lt;`.
 
-To use these the syntax is `&codeName;`. There are much more [entities](https://www.freeformatter.com/html-entities.html) to add other special symbols.
+There are many more entity symbols [here](https://www.freeformatter.com/html-entities.html).
 
-> <u>For Example</u>
->
-> To have an actual < symbol be displayed to the browser have to type `&lt;` instead.
+Can use `<hr/>` (horizontal rule) and this will create a horizontal line that is drawn across the page
 
-Can use `<hr/>` and this will create a horizontal line that is drawn across the page
+Can use `<br/>` (line break) and this will create a newline for the content
 
-Can use `<br/>` and this will create a newline for the content
+There is another special tag `<pre></pre>` that is also used to display test like the `<p></p>`. However, there is an important difference between them. The `<pre>` version will keep all the spacing and formatting of the text no matter what. With the  `<p></p>` tags, these will not display extra spacing or formatting.
 
-### Divs and Spans
+## Divs and Spans
 
-These are special "contains" that help to group elements together and can provide easier layouts and organization. The two most common ways this is done is `<div></div>` and `<span></span>`. The only difference between the two versions is **div** is a _block level_ element while **span** is a _inline level_ element.
+These are special containers that help to group elements together and can provide easier layouts and organization. The two most common ways this is done is `<div></div>` and `<span></span>`. The only difference between the two versions is **div** is a _block level_ element while **span** is a _inline level_ element.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <!--Each thing in here is considered part of this group-->
-    <div>
-      <h1>Hello, World</h1>
-      <a href="youtube.com">Go to YouTube</a>
-      <ol>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <!--While this is considered part of the big div group, this is a sub-group of this and is it own group-->
-        <span><li>Item 3</li></span>
-      </ol>
-    </div>
-  </body>
-</html>
-```
+## Classes & IDs
 
-### Classes & IDs
+There are special attributes called *class* and *id*. These special attributes make it so particular styles can be applied to elements without affecting everything on the page.
 
-There is another way to group elements together, but in a different way called **class** and **id**. This is a way to group elements together for something like styling in CSS or functionality in JavaScript. A good way to think of this is saying this section of people (**class**) will get this functionality/styling or only (**id**) this person will get the functionality/styling.
+### The Class Attribute
 
-The way to use both of these is assigning the value of it a name. This name will how it will be referenced in other languages like JavaScript and CSS to interact with the particular element or group of elements.
+When assigning a value to a `class`, it signals that a specific name will be associated with that element. The styles applied to that class name will then be given to the element.
 
-> [!IMPORTANT]
->
-> When it comes to giving names to the **id** and **class** attributes, the names for the **id** MUST be unique or else this will cause problems when CSS or JavaScript try to reference it.
+It is important to know that a `class` can be given multiple names at once by just space separating them; For example, `<p class="ThingOne ThingTwo">Hello</p>`. This makes it so the styling tied to each of those names gets applied to that single element. The names given for a class can also be reused for other elements across the page to have that same styling applied to them.
 
-> [!IMPORTANT]
->
-> A **class** and **id** attribute can share the same name value and nothing bad will happen. They will still be referenced differently.
+### The ID Attribute
 
-> [!TIP]
->
-> When giving a name value to the **class** attribute, there can be more than one name given to this. This can be done by just spacing the names of this out. This means that references to any of those names will apply whatever effects were given to it via CSS or JavaScript.
+When assigning a value to an *id*, it will take only a single value. Unlike a class, the name used here MUST be unique across the entire document. The value for an *id* CANNOT be shared across multiple elements like a class can. If this is done, it will result in breaking errors since each *id* name has to be completely unique.
 
-> [!TIP]
->
-> Some people like to use the **class** attribute only for CSS (even if only one element will get the name) and **id** for JavaScript. This is a way to organize the code better. However, this is not some rule or standard practice everyone does.
+### Common Use Cases
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="friend">
-      <h1>Hello, friend!</h1>
-      <!-- This ol element can now be referenced by "orderedList" or "items"-->
-      <ol class="orderedList items">
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ol>
-    </div>
-  </body>
-</html>
-```
+When using *id* and *class*, it is common for the *id* attribute to only be used for JavaScript-related things and the *class* attribute to only be used for CSS-related things. While this is not an ironclad rule, following it is highly recommended to keep code clean and organized.
 
-### Semantic Elements
+### Overlapping Names
 
-**Semantic** Elements are just tags that are just more used to help organize code compared to anything else. They help to define certain sections of code so maintainers have an easier time knowing what the section of code should be. Some of these are:
+The name for a *class* and an *id* on a single element can actually be the same. Having both match on the same tag is perfectly fine. For example, `<p class="Hello" id="Hello">World</p>`
+
+## Semantic Elements
+
+**Semantic** elements are just tags that are just more used to help organize code compared to anything else. They help to define certain sections of code so maintainers have an easier time knowing what the section of code should be. Some of these are:
 
 1. `<header></header>`: this groups the header section of the page like the navigation, logo, login part, etc.
 2. `<footer></footer>`: this groups the footer sections like the career part, location information, contact info, etc
 3. `<nav></nav>`: this groups the navigation area. this should only contain the links of the actual elements that navigate to other pages or sections of the current page. For example the navigation links on the top of the page or side bar menus that take to certain parts (**internal links**) of the current page.
 4. `<main></main>`: this groups the main content area. Basically, this should be EVERYTHING in the `<body>` tags.
-5. `<article></article>`:
+5. `<article></article>`: 
 6. `<section></section>`: this groups certain parts of the page. For example, if there was a results, overview, test, etc sections.
 7. `<aside></aside>`: this groups secondary or sidebar content. For example, in amazon where the filters are applied is considered a sidebar.
 
 > [!NOTE]
 >
-> Just like the `<div>` element, these are all _block level_ elements.
+> Just like the `<div>` element, these are all <u>block level</u> elements.
 
 > [!TIP]
 >
 > The `<div>` element is just for generic grouping. While the others are just for grouping as well, they help give meaning to certain parts of the page. For example, if just wanting to style a particular group of elements that have no meaning but to group them and apply certain styles or features then just use the `<div>`.
 
-## Chapter 3
+# Chapter 3
 
-### Form & Tags
+## Form & Tags
 
 When it comes to getting user input, the most common way to do this is with a **form**. The `<form></form>` tag is the most common way to do this. It gives the ability to send data to other parts of the site itself or to different files to have the data processed like _backend languages_ like Java, Golang, Python, PHP, etc.
 
@@ -494,14 +424,14 @@ Another important attribute is the *disable*. This makes is so that input field 
 
 There are two attribute that are almost similar to each other, but do differ. The *checkbox* and *radio* attributes are a way to give the user a multi-option choice. However, the difference comes with how many options can be selected at once. The *checkbox* can select one or more options while the *radio* can only select one at a time. When it comes to making these, it is different then how all the stuff was done before:
 
-#### Checkbox
+### Checkbox
 
 1. The **input** and **label** attribute are separated, the **input** will be nested inside the **input** and the **type** will be "checkbox". 
 2. The *for* still needs to go as an attribute for the **label**.
 3. Make sure to give the nested **input** the *name*, *id*, *value*, and *type* attributes. This will make it so when selecting that option, it will be that specified value passed to the server with the specified name and the id of it can be referenced in JavaScript.
 4. Repeat this for each additional option to give the user. It is important to note that the *name* value for each of these MUST be the same. Also, a unique attribute (which will be placed in the **input**) is *checked*. This will make it so by default that box option is checked and the person will now need to deselect it if they do not want it. Also, it does not need a value.
 
-#### Radio
+### Radio
 
 When it comes to this it is the EXACT same way to make the *checkbox* version, except the type will just be "radio".
 
@@ -521,9 +451,9 @@ Another type is the "range". This will make a slider so the user can choose on a
 >
 > There is an HTML element called **button**. This is just like the **input** with a type of *submit*. 
 
-## Chapter 4
+# Chapter 4
 
-### Audio Element
+## Audio Element
 
 
 
@@ -533,7 +463,7 @@ One other important attribute called *controls*. This is how the actual audio pl
 
 Two other ones are *autoplay* and *loop*. The first will just make the content automatically start playing and the second is to just restart the content once the media is completed. This does not require any value assigned.
 
-### Video Element
+## Video Element
 
 When wanting to add actual videos to the page, use the **video** element. To specify the location of the content, use the *src* attribute just like with the **audio** element. Also, can use the *type* attribute as well (look up value for this). 
 
@@ -543,11 +473,11 @@ Unlike before where the *controls* attribute could be optional, this should NOT 
 >
 > There is a special JavaScript API that allows to make a custom media player bar if the one provided by *controls* attribute is not to a liking.
 
-### Image Map
+## Image Map
 
 If wanting certain parts of an image to be clickable and when that section is clicked go somewhere, then use the **map** element. This is not really used, but look up to learn how to use.
 
-### Tables
+## Tables
 
 When wanting to display tabular data use the **table** element. Unlike other elements, this has a lot of additional tags that need to be nested inside to get this to work. They are:
 
@@ -567,7 +497,7 @@ There are two special attributes called *colspan* and *rowspan*. The *colspan* w
 >
 > Back in the day before flexbox and CSS grid, a table was used to create and style layouts for the page. However, that method is obsolete.
 
-### Iframe
+## Iframe
 
 This is used to embedded another type of element inside the current HTML document. While this also embeds content like the **video** attribute, these are both used to signal different things. They also have small difference in functionality.
 
@@ -579,7 +509,7 @@ This requires the *src* attribute at minimum to add the location of this. This c
 >
 > This does not work for all sites. Sites have to give permission for the feature to work. Some sites have special URLs that give the ability to embed the content. The example in the `ifram.html` file will have an **iframe** going to google maps. This iframe was copied from google maps as well.
 
-### Global   Attributes
+## Global Attributes
 
 These are attributes that can be applied to ANY HTML element. Some examples of this is the *id* and *class* attribute mentioned earlier.
 
@@ -609,7 +539,7 @@ Another attribute is *autofocus*. This will make it so when the page is loaded u
 >
 > Visit [website](https://developer.mozilla.org/en-US/) to see all the up to date documentation for HTML, CSS, and JavaScript. This will show all kinds of things that is available in those things.
 
-### SVG Elements
+## SVG Elements
 
 SVG (scalable vector graphics) is a type of XML based image that creates images in a 2D format. This also supports animations and interactivity. These type of images are good for things like icons, logos, etc since the quality of the image does not change regardless if the image shrinks or grows unlike a jpeg.
 
@@ -617,7 +547,7 @@ Basic icons can be coded by hand using the XML format or the **SVG** tag in HTML
 
 A SVG image can be include with the **image** tag and does not need to use the specific **SVG** tag. This is also the most common way to do this.
 
-### Popover & Details
+## Popover & Details
 
 The *popover* attributes and **details** element are used to display information when something is clicked or have a foldable bar of text, that looks like a drop down, is used to display something.
 
@@ -627,7 +557,7 @@ The **details** element is added and inside must have the **summary** element as
 
 
 
-### Progress & Meter
+## Progress & Meter
 
 When it comes to wanting to make something like a progress bar or meter bar, this can be down with simple HTML. Now, the progress is used to indicate how complete something is while the meter bar, while looks the same, can be used to display some specific feature, etc once a specific requirement is met.
 
@@ -635,9 +565,9 @@ Use the **progress** element to create the progress bar. Can also use the **labe
 
 Use the **meter** element to create the meter bar. This can have the **label** element like the **progress** element did. This can have the same attributes as well. However, there are three more attributes this can have which are *low*, *high*, and *optimal*. The *low* and *high* gives a way to indicate that when the value reaches that it is considered in a low state and vice versa for high. The *optimal* would be not be the best but not the worse either. There are specific CSS styles that can be applied to this stuff based off of this values if wanted. However, since this is so new still, would have to use something like `meter::-webkit-meter-optimum-value`
 
-## Chapter 5
+# Chapter 5
 
-### Implementing CSS
+## Implementing CSS
 
 When it comes to the general CSS syntax, it follows:
 
@@ -659,7 +589,7 @@ There are three ways to implement CSS, however, there is only one way this shoul
 >
 > Is is common practice to place all the CSS files in a separate folder or organization.
 
-### Basic CSS Selectors
+## Basic CSS Selectors
 
 When it comes to the different selector types, it can be:
 
@@ -689,7 +619,7 @@ Selector p{
 }
 ```
 
-### Fonts In CSS
+## Fonts In CSS
 
 Not all systems will have certain fonts installed; like not everyone will have the "Comic Relief" font installed. However, there are a base set of fonts that are installed for all web browsers: "Arial", "Verdana", "Times New Roman", "Georgia", etc. These can also be represented by saying: "sans-serif" or "serif". Putting that will make it so it selects ANY of those fonts available on the browser.
 
@@ -697,7 +627,7 @@ There is a way to have any font on thr website without the user having to have t
 
 When the **link** attribute is added for something like the fonts, this can be used in the CSS file like normal as if the user did have it installed.
 
-### Font & Text Properties
+## Font & Text Properties
 
 There are some common properties that can be used to change how text appear, they are:
 
@@ -718,7 +648,7 @@ There are some common properties that can be used to change how text appear, the
 >
 > When it comes to giving the size for most of the CSS elements, it will be done with pixels. However, there are other ways to give measurements which will talked about later.
 
-### Colors
+## Colors
 
 When giving something a color, there are a few different ways to say what the color will be:
 
@@ -743,7 +673,7 @@ Some of the CSS properties to change this are:
 >
 > Variables are not globally scoped unless declared in the root selector (which is  * or **:root**). If not declared there then will be locally scoped to that CSS selector section.
 
-### CSS Specificity
+## CSS Specificity
 
 When choosing the CSS specifier, there is an order in which they take priority and not just what was the most recent design added to it. The order is:
 
@@ -758,7 +688,7 @@ When choosing the CSS specifier, there is an order in which they take priority a
 
 There is an important keyword called **!important**. This goes at the end of the value of a property, but before the semi-colon. This will make it so it does not matter what selector type was used, that particular property will ALWAYS be applied unless another selector targeting the same thing later on does the same thing with the **!important** keyword.
 
-### Backgrounds
+## Backgrounds
 
 **background**: this has a many different values this can take and the they are:
 
@@ -769,13 +699,13 @@ There is an important keyword called **!important**. This goes at the end of the
 5. *background-size*: This determiens how big the background will actually be. The values are: auto (default value), cover (scales the design to cover the entier element background, but could mess up design), constrain (makes the image ), or specified with width and height in any measurment unit.
 6. *background-attachment*: This will make it appear that the image is sticking to part of the page or not. The values are: scroll or fixed.
 
-### Styling Links
+## Styling Links
 
 When it comes to making links (using the **a** element), there are a few cool ways these can be styled called **pesudo classes** and **pesudo elements**. The **pesudo class** version is used to style a whole element when a specific condition is met. On the other hand, the **pesudo elements** is used to style a specific part of the elemenet.
 
 The **pesudo class** is made by choosing a selector type like normal then following with a single colon then putting the type of state to target all with no spaces. There are a few different categories with different states which are listed below:
 
-#### User Active states
+### User Active states
 
 - hover: this will apply the styling when the user is hovering over the element. This is popular on links.
 - active: this will apply the styling while the user is clicking the element.
@@ -783,7 +713,7 @@ The **pesudo class** is made by choosing a selector type like normal then follow
 - focus-within: this will apply the styling to the parent element if ANY child element inside has focus.
 - visited: this will apply the styling a styling to links and will always be there to show that the user has clicked on the link before. This is only for links.
 
-#### Structural & Position
+### Structural & Position
 
 > These target elements based on where they live inside the parent element
 
@@ -793,7 +723,7 @@ The **pesudo class** is made by choosing a selector type like normal then follow
 - only-child: this will style the element ONLY IF it is the only child elemnet inside the parent element
 - root: this will style the highest level parent element of the page which is usually the **HTML** tag.
 
-#### Form & Input
+### Form & Input
 
 > This are good for styling forms where user input is needed like on the **input** tag.
 
@@ -804,7 +734,7 @@ The **pesudo class** is made by choosing a selector type like normal then follow
 - disabled: this will style all elements that have the *disabled* attribute
 - checked: will style specifically radio and checkbox input types when clicked
 
-#### Logic & Miscellaneous
+### Logic & Miscellaneous
 
 > This are just logical ones to make writing CSS a little easier
 
@@ -829,7 +759,7 @@ Now, looking at the **pseudo-elements**, these use two colons instead of one lik
 >
 > When it comes to the **pesudo-classes** and **pesudo-elements**, these do not need to have a selector specified behind it and can actually be used by itself like `:empty{color: green;}`. This is because the web browswer will interpert that and add * right before the thing under the hood. The * is called the universal selector and this will appy any style listed to ALL parts of the page and all elements.
 
-### List Styles
+## List Styles
 
 When it comes to styling list, the use of **list-style** property is needed. This can have multiple different values which are:
 
@@ -837,7 +767,7 @@ When it comes to styling list, the use of **list-style** property is needed. Thi
 2. <u>list-style-position</u>: This changes how the bullet/number is part of the list item. This can have a value of "inside" or "outside". The "inside" will make the bullet/number part of the actual text list item, while "outside" does not. Use the dev tools to see how this actually looks
 3. <u>list-style-image</u>: This will make the bullet/numeric symbol a custom image of choice using the `url()`.
 
-### Font Awesome
+## Font Awesome
 
 This is a way to add premade custom cool icons to the HTML file. Go to [Font Awesome](https://fontawesome.com/icons) to see all the free icons that can be added. For the icons they have the HTML code needed so it can be just copy and pasted.
 
@@ -853,9 +783,9 @@ Font awesome works by giving certain elements classes of a specific name that wi
 
 
 
-## Chapter 6
+# Chapter 6
 
-### Box Model
+## Box Model
 
 Every element on the page has something called *box model* which is shown in the browser. This is a way to see how much space an element in taking, exactly where that space is devised for that element, and styles in it. This is all seen using the browser *dev tools*.
 
@@ -915,7 +845,7 @@ When it comes to the properties that affect the box model, they are:
 >
 > Can give a value of *auto* instead of other values as this is the way things are calculated itself. This is also a good way to center things in the center of the screen.
 
-### Sizing & Overflow
+## Sizing & Overflow
 
 The sizing is really just using all the stuff written down from before.
 
@@ -929,13 +859,13 @@ When setting the values of the content like **width** and **height** to percent 
 
 Setting the stuff like **max/min-width/height** helps build a responsive design.
 
-### Universal Selector & Reset
+## Universal Selector & Reset
 
 This was talked about before in chapter 5 section styling links. This is a good thing to reset all the **padding** and **margin** by setting it in the universal selector with a value of 0px.
 
 Another good thing to set here is the **box-sizing** property.
 
-### Borders
+## Borders
 
 - **border**: This is what can give a border around any HTML element. The values for this are:
 
@@ -955,7 +885,7 @@ Another good thing to set here is the **box-sizing** property.
 >
 > There is an important difference between **outline** and **border**. The difference is **border** will count towards the size of the HTML element, while **outline** does not. For example, if a **div** as only 100px of width and height, then adding a border of 20px will take away 20px from the inner space by 20px. However, the **outline** will make it so the inner space is still 100px and instead the element will now be 20px larger so it will be a total of 120px in width and height.
 
-### Display Property
+## Display Property
 
 The **display** property changes the display behavior of a specific HTML element and its contents.
 
@@ -976,7 +906,7 @@ There is another property called **visibility** which can have a value of *hidde
 >
 > When it comes to inline elements, margin appied to it will only affect the left and right side. The **width** and **height** properties will not apply to this AT ALL. To fix this this is where the *inline-block* comes in handy.
 
-### Position Property
+## Position Property
 
 The **position** property tells how to position the element on the page relative to the rest of the layout.
 
@@ -1000,7 +930,7 @@ Another important thing is called **z-index**. This controls the ordering of how
 >
 > None of these values will work if the position is set to **static**.
 
-### Box Shadow
+## Box Shadow
 
 **box-shadow**: This will create a shadow behind the element. This makes it so the HTML element looks like it is flying. The order of values is:
 

@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Block vs Inline Display Behavior</title>
+	<style>
+		/* Block element styling */
+		p {
+			background-color: bisque;
+		}
+
+		/* Inline element styling */
+		a {
+			background-color: blue;
+			color: white;
+			/* Horizontal margins work on inline elements, but vertical margins (top/bottom) do not push away block neighbors */
+			margin-right: 20px;
+			margin-bottom: 30px;
+		}
+	</style>
+</head>
+<body>
+
+<!-- SECTION 1: BLOCK-LEVEL ELEMENTS -->
+<h1>1. Block-Level Elements</h1>
+<p>Block elements always start on a new line and take up 100% of the available width:</p>
+
+<h1>Anime Girl</h1>
+<p>This is paragraph 1.</p>
+<p>This is paragraph 2 (starts on a new line despite being short).</p>
+
+<hr>
+
+<!-- SECTION 2: INLINE ELEMENTS -->
+<h1>2. Inline Elements & Margin Behavior</h1>
+<p>Inline elements sit side-by-side on the same line and only take up as much width as their content needs:</p>
+
+<!-- These two links share the exact same line -->
+<a href="https://youtube.com">YouTube</a>
+<a href="https://www.google.com">Google</a>
+
+<p>
+	Notice how the paragraph above is NOT pushed down by the link's <code>margin-bottom: 30px;</code>.
+	Inline elements do not respect vertical top/bottom margins!
+</p>
+
+</body>
+</html>

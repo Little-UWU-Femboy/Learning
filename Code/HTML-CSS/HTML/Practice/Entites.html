@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Links, Spacing, and HTML Entities Example</title>
+</head>
+<body>
+
+<!-- SECTION 1: INLINE LINKS & LINE BREAKS -->
+<h1>1. Inline Elements & Line Breaks (&lt;br&gt;)</h1>
+<p>Links are inline by default, but a &lt;br&gt; forces a newline:</p>
+
+<a href="https://youtube.com">This is an inline link to YouTube</a>
+<br>
+<a href="https://google.com">This is an inline link to Google</a>
+
+<hr>
+
+<!-- SECTION 2: P VS PRE TAGS -->
+<h1>2. Paragraphs (&lt;p&gt;) vs. Preformatted Text (&lt;pre&gt;)</h1>
+<p>Notice how &lt;p&gt; collapses extra spaces, while &lt;pre&gt; keeps them exactly as typed:</p>
+
+<!-- Paragraph collapses multiple spaces into one -->
+<p style="background-color: lightyellow;">
+	This paragraph has lots of extra spaces in code.
+</p>
+
+<!-- Pre tag preserves every single space and line break -->
+<pre style="background-color: lightgray;">
+This preformatted text    has lots of    extra spaces    in code.
+    </pre>
+
+<hr>
+
+<!-- SECTION 3: HTML ENTITIES -->
+<h1>3. HTML Entities</h1>
+<p>Entities display reserved characters (like &lt; and &gt;) or special symbols safely:</p>
+
+<!-- Displaying raw HTML tags using entities -->
+<p>Displaying literal tags: <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code></p>
+
+<!-- Displaying special symbols -->
+<p>Copyright symbol: &copy; 2026</p>
+
+</body>
+</html>
