@@ -209,13 +209,28 @@ One extra attribute is *target*. This determines that when the user clicks on th
 
 Another attribute is the *title* attribute. This makes it so when hovering over the link with the cursor some text will appear. What will appear in here is value given to the attribute.
 
-When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that. For example, `<a href="../Testing.html">Go Here</a>`
+When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that. For example, `<a href="../Testing.html">Go Here</a>`.
 
 There is a way that when a user click on the link, it will bring them to a specific part the page and this is called a **internal link**. The value for this will be something like "#IDOfTagGiven". The attribute of <u>id</u> will be talked about later, but the value that it is set to will be the same thing that *href* attribute will get with the added # in front of it.
 
 Another type of link can be an **email link**. This will make it so when someone clicks on the link, it will open that users chosen email client on their system with who to send to filled out so all they have to do is write the email and the title for it. This time set the *href* attribute value to "mailto:EmailOfPerson".
 
-Another type of link is called **file link**. These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The *href* value for this will be nothing special and it is just the relative path from the current document to that resource.
+Another type of link is called **file link** (resource link). These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The *href* value for this will be nothing special and it is just the relative path from the current document to that resource.
+
+For the **file link** (resouce link), this can have a special attribute added to it called *download*. This makes it so the resource does not open in a separate browser. Instead, the device will try to download it instead. When using this, it can or cannot have a specific value assigned to it. If there is then the file will be downloaded with the specific file name and extension given; otherwise it will give it the file name from the one in the *href* attriute. 
+
+<u>Resource Download Example</u>
+
+```html
+<!-- opens image resource in separate tab-->
+<a href="Image.webp">Click me</a>
+<!--Downloads image resource as "Image.webp"-->
+<a href="Image.webp" download>Click me</a>
+<!--Downloads image resource as "SillyImage.webp"-->
+<a href="Image.webp" download="SillyImage.webp">Click me</a>
+```
+
+<u>Anchor Element Example</u>
 
 ```html
 <!DOCTYPE html>
@@ -248,13 +263,9 @@ Another type of link is called **file link**. These are ones that link to things
 </html>
 ```
 
-A small attribute that can be added to this is _title_. This will make it so when the cursor is hovering over the linked text, a small box of text will be displayed with whatever was put inside the value like:
-
-`<a href="Anime.jpg" title="Anime girl with cat">Image Here</a>`
-
-> [!TIP]
+> [!NOTE]
 >
-> There is a way to specify that a file should be downloaded instead of just opened in the browser by adding the <u>download</u> attribute. However, it is important to know this will not work when the HTML file is opened locally on the system because of the cross site origin sctipting stuff.
+> Check the version in the practice folder as that is the most up to date one.
 
 ### Images
 
@@ -271,7 +282,9 @@ Some other important attributes are:
 
 - _width_: this sets how long the image will be horizontally. The value in this will be a number followed by "px"
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
-- _title_: This functions like when added to the `<a></a>` tag
+- _title_: This functions like when added to the `<a></a>` tag. This will just display the text value given when hovering over the image.
+
+There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img>` tag inside the pair of figure tags. After, put another set of tags called `>figcaptian></figcaptian>` inside those as well.
 
 ### Block vs Inline Elements
 
