@@ -351,7 +351,7 @@ When using *id* and *class*, it is common for the *id* attribute to only be used
 
 ### Overlapping Names
 
-The name for a *class* and an *id* on a single element can actually be the same. Having both match on the same tag is perfectly fine. For example, `<p class="Hello" id="Hello">World</p>`
+The name for a *class* and an *id* on a single element can actually be the same. Having both match on the same tag is perfectly fine. For example, `<p class="Hello" id="Hello">World</p>`.
 
 ## Semantic Elements
 
@@ -365,13 +365,15 @@ The name for a *class* and an *id* on a single element can actually be the same.
 6. `<section></section>`: this groups certain parts of the page. For example, if there was a results, overview, test, etc sections.
 7. `<aside></aside>`: this groups secondary or sidebar content. For example, in amazon where the filters are applied is considered a sidebar.
 
-> [!NOTE]
->
-> Just like the `<div>` element, these are all <u>block level</u> elements.
+Just like the `<div>` element, these are all <u>block level</u> elements.
 
 > [!TIP]
 >
 > The `<div>` element is just for generic grouping. While the others are just for grouping as well, they help give meaning to certain parts of the page. For example, if just wanting to style a particular group of elements that have no meaning but to group them and apply certain styles or features then just use the `<div>`.
+
+## Emmet
+
+This is just a shorter way to write out HTML instead of writing it out all by hand. For example, instead od writing out five `<li></li>` pairs with the same classes attached to them something like `li.class*5` can be done instead.
 
 # Chapter 3
 
