@@ -375,28 +375,50 @@ Just like the `<div>` element, these are all <u>block level</u> elements.
 
 This is just a shorter way to write out HTML instead of writing it out all by hand. For example, instead od writing out five `<li></li>` pairs with the same classes attached to them something like `li.class*5` can be done instead.
 
+Here are some rules for using the Emmet syntax:
+
+- Using > will put the thing right after this will make it a child element. For example, doing `div>p`.
+- Using + will put the thing right after this as a sibling element. For example, doing `p+p+p`.
+- Using . will put the thing right after this as a class attribute name. For example, doing `div.thing`.
+- Using # will put the thing right after this as a id attribute name. For example, doing `div#thing`.
+- Using * followed by a number will make that many of that thing. For example, doing `ol>li*5` will make a ordered list with five li elements.
+- Using the $ is the special for item numbering, This can be combined with the * symbol to make more complex numbering. Each $ will start as being a one. However, when combined with the * followed by a number then it will increment up to that number. For example, doing `ul>li.item$*5` will make an unordered list with five li elements each separate one getting the class of "item1" - "item5".
+- Using the {} and putting text inside that will be what places text between the actual tag. For example, doing `p{Text}` will convert to `<p>Text</p>`.
+
+[Go here](https://docs.emmet.io/cheat-sheet/) to see more examples and more in detail how to use Emmet. There are some things not covered here that can more be used.
+
 # Chapter 3
 
 ## Form & Tags
 
-When it comes to getting user input, the most common way to do this is with a **form**. The `<form></form>` tag is the most common way to do this. It gives the ability to send data to other parts of the site itself or to different files to have the data processed like _backend languages_ like Java, Golang, Python, PHP, etc.
-
-The way to actually get input is adding a `<input/>` tag inside the **form** box. This is required to get a form to work.
+When it comes to getting user input, the most common way to do this is with a **form** which uses the `<form></form>` tag. It gives the user the ability to send data to the server to be processed. These are used for things like logging in, signing up, submitting forms, putting in a ticket, etc.
 
 The **form** tag can take a few attributes, but the two needed ones are:
 
-- _action_: this tells where to send the information to. It can be to another part of the site, but most of the time it will be to a backend language to process that data and return something back to it.
-- _method_: this is how the data is supposed to be sent using things like POST, GET, UPDATE, DELETE, etc. Each of these methods will send data a different way.
+- _action_: this tells where to send the data to. It can be to another part of the site, but most of the time it will be to a server to process that data and return something back to it. This will be entered as a file path location to it.
+- _method_: this is how the data is supposed to be sent using things like POST or GET only. Each of these methods will send data a different way.
   - GET --> this will send the data through the URL so this is where that ?var=val portion of the URL is made. Should ONLY be used to get information (like search or look up) and nothing else. Also, no sensitive or private data should be sent this way since all of it is visible in the URL for all to see.
   - POST --> this will send the through the body of the HTTP request. This will make sure that the data is secure. This should be used if changing some information on the server OR sending sensitive information that needs to be processed.
 
+Some of the other **form** attributes are:
+
+- *target*: this tells where to open the response from the server. Still works with the "\_blank" for different tab or the "\_self" for the same page.
+- *enctype*: this is used to dictate how the data is sent to the server. The values are:
+    - "application/x-www-form-urlencoded" is the default value assigned if no other is specified. This is just to encode all characters
+    - "multipart/form-data" is required when the form includes file uploads.
+    - "text/plain" is used to send the data without special encoding is should never be used.
+- *autocomplete*: controls whether the browser can automatically complete input fields based on user history. The value can be "on" (default) or "off".
+- *name*: used to help be accessible by JS.
+
 > [!NOTE]
 >
-> There are other methods like DELETE, PUT, HEAD, and PATCH. However, HTML does not support these.
+> There are other methods like DELETE, PUT, HEAD, and PATCH do exist. However, can only use GET and POST in the form *method* attribute.
+
+The way to actually get input is adding a `<input/>` tag inside the **form** tags. This is required to get a form to work.
 
 The **input** tag can take a few attributes, but the most needed are:
 
-- input --> this tells what type of input should be received. The types are
+- *type* --> this tells what type of input should be received. The types are
   - text: this is a single line of text that can be submitted
   - email: this will ensure that the user inputs an email
   - password: this will make the data entered private so people cannot see what is entered
@@ -410,6 +432,11 @@ The **input** tag can take a few attributes, but the most needed are:
   - submit: used to single that when clicked it will submit the data in all the fields in the form. Acts like a **button**.
   - range: used to create a slider to help get values from a range
   - color: create a color picker thing
+- *name*: the name the server needs to reference to get access to this data
+- *value*: the value that will be sent to the server and read when it accesses the data
+- *id*: this is used in an additional way besides being able to identify it by JS. It is used by another HTML tag (`<label></label>`) to give an additional feature.
+- *required*: this prevents the form from being submitted to the server unless there is a value in that field
+- *min* & *max*: this sets the minimum and maximum number of characters to be allowed for that input
 
 For all of the **input** tag types, there is another HTML element called `<label></label>`. This is a way to display text that when clicked will automatically takes the users cursor to the input field assigned to it. The way to use **label** is give it the attribute of _for_ and the value of that will be the _id_ value on the **input** tag that was given.
 
