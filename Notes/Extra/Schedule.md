@@ -1,4 +1,44 @@
-#### Monday --> 07/27
+#### Sunday --> 08/9
+
+**Work:** No
+
+**Job:** 
+
+**Time:**
+
+#### Monday --> 08/10
+
+**Work:** Yes
+
+**Job:** Victoria Secret
+
+**Time:** 4:30PM - 10:30PM
+
+#### Tuesday --> 08/11
+
+**Work:** Yes
+
+**Job:** Victoria Secret
+
+**Time:** 6PM - 2AM
+
+#### Wednesday --> 08/12
+
+**Work:** No
+
+**Job:** 
+
+**Time:**
+
+#### Thursday --> 08/13
+
+**Work:** No
+
+**Job:** 
+
+**Time:** 
+
+#### Friday --> 08/14
 
 **Work:** Yes
 
@@ -6,50 +46,10 @@
 
 **Time:** 4:30PM - 8:30PM
 
-#### Tuesday --> 07/28
-
-**Work:** NO
-
-**Job:**
-
-**Time:**
-
-#### Wednesday --> 07/29
-
-**Work:** NO
-
-**Job:** 
-
-**Time:**
-
-#### Thursday --> 07/30
+#### Saturday --> 08/15
 
 **Work:** Yes
 
-**Job:** American Eagle & Victoria Secret
+**Job:** Victoria Secret
 
-**Time:** 7AM - 3PM & 4PM - 8:30PM
-
-#### Friday --> 07/31
-
-**Work:** Yes
-
-**Job:** American Eagle
-
-**Time:** 7AM - 3PM
-
-#### Saturday --> 08/1
-
-**Work:** Yes
-
-**Job:** American Eagle
-
-**Time:** 7AM - 12:30PM
-
-#### Sunday --> 08/2
-
-**Work:** I do not know yet
-
-**Job:** 
-
-**Time:**
+**Time:** 4:30PM - 8:30PM

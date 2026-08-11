@@ -371,6 +371,70 @@ Just like the `<div>` element, these are all <u>block level</u> elements.
 >
 > The `<div>` element is just for generic grouping. While the others are just for grouping as well, they help give meaning to certain parts of the page. For example, if just wanting to style a particular group of elements that have no meaning but to group them and apply certain styles or features then just use the `<div>`.
 
+<u>For Example</u>
+
+Instead of these being all divs, this semantic tags would be used like this to give better meaning to the page.
+
+```mermaid
+%%{
+  init: {
+    'flowchart': {
+      'subgraphPadding': 2,
+      'nodeSpacing': 5,
+      'rankSpacing': 5
+    }
+  }
+}%%
+flowchart TB
+    %% --- Main Outer Container ---
+    subgraph Body [" "]
+        direction TB
+        style Body fill:#e2f3e0,stroke:#2e5b37,stroke-width:1.5px,rx:6,ry:6
+
+        %% --- Header ---
+        Header["<div style='padding: 12px 0px; width: 220px; font-size: 14px; font-weight: bold; color: #3c3c3c;'>&lt;header&gt;</div>"]
+        style Header fill:#faeaf6,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+        %% --- Nav ---
+        Nav["<div style='padding: 4px 0px; width: 220px; font-size: 12px; font-weight: bold; color: #3c3c3c;'>&lt;nav&gt;</div>"]
+        style Nav fill:#ffd8a8,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+        %% --- Middle Container (Main + Aside) ---
+        subgraph Middle [" "]
+            direction LR
+            style Middle fill:transparent,stroke:none
+
+            %% Main Column Subgraph
+            subgraph Main ["<div style='font-size: 12px; font-weight: bold; color: #3c3c3c; margin-bottom: 2px;'>&lt;main&gt;</div>"]
+                direction TB
+                style Main fill:#e0e0f8,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+                Article["<div style='padding: 30px 0px; width: 120px; font-size: 12px; font-weight: bold; color: #3c3c3c;'>&lt;article&gt;</div>"]
+                style Article fill:#faeaf6,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+                Section["<div style='padding: 10px 0px; width: 120px; font-size: 12px; font-weight: bold; color: #3c3c3c;'>&lt;section&gt;</div>"]
+                style Section fill:#d0e1fd,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+                Article ~~~ Section
+            end
+
+            %% Aside Box
+            Aside["<div style='padding: 60px 0px; width: 75px; font-size: 12px; font-weight: bold; color: #3c3c3c;'>&lt;aside&gt;</div>"]
+            style Aside fill:#fdd835,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+            Main ~~~ Aside
+        end
+
+        %% --- Footer ---
+        Footer["<div style='padding: 12px 0px; width: 220px; font-size: 14px; font-weight: bold; color: #3c3c3c;'>&lt;footer&gt;</div>"]
+        style Footer fill:#ffecb3,stroke:#3c3c3c,stroke-width:1px,rx:6,ry:6
+
+        Header ~~~ Nav ~~~ Middle ~~~ Footer
+    end
+```
+
+
+
 ## Emmet
 
 This is just a shorter way to write out HTML instead of writing it out all by hand. For example, instead od writing out five `<li></li>` pairs with the same classes attached to them something like `li.class*5` can be done instead.
@@ -391,11 +455,13 @@ Here are some rules for using the Emmet syntax:
 
 ## Form & Tags
 
+### Form
+
 When it comes to getting user input, the most common way to do this is with a **form** which uses the `<form></form>` tag. It gives the user the ability to send data to the server to be processed. These are used for things like logging in, signing up, submitting forms, putting in a ticket, etc.
 
 The **form** tag can take a few attributes, but the two needed ones are:
 
-- _action_: this tells where to send the data to. It can be to another part of the site, but most of the time it will be to a server to process that data and return something back to it. This will be entered as a file path location to it.
+- _action_: this tells where to send the data to. It can be to another part of the site, but most of the time it will be to a server to process that data and return something back to it. This will be entered as a file path location to it. If for some reason this is left off, then when the form is submitted it will just send the data to the current page itself.
 - _method_: this is how the data is supposed to be sent using things like POST or GET only. Each of these methods will send data a different way.
   - GET --> this will send the data through the URL so this is where that ?var=val portion of the URL is made. Should ONLY be used to get information (like search or look up) and nothing else. Also, no sensitive or private data should be sent this way since all of it is visible in the URL for all to see.
   - POST --> this will send the through the body of the HTTP request. This will make sure that the data is secure. This should be used if changing some information on the server OR sending sensitive information that needs to be processed.
@@ -412,16 +478,18 @@ Some of the other **form** attributes are:
 
 > [!NOTE]
 >
-> There are other methods like DELETE, PUT, HEAD, and PATCH do exist. However, can only use GET and POST in the form *method* attribute.
+> There are other methods like DELETE, PUT, HEAD, and PATCH do exist for HTTP/HTTPS. However, can only use GET and POST in the form *method* attribute.
+
+### Input
 
 The way to actually get input is adding a `<input/>` tag inside the **form** tags. This is required to get a form to work.
 
 The **input** tag can take a few attributes, but the most needed are:
 
-- *type* --> this tells what type of input should be received. The types are
+- *type* --> this tells what type of input should be received. The types are:
   - text: this is a single line of text that can be submitted
-  - email: this will ensure that the user inputs an email
-  - password: this will make the data entered private so people cannot see what is entered
+  - email: this will ensure that the user inputs an email by ensuring they have something ending with the @ and ".com".
+  - password: this will make the data entered private so people cannot see what is entered. All it will show is a dot per character entered.
   - number: will make sure the data is a number only and on a single line
   - textarea: used to get large amounts of text that can be multi-line
   - select: used to get a dropdown list of items to choose from
@@ -429,38 +497,26 @@ The **input** tag can take a few attributes, but the most needed are:
   - checkbox: used to create a checkbox to choose multiple options
   - radio: used to create options, but can only choose one
   - file: used to be able to submit a file
-  - submit: used to single that when clicked it will submit the data in all the fields in the form. Acts like a **button**.
+  - submit: creates a button that will submit the data in all the fields in the form to the server when clicked
   - range: used to create a slider to help get values from a range
   - color: create a color picker thing
-- *name*: the name the server needs to reference to get access to this data
-- *value*: the value that will be sent to the server and read when it accesses the data
+- *name*: the name the server needs to reference to get access to this data.
+- *value*: will prefill the input field with that value provided here. For example, instead of having a user reenter all their data if the page gets refreshed it can be filled for them.
+- *placeholder*: functions like *value* except the text shown in the box is temporary until the user actually enters something. Good to give the user hints on the data to enter.
 - *id*: this is used in an additional way besides being able to identify it by JS. It is used by another HTML tag (`<label></label>`) to give an additional feature.
-- *required*: this prevents the form from being submitted to the server unless there is a value in that field
-- *min* & *max*: this sets the minimum and maximum number of characters to be allowed for that input
+- *required*: this prevents the form from being submitted to the server unless there is a value in that field. This does not need a value assigned to it.
+- *min* & *max*: this sets the minimum and maximum number or range of something that can be entered. <u>For Example</u>, if the min is set to 18 and max is set to 40 then the person can only enter a number from 18 - 40 and anything else is considered invalid. Another example is if the *min* was "2026-08-10" than no person can enter a date lower than that.
+- *minlength* & *maxlength*: this sets the minimum and maximum number of characters that can be entered into the field. <u>For Example</u>, if the *minlength* is 2 and *maxlength* is 5 then the user can enter only 2 to 5 characters.
+- *disabled*: this makes it so the field cannot be edited at all. However, any field that is disabled will not get its data sent to the server. This does not need a value assigned to it. <u>For Example</u>, some sites disable a button until all user data is filled out and the user agrees to all terms and conditions.
 
-For all of the **input** tag types, there is another HTML element called `<label></label>`. This is a way to display text that when clicked will automatically takes the users cursor to the input field assigned to it. The way to use **label** is give it the attribute of _for_ and the value of that will be the _id_ value on the **input** tag that was given.
-
-For any of the **input** elements, it can be given an attribute of _value_. This will make it so that thing is automatically typed into the respected box by default, so the user will have to delete the content then type what they want. Another version of this _placeholder_. The _placeholder_ will make it so the content given will only appear there when no actual input is given, but once the user gives input then it disappears.
-
-Another important attribute for the **input** is the _name_. This is highly important as this is how the server side language is able to get access to that data. This works by the value given to the name will be like the variable name and the value in the input field will automatically be passed to the server side language. A good way to see this when sending a form with the GET method, it will show the name of the variable and the value assigned to it.
-
-Another attribute for the **input** is _required_. This makes it so that field MUST have data or else trying to submit the form will not work. This does not need to be assigned a value
-
-
-Two other important attributes are *minlength* and *maxlength*. This makes it so that input field that field must have a certain amount of characters.
-
-Another important attribute is the *disable*. This makes is so that input field cannot be edited at all. This does not need to be assigned a value.
-
-There are two attribute that are almost similar to each other, but do differ. The *checkbox* and *radio* attributes are a way to give the user a multi-option choice. However, the difference comes with how many options can be selected at once. The *checkbox* can select one or more options while the *radio* can only select one at a time. When it comes to making these, it is different then how all the stuff was done before:
-
-### Checkbox
+#### Checkbox
 
 1. The **input** and **label** attribute are separated, the **input** will be nested inside the **input** and the **type** will be "checkbox". 
 2. The *for* still needs to go as an attribute for the **label**.
 3. Make sure to give the nested **input** the *name*, *id*, *value*, and *type* attributes. This will make it so when selecting that option, it will be that specified value passed to the server with the specified name and the id of it can be referenced in JavaScript.
 4. Repeat this for each additional option to give the user. It is important to note that the *name* value for each of these MUST be the same. Also, a unique attribute (which will be placed in the **input**) is *checked*. This will make it so by default that box option is checked and the person will now need to deselect it if they do not want it. Also, it does not need a value.
 
-### Radio
+#### Radio
 
 When it comes to this it is the EXACT same way to make the *checkbox* version, except the type will just be "radio".
 
@@ -479,6 +535,10 @@ Another type is the "range". This will make a slider so the user can choose on a
 > [!NOTE]
 >
 > There is an HTML element called **button**. This is just like the **input** with a type of *submit*. 
+
+### Label
+
+For all of the **input** tag types, there is another HTML element called `<label></label>`. This is a way to display text that when clicked will automatically takes the users cursor to the input field assigned to it. This will typically be right next to the respective input field. The way to use **label** is give it the attribute of _for_ and the value of that will be the _id_ value on the **input** tag that was given. <u>For Example</u>, this would look something like "First Name: [\_\_\_\_\_\_]" that when the text "First Name" is clicked will auto focus the cursor on the input field for that as if the user clicked that box.
 
 # Chapter 4
 

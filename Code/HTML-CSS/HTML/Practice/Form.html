@@ -7,9 +7,31 @@
 </head>
 <body>
 <h1>Form Design</h1>
-<form>
-	<label for="email">Name</label>
-	<input type="email" name="email" id="email" placeholder="Enter your email address">
+<form method="GET">
+	<div>
+		<label for="FirstName">First Name:</label>
+		<input type="text" id="FirstName" placeholder="Enter First Name" value="FST" name="FirstName">
+	</div>
+
+	<div>
+		<label for="LastName">Last Name:</label>
+		<input type="text" id="LastName" placeholder="Enter Last Name" value="SND" name="LastName">
+	</div>
+
+	<div>
+		<label for="Email">Email:</label>
+		<input type="email" id="Email" placeholder="Enter Email" value="TRD@g.com" name="Email">
+	</div>
+
+	<div>
+		<label for="Password">Password:</label>
+		<input type="password" id="Password" placeholder="Enter Password " value="PASSW" name="Password">
+	</div>
+
+	<!-- <input type="submit" value="Submit"> -->
+	<button type="submit">Submit</button>
+
+	<!--All this sent data can be seen in the URL-->
 </form>
 </body>
 </html>
