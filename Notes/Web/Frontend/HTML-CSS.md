@@ -327,11 +327,11 @@ Can use `<br/>` (line break) and this will create a newline for the content
 
 There is another special tag `<pre></pre>` that is also used to display test like the `<p></p>`. However, there is an important difference between them. The `<pre>` version will keep all the spacing and formatting of the text no matter what. With the  `<p></p>` tags, these will not display extra spacing or formatting.
 
-## Divs and Spans
+## Div and Span
 
 These are special containers that help to group elements together and can provide easier layouts and organization. The two most common ways this is done is `<div></div>` and `<span></span>`. The only difference between the two versions is **div** is a _block level_ element while **span** is a _inline level_ element.
 
-## Classes & IDs
+## Classe & ID
 
 There are special attributes called *class* and *id*. These special attributes make it so particular styles can be applied to elements without affecting everything on the page.
 
