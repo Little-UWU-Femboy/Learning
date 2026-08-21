@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Checkbox and Radio Buttons</title>
+</head>
+<body>
+
+<form action="#" method="post">
+
+	<h3>Checkbox Examples</h3>
+
+	<!-- Explicit Checkbox (Using 'for' and 'id') -->
+	<p>Explicit Checkboxes:</p>
+	<input type="checkbox" id="subscribe-news" name="newsletter" value="yes">
+	<label for="subscribe-news">Subscribe to Newsletter</label>
+	<br>
+	<input type="checkbox" id="accept-terms" name="terms" value="accepted" checked>
+	<label for="accept-terms">Accept Terms and Conditions</label>
+
+	<br><br>
+	<hr>
+	<br>
+
+	<!-- Implicit Checkbox (Wrapping input inside label) -->
+	<p>Implicit Checkboxes:</p>
+	<label>
+		<input type="checkbox" name="notifications" value="email">
+		Receive Email Notifications
+	</label>
+	<br>
+	<label>
+		<input type="checkbox" name="notifications" value="sms">
+		Receive SMS Notifications
+	</label>
+
+	<br><br>
+	<hr>
+	<br>
+
+	<h3>Radio Button Examples</h3>
+
+	<!-- Explicit Radio Buttons (Using 'for' and 'id') -->
+	<p>Explicit Radio Buttons (Select Shipping Method):</p>
+	<input type="radio" id="standard-shipping" name="shipping" value="standard" checked>
+	<label for="standard-shipping">Standard Shipping (3-5 days)</label>
+	<br>
+	<input type="radio" id="express-shipping" name="shipping" value="express">
+	<label for="express-shipping">Express Shipping (1-2 days)</label>
+
+	<br><br>
+	<hr>
+	<br>
+
+	<!-- Implicit Radio Buttons (Wrapping input inside label) -->
+	<p>Implicit Radio Buttons (Select Payment Method):</p>
+	<label>
+		<input type="radio" name="payment" value="credit_card">
+		Credit Card
+	</label>
+	<br>
+	<label>
+		<input type="radio" name="payment" value="paypal">
+		PayPal
+	</label>
+
+	<br><br>
+	<button type="submit">Submit Choice</button>
+
+</form>
+
+</body>
+</html>

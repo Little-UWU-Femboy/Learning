@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Other Input Types</title>
+</head>
+<body>
+<label>
+	Favorite color:
+	<input list="colors" name="color">
+</label>
+
+<datalist id="colors">
+	<option value="Red">
+	<option value="Green">
+	<option value="Blue">
+</datalist>
+
+<form action="/submit" method="post">
+
+	<h3>Range Input with Datalist Tick Marks</h3>
+
+	<label for="satisfaction-score">Satisfaction Rating (0 to 100):</label><br>
+	<input
+			type="range"
+			id="satisfaction-score"
+			name="satisfaction_score"
+			min="0"
+			max="100"
+			step="25"
+			value="50"
+			list="tickmarks">
+
+	<datalist id="tickmarks">
+		<option value="0"></option>
+		<option value="25"></option>
+		<option value="50"></option>
+		<option value="75"></option>
+		<option value="100"></option>
+	</datalist>
+
+	<br><br>
+	<button type="submit">Submit Rating</button>
+
+</form>
+
+</body>
+</html>

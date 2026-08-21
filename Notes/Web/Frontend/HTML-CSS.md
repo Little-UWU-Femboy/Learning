@@ -40,8 +40,8 @@ When it comes to the web, the way data is sent to the other device is called **c
 
 To tell if the request made was good something called **status codes** are used. Some of the most common are:
 
-1. **200 (OK)**
-2. **404 (not found)**
+1. 200 (OK)
+2. 404 (not found)
 
 # Chapter 2
 
@@ -245,7 +245,7 @@ Some other important attributes are:
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
 - _title_: This functions like when added to the `<a></a>` tag. This will just display the text value given when hovering over the image.
 
-There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img>` tag inside the pair of figure tags. After, put another set of tags called `>figcaptian></figcaptian>` inside. Inside the `<figcaption>` tags just add text inside there and this will display under the thing
+There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img/>` tag inside the pair of figure tags. After, put another set of tags called `<figcaptian></figcaptian>` inside. Inside the `<figcaption>` tags just add text inside there and this will display under the thing
 
 <u>For Example</u>
 
@@ -271,7 +271,7 @@ Some properties of each are:
 
 > [!NOTE]
 >
-> Margin is just a spacing that pushes away other HTML tag elements $$
+> Margin is just a spacing that pushes away other HTML tag elements
 
 Some examples of **block** HTML tags are:
 
@@ -457,90 +457,368 @@ Here are some rules for using the Emmet syntax:
 
 ### Form
 
-When it comes to getting user input, the most common way to do this is with a **form** which uses the `<form></form>` tag. It gives the user the ability to send data to the server to be processed. These are used for things like logging in, signing up, submitting forms, putting in a ticket, etc.
+When it comes to getting user input, the most common way to do this is with a form which uses the `<form></form>` tag. It gives the ability to send data to the server to be processed. These are used for things like logging in, signing up, submitting forms, putting in a ticket, etc.
 
-The **form** tag can take a few attributes, but the two needed ones are:
+The **form** tag can take a few attributes:
 
-- _action_: this tells where to send the data to. It can be to another part of the site, but most of the time it will be to a server to process that data and return something back to it. This will be entered as a file path location to it. If for some reason this is left off, then when the form is submitted it will just send the data to the current page itself.
-- _method_: this is how the data is supposed to be sent using things like POST or GET only. Each of these methods will send data a different way.
-  - GET --> this will send the data through the URL so this is where that ?var=val portion of the URL is made. Should ONLY be used to get information (like search or look up) and nothing else. Also, no sensitive or private data should be sent this way since all of it is visible in the URL for all to see.
-  - POST --> this will send the through the body of the HTTP request. This will make sure that the data is secure. This should be used if changing some information on the server OR sending sensitive information that needs to be processed.
-
-Some of the other **form** attributes are:
-
-- *target*: this tells where to open the response from the server. Still works with the "\_blank" for different tab or the "\_self" for the same page.
-- *enctype*: this is used to dictate how the data is sent to the server. The values are:
-    - "application/x-www-form-urlencoded" is the default value assigned if no other is specified. This is just to encode all characters
-    - "multipart/form-data" is required when the form includes file uploads.
-    - "text/plain" is used to send the data without special encoding is should never be used.
-- *autocomplete*: controls whether the browser can automatically complete input fields based on user history. The value can be "on" (default) or "off".
-- *name*: used to help be accessible by JS.
+- *action*: Specifies the file path or URL endpoint where submitted form data is sent. Accepts a relative or absolute URL string. If left off or left empty, the form automatically submits data back to the current page URL.
+- *method*: Specifies the HTTP method used to send data to the server. HTML forms natively support GET and POST only. If left off, GET is used by default.
+    - GET: Appends data directly to the URL as query parameters in a ?variable=value string structure. Should ONLY be used to retrieve or look up information (such as searches). No sensitive or private data should ever be sent using GET because all parameter data remains completely visible in the URL bar, browser history, and server access logs.
+    - POST: Transmits data inside the body of the HTTP request. Keeps data hidden from the URL bar, providing a secure method for transmitting sensitive information or making data changes on the server.
+- *target*: Dictates where to display the response received from the server after submitting. Accepts string keywords including \_blank (opens response in a new tab or window), \_self (default, opens response in the same frame or tab), \_parent (opens in the parent frame), or top (opens in the full body of the window).
+- *enctype*: Dictates how form data is encoded before transmission to the server when *method* is set to "POST". Accepts three specific values:
+    - "application/x-www-form-urlencoded": Default value assigned if no other is specified. Converts characters into encoded key-value formats prior to sending.
+    - "multipart/form-data": Required whenever the form includes file upload elements. Ensures binary file data sends properly across the request body.
+    - "text/plain": Transmits raw data without special encoding. Insecure for structured data processing and should never be used in production.
+- *autocomplete*: Controls whether the browser can automatically predict and pre-fill form input fields based on past user entry history. Accepts the value "on" (default) or "off".
+- *name*: Assigns an identifying string name to the form, allowing JavaScript DOM operations or scripting interfaces to target and manipulate the element directly.
+- *novalidate*: A boolean attribute, meaning it requires no assigned value (or can be written as novalidate="novalidate"). When present, it instructs the browser to bypass native HTML5 client side form validation checks upon submission. Crucially, this setting ONLY disables client side browser checks; backend server validation still runs normally upon receipt of the request.
+- *rel*: Specifies the relationship between a linked resource and the form when submitting across external origins (such as using "noopener" or "noreferrer").
 
 > [!NOTE]
 >
-> There are other methods like DELETE, PUT, HEAD, and PATCH do exist for HTTP/HTTPS. However, can only use GET and POST in the form *method* attribute.
+> Other HTTP methods like DELETE, PUT, HEAD, and PATCH exist for web APIs, but native HTML **form** elements only accept GET and POST within the *method* attribute.
+
+```html
+<form action="/submit-data" method="POST">
+  <!-- form fields go here -->
+</form>
+```
 
 ### Input
 
-The way to actually get input is adding a `<input/>` tag inside the **form** tags. This is required to get a form to work.
+The way to actually get input is adding an `<input/>` tag inside the `<form></form>` tags. This is required to get a form to work.
 
-The **input** tag can take a few attributes, but the most needed are:
+The **input** tag can take a range of attributes to control input types, data limits, and field state. Below is the list of attributes for the **input** tag:
 
-- *type* --> this tells what type of input should be received. The types are:
-  - text: this is a single line of text that can be submitted
-  - email: this will ensure that the user inputs an email by ensuring they have something ending with the @ and ".com".
-  - password: this will make the data entered private so people cannot see what is entered. All it will show is a dot per character entered.
-  - number: will make sure the data is a number only and on a single line
-  - textarea: used to get large amounts of text that can be multi-line
-  - select: used to get a dropdown list of items to choose from
-  - date: used to get a date to select from with a calendar for the person to choose the date.
-  - checkbox: used to create a checkbox to choose multiple options
-  - radio: used to create options, but can only choose one
-  - file: used to be able to submit a file
-  - submit: creates a button that will submit the data in all the fields in the form to the server when clicked
-  - range: used to create a slider to help get values from a range
-  - color: create a color picker thing
-- *name*: the name the server needs to reference to get access to this data.
-- *value*: will prefill the input field with that value provided here. For example, instead of having a user reenter all their data if the page gets refreshed it can be filled for them.
-- *placeholder*: functions like *value* except the text shown in the box is temporary until the user actually enters something. Good to give the user hints on the data to enter.
-- *id*: this is used in an additional way besides being able to identify it by JS. It is used by another HTML tag (`<label></label>`) to give an additional feature.
-- *required*: this prevents the form from being submitted to the server unless there is a value in that field. This does not need a value assigned to it.
-- *min* & *max*: this sets the minimum and maximum number or range of something that can be entered. <u>For Example</u>, if the min is set to 18 and max is set to 40 then the person can only enter a number from 18 - 40 and anything else is considered invalid. Another example is if the *min* was "2026-08-10" than no person can enter a date lower than that.
-- *minlength* & *maxlength*: this sets the minimum and maximum number of characters that can be entered into the field. <u>For Example</u>, if the *minlength* is 2 and *maxlength* is 5 then the user can enter only 2 to 5 characters.
-- *disabled*: this makes it so the field cannot be edited at all. However, any field that is disabled will not get its data sent to the server. This does not need a value assigned to it. <u>For Example</u>, some sites disable a button until all user data is filled out and the user agrees to all terms and conditions.
+- *type*: Specifies the operational input control type to display. Accepts values including:
+    - text: A single line of text entry.
+    - email: Validates that entries conform to standard email formatting ending with an @ symbol and domain name (.com).
+    - password: Masks entered characters by displaying dots or asterisks per character for privacy.
+    - number: Restricts entry strictly to numeric digits on a single line.
+    - date: Provides an interactive calendar picker interface for date selection.
+    - time: Provides a time selection interface.
+    - checkbox: Displays a square box allowing selection of multiple choices.
+    - radio: Displays a circular button for selecting a single choice out of a grouped set.
+    - file: Displays a file selector interface to upload local files.
+    - submit: Renders a button that submits all form field entries to the server when triggered.
+    - range: Displays a slider control to select numeric values within bounded ranges.
+    - color: Displays a color picker tool returning hexadecimal color codes.
+    - hidden: Stores data that remains invisible on screen but still submits to the server.
+    - reset: Renders a button that resets all form controls to default initial values.
+    - button: Renders a generic clickable button without default submit behavior.
+- *name*: Defines the variable parameter name sent to the server to reference and retrieve submitted field data.
+- *value*: Defines the data content stored within the field.
+- *placeholder*: Displays temporary hint text inside empty text fields. Automatically vanishes once text entry begins, but will reappear if the field becomes empty again.
+- *id*: Assigns a unique document identifier. Essential for connecting the field to a `label` element via the *for* attribute, as well as targeting via CSS or JavaScript.
+- *required*: A boolean attribute (requires no value). Prevents client side form submission if the field remains empty. Note that server side validation must still verify data presence on the backend.
+- *min* & *max*: Defines lower and upper numeric boundaries for number and range inputs, or date/time limits formatted as strings.
+- *minlength* & *maxlength*: Takes positive integer values setting minimum and maximum character limits permitted within text entry fields.
+- *disabled*: A boolean attribute (requires no value). Completely deactivates the field, preventing user editing, focus, and excluding field data from being transmitted to the server upon submission.
+- *readonly*: A boolean attribute (requires no value). Keeps text content visible and readable while preventing user modifications. Unlike *disabled*, fields marked with *readonly*  STILL transmit data to the server during submission. Applies only to text based inputs and does not function on checkboxes, radio buttons, file inputs, or submit buttons (use *disabled* for those).
+- *pattern*: Accepts a regular expression string that input values must match to pass client side browser validation.
+- *step*: Takes a numeric value specifying valid increment steps for numbers, range sliders, or date/time fields.
+- *autofocus*: A boolean attribute (requires no value). Automatically focuses cursor placement on the input field upon page load.
+- *multiple*: A boolean attribute (requires no value). Allows entering or selecting multiple values at once for supported inputs like file uploads or email lists.
+- *autocomplete*: Controls field-level autofill behavior ("on", "off", or field tokens like "username" or "current-password").
+- *accept*: Specifies permitted file extensions or MIME types when *type* is set to "file" (e.g., ".pdf,image/*").
 
-#### Checkbox
-
-1. The **input** and **label** attribute are separated, the **input** will be nested inside the **input** and the **type** will be "checkbox". 
-2. The *for* still needs to go as an attribute for the **label**.
-3. Make sure to give the nested **input** the *name*, *id*, *value*, and *type* attributes. This will make it so when selecting that option, it will be that specified value passed to the server with the specified name and the id of it can be referenced in JavaScript.
-4. Repeat this for each additional option to give the user. It is important to note that the *name* value for each of these MUST be the same. Also, a unique attribute (which will be placed in the **input**) is *checked*. This will make it so by default that box option is checked and the person will now need to deselect it if they do not want it. Also, it does not need a value.
-
-#### Radio
-
-When it comes to this it is the EXACT same way to make the *checkbox* version, except the type will just be "radio".
-
-> [!TIP]
->
-> Both of these input types have the *disabled* attribute added to it.
-
-Other similar things are the *date* and *color* types. These both have the same structure, but types are different. Each of these will need to have the **label** and **input** type separated like before. The **label** will need the *for* attribute. The **input** will have the type of "color" or "date". Then add the *name* and *id* attribute. The big thing here is the value selected by the user for this will send that value so there is no need to add the *value* attribute to specify the value.
-
-Another type is the "range". This will make a slider so the user can choose on a slider their value. This will be made just like the *date* and *color* types. The only difference is the type will be "range" and there will be the *min* and *max* attributes to specify the highest and lowest value that the slider will go to. One unique attribute for this is *step*. This takes a numerical value and will determine when sliding the bar, how much does the value jump up each time (by default this is 1).
-
-> [!NOTE]
->
-> Examples of using all theses HTML elements, attributes, and **input** types are in the InputExamples folder.
-
-> [!NOTE]
->
-> There is an HTML element called **button**. This is just like the **input** with a type of *submit*. 
+```html
+<form action="/login" method="POST">
+  <input type="text" name="username" placeholder="Username" required />
+  <input type="password" name="password" placeholder="Password" required />
+  <input type="submit" value="Log In" />
+</form>
+```
 
 ### Label
 
-For all of the **input** tag types, there is another HTML element called `<label></label>`. This is a way to display text that when clicked will automatically takes the users cursor to the input field assigned to it. This will typically be right next to the respective input field. The way to use **label** is give it the attribute of _for_ and the value of that will be the _id_ value on the **input** tag that was given. <u>For Example</u>, this would look something like "First Name: [\_\_\_\_\_\_]" that when the text "First Name" is clicked will auto focus the cursor on the input field for that as if the user clicked that box.
+For all **input** tag types, there is another HTML element called `<label></label>`. This displays text that, when clicked, automatically moves focus to the assigned input field right next to it. Using a `label` requires the *for* attribute, matching the *id* value on the **input** tag. For example, clicking "First Name:" focuses the associated text box directly.
 
-# Chapter 4
+Below is the list of attributes for a `label`:
+
+- *for*: Accepts a string matching the exact *id* value of an **input** field, creating an explicit association that enlarges the clickable target area.
+- *form*: Accepts the *id* string of a **form** located elsewhere in the document, linking the `label` to that form even if placed outside the `<form></form>` tags.
+
+```html
+<label for="first-name">First Name:</label>
+<input type="text" id="first-name" name="first_name" />
+```
+
+## Select & Textarea
+
+### Select Tag
+
+This is a special way to create a dropdown menu using the `<select></select>` and `<option></option>` tags wrapped inside `<form></form>` tags. Creating a pair of `<select></select>` tags generates the dropdown list.
+
+Below is the list of attributes for `<select></select>`:
+
+- *name*: Defines the parameter key name sent to the server to reference the chosen option data.
+- *disabled*: A boolean attribute (requires no value). Disables interaction with the dropdown list and excludes its value from form submission.
+- *required*: A boolean attribute (requires no value). Mandates selecting a non-empty option prior to form submission.
+- *multiple*: A boolean attribute (requires no value). Converts the single-select dropdown into a multi-select box where multiple options can be chosen simultaneously.
+- *size*: Accepts an integer value specifying the number of visible option rows displayed on screen at one time.
+- *form*: Accepts the *id* string of a **form**, linking the dropdown to that form when placed outside `<form></form>` tags.
+- *autofocus*: A boolean attribute (requires no value). Automatically shifts browser focus to the dropdown upon page load.
+
+```html
+<select name="car-choice">
+	<!--Options here-->
+</select>
+```
+
+### Option Tag
+
+Inside `<select></select>` tags, `<option></option>` tags add individual items to the dropdown list. Text placed inside the tags displays as the clickable option.
+
+Below is the list of attributes for `<option></option>`:
+
+- *value*: Specifies the string or numeric data value transmitted to the server when selected. If left off, the browser sends the raw text content contained inside the tag pair instead.
+- *selected*: A boolean attribute (requires no value). Pre-selects the specified option by default when the page loads.
+- *disabled*: A boolean attribute (requires no value). Disables selection for that specific individual option while keeping other options active.
+- *label*: Accepts a string value to display as a shorter, simplified alternative text label in the user interface.
+
+```html
+<select name="car-choice">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+</select>
+```
+
+### Optgroup Tag
+
+There is a special tag called `<optgroup></optgroup>`. This makes it so related options can be grouped together, making choices clearer when dealing with long lists. It goes inside `<select></select>` tags and wraps related **option** tags.
+
+Below is the list of attributes for `<optgroup></optgroup>`:
+
+- *label*: A required attribute taking a string value that defines the non-selectable heading title for the option group.
+- *disabled*: A boolean attribute (requires no value). Disables every **option** contained inside the entire group simultaneously.
+
+```html
+<select name="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+</select>
+```
+
+### Textarea Tag
+
+Like an **input** with *type* set to "text", this gives the ability to enter text in a box, but across multiple lines.
+
+To create this, use `<textarea></textarea>` tags placed inside `<form></form>` tags. Placing text inside pre-fills the box.
+
+Below is the list of attributes for `<textarea></textarea>`:
+
+- *rows*: Takes an integer value specifying the height of the text area in visible text lines.
+- *cols*: Takes an integer value specifying the width of the text area in average character widths.
+- *placeholder*: Displays temporary hint text inside the box that disappears once typing begins.
+- *maxlength*: Takes an integer specifying the maximum character count allowed.
+- *minlength*: Takes an integer specifying the minimum character count required.
+- *readonly*: A boolean attribute (requires no value). Prevents text modification while still including text content when form data sends to the server.
+- *disabled*: A boolean attribute (requires no value). Prevents editing and excludes text content from form submission.
+- *required*: A boolean attribute (requires no value). Requires text entry before submitting the form.
+- *form*: Accepts the *id* string of a **form** to link the text area when placed outside `<form></form>` tags.
+- *wrap*: Dictates how line breaks in multi-line text handle during submission. Accepts "soft" (default; wraps text on screen but sends no line breaks to the server) or "hard" (inserts actual newline characters in submitted data; requires setting the *cols* attribute).
+
+```html
+<textarea name="comments" rows="4" cols="50" placeholder="Enter comments here..."></textarea>
+```
+
+### Label Tag
+
+For element types like **textarea** or **select**, using a `label` (`<label></label>`) displays descriptive text that shifts cursor focus directly to the input box when clicked. The `label` uses the *for* attribute set to the *id* value of the target field. For example, clicking `Comments:` focuses the **textarea** box.
+
+Below is the list of attributes for a `label`:
+
+- *for*: Accepts the *id* string of the target element.
+- *form*: Accepts the *id* string of a targeted **form**.
+
+```html
+<label for="user-comments">Comments:</label>
+<textarea id="user-comments" name="comments"></textarea>
+```
+
+## Checkbox and Radio Buttons
+
+A **checkbox** and **radio** button work similarly to `<select></select>`, but present options as a list instead of a dropdown. A **checkbox** allows selecting multiple options, while **radio** restricts selection to a single option.
+
+### Checkbox
+
+Created using an **input** tag with the *type* attribute set to "checkbox". Using a `<label></label>` is standard. Implicit labeling wraps the **input** directly inside the `label`. The nested **input** gets *type* set to "checkbox", *name* to reference the data on the server, and *value* for the actual data value sent.
+
+Explicit labeling keeps the `label` separate from the **input**. The `label` uses the *for* attribute, matching the *id* attribute on the **input** to connect them.
+
+> [!TIP]
+>
+> Explicit labeling is preferred for complex CSS styling since elements remain separate.
+
+Below is the list of attributes for checkbox **input** types:
+
+- *checked*: A boolean attribute (requires no value). Pre-checks the option by default on page load.
+- *disabled*: A boolean attribute (requires no value). Turns off the checkbox to prevent selection and exclude data from submission.
+- *required*: A boolean attribute (requires no value). Requires checking the box before form submission can proceed.
+- *name*: Defines the key reference name sent to the server.
+- *value*: Defines the actual string value sent to the server when checked.
+
+The *name* attribute across checkbox inputs can either be the same or different depending on the desired data handling. Using the same *name* groups the options under one category, allowing the server to receive the selected values together as a list or array. Giving each checkbox a unique *name* makes the inputs completely independent fields, sending each checked box to the server as its own separate data entry.
+
+```html
+<!-- Implicit Labeling -->
+<label>
+  <input type="checkbox" name="newsletter" value="yes" /> Subscribe
+</label>
+
+<label>
+  <input type="checkbox" name="newsletter" value="yes" /> Subscribe
+  <input type="checkbox" name="timer" value="yes" /> Timer
+  <!--The name "timer" could also be "newsletter" and this would still work, but data will be sent to server as an array-->
+</label>
+
+<!-- Explicit Labeling -->
+<label for="terms-check">Agree to terms:</label>
+<input type="checkbox" id="terms-check" name="terms" value="accepted" required />
+```
+
+### Radio
+
+Made similarly to a **checkbox**, with two key differences:
+
+1. The *name* attribute MUST be identical across all radio buttons in the group unlike the checkbox version. Differing names cause breaking behavior where multiple buttons can be selected at once instead of acting as a mutually exclusive group.
+2. The *type* attribute is set to "radio".
+
+Below is the list of attributes for radio **input** types:
+
+- *checked*: A boolean attribute (requires no value). Preselects a specific option by default.
+- *disabled*: A boolean attribute (requires no value). Disables picking the option and excludes its value.
+- *required*: A boolean attribute (requires no value). Mandates selecting one option from the radio group before submitting.
+- *name*: Shared group identifier string required across all related radio inputs.
+- *value*: Specifies the unique data value submitted for that specific radio choice.
+
+```html
+<label for="pay-card">Credit Card</label>
+<input type="radio" id="pay-card" name="payment" value="card" checked />
+
+<label for="pay-cash">Cash</label>
+<input type="radio" id="pay-cash" name="payment" value="cash" />
+```
+
+## Other Input Types
+
+### Color
+
+Allows selecting colors through a color palette interface. Set the *type* attribute to "color" on the **input** tag, paired with a `label`. The **input** takes *name*, *id*, and *type*. The *value* attribute takes a 7-character hexadecimal color string (e.g., "#ff0000"). If omitted, the default initial value is "#000000" (black).
+
+Below is the list of attributes for color **input** types:
+
+- *name*: References the color parameter key sent to the server.
+- *id*: Connects the field to a `label` *for* attribute.
+- *value*: Pre-sets a default hex color code string formatted as "#RRGGBB".
+- *disabled*: A boolean attribute (requires no value). Disables interaction with the color picker.
+
+```html
+<label for="fav-color">Pick Color:</label>
+<input type="color" id="fav-color" name="fav_color" value="#0000ff" />
+```
+
+### Date
+
+Displays a calendar picker for selecting dates. Set *type* to "date" on the **input** tag. Chosen dates submit automatically in "YYYY-MM-DD" format.
+
+Below is the list of attributes for date **input** types:
+
+- *name*: Specifies how the server references the variable parameter.
+- *min*: Defines the lowest selectable date boundary formatted strictly as "YYYY-MM-DD".
+- *max*: Defines the highest selectable date boundary formatted strictly as "YYYY-MM-DD".
+- *value*: Accepts a default pre-filled date string formatted as "YYYY-MM-DD".
+- *required*: A boolean attribute (requires no value). Mandates selecting a date.
+- *step*: Specifies allowed date stepping intervals in days (defaults to 1 day).
+
+Note: Date values transmit to the server in "YYYY-MM-DD" format, so *min*, *max*, and *value* boundaries must strictly match this structure.
+
+```html
+<label for="event-date">Event Date:</label>
+<input type="date" id="event-date" name="event_date" min="2026-01-01" max="2026-12-31" />
+```
+
+### Time
+
+Displays a clock picker for selecting times. Set *type* to "time" on the **input** tag.
+
+Below is the list of attributes for time **input** types:
+
+- *name*: Specifies how the server references the variable parameter.
+- *min*: Defines the earliest selectable time (formatted as 24-hour "HH:MM" or "HH:MM:SS").
+- *max*: Defines the latest selectable time (formatted as 24-hour "HH:MM" or "HH:MM:SS").
+- *value*: Accepts a default pre-filled time string.
+- *required*: A boolean attribute (requires no value). Mandates selecting a time.
+- *step*: Specifies stepping interval increments in seconds (defaults to 60 seconds).
+
+Note: Time values transmit to the server in 24-hour format (HH:MM or HH:MM:SS).
+
+```html
+<label for="start-time">Start Time:</label>
+<input type="time" id="start-time" name="start_time" min="08:00" max="17:00" />
+```
+
+### Range
+
+Displays a slider bar for selecting numeric values across a bounded range. Set *type* to "range" on the **input** tag.
+
+Below is the list of attributes for range **input** types:
+
+- *name*: Specifies how the server references the variable parameter.
+- *min*: Accepts a number setting the lowest value on the slider (defaults to 0).
+- *max*: Accepts a number setting the highest value on the slider (defaults to 100).
+- *value*: Accepts a number setting the default starting position of the slider knob.
+- *required*: A boolean attribute (requires no value). Mandates selecting a value.
+- *step*: Accepts a number setting step increment movement intervals across the slider.
+
+```html
+<label for="score">Score:</label>
+<input type="range" id="score" name="score" min="0" max="100" step="10" value="50" />
+```
+
+## Datalist
+
+A **datalist** offers a unique variation of `<select></select>`. Instead of restricting selection to predefined options, a **datalist** provides autocomplete suggestions while allowing custom text entries.
+
+Created using `<datalist></datalist>` alongside `<input/>` and `<option></option>` tags:
+
+1. Create the `<input/>` tag with desired *type* and attributes.
+2. Add the *list* attribute to `<input/>` with a name value.
+3. Create `<datalist></datalist>` with an *id* matching the *list* attribute value on `<input/>`.
+4. Add `<option></option>` tags inside `<datalist></datalist>`, giving each a *value* attribute for suggested entries.
+5. Connect an optional `label` element as needed.
+
+Below is the list of attributes for `<datalist></datalist>`:
+
+- *id*: Unique identifier string matching the *list* attribute value of the targeted **input**.
+
+Below is the list of attributes for connected **input** fields:
+
+- *list*: References the *id* string of the `<datalist></datalist>` element.
+- *type*: Dictates input control behavior (e.g., text).
+- *name*: Specifies how the server references the submitted entry parameter.
+
+Below is the list of attributes for **option** inside **datalist**:
+
+- *value*: Specifies suggested selectable text value string.
+- *label*: Optional secondary display text string for option suggestions.
+
+```html
+<label for="ice-cream">Choose or type a flavor:</label>
+<input list="flavors" id="ice-cream" name="flavor" placeholder="Pick a flavor..." />
+
+<datalist id="flavors">
+  <option value="Chocolate"></option>
+  <option value="Vanilla"></option>
+  <option value="Strawberry"></option>
+</datalist>
+```
+
+#  Chapter 4
 
 ## Audio Element
 

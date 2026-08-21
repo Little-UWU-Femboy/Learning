@@ -1,36 +1,44 @@
-#### Sunday --> 08/9
-
-**Work:** No
-
-**Job:** 
-
-**Time:**
-
-#### Monday --> 08/10
+### Sunday --> 08/23
 
 **Work:** Yes
 
 **Job:** Victoria Secret
 
-**Time:** 4:30PM - 10:30PM
+**Time:** 7PM - 12AM
 
-#### Tuesday --> 08/11
+### Monday --> 08/24
 
 **Work:** Yes
 
 **Job:** Victoria Secret
 
-**Time:** 6PM - 2AM
+**Time:** 4PM - 8:30PM
 
-#### Wednesday --> 08/12
+### Tuesday --> 08/25
 
-**Work:** No
+**Work:** Yes
 
-**Job:** 
+**Job:** Victoria Secret
 
-**Time:**
+**Time:** 12PM - 4:30PM
 
-#### Thursday --> 08/13
+### Wednesday --> 08/26
+
+**Work:** Yes
+
+**Job:** Victoria Secret
+
+**Time:** 4:30PM - 8:30PM
+
+### Thursday --> 08/27
+
+**Work:** Yes
+
+**Job:** Victoria Secret
+
+**Time:** 9:30AM - 3:30PM
+
+### Friday --> 08/28
 
 **Work:** No
 
@@ -38,18 +46,10 @@
 
 **Time:** 
 
-#### Friday --> 08/14
+### Saturday --> 08/29
 
-**Work:** Yes
+**Work:** No
 
-**Job:** Victoria Secret
+**Job:** 
 
-**Time:** 4:30PM - 8:30PM
-
-#### Saturday --> 08/15
-
-**Work:** Yes
-
-**Job:** Victoria Secret
-
-**Time:** 4:30PM - 8:30PM
+**Time:** 

@@ -1,0 +1,122 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Select and Textarea</title>
+</head>
+<body>
+
+<form id="user-profile-form" action="/submit" method="post">
+
+	<label for="simple-color">Pick a Color:</label><br>
+	<select id="simple-color" name="color">
+		<option value="red">Red</option>
+		<option value="blue">Blue</option>
+		<option value="green">Green</option>
+	</select>
+
+	<br><br>
+	<hr>
+	<br>
+
+	<label for="car-choice">Choose a Car (Required):</label><br>
+	<select id="car-choice" name="car_choice" required>
+		<option value="" disabled selected>-- Select a Car --</option>
+
+		<optgroup label="Electric Vehicles">
+			<option value="tesla_model3" label="Model 3">Tesla Model 3</option>
+			<option value="nissan_leaf">Nissan Leaf</option>
+		</optgroup>
+
+		<optgroup label="Gasoline Vehicles">
+			<option value="ford_mustang">Ford Mustang</option>
+			<option value="toyota_camry" disabled>Toyota Camry (Out of Stock)</option>
+		</optgroup>
+	</select>
+
+	<br><br>
+
+	<label for="hobbies">Select Hobbies (Hold Ctrl/Cmd to select multiple):</label><br>
+	<select id="hobbies" name="hobbies" multiple size="4">
+		<option value="reading">Reading</option>
+		<option value="gaming" selected>Gaming</option>
+		<option value="hiking" selected>Hiking</option>
+		<option value="cooking">Cooking</option>
+		<option value="swimming">Swimming</option>
+	</select>
+
+	<br><br>
+
+	<label for="account-status">Account Type (Disabled):</label><br>
+	<select id="account-status" name="account_type" disabled>
+		<option value="free" selected>Free Account</option>
+		<option value="premium">Premium Account</option>
+	</select>
+
+	<br><br>
+	<hr>
+	<br>
+
+	<label for="user-bio">User Bio (Required):</label><br>
+	<textarea
+			id="user-bio"
+			name="user_bio"
+			rows="5"
+			cols="40"
+			placeholder="Tell us about yourself..."
+			minlength="10"
+			maxlength="200"
+			required></textarea>
+
+	<br><br>
+
+	<label for="terms">Terms of Service (Read-Only):</label><br>
+	<textarea
+			id="terms"
+			name="terms_agreement"
+			rows="4"
+			cols="40"
+			readonly>By submitting this form, agreement to the terms and conditions is confirmed.</textarea>
+
+	<br><br>
+
+	<label for="admin-notes">Admin Notes (Disabled):</label><br>
+	<textarea
+			id="admin-notes"
+			name="admin_notes"
+			rows="3"
+			cols="40"
+			disabled>Only administrators can edit this field.</textarea>
+
+	<br><br>
+
+	<button type="submit">Submit Form</button>
+
+</form>
+
+<br>
+<hr>
+<br>
+
+<h3>Elements Outside the Form Tag</h3>
+
+<label for="external-topic">External Topic Select (Linked via form="user-profile-form"):</label><br>
+<select id="external-topic" name="external_topic" form="user-profile-form">
+	<option value="support">Support</option>
+	<option value="feedback">Feedback</option>
+</select>
+
+<br><br>
+
+<label for="external-comments">External Comments Textarea (Linked via form="user-profile-form"):</label><br>
+<textarea
+		id="external-comments"
+		name="external_comments"
+		rows="3"
+		cols="40"
+		placeholder="Additional comments outside the main form wrapper..."
+		form="user-profile-form"></textarea>
+
+</body>
+</html>
