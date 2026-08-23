@@ -526,6 +526,7 @@ The **input** tag can take a range of attributes to control input types, data li
 ```html
 <form action="/login" method="POST">
   <input type="text" name="username" placeholder="Username" required />
+  <input type="email" name="email" placeholder="Email" required />
   <input type="password" name="password" placeholder="Password" required />
   <input type="submit" value="Log In" />
 </form>
@@ -817,6 +818,49 @@ Below is the list of attributes for **option** inside **datalist**:
   <option value="Strawberry"></option>
 </datalist>
 ```
+
+## Fieldset and Legend
+
+There is another pair of semantic type tags that can be used to better organize content in the **form** called `<fieldset></fieldset>` and `<legend></legend>`.
+
+### Fieldset
+
+This acts like the continer for the actual **input** and **label** tags. On the screen, this will add a larger black border with thin lines around the elements. This helps to better separate visually for the user what is for what and the **fieldset** tag helps to tell what belongs with what. For example, having a billing and shipping parts can be placed in separate **fieldset** tags to show they are different.
+
+This is even more useful since adding an attribute like *disabled* to this will turn off ALL input types inside that group instead of manually adding that attribute to each of the **input** tags individually.
+
+### Legend
+
+This just places small text on the top right of the box made by the **fieldset**. This is placed inside the **fieldset** tags. Inside the **label** tags, just put text inside there that should show.
+
+```html
+<form>
+    <fieldset>
+        <legend>
+            Billing Info
+        </legend>
+        <label>
+            <input type="text" class="name"/>
+        </label>
+            <label>
+            <input type="email" class="email"/>
+        </label>
+	</fieldset>
+    <fieldset>
+        <legend>
+            Shipping Info
+        </legend>
+        <label>
+            <input type="text" class="address"/>
+        </label>
+            <label>
+            <input type="number" class="zip"/>
+        </label>
+	</fieldset>
+</form>
+```
+
+
 
 #  Chapter 4
 

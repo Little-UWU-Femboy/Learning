@@ -6,35 +6,43 @@
 	<title>Form Challenge</title>
 </head>
 <body>
-<h1>Apartment Search</h1>
+<header>
+	<h1>Apartment Search</h1>
+</header>
 
 <form method="GET" action="#">
 	<div class="field">
 		<label for="location">Location</label>
 		<input id="location" type="text" name="location" placeholder="Enter a location">
 	</div>
+	<br>
 	<div class="field">
 		<label for="monthPrice">Monthly Price</label>
-		<input id="monthPrice" type="number" name="monthPrice" placeholder="Enter a monthly price">
+		<input id="monthPrice" type="number" min="0" name="monthPrice" placeholder="Enter a monthly price">
 	</div>
+	<br>
 	<div class="field">
 		<label for="bedrooms">Number of Bedrooms</label>
-		<input id="bedrooms" type="number" name="bedrooms" placeholder="Enter a number of bedrooms">
+		<input id="bedrooms" type="number" name="bedrooms" min="0" placeholder="Enter a number of bedrooms">
 	</div>
+	<br>
 	<div class="field">
 		<label for="bathrooms">Number of Bathrooms</label>
-		<input id="bathrooms" type="number" name="bathrooms" placeholder="Enter a number of bathrooms">
+		<input id="bathrooms" type="number" name="bathrooms" min="1" placeholder="Enter a number of bathrooms">
 	</div>
+	<br>
 	<div class="field">
-		<p>Pets Allowed?</p>
-
-		<label for="pets-yes">
-			<input id="pets-yes" type="radio" name="pets" value="yes"> Yes
-		</label>
-
-		<label for="pets-no">
-			<input id="pets-no" type="radio" name="pets" value="no"> No
-		</label>
+		<label for="dateAvailable">Date available</label>
+		<input id="dateAvailable" type="date" name="date" placeholder="Enter date available">
+	</div>
+	<br>
+	<div class="field">
+		Pets allowed
+		<label for=""></label>
+	</div>
+	<br>
+	<div class="field">
+		<input type="submit" value="Submit">
 	</div>
 </form>
 </body>
