@@ -203,9 +203,7 @@ Another type of list, but very uncommon is called a [definition list](https://ww
 
 When wanting to create links to other web content or anything to that matter (email client, download something, etc) this is done with the `<a></a>` tags. This will always need at least one **attribute** to work and that is the *href* attribute. The value for the *href* will be the URL or thing that when the user clicks will take them to. ANYTHING (images, text, etc) between the tags will become a link to that thing. For Example, `<a href="https://youtube.com">Click Me</a>` will make clicking the words "Click Me" open up another tab in Youtube.
 
-One extra attribute is *target*. This determines that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the link in a new tab, but by default will open in same tab (but can differ by browser like edge). A link made like this is called an **external link**.
-
-Another attribute is the *title* attribute. This makes it so when hovering over the link with the cursor some text will appear. What will appear in here is value given to the attribute.
+When creating a link, if the user will be brought to a different site then this is called an **external** link. An example of this is being on the custom made page an when the user clicks on the link then it brings them to Youtube.
 
 When linking to something that is that is just another file inside the same or different directory then this is called an **relative link**. For this put the file path to the new file that this will open up in the file system so the user can now see that. For example, `<a href="../Testing.html">Go Here</a>`.
 
@@ -215,7 +213,11 @@ Another type of link can be an **email link**. This will make it so when someone
 
 Another type of link is called **file link** (resource link). These are ones that link to things like pictures, videos, etc that are on the actual device that is serving the contents directory. The *href* value for this will be nothing special and it is just the relative path from the current document to that resource.
 
-For the **file link** (resouce link), this can have a special attribute added to it called *download*. This makes it so the resource does not open in a separate browser. Instead, the device will try to download it instead. When using this, it can or cannot have a specific value assigned to it. If there is then the file will be downloaded with the specific file name and extension given; otherwise it will give it the file name from the one in the *href* attriute. 
+For the **file link** (resouce link), this can have a special attribute added to it called *download*. This makes it so the resource does not open in a separate browser. Instead, the device will try to download it instead. When using this, it can or cannot have a specific value assigned to it. If there is then the file will be downloaded with the specific file name and extension given; otherwise it will give it the file name from the one in the *href* attriute.
+
+One extra attribute is *target*. This determines that when the user clicks on the link, does it open in a new tab or does it open it in the same tab. Set the value to "\_blank" and this will open the link in a new tab, but by default will open in same tab (but can differ by browser like edge). 
+
+Another attribute is the *title* attribute. This makes it so when hovering over the link with the cursor some text will appear. What will appear in here is value given to the attribute. 
 
 <u>Resource Download Example</u>
 
@@ -864,25 +866,35 @@ This just places small text on the top right of the box made by the **fieldset**
 
 #  Chapter 4
 
-## Audio Element
+## Audio Tag
 
 
 
-If wanting to add content like music or just sound only stuff then use the **audio** Element. This element will need the *src* attribute at bare minimum to specify the location of this file. Some other attributes that should be added (but not needed) are the *type* and this will specify the MIME type. This will be a value like "audio/mp3", etc.
-
-One other important attribute called *controls*. This is how the actual audio player controls will be displayed on the screen. If this is not added onto it then it will not display the controls for that media like pause, play, sound adjust, etc. This does not need a value to it.
-
-Two other ones are *autoplay* and *loop*. The first will just make the content automatically start playing and the second is to just restart the content once the media is completed. This does not require any value assigned.
-
-## Video Element
-
-When wanting to add actual videos to the page, use the **video** element. To specify the location of the content, use the *src* attribute just like with the **audio** element. Also, can use the *type* attribute as well (look up value for this). 
-
-Unlike before where the *controls* attribute could be optional, this should NOT be here. Without this, there will be no controls for the user to start or stop the video. The only way to not add this would be to add the *autoplay* attribute to this and if needed to be played more than once could add the *loop* attribute as well.
+There are times with audio will need to be placed on the site. For this, HTML5 gives the ability to use a premade audio player.
 
 > [!NOTE]
 >
-> There is a special JavaScript API that allows to make a custom media player bar if the one provided by *controls* attribute is not to a liking.
+> A custom audio player can be created instead of using the premade one by using the JS API to build a more custom player like the buttons, skip button, etc.
+
+This is done by using the `<audio></audio>` tag. Inside there will not be any actual content as it is not needed to display. However, there are still some tags that can go inside it. The two attributes this will need is: *src*  and*controls*.
+
+- *src*: this will be for the path of the audio.
+- *controls*: this is actually how the play button, time left, etc will be shown. Without it nothing will show. This does not need a value.
+
+There are some other attributes that can be added to this like:
+
+- *autoplay*: this just makes it so once that resource is loaded in then it will start to play automatically. Does not need a value.
+- *loop*: this makes it so once th
+
+> [!TIP]
+>
+> While the content will work, this is not valid HTML. Instead, the use of the other two tags to be mentioned is what is needed to make valid HTML.
+
+### Source Tag
+
+
+
+### Track Tag
 
 ## Image Map
 
