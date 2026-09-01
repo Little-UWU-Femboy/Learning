@@ -232,7 +232,7 @@ Another attribute is the *title* attribute. This makes it so when hovering over 
 
 ## Images
 
-When it comes to adding images to the actual page, the `<img />` tag must be used. There are two common attributes used with this, but one is more important than another:
+When it comes to adding images to the actual page, the `<img/>` tag must be used. There are two common attributes used with this, but one is more important than another:
 
 - _src_: this is the actual path to the image in the file system relative to where the current file is
 - _alt_: this is text to be displayed in place of the image in case it is not found (less important one)
@@ -245,7 +245,7 @@ Some other important attributes are:
 
 - _width_: this sets how long the image will be horizontally. The value in this will be a number followed by "px"
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
-- _title_: This functions like when added to the `<a></a>` tag. This will just display the text value given when hovering over the image.
+- _title_: this functions like when added to the `<a></a>` tag. This will just display the text value given when hovering over the image.
 
 There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img/>` tag inside the pair of figure tags. After, put another set of tags called `<figcaptian></figcaptian>` inside. Inside the `<figcaption>` tags just add text inside there and this will display under the thing
 
@@ -884,25 +884,93 @@ This is done by using the `<audio></audio>` tag. Inside there will not be any ac
 There are some other attributes that can be added to this like:
 
 - *autoplay*: this just makes it so once that resource is loaded in then it will start to play automatically. Does not need a value.
-- *loop*: this makes it so once th
+- *loop*: this makes it so once the audio ends it will automatically play again
+- *mute*: this makes it so the audio has no sound no matter what.
 
-> [!TIP]
+> [!NOTE]
 >
-> While the content will work, this is not valid HTML. Instead, the use of the other two tags to be mentioned is what is needed to make valid HTML.
+> While using the two basic attributes mentioned will work, there is techenically a correct way to write this. The correct way this is done is by using the next two tags being talked about.
 
 ### Source Tag
 
+This is a special that that goes inside the **audio** tag. This does not display anything to the screen itself, but it does tell the browser what resource to fetch. There can be more than one and if the browser cannot get the first one then it moves on to the second, third, etc until it reaches the end of the list.
 
+This is made with the `<source/>` tag. The attributes for this will be the *src* and *type*. Instead of putting the *src* on the **audio** tag just put it on the `<source/>` tag. 
+
+- *src*: will just have the path to the resource.
+- *type*: will tell the type of resouce this will be. This is important because if the browser knows it does not support that file type then it will not both to request that resource from the server and this can save time and resources for it. The thing for this is called the <u>MIME type</u>. The value for this will be many different things but it is organized into categories. For the audio, it will first be "audio" followed by a slash. Then it will be the resource type. For example, "audio/mpeg" for any file type with the ending <u>mp3</u>.
+
+> [!TIP]
+>
+> To see the value of what the MIME type can even be go [click here](https://mimetype.io/all-types).
 
 ### Track Tag
 
+Can go more into this, but right now it is not needed.
+
+### Extra
+
+Just like the **image** tag, the **figcaption** and **figure** can be used on this.
+
+<u>For Example</u>
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Audio tag</title>
+</head>
+<body>
+<figure>
+	<figcaption>Audio</figcaption>
+
+	<audio controls>
+		<source src="./Audio.mp3" type="audio/mpeg">
+	</audio>
+</figure>
+</body>
+</html>
+```
+
+## Video Tag
+
+This is made pretty similar to the **audio** tag. This will be made using the `<video></video>` tag. This needs to be given the *src* and *controls* attributes. 
+
+This can also take the following attributes as well: *type*, *autoplay*, *mute*, and *loop*.
+
+Another thing that is used the same exact way is the **figure** and **figcaption** tags.
+
+Another thing that is used the same exact way is the **source** tag from it.
+
 ## Image Map
 
-If wanting certain parts of an image to be clickable and when that section is clicked go somewhere, then use the **map** element. This is not really used, but look up to learn how to use.
+If wanting certain parts of an image to be clickable and when that specific section of the image is clicked to go to a specific site then the use of an image map can do that. For example, in an image there is a laptop, iphone, and cup of coffee. Each part can redirect the user to the link of where to buy each separate product.
+
+The new tags to be used are `<map></map>` and `<area/>` tags. The `<map></map>` tag is what is first needed to tell what image will get this special feature. This is done by adding the *name* attribute to it and giving it a name value. Inside those tags is where the `<area/>` tag goes. The `<area>` tag will need four specific attributes to tell what part of the image is clickable:
+
+- *shape*: this determines what shape will be used to create a clickable part on the image. The options are:
+    - rect: create a rectangle
+    - circle: creates a circle
+    - poly: creates a polygon
+    - default: fills the remaining space with this
+- *coords*: this specifies how much space that specific part of the shape covers. Different shapes have different requirements:
+    - rect: x1, y1, x2, y2
+    - circle: x, y, radius
+    - poly: x1, y1, x2, y2, x3, y3, .....
+- *href*: this is the normal part directing the user to a specific place
+- *alt*: alternative text. This does not actually show any text to the screen if it does fail. This is just for screen readers.
+
+Before the **map** and **area** tag are even used; the **img** tag has to be placed. Give it the normal attributes of *src* and *alt*. However, now a new attribute called *usemap* must be added to it and the value for that is going to be "#NameGivenToMapTag" and then this will all work.
+
+> [!TIP]
+>
+> Instead of guessing the pixal range of everything since this cannot be visibly seen. First, open a photoshop app for that image and draw on there a rectangle and then just put those needed value ranges for the shape.
 
 ## Tables
 
-When wanting to display tabular data use the **table** element. Unlike other elements, this has a lot of additional tags that need to be nested inside to get this to work. They are:
+To display tabular data, use the `<table></table>` tag. Unlike other elements, this has a lot of additional tags that need to be nested inside to get this to work. They are:
 
 - `<tr></tr>`: this means "table row" and this is how to create a row for data
 - `<th></th>`: this means "table header" and this is used to create the heading part of the page.
