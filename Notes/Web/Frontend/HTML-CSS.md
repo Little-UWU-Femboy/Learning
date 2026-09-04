@@ -982,7 +982,35 @@ To display tabular data, use the `<table></table>` tag. Unlike other elements, t
 
 Just like the other mentioned semantic tags before, there are special ones for **tables** called **tbody** and **thead**.
 
-There are two special attributes called *colspan* and *rowspan*. The *colspan* will make it so a particular cell will take up that many extra cells horizontally. The *rowspan* would expand vertically. 
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>32</td>
+            <td>Chicago</td>
+        </tr>
+
+        <tr>
+            <td>Sarah</td>
+            <td>28</td>
+            <td>Dallas</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+There are two special attributes called *colspan* and *rowspan*. The *colspan* will make it so a particular cell will take up that many extra cells horizontally. The *rowspan* would expand vertically. This should be placed on the actual 
+
+
 
 > [!WARNING]
 >
