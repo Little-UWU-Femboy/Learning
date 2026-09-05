@@ -980,15 +980,20 @@ To display tabular data, use the `<table></table>` tag. Unlike other elements, t
 >
 > When it comes to using these, the **th** and **td** should be nested inside a **tr**. The first **tr** should contain the **th** stuff as this will create the table headers to read the data in the parts. The rows after that should only have the **td** stuff. Each **td** and **th** thing will create a single cell and these are inline so the elements will be next to each other.
 
-Just like the other mentioned semantic tags before, there are special ones for **tables** called **tbody** and **thead**.
+Just like the other mentioned semantic tags before, there are special ones for tables called `<tbody></tbody>` and `<thead></thead>`.
 
 ```html
 <table>
+    <caption>Test Making Table</caption>
+    <colspan>
+    	<col style="color: green;">
+    </colspan>
     <thead>
         <tr>
             <th>Name</th>
             <th>Age</th>
             <th>City</th>
+            <th colspan="2">Phone Number</th>
         </tr>
     </thead>
 
@@ -997,36 +1002,30 @@ Just like the other mentioned semantic tags before, there are special ones for *
             <td>John</td>
             <td>32</td>
             <td>Chicago</td>
+            <td>414-544-5352</td>
+            <td>414-544-5352</td>
         </tr>
 
         <tr>
             <td>Sarah</td>
             <td>28</td>
             <td>Dallas</td>
+            <td>414-544-5352</td>
+            <td>414-544-5352</td>
         </tr>
     </tbody>
 </table>
 ```
 
-There are two special attributes called *colspan* and *rowspan*. The *colspan* will make it so a particular cell will take up that many extra cells horizontally. The *rowspan* would expand vertically. This should be placed on the actual 
+There are two special attributes called *colspan* and *rowspan*. The *colspan* will make it so a particular cell will take up that many extra cells horizontally. The *rowspan* would expand vertically. This should be placed on the actual **td** or **th** thing itself. Both of these will take a number only.
 
+There is another tag called `<caption></caption>` that is placed inside the table, but before any of the other tags inside it. This is just used to give the table a name and just text will be placed inside this typically.
 
-
-> [!WARNING]
->
-> Back in the day before flexbox and CSS grid, a table was used to create and style layouts for the page. However, that method is obsolete.
+Another tag that can be used is `<colgroup></colgroup>` and `<col></col>`. This will style a whole column of data. This is useful as CSS would struggle to do something like this. The way this is used is right after the **caption** tag (if used) but before the start of the table data. Inside there, add the **col** tag and give it an attribute of *style*. This would be an early experience with CSS and this is a way (and not a good way to do so) to apply styling to this particular column. Keeping adding more and more **col** tags one after another and this will make it so the next column gets a style applied. More about CSS styling will be talked about later on in [chapter 5](#Chapter-5).
 
 ## Iframe
 
-This is used to embedded another type of element inside the current HTML document. While this also embeds content like the **video** attribute, these are both used to signal different things. They also have small difference in functionality.
-
-When using this, it will embed the content and that content window will basically become a "mini browser". This is the best for sponsored content, third party videos like youtube videos, social media feeds, etc. 
-
-This requires the *src* attribute at minimum to add the location of this. This can also be combined with the *width* and *height* attribute to fix how big the window will be (both take a number value ending with the px word). There is also another called *frameborder* and this takes a value of a number to determine the thickness of this.
-
-> [!CAUTION]
->
-> This does not work for all sites. Sites have to give permission for the feature to work. Some sites have special URLs that give the ability to embed the content. The example in the `ifram.html` file will have an **iframe** going to google maps. This iframe was copied from google maps as well.
+This is a very unique way to add content to the page.
 
 ## Global Attributes
 
