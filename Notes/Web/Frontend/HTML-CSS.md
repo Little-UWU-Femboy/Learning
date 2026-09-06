@@ -1025,37 +1025,33 @@ Another tag that can be used is `<colgroup></colgroup>` and `<col></col>`. This 
 
 ## Iframe
 
-This is a very unique way to add content to the page.
+This is a very unique way to add content to the page. This is not like adding an image to a page or even a video. Instead, this is adding a separate who page inside another page. This means there is a HTML file inside the current HTML file. This means that embedded HTML file has its own HTML, CSS, JS/TS, resources, DOM (a term talked about later when learning JS/TS), etc. For example, the site Youtube can be embedded inside it and function as the normal Youtube site.
+
+This does not only work for videos and can be used on things like google maps, PDF files, and other HTML files.
+
+> [!IMPORTANT]
+>
+> Not all sites support being able embed their site to the current HTML page. However, if they do allow it then it is done in a special way. For example, Youtube allows someone to do this, but the link as the special format `https://www.youtube.com/embed/UniqueVideoCode` and a couple of other things will be added to it as well.
+
+To get this to actually work, use the *src* attribute. while only using this will get this to work, use the *width* and *height* attribues as well to make sure that the size of the frame window is large enough otherwise it will be a very small window.
 
 ## Global Attributes
 
-These are attributes that can be applied to ANY HTML element. Some examples of this is the *id* and *class* attribute mentioned earlier.
+These are attributes that can be applied to ANY HTML element. Some examples of this is the *id* and *class* attribute mentioned earlier. Some other ones are:
 
-Another is *accesskey*. This gives the ability that when a specific button is pressed it will focus or click on that thing it was assigned to. This is assigned a value of anything like a letter or a number.
+- *style*: make it so CSS can be applied directly to that HTML element without having to use a separate CSS file. However, this is highly discouraged. Instead, just use the *id* and target it that way since the value for an *id* has to be unique.
+- *accesskey*: this gives the ability that when a specific key is pressed it will focus or click on that thing it was assigned to. This is assigned a value of anything like a letter or a number. For example, doing `accesskey="k"` will make it so when the key is pressed the button or focus on that thing will occur.
 
 > [!NOTE]
 >
 > To get this to actually work, on windows have to click alt+shift+{givenThing} and on Mac it is cmd+shift+{givenThing}
 
-The *title* attribute will make it so when hovering over the element, it will show some text that was specified as the value. This is also how to change the text of a tab for a specific page; this will go in the header section and text goes between the brackets.
-
-Another attribute is *hidden*. This will make it so that element does no appear at all on the screen. This does not need a value.
-
-Another attribute is *tabindex*. This takes a whole number and just specifies the order in which when the user clicks tab it will auto focus that particular element. The lower the value assigned to it will have priority and the higher the value the lower in the tab order it will be.
-
-Another attribute is *contenteditable*. This will be a value of true or false. If it is true then that element can be changed by the user at any time. However, once the page is refreshed then all the changes made to it go back.
-
-Another attribute is *dragable*. This will make it so that element can be dragged around the screen. This does not actually move the item on the screen. This is shown when there are sites that have something like drag and drop the item in a specific. This will be assigned a value of true or false. If an element is not dragable then when left clicking the element and holding it will highlight it rather then appear to grab it.
-
-> [!IMPORTANT]
->
-> While the HTML will give the ability to do the drag and drop, this will actually do nothing without JavaScript. There is a special API that is used to interact with this special type of thing.
-
-Another attribute is *autofocus*. This will make it so when the page is loaded up, that element will receive focus as if it was clicked on. This does not need a value.
-
-> [!NOTE]
->
-> Visit [website](https://developer.mozilla.org/en-US/) to see all the up to date documentation for HTML, CSS, and JavaScript. This will show all kinds of things that is available in those things.
+- *title*: will make it so when hovering over the element, it will show some text that was specified as the value. This is also how to change the text of a tab for a specific page; this will go in the header section and text goes between the brackets.
+- *hidden*: this will make it so that element does no appear at all on the screen. This does not need a value.
+- *tabindex*: this takes a whole number and just specifies the order in which when the user clicks tab it will auto focus that particular element. The lower the value assigned to it will have higher priority and the higher the value the lower priority it will have.
+- *contenteditable*: this will be a value of true or false. If it is true then that element can be changed by the user at any time. However, once the page is refreshed then all the changes made to it go back.
+- *dragable*: this will make it so that element can be dragged around the screen. However, this does not actually move the item on the screen. This enables features like drag and drop to certain parts of a page that can make the page more interactive with JS/TS. In fact, to make interaction happen, there is a special JS/TS API that enables this.
+- *autofocus*: this will make it so when the page is loaded up, that element will receive focus as if it was clicked on. This does not need a value.
 
 ## SVG Elements
 
@@ -1082,6 +1078,10 @@ When it comes to wanting to make something like a progress bar or meter bar, thi
 Use the **progress** element to create the progress bar. Can also use the **label** element to have text show on the side. Make sure to have the normal *for* attribute assigned to the *id* value given to the **progress** element. The two additional attributes this can take is the *max* attribute to give a range of the possible value and the *value* attribute to set the specific value. This of course can all be set and changed with CSS and JavaScript.
 
 Use the **meter** element to create the meter bar. This can have the **label** element like the **progress** element did. This can have the same attributes as well. However, there are three more attributes this can have which are *low*, *high*, and *optimal*. The *low* and *high* gives a way to indicate that when the value reaches that it is considered in a low state and vice versa for high. The *optimal* would be not be the best but not the worse either. There are specific CSS styles that can be applied to this stuff based off of this values if wanted. However, since this is so new still, would have to use something like `meter::-webkit-meter-optimum-value`
+
+## Extra Information
+
+Visit [here](https://developer.mozilla.org/en-US/) to see all the up to date documentation for HTML, CSS, and Javascript/Typescript. This will show all up to date changes for them.
 
 # Chapter 5
 

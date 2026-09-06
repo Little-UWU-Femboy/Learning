@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Global Attributes Example</title>
+</head>
+
+<body>
+
+<h1 title="This is the main heading">
+	Global HTML Attributes
+</h1>
+
+<button
+		accesskey="h"
+		title="Click this button or use the access key"
+		tabindex="1"
+		onclick="document.getElementById('secret').hidden = false;">
+	Show Hidden Message
+</button>
+
+<p
+		id="secret"
+		hidden
+		style="color: darkgreen; font-weight: bold;">
+	You found the hidden message!
+</p>
+
+<div
+		contenteditable="true"
+		tabindex="3"
+		title="Click here and edit this text"
+		style="
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            margin-top: 20px;
+        ">
+	Click inside this box and edit the text.
+</div>
+
+<div
+		draggable="true"
+		tabindex="2"
+		title="This element is draggable"
+		style="
+            border: 2px solid blue;
+            padding: 10px;
+            width: 200px;
+            margin-top: 20px;
+            cursor: grab;
+        ">
+	Drag me around!
+</div>
+
+<button
+		tabindex="4"
+		title="This button hides the secret message"
+		onclick="document.getElementById('secret').hidden = true;"
+		style="margin-top: 20px;">
+	Hide Message
+</button>
+
+</body>
+</html>
