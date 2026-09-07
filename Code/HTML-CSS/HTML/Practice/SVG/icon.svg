@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <defs>
+    <!-- Background Space Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#050112" />
+      <stop offset="40%" stop-color="#180b38" />
+      <stop offset="70%" stop-color="#4b1059" />
+      <stop offset="100%" stop-color="#8c1b69" />
+    </linearGradient>
+
+    <!-- Retro Sun Gradient -->
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffee55" />
+      <stop offset="45%" stop-color="#ff0077" />
+      <stop offset="100%" stop-color="#7700aa" />
+    </linearGradient>
+
+    <!-- Neon Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Soft Ambient Glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Sun Slices Mask -->
+    <mask id="sunSlices">
+      <rect width="1000" height="1000" fill="white" />
+      <rect x="0" y="470" width="1000" height="6" fill="black" />
+      <rect x="0" y="490" width="1000" height="9" fill="black" />
+      <rect x="0" y="515" width="1000" height="13" fill="black" />
+      <rect x="0" y="545" width="1000" height="18" fill="black" />
+      <rect x="0" y="580" width="1000" height="24" fill="black" />
+      <rect x="0" y="620" width="1000" height="30" fill="black" />
+    </mask>
+
+    <!-- Grid Horizon Fade Mask -->
+    <linearGradient id="gridFade" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+      <stop offset="85%" stop-color="#fff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <mask id="horizonMask">
+      <rect x="0" y="650" width="1000" height="350" fill="url(#gridFade)" />
+    </mask>
+  </defs>
+
+  <style>
+    .star { fill: #ffffff; opacity: 0.7; }
+    .grid-line { stroke: #00ffff; stroke-width: 1.5; opacity: 0.85; }
+    .neon-mountain { fill: #0f0524; stroke-width: 2; }
+  </style>
+
+  <!-- Sky Base -->
+  <rect width="1000" height="1000" fill="url(#skyGrad)" />
+
+  <!-- Stars -->
+  <g id="stars">
+    <circle cx="120" cy="80" r="1.5" class="star" opacity="0.4" />
+    <circle cx="320" cy="120" r="1.2" class="star" opacity="0.8" />
+    <circle cx="210" cy="240" r="2" class="star" opacity="0.6" />
+    <circle cx="450" cy="70" r="1" class="star" opacity="0.5" />
+    <circle cx="670" cy="110" r="2.5" class="star" opacity="0.9" />
+    <circle cx="850" cy="160" r="1.2" class="star" opacity="0.3" />
+    <circle cx="780" cy="270" r="1.8" class="star" opacity="0.7" />
+    <circle cx="90" cy="310" r="1.5" class="star" opacity="0.6" />
+    <circle cx="920" cy="60" r="1.5" class="star" opacity="0.5" />
+    <circle cx="560" cy="210" r="1" class="star" opacity="0.8" />
+    <polygon points="670,102 673,110 681,110 675,115 677,123 670,118 663,123 665,115 659,110 667,110" fill="#fff" opacity="0.7"/>
+    <polygon points="210,234 212,240 218,240 213,244 215,250 210,246 205,250 207,244 202,240 208,240" fill="#fff" opacity="0.8"/>
+  </g>
+
+  <!-- Sun with Glow -->
+  <circle cx="500" cy="480" r="230" fill="url(#sunGrad)" filter="url(#softGlow)" opacity="0.5" />
+  <circle cx="500" cy="480" r="210" fill="url(#sunGrad)" mask="url(#sunSlices)" filter="url(#glow)" />
+
+  <!-- Distant Mountains -->
+  <polygon points="-50,650 180,480 340,650" class="neon-mountain" stroke="#da00ff" />
+  <polygon points="120,650 290,520 460,650" class="neon-mountain" stroke="#7700aa" />
+  <polygon points="520,650 710,490 920,650" class="neon-mountain" stroke="#da00ff" />
+  <polygon points="680,650 830,530 1050,650" class="neon-mountain" stroke="#00ffff" />
+
+  <!-- Horizon Glow Strip -->
+  <rect x="0" y="647" width="1000" height="6" fill="#00ffff" filter="url(#glow)" />
+  <line x1="0" y1="650" x2="1000" y2="650" stroke="#ff00a0" stroke-width="4" filter="url(#glow)" />
+
+  <!-- Perspective Floor -->
+  <rect x="0" y="650" width="1000" height="350" fill="#060112" />
+
+  <!-- Wireframe Grid Ground -->
+  <g mask="url(#horizonMask)" filter="url(#glow)">
+    <!-- Vertical Vanishing Lines converging at (500, 650) -->
+    <line x1="500" y1="650" x2="-600" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="-300" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="-50" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="150" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="320" y2="1000" class="grid-line" />
+    <line x1="500" y1="650" x2="440" y2="1000" class="grid-line" />
+    <line x1="500" y1="650" x2="500" y2="1000" class="grid-line" stroke-width="2.5" stroke="#ff00a0" />
+    <line x1="500" y1="650" x2="560" y2="1000" class="grid-line" />
+    <line x1="500" y1="650" x2="680" y2="1000" class="grid-line" />
+    <line x1="500" y1="650" x2="850" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="1050" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="1300" y2="1000" class="grid-line" stroke-width="2" />
+    <line x1="500" y1="650" x2="1600" y2="1000" class="grid-line" stroke-width="2" />
+
+    <!-- Horizontal Distance Lines (exponential spacing) -->
+    <line x1="0" y1="655" x2="1000" y2="655" class="grid-line" stroke-width="1" />
+    <line x1="0" y1="662" x2="1000" y2="662" class="grid-line" stroke-width="1" />
+    <line x1="0" y1="672" x2="1000" y2="672" class="grid-line" stroke-width="1.2" />
+    <line x1="0" y1="686" x2="1000" y2="686" class="grid-line" stroke-width="1.2" />
+    <line x1="0" y1="705" x2="1000" y2="705" class="grid-line" stroke-width="1.5" />
+    <line x1="0" y1="730" x2="1000" y2="730" class="grid-line" stroke-width="1.5" />
+    <line x1="0" y1="765" x2="1000" y2="765" class="grid-line" stroke-width="1.8" />
+    <line x1="0" y1="812" x2="1000" y2="812" class="grid-line" stroke-width="2" />
+    <line x1="0" y1="875" x2="1000" y2="875" class="grid-line" stroke-width="2.2" />
+    <line x1="0" y1="955" x2="1000" y2="955" class="grid-line" stroke-width="2.5" stroke="#ff00a0" />
+  </g>
+</svg>

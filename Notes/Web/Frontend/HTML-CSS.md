@@ -1055,11 +1055,11 @@ These are attributes that can be applied to ANY HTML element. Some examples of t
 
 ## SVG Elements
 
-SVG (scalable vector graphics) is a type of XML based image that creates images in a 2D format. This also supports animations and interactivity. These type of images are good for things like icons, logos, etc since the quality of the image does not change regardless if the image shrinks or grows unlike a jpeg.
+SVG (scalable vector graphics) is a type of XML based image that creates images in a 2D format. This also supports animations and interactivity. These type of images are good for things like icons, logos, etc since the quality of the image does not change regardless if the image shrinks or grows unlike something like a jpeg.
 
 Basic icons can be coded by hand using the XML format or the **SVG** tag in HTML. However, if it is a more complex image, the it should be made with something like Adobe XD, Inkscape, Adobe Illustrator, etc.
 
-A SVG image can be include with the **image** tag and does not need to use the specific **SVG** tag. This is also the most common way to do this.
+A SVG image can be include with the **image** tag like a regular image and does not need to use the specific `<svg></svg>` tag. This is also the most common way to do this.
 
 ## Popover & Details
 
