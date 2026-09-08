@@ -1063,11 +1063,45 @@ A SVG image can be include with the **image** tag like a regular image and does 
 
 ## Popover & Details
 
-The *popover* attributes and **details** element are used to display information when something is clicked or have a foldable bar of text, that looks like a drop down, is used to display something.
+These two things give the ability to provide interactivity without having something like JS/TS into the page.
 
-The **popover** will make it so when that element is clicked some text will, by default, be displayed in the center of the screen. The thing that needs to be displayed when clicked should get the *popover* attribute, which needs no value, and needs to be assigned an *id* attribute value. To get this to work, use the **button** HTML element. This will need the *popovertarget* attribute which needs the name of the *id* value assigned to the other thing that needs to be displayed.
+### Popover
 
-The **details** element is added and inside must have the **summary** element as this is what will be displayed on what to click to show the drop down menu so text goes inside it. Any text outside it will be displayed when the text is clicked and hidden once clicked again.
+The first thing is the popover function. This makes it so certain content can be toggled on an off the screen. Here are the steps to do it:
+
+1.  Create something clickable (like a button tag)
+2. Give the clickable thing an attribute of *popovertarget* and give it a name
+3. Create another thing of content and give it an *id* attribute with the same name as the *popovertarget*
+4. Give the content the attribute *popover* and no value is needed.
+
+Once this is done, click the button to toggle the information on and off.
+
+```html
+<button popovertarget="content">Click Me</button>
+
+<div popover id="content">
+	<h1>Popover</h1>
+	<p>I am small content</p>
+</div>
+```
+
+### Detail
+
+This is a way to create a dropdown menu type menu with an arrow to click.
+
+The way to make this is:
+
+1. Add the `<details></details>` tag.
+2. Inside it, put a `<summary></summary>` tag.
+3. Add text inside the **summary** tag add the text that when clicked will display the content
+4. Inside the **details** add the text that will be shown when the thing is actually clicked
+
+```html
+<details>
+	<summary>Click Me!</summary>
+    <p>I am folded text</p>
+</details>
+```
 
 
 
@@ -1075,9 +1109,25 @@ The **details** element is added and inside must have the **summary** element as
 
 When it comes to wanting to make something like a progress bar or meter bar, this can be down with simple HTML. Now, the progress is used to indicate how complete something is while the meter bar, while looks the same, can be used to display some specific feature, etc once a specific requirement is met.
 
-Use the **progress** element to create the progress bar. Can also use the **label** element to have text show on the side. Make sure to have the normal *for* attribute assigned to the *id* value given to the **progress** element. The two additional attributes this can take is the *max* attribute to give a range of the possible value and the *value* attribute to set the specific value. This of course can all be set and changed with CSS and JavaScript.
+Use the `<progress></progress>` tag to create the progress bar. Can also use the **label** tag to have text show on the side and like to it with the *for* attribute like before.The two additional attributes this can take is the *max* attribute to give the max range of the possible value and the *value* attribute to set the specific value; these both take numbers only.
 
-Use the **meter** element to create the meter bar. This can have the **label** element like the **progress** element did. This can have the same attributes as well. However, there are three more attributes this can have which are *low*, *high*, and *optimal*. The *low* and *high* gives a way to indicate that when the value reaches that it is considered in a low state and vice versa for high. The *optimal* would be not be the best but not the worse either. There are specific CSS styles that can be applied to this stuff based off of this values if wanted. However, since this is so new still, would have to use something like `meter::-webkit-meter-optimum-value`
+Use the `<meter></meter>` tag to create the meter bar. This can have the **label** element like the **progress** element did. However, there are three more attributes this can have which are:
+
+- *low*: this helps to mark what is considered a low value in the range. This can be used with JS/TS to create certain styles based if it it hits this value.
+
+- *high*: this helps to mark what is considered a high value in the range. This can be used with JS/TS to create certain styles based if it it hits this value.
+
+- *min*: this is the lowest value that can be given
+
+- *max*: this is the highest value that can be given
+
+- *optimal*: this is the value that is acceptable
+
+- *value*: this will set the current value of the bar
+
+    ### Browser Specific Features
+
+    For the **meter** tag, there is a way to customize it. However, this is not done the same across browsers. This stems from different browsers trying to do things different. For example, to change the style of the **meter** tag directly this is the same for all browsers, but if wanting to change the color of the actual bar itself is not done the same. To change the color of the bar on Edge, Safari, etc is `meter::-webkit-meter-optimum-value`, but on FireFox it is `meter::-moz-meter-bar`.
 
 ## Extra Information
 
@@ -1089,17 +1139,19 @@ Visit [here](https://developer.mozilla.org/en-US/) to see all the up to date doc
 
 When it comes to the general CSS syntax, it follows:
 
+1. Specifying a the name of the tag to target
+2. Put a pair of curly braces after it
+3. Inside the curly braces, put the CSS styling to be applied
+
 ```css
 Selector {
   Property: value;
 }
 ```
 
-The **Selector** will be the thing that is being targeted for the style change (e.g id, class, element tag, etc).
-
 There are three ways to implement CSS, however, there is only one way this should be done:
 
-- inline css: This is done using a *style* attribute. The value for this will be applied ONLY to the HTML element this is on. The value for this can be any amount of css related properties.
+- inline css: This is done using a *style* attribute. The styling for this will be applied ONLY to the HTML element this is on. The value for this can be any amount of css related properties.
 - Internal: This is using the **style** tags in the header section. This is where writing CSS like normal is done and have to use the correct selectors to target specific or general elements
 - External: This is the correct way to write CSS. The CSS will be in its own seperate file. All the design and targeting done to this will be written in the CSS file. To get the design to the HTML, the use of the **link** element is used. There are two elements that this MUST have to get this to work. The two are *ref* and *href*. The first tells the browser how to handle the file; in the case of CSS, the value should be "stylesheet". The second attribute will be the path to the CSS file.
 

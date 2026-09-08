@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Progress & Meter Tags</title>
+	<style>
+		meter {
+			appearance: none;
+		}
+
+		/* Chrome / Edge / Safari */
+		meter::-webkit-meter-optimum-value {
+			background: red;
+		}
+
+		/* Firefox */
+		meter::-moz-meter-bar {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+<h1>Progress Tag</h1>
+<label for="progressTag">Completed</label>
+<progress id="progressTag" value="23" max="100"></progress>
+<hr/>
+
+<h1>Meter Tag</h1>
+<label for="meterTag">Completed</label>
+<meter id="meterTag" min="0" max="100" value="50" low="30" high="90" optimal="80">50/100</meter>
+</body>
+</html>
