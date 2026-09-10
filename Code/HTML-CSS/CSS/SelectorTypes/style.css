@@ -1,0 +1,14 @@
+﻿/* Type selector */
+p {
+    color: blue;
+}
+
+/* Class selector */
+.highlight {
+    background-color: yellow;
+}
+
+/* ID selector */
+#main-title {
+    color: darkred;
+}

@@ -1151,13 +1151,11 @@ Selector {
 
 There are three ways to implement CSS, however, there is only one way this should be done:
 
-- inline css: This is done using a *style* attribute. The styling for this will be applied ONLY to the HTML element this is on. The value for this can be any amount of css related properties.
-- Internal: This is using the **style** tags in the header section. This is where writing CSS like normal is done and have to use the correct selectors to target specific or general elements
-- External: This is the correct way to write CSS. The CSS will be in its own seperate file. All the design and targeting done to this will be written in the CSS file. To get the design to the HTML, the use of the **link** element is used. There are two elements that this MUST have to get this to work. The two are *ref* and *href*. The first tells the browser how to handle the file; in the case of CSS, the value should be "stylesheet". The second attribute will be the path to the CSS file.
-
-> [!NOTE]
->
-> Is is common practice to place all the CSS files in a separate folder or organization.
+- inline CSS: This is done using a *style* attribute. The styling for this will be applied ONLY to the HTML element this is on. The value for this can be any amount of css related properties.
+- Internal: This is using the `<style></style>` tags in the header section. Between those tags write CSS like normal as if it was in its own file.
+- External: This is the correct way to write CSS. The CSS will be in its own seperate file.To get the design to the HTML, the use of the `<link>` element is used. There are two elements that this MUST have to get this to work. The two are:
+    - *rel*: this list the relationship between the two files. For a CSS file the value will be "stylesheet"
+    - *href*: this is just the path to the CSS file.
 
 ## Basic CSS Selectors
 
@@ -1167,19 +1165,15 @@ When it comes to the different selector types, it can be:
 2.  Class Selector: This will apply the style to ALL html elements that are part of that class name. To target in a class base, put a dot followed (no space) by the name of the class this should target.
 3.  ID Selector: This will apply the style ONLY to that html element that has that specified ID value to it. To use this, put a # followed (no space) by the name of the id value this should target.
 
-> [!NOTE]
->
-> There are other ways for this to be done, but have yet to talk about.
+If two different tags, classes, or id tags are to have the same styling then they can separated by a comma and multiple names selector types can be given.
 
-Instead of writing the same styling the same time for two different elements, it can be done all at once using multiple styles. To do this, comma separate the selectors with however they are targeted like:
+<u>For Example</u>
 
 ```css
 Selector1, .classSelector{
   property: value;
 }
 ```
-
-
 
 Another way to select stuff is *decendent styles*. This make it so specific items within a certain area will be target. For example, wanting to target all **p** elements inside all **div** that has the class "max". This is done by putting the selector name of the thing to target then put a space and then put the selector name of the nested thing. This can go on forever nested.
 
