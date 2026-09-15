@@ -1170,24 +1170,30 @@ If two different tags, classes, or id tags are to have the same styling then the
 <u>For Example</u>
 
 ```css
-Selector1, .classSelector{
+p, .classSelector{
   property: value;
 }
+/*This will make all p tags and any tag with the class "classSelector" get that design*/
 ```
 
-Another way to select stuff is *decendent styles*. This make it so specific items within a certain area will be target. For example, wanting to target all **p** elements inside all **div** that has the class "max". This is done by putting the selector name of the thing to target then put a space and then put the selector name of the nested thing. This can go on forever nested.
+Another way to select is <u>decendent styles</u>. This makes it so specific items within a certain area will be target. For example, wanting to target all **p** elements inside all **div** that has the class "max". This is done by putting the selector name of the tag to target then put a space and then put the selector name of the nested tag. This can go on forever nested.
+
+<u>For Example</u>
 
 ```css
-Selector p{
+div p{
   property: value
 }
+/*This makes it so any p tag added inside a div will get that specific design*/
 ```
+
+There is a way to apply global CSS styles. This is done by using the `body` as a selector instead of specific ones. For example, instead of applying a font size of 30 to each tag type, just use the `body` tag to do it.
 
 ## Fonts In CSS
 
-Not all systems will have certain fonts installed; like not everyone will have the "Comic Relief" font installed. However, there are a base set of fonts that are installed for all web browsers: "Arial", "Verdana", "Times New Roman", "Georgia", etc. These can also be represented by saying: "sans-serif" or "serif". Putting that will make it so it selects ANY of those fonts available on the browser.
+All systems browsers will have certain fonts installed called <u>system safe fonts/web fonts</u>. Some of these fonts are: "Arial", "Verdana", "Times New Roman", "Georgia", etc. These can also be represented by saying: "sans-serif" or "serif". Putting that will make it so it selects ANY of those fonts available on current users browser.
 
-There is a way to have any font on thr website without the user having to have the font downloaded. The first way is using the **link** element. The second way is using the **@font-face** rule. However, the first method is the most common. The link for this can be found in google fonts for example.
+There is a way to have any font without the user having to have the font downloaded. The first way is using the **link** element. The second way is using the **@font-face** rule. However, the first method is the most common. The link for this can be found in [google fonts](https://fonts.google.com).
 
 When the **link** attribute is added for something like the fonts, this can be used in the CSS file like normal as if the user did have it installed.
 
