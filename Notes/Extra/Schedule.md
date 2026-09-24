@@ -1,4 +1,4 @@
-### Sunday --> 09/06
+### Sunday --> 09/20
 
 **Work:** N/A
 
@@ -6,7 +6,7 @@
 
 **Time:** 
 
-### Monday --> 09/07
+### Monday --> 09/21
 
 **Work:** N/A
 
@@ -14,42 +14,42 @@
 
 **Time:** 
 
-### Tuesday --> 09/08
+### Tuesday --> 09/22
 
 **Work:** Yes
 
-**Job:**  Umiya
+**Job:**  Umiya & Victoria Secret
 
-**Time:** 10:30AM - 4PM
+**Time:** 10:30AM - 3:30PM & 4:00PM - 8:30PM
 
-### Wednesday --> 09/09
+### Wednesday --> 09/23
 
 **Work:** Yes
-
-**Job:** Victoria Secret
-
-**Time:** 8PM - 1AM (Victoria Secret)
-
-### Thursday --> 09/10
-
-**Work:** Yes 
 
 **Job:** Umiya
 
 **Time:** 10:30AM - 3:30PM
 
-### Friday --> 09/11
+### Thursday --> 09/24
 
-**Work:** Yes
+**Work:** Yes 
 
-**Job:** Victoria Secret & Umiya
+**Job:** Umiya & Victoria Secret
 
-**Time:** 9:30AM - 3:30PM & 3:30PM - 10:30PM
+**Time:** 10:30AM - 3:30PM & 4:30PM - 8:30PM
 
-### Saturday --> 09/12
+### Friday --> 09/25
 
 **Work:** Yes
 
 **Job:** Victoria Secret
 
-**Time:** 12PM - 6PM
+**Time:** 8:30AM - 2:30PM
+
+### Saturday --> 09/26
+
+**Work:** Yes
+
+**Job:** Victoria Secret
+
+**Time:** 9:30AM - 2:30PM
