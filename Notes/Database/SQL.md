@@ -18,15 +18,21 @@ The **FROM** keyword specifies which table(s) to use. Multiple tables can be use
 
 > [!IMPORTANT]
 >
-> For each query and future ones, there is an order to execution that is done for each keyword. For example, the **FROM** keyword is processed then the **SELECT** is processed every time.
+> For each query and future ones, there is an order to execution that is done for each keyword. For example, the **FROM** keyword is processed then the **SELECT** is processed.
 
-After writing out a *query*, put a semi-colon at the end; otherwise, if more than  one *query* is written then this will cause an error since each *query* is considered new if it has a **SELECT** statement.
-
-Because of this, this means 
+After writing out a *query*, put a semi-colon at the end; otherwise, if more than one *query* is written then this will cause an error since each *query* is considered new if it has a **SELECT** statement.
 
 > [!TIP]
 >
-> If a single query is written then no semi-colon is needed
+> If a single query is written then no semi-colon is needed or if it is the last query in the list of queries written.
+
+> [!WARNING]
+>
+> When selecting all the data from the columns of a table, this should not be done because most of the time not all the data will need to be used and this can cause a slow down in performance.
+
+## Performaing Calculations
+
+There is a way to select the same column of data twice, but have the data be collected 
 
 ## Examples
 
@@ -60,3 +66,16 @@ SELECT name
 FROM tableName;
 ```
 
+### Multiple table selects
+
+```sql
+SELECT *
+FROM this, that
+```
+
+### Performing calculations
+
+```sql
+```
+
+# Order By keyword
