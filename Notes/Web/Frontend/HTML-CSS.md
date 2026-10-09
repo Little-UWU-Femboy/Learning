@@ -1191,11 +1191,24 @@ There is a way to apply global CSS styles. This is done by using the `body` as a
 
 ## Fonts In CSS
 
+### Font Style
+
 All systems browsers will have certain fonts installed called <u>system safe fonts/web fonts</u>. Some of these fonts are: "Arial", "Verdana", "Times New Roman", "Georgia", etc. These can also be represented by saying: "sans-serif" or "serif". Putting that will make it so it selects ANY of those fonts available on current users browser.
 
-There is a way to have any font without the user having to have the font downloaded. The first way is using the **link** element. The second way is using the **@font-face** rule. However, the first method is the most common. The link for this can be found in [google fonts](https://fonts.google.com).
+There is a way to have any font without the user having to have the font downloaded. The first way is using the **link** element that is placed into the HTML file. The second way is using the **@font-face** rule that is placed in the CSS file. However, the first method is the most common. The **link** for the fonts can be found in [google fonts](https://fonts.google.com).
 
-When the **link** attribute is added for something like the fonts, this can be used in the CSS file like normal as if the user did have it installed.
+If using the first method, take the **link** attribute copied from the google font and paste that into the head section of the HTML page. After, go to the CSS file and just change the font using the  *font-family* property name and set it to the name of the font imported. For example like `font-family: 'Popppins';`.
+
+If using the second method then the following need to be done:
+
+1. Make sure the font family file is on the system.
+2. In the CSS file use the **@font-face** selector.
+3. Inside that selector use the *font-family* property and set it to the needed font
+4. Next use the *src* property and 
+
+### Font Size
+
+When wanting to change the size of the fonts, this can be done with the *font-size* property. The value of this can be set to any number with any scaling size like rem, px, em, etc. For example, the font size change is `font-size: 30px;`.
 
 ## Font & Text Properties
 
