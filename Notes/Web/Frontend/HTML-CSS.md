@@ -247,7 +247,7 @@ Some other important attributes are:
 - _height_: this sets how long the image will be vertically. The value in this will be a number followed by "px"
 - _title_: this functions like when added to the `<a></a>` tag. This will just display the text value given when hovering over the image.
 
-There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) need a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img/>` tag inside the pair of figure tags. After, put another set of tags called `<figcaptian></figcaptian>` inside. Inside the `<figcaption>` tags just add text inside there and this will display under the thing
+There is a tag called `<figure></figure>`. This is really just if an image or some resource (video, image, etc) needs a captian on it. For example, giving credit to someone who took the image. The way it works is put (in this case) the `<img/>` tag inside the pair of figure tags. After, put another set of tags called `<figcaptian></figcaptian>` inside. Inside the `<figcaption>` tags just add text inside there and this will display under the thing
 
 <u>For Example</u>
 
@@ -1214,16 +1214,19 @@ When wanting to change the size of the fonts, this can be done with the *font-si
 
 There are some common properties that can be used to change how text appear, they are:
 
-- <u>font-family</u>: Changes the font type of the items and its children. This can take multiple values at once comma separated. 
-- <u>font-weight</u>: Changes the boldness of the font. This takes one value in a numeric form or there are certain keywords like "normal", "bold", "black", etc that mean a certain numeric size
-- <u>font-size</u>: Changes the size of the text. This can be set to a number only or certain keywords like "small", "medium", "large", etc.
+- <u>font-family</u>: Changes the font type of the items and its children. This can take multiple values at once comma separated to have multiple fonts be used in case the previous one desired does not work. 
+- <u>font-weight</u>: Changes the boldness of the font. This takes one value in a numeric form or there are certain keywords like "normal", "bold", "black", etc that mean a certain numeric size.
+- <u>font-size</u>: Changes the size of the text. This can be set to a number only or certain keywords like "small", "medium", and "large".
 - <u>font-style</u>: Changes the text to italic. Set to "italic" to do so or set to "normal" to remove it.
-- <u>font-variant</u>: This is used to change the capitalization of words or inherit the font styling of the parent element. Some of the values are: *inherit*, *small-cap* (changes all lowercase letters to capital versions but small), *all-small-cap* (change ALL letters to small capital versions).
+- <u>font-variant</u>: This is used to change the capitalization of words or inherit the font styling of the parent element. Some of the values are:
+    - *inherit* 
+    - *small-cap*: changes all lowercase letters to capital versions but small.
+    - *all-small-cap*: change ALL letters to small capital versions.
 - <u>line-height</u>: This will take a numeric value and will increase the spacing between text from above and below other lines.
 - <u>letter-spacing</u>: This will take a numeric value and will increase the spacing between individual letters.
 - <u>word-spacing</u>: This will take a numeric value and will increase the spacing between individual words
 - <u>text-align</u>: This styles how the text will be aligned on the page. The values are: *left*, *right*, *center*, or *justify*. Although justify and left look similar, they are different. The *justify* will align all the text so the ending lines will will all be aligned with each other.
-- <u>text-decoration</u>: This will drawn a line on the text or remove a line. The line can be in different positions like: *underline*, *overline*, *line-through*, or *none*. These can also be combined by just adding multiple values for this property. The second value this takes is the style of the line which can be: *solid*, *double*, *dotted*, *dashed*, or *wavy*. The final value is a color for this. These properties can also be single targeted by doing **text-decoration-line**, **text-decoration-style**, and **text-decoration-color**. Another property related to this is **text-decoration-thickness** which can take any float value in a correct unit measurement. Another property for this is **text-decoration-offset** which will take a numeric value and this will control the distance between the text and the line.
+- <u>text-decoration</u>: This will draw a line on the text or remove a line. The line can be in different positions like: *underline*, *overline*, *line-through*, or *none*. These can also be combined by just adding multiple values for this property. The second value this takes is the style of the line which can be: *solid*, *double*, *dotted*, *dashed*, or *wavy*. The final value is a color for this. These properties can also be single targeted by doing **text-decoration-line**, **text-decoration-style**, and **text-decoration-color**. Another property related to this is **text-decoration-thickness** which can take any float value in a correct unit measurement. Another property for this is **text-decoration-offset** which will take a numeric value and this will control the distance between the text and the line.
 - <u>text-transform</u>: This changes the capitalization of the letters. The values are: *none*, *lowercase*, *uppercase*, or *capitalize* (convert first letter of each word to cap version).
 - <u>text-indent</u>: This just changes the indent level of the text in the first line. This takes a numeric value in a correct unit measurement.
 
