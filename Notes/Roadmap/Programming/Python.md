@@ -2452,5 +2452,3 @@ print(df)
 > However, must use the *positional parameter* "columns" and set it equal to a list of strings that contain the names of the columns in that order. However, this is not the same as setting the *positional parameter* "index" which this can have as well.
 
 Unlike the **series** object type where it can use the normal bracket indexing syntax and use the ==loc== keyword to do this, a **DataFrame** can only use the ==loc== keyword. This will be accessed by the row number name, which by default is 0, 1, 2, etc. This will return a **series** and the row names will now be the column names from the **DataFrame** and the values will be the column data for it. It will also contain the name of the row from the **DataFrame** object and "dtype" at the end.
-
-2k@NLxoktB!pT[!T

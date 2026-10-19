@@ -53,6 +53,7 @@ button.addEventListener('click', (e) => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
+
     for (let i = 0; i < 30; i++) {
         createParticle(x, y);
     }
