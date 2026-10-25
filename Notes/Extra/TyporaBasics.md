@@ -86,7 +86,7 @@ To create an external link, use `[Link here](https://youtube.com)`. The [] will 
 
 ### List
 
-#### Testing text
+
 
 There is a way to make numbered, bullet, and check list.
 
@@ -116,7 +116,7 @@ These list can also be nested. To do this just click tab on the current and a ne
 
 
 - [ ] This is an exampleOf a check box
-  - [ ] that is nested inside
+  - [x] that is nested inside
 - [ ] here
 
 ### Footnote
