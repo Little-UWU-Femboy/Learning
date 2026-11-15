@@ -31,3 +31,10 @@ The *bytecode* files will also ONLY be made for non-top level files like file im
 While python code is never really compiled all the way down to binary machine code, there is still a way to create an executable in python. In python this is typically called a *frozen binary*.
 
 This works by bundling the PVM (python virtual machine), *bytecode* of source files, and any python support files and libraries needed. However, this does not increase the speed of the program and still runs at the same speed as if it was just ran normally.
+
+
+
+# How to run programs
+
+## Creating Files
+
