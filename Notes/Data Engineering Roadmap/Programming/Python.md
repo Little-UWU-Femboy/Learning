@@ -15,6 +15,7 @@ There are two different ways to talk about python:
 
 ## How running works
 
+<<<<<<< Updated upstream
 When a file is first ran, it take the source code of the file and converts it into *bytecode*. This is used to speed up execution. The *bytecode* files will SOMETIMES be created and end with the extension `.pyc` and be located in a folder called `__pycache__`.
 
 These *bytecode* files:
@@ -38,3 +39,14 @@ This works by bundling the PVM (python virtual machine), *bytecode* of source fi
 
 ## Creating Files
 
+=======
+When a python program first start running it takes the following steps:
+
+1. Taking the source code from the original text file and convert it into *bytecode*. *Bytecode* is just a platform independent conversion. This makes running the code much faster.
+2. If the python program has write access to the current machine, then it will actually save all those *bytecode* files with the extension of `.pyc` (python code compiled) to make all future runs easier. However, this only happens when running a large multi part file and not just a single small file.
+3. The *bytecode* is passed to something called a *virtual machine*.
+
+> [!CAUTION]
+>
+> Not all python implementations follow that same rule. This only follows for the most common version of python like CPython.
+>>>>>>> Stashed changes
