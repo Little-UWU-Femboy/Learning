@@ -14,3 +14,7 @@ func()
 
 
 print(f"Sad times to be {3}")
+
+y: int = "Yes"
+
+print(y)
