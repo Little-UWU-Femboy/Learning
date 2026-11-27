@@ -11,7 +11,7 @@
 
 ### Core Python Concepts
 
-- [ ] [Python Variables in Memory](https://www.youtube.com/watch?v=0Om2gYU6clE)
+- [ ] [Python Variables in Memory](https://www.youtube.com/watch?v=Bz3ir-vKqkk)
 - [ ] [Python Exception Handling](https://www.youtube.com/watch?v=K1n0YQlcPT0)
 - [ ] [collections](https://www.youtube.com/watch?v=Lj-vr32Qiag)
 - [ ] regex

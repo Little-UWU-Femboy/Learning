@@ -1,10 +1,8 @@
 # What is Python
 
-Python is a popular programming language for 
-
 When python code gets compiled, it does not go down to something like **machine code** like C code does. Instead, it gets converted into something called **bytecode**. When the **bytecode** file is created, it gets an extension of `.pyc`.
 
-Once the `.pyc` file is created, it then is ran by the **python virtual machine**. This is another piece of software that actually runs the python code of the `.pyc` file since this will than turn that into **machine code** the CPU can understand.
+Once the `.pyc` file is *created*, it then is ran by the **python virtual machine**. This is another piece of software that actually runs the python code of the `.pyc` file since this will than turn that into **machine code** the CPU can understand.
 
 ## Creating a file
 
@@ -60,3 +58,96 @@ That goes to the
 Next line""")
 ```
 
+# Variables
+
+A variable is a name that holds the assigned data to it so it can be referenced later on by that name.
+
+## How variables work in memory
+
+When a variable is assigned a value in Python, unlike a primitive variable in a language such as C, it does not directly hold the value in memory. Instead, a variable name is used to reference an *object* in memory.
+
+In CPython, an object contains a common structure known as the **PyObject header**, along with additional data specific to the object's data type. The PyObject header contains the reference count and type pointer.
+
+For example, an integer object is known internally as a **PyLongObject**, which contains the PyObject header and integer-specific data.
+
+```python
+x = 1000
+y = 2000
+```
+
+```mermaid
+flowchart LR
+    X["Variable x"] --> A
+    Y["Variable y"] --> B
+
+    subgraph A["Integer Object (PyLongObject)"]
+        direction TB
+        subgraph AH["PyObject Header"]
+            A1["Reference Count"]
+            A2["Type Pointer"]
+            A1 ~~~ A2
+        end
+        subgraph AD["Integer Data"]
+            A3["Metadata: Positive, 1 Digit"]
+            A4["Numerical Data: 1000"]
+            A3 ~~~ A4
+        end
+        AH ~~~ AD
+    end
+
+    subgraph B["Integer Object (PyLongObject)"]
+        direction TB
+        subgraph BH["PyObject Header"]
+            B1["Reference Count"]
+            B2["Type Pointer"]
+            B1 ~~~ B2
+        end
+        subgraph BD["Integer Data"]
+            B3["Metadata: Positive, 1 Digit"]
+            B4["Numerical Data: 2000"]
+            B3 ~~~ B4
+        end
+        BH ~~~ BD
+    end
+
+    subgraph C["Integer Type Object"]
+        direction TB
+        C1["Data Type: int"]
+        C2["Supported Operations"]
+        C3["Methods"]
+        C4["Memory Management"]
+        C1 ~~~ C2 ~~~ C3 ~~~ C4
+    end
+
+    A2 --> C
+    B2 --> C
+
+    style A2 fill:#2563eb,color:#fff
+    style B2 fill:#2563eb,color:#fff
+    style C fill:#059669,color:#fff
+
+```
+
+### PyObject Header
+
+The PyObject header contains two pieces of information common to CPython objects:
+
+- **Reference Count:** Keeps track of how many references exist to the object in memory. As references are added or removed, the reference count generally increases or decreases. When the reference count of an ordinary object reaches zero, CPython deallocates the object.
+- **Type Pointer:** Stores a memory address that points to another object in memory known as a *type object*. This object defines the data type, what operations can be performed, what methods are available, and how objects of that type are managed in memory.
+
+In the example above, although variables x and y reference two separate integer objects, their type pointers point to the same integer type object. This eliminates the need to store the same type information and functionality within every individual integer object.
+
+> Side note: The reference count tracks references from more than just variables. Other objects, such as lists and dictionaries, can also reference an object.
+
+### Object-Specific Data
+
+In addition to the PyObject header, an object contains data specific to its data type. For an integer object in CPython 3.12, this consists of two components:
+
+- **Metadata:** Contains information about how the numerical data should be interpreted, including whether the integer is positive, negative, or zero and how many internal digits are used to represent it.
+- **Numerical Data:** Contains the numerical magnitude of the integer itself.
+
+> **Side note:** Internal digits are not the same as decimal digits. CPython typically uses 30 bits per internal digit, which means that both `1000` and `2000` require only one internal digit.
+
+The PyObject header, metadata, and numerical data are not separate Python objects. They are all components of the same integer object in memory. However, the type object that the type pointer references **is a separate object in memory**.
+
+> Side note: While all CPython objects share the common PyObject header, the structure of their object-specific data differs depending on the data type. The diagram above is a simplified representation of an integer object in CPython 3.12.

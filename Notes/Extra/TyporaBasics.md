@@ -26,49 +26,18 @@ button.style.color = '#fff';
 button.style.cursor = 'pointer';
 button.style.overflow = 'visible';
 button.style.color = green;
-button.appendChild(particle);
-// Animate the particle
-const angle = Math.random() * 2 * Math.PI;
-const distance = 50 + Math.random() * 50;
-const xMove = Math.cos(angle) * distance;
-const yMove = Math.sin(angle) * distance;
-    particle.animate([
-    { transform: 'translate(0,0)', opacity: 1 },
-    { transform: `translate(${xMove}px, ${yMove}px)`, opacity: 0 }
-], {
-    duration: 1000 + Math.random() * 500,
-    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-});
-// Remove particle after animation
-setTimeout(() => particle.remove(), 1500);
-
-}
-
-// Click event
-button.addEventListener('click', (e) => {
-    const rect = button.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    for (let i = 0; i < 30; i++) {
-    createParticle(x, y);
-}
-
-// Button flash effect
-button.animate([
-    { transform: 'scale(1)' },
-    { transform: 'scale(1.2)' },
-    { transform: 'scale(1)' }
-], {
-    duration: 300,
-    easing: 'ease-out'
-});
-
-});
 </script>
 
 
 ```java
-System.out.println("Hello, World");
+import java.util.Scanner;
+
+public class Main{
+ public static void main(String[] args){
+     System.out.println("Hello, World");
+     Scanner scr = new Scanner(System.in);
+ }   
+}
 
 ```
 
@@ -116,7 +85,7 @@ These list can also be nested. To do this just click tab on the current and a ne
 
 
 - [ ] This is an exampleOf a check box
-  - [ ] that is nested inside
+  - [x] that is nested inside
 - [ ] here
 
 ### Footnote
@@ -149,10 +118,9 @@ When wanting to write math, there are two ways to do this:
 - inline --> This is good for small math example and is made with double dollar sign
 - block --> This is good for large math sequences and it is made with a double pair of two dollar signs
 
-Here is example $3+4=7$ math
+Here is example $f(z) = \frac{e^{i\pi z}}{z^2 + 1}, \quad z \in \mathbb{C} \setminus \{i, -i\}$ math
 $$
-\text{tmp hello}\\
-3+4
+\wp(z; \omega_1, \omega_2) = \frac{1}{z^2} + \sum_{\substack{(m,n) \in \mathbb{Z}^2 \\ (m,n) \neq (0,0)}} \left[ \frac{1}{(z - m\omega_1 - n\omega_2)^2} - \frac{1}{(m\omega_1 + n\omega_2)^2} \right] = \frac{1}{z^2} + \sum_{k=1}^{\infty} (2k+1)\, G_{2k+2}(\Lambda)\, z^{2k}
 $$
 
 
